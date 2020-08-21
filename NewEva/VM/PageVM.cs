@@ -8,18 +8,18 @@ namespace NewEva.VM
 {
     public class PageVM : ViewModelBase
     {
-        public static T Read<T>(string filePath) where T : class
+        public static T Read<T>(string filePath) where T : PageVM
         {
             string json = File.ReadAllText(filePath);
             return
                 JsonConvert.DeserializeObject<T>(json);
         }
 
-        public bool Write<T>(string filePath, T t)
+        public bool Write<T>(string filePath)
         {
             try
             {
-                string json = JsonConvert.SerializeObject(t);
+                string json = JsonConvert.SerializeObject(this);
                 File.WriteAllText(filePath, json);
                 return true;
             }

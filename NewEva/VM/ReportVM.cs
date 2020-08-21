@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Windows;
 
 namespace NewEva.VM
 {
@@ -15,6 +16,13 @@ namespace NewEva.VM
         public IEnumerable<string> Appraisers { get; }
         public bool IsPrivatePerson { get; set; }
         public bool IsOrganization { get; set; }
+        private PageVM currentPage;
+        public PageVM CurrentPage
+        {
+            get => currentPage;
+            set => SetProperty(ref currentPage, value);
+        }
+        const string fileName = "repor.json";
 
         public ReportVM()
         {
@@ -34,26 +42,10 @@ namespace NewEva.VM
 
             TypeCosts = ListStorage.TypeCosts;
             Appraisers = ListStorage.Appraisers;
-        }
 
-        const string filePath = "temp.json";
-        public static new ReportVM Read<ReportVM>(string filePath)
-        {
-            string json = File.ReadAllText(filePath);
-            return
-                JsonConvert.DeserializeObject<ReportVM>(json);
-        }
-        public new bool Write<ReportVM>(string filePath, ReportVM reportVM)
-        {
-            try
+            if (File.Exists(fileName))
             {
-                string json = JsonConvert.SerializeObject(reportVM);
-                File.WriteAllText(filePath, json);
-                return true;
-            }
-            catch
-            {
-                return false;
+                CurrentPage = Read<ReportVM>(fileName) ?? new ReportVM();
             }
         }
     }

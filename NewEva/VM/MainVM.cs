@@ -43,6 +43,8 @@ namespace NewEva.VM
         // Условие для выбора страницы Клиента
         public void FromReportAction()
         {
+            //запуск метода создание файла и сохрание данных форм
+            
             if (CurrentPage is ReportVM reportPage)
             {
                 if (reportPage.IsPrivatePerson)
@@ -64,8 +66,14 @@ namespace NewEva.VM
         // Возвращение на предыдущую страницу
         public void BackPageAction()
         {
+            
             if (CurrentPage is PrivatePersonVM)
+            {
+                //запуск метода для чтения сохраненного файла данных форм
+                
                 CurrentPage = new ReportVM();
+            }    
+                
         }
 
         //public void NextPageAction()
