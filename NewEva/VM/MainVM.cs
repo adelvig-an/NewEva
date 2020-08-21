@@ -12,8 +12,15 @@ namespace NewEva.VM
         public PageVM CurrentPage
         {
             get => currentPage;
-            set => SetProperty(ref currentPage, value);
+            set
+            {
+                PageVM pageVM = new PageVM();
+                _ = pageVM.Write<ReportVM>(fileName);
+                SetProperty(ref currentPage, value);
+            }
         }
+
+        const string fileName = "ReportVM.json";
 
         public MainVM()
         {

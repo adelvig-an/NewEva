@@ -16,17 +16,6 @@ namespace NewEva.VM
         public IEnumerable<string> Appraisers { get; }
         public bool IsPrivatePerson { get; set; }
         public bool IsOrganization { get; set; }
-        private PageVM currentPage;
-        public PageVM CurrentPage
-        {
-            get => currentPage;
-            set
-            {
-                Write<ReportVM>(fileName);
-                SetProperty(ref currentPage, value);
-            }
-        }
-        const string fileName = "ReportVM.json";
 
         public ReportVM()
         {
@@ -47,7 +36,7 @@ namespace NewEva.VM
             TypeCosts = ListStorage.TypeCosts;
             Appraisers = ListStorage.Appraisers;
 
-            CurrentPage = Read<ReportVM>(fileName) ?? new ReportVM();
+            //CurrentPage = Read<ReportVM>(fileName) ?? new ReportVM();
         }
     }
 }
