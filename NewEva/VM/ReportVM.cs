@@ -19,7 +19,7 @@ namespace NewEva.VM
         {
             Report = new Report()
             {
-                Number = NumberReport,
+                Number = "001",
                 DateVulation = new DateTime(2019, 04, 15),
                 DateCompilation = new DateTime(2019, 04, 15)
             };
@@ -33,19 +33,6 @@ namespace NewEva.VM
 
             TypeCosts = ListStorage.TypeCosts;
             Appraisers = ListStorage.Appraisers;
-        }
-
-        private string text;
-        public string NumberReport
-        {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
-
-        public void TextNumberReport(Report report)
-        {
-            report.Number = NumberReport;
-            OnPropertyChanged(nameof(Report));
         }
     }
 }

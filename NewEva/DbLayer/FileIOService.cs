@@ -10,7 +10,7 @@ namespace NewEva.DbLayer
 {
     public abstract class FileIOService
     {
-        public abstract bool Write(string filePath, ReportVM reportVM);
-        public abstract ReportVM Read(string filePaht);
+        public abstract bool Write(string filePath, PageVM pageVM);
+        public abstract PageVM Read(string filePaht);
     }
 }
