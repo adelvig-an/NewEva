@@ -10,9 +10,14 @@ namespace NewEva.VM
     {
         public static T Read<T>(string filePath) where T : PageVM
         {
-            string json = File.ReadAllText(filePath);
-            return
-                JsonConvert.DeserializeObject<T>(json);
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                return
+                        JsonConvert.DeserializeObject<T>(json);
+            }
+            else
+                return default;
         }
 
         public bool Write<T>(string filePath)

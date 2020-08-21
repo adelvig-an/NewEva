@@ -20,7 +20,10 @@ namespace NewEva.VM
         public PageVM CurrentPage
         {
             get => currentPage;
-            set => SetProperty(ref currentPage, value);
+            set
+            {
+                Write<ReportVM>(fileName);
+            }
         }
         const string fileName = "repor.json";
 
@@ -43,10 +46,7 @@ namespace NewEva.VM
             TypeCosts = ListStorage.TypeCosts;
             Appraisers = ListStorage.Appraisers;
 
-            if (File.Exists(fileName))
-            {
-                CurrentPage = Read<ReportVM>(fileName) ?? new ReportVM();
-            }
+            CurrentPage = Read<ReportVM>(fileName) ?? new ReportVM();
         }
     }
 }
