@@ -22,7 +22,7 @@ namespace NewEva.VM
             }
         }
 
-        public bool Write<T>(string filePath)
+        public bool Write(string filePath)
         {
             try
             {

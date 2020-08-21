@@ -14,8 +14,7 @@ namespace NewEva.VM
             get => currentPage;
             set
             {
-                ReportVM reportVM = new ReportVM();
-                reportVM.Write<ReportVM>(fileName);
+                CurrentPage?.Write(fileName);
                 SetProperty(ref currentPage, value);
             }
         }
@@ -39,7 +38,7 @@ namespace NewEva.VM
         //Команда для кнопки "Отчет об оценке"
         public void ReportPageAction()
         {
-            CurrentPage = new ReportVM();
+            CurrentPage = PageVM.Read<ReportVM>(fileName) ?? new ReportVM();
         }
 
         public void PrivatePersonAction()
@@ -78,7 +77,7 @@ namespace NewEva.VM
             {
                 //запуск метода для чтения сохраненного файла данных форм
                 
-                CurrentPage = new ReportVM();
+                CurrentPage = PageVM.Read<ReportVM>(fileName) ?? new ReportVM();
             }    
                 
         }
