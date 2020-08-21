@@ -45,7 +45,7 @@ namespace NewEva.VM
         //Команда для кнопки "Отчет об оценке"
         public void ReportPageAction()
         {
-            CurrentPage = PageVM.Read<ReportVM>(nameToFile[CurrentPage.Name]) ?? new ReportVM();
+            CurrentPage = PageVM.Read<ReportVM>(nameToFile[PageNames.ReportPage]) ?? new ReportVM();
         }
 
         public void PrivatePersonAction()
@@ -84,7 +84,7 @@ namespace NewEva.VM
             {
                 //запуск метода для чтения сохраненного файла данных форм
                 
-                CurrentPage = PageVM.Read<ReportVM>(nameToFile[CurrentPage.Name]) ?? new ReportVM();
+                CurrentPage = PageVM.Read<ReportVM>(nameToFile[PageNames.ReportPage]) ?? new ReportVM();
             }    
                 
         }

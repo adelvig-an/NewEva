@@ -24,14 +24,14 @@ namespace NewEva.VM
             Report = new Report()
             {
                 //Number = "001",
-                //DateVulation = new DateTime(2019, 04, 15),
-                //DateCompilation = new DateTime(2019, 04, 15)
+                DateVulation = DateTime.Today,
+                DateCompilation = DateTime.Today
             };
 
             DocsFoundation = new DocsFoundation()
             {
                 //Number = "001",
-                //DateFoundation = new DateTime(2019, 04, 10),
+                DateFoundation = DateTime.Today
                 //Target = "Определение рыночной стоимости"
             };
 

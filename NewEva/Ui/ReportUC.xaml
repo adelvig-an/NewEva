@@ -61,6 +61,7 @@
             Grid.Row="2"
             Grid.Column="2"
             Margin="5"
+            
             SelectedDate="{Binding Report.DateVulation}" />
         <Label
             Grid.Row="3"
