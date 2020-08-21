@@ -1,7 +1,8 @@
-﻿using NewEva.DbLayer;
-using NewEva.Model;
+﻿using NewEva.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace NewEva.VM
@@ -36,6 +37,24 @@ namespace NewEva.VM
         }
 
         const string filePath = "temp.json";
-
+        public static new ReportVM Read<ReportVM>(string filePath)
+        {
+            string json = File.ReadAllText(filePath);
+            return
+                JsonConvert.DeserializeObject<ReportVM>(json);
+        }
+        public new bool Write<ReportVM>(string filePath, ReportVM reportVM)
+        {
+            try
+            {
+                string json = JsonConvert.SerializeObject(reportVM);
+                File.WriteAllText(filePath, json);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
