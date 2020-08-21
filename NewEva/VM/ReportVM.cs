@@ -34,5 +34,8 @@ namespace NewEva.VM
             TypeCosts = ListStorage.TypeCosts;
             Appraisers = ListStorage.Appraisers;
         }
+
+        const string filePath = "temp.json";
+
     }
 }
