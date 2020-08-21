@@ -14,8 +14,8 @@ namespace NewEva.VM
             get => currentPage;
             set
             {
-                PageVM pageVM = new PageVM();
-                _ = pageVM.Write<ReportVM>(fileName);
+                ReportVM reportVM = new ReportVM();
+                reportVM.Write<ReportVM>(fileName);
                 SetProperty(ref currentPage, value);
             }
         }

@@ -21,16 +21,16 @@ namespace NewEva.VM
         {
             Report = new Report()
             {
-                Number = "001",
-                DateVulation = new DateTime(2019, 04, 15),
-                DateCompilation = new DateTime(2019, 04, 15)
+                //Number = "001",
+                //DateVulation = new DateTime(2019, 04, 15),
+                //DateCompilation = new DateTime(2019, 04, 15)
             };
 
             DocsFoundation = new DocsFoundation()
             {
-                Number = "001",
-                DateFoundation = new DateTime(2019, 04, 10),
-                Target = "Определение рыночной стоимости"
+                //Number = "001",
+                //DateFoundation = new DateTime(2019, 04, 10),
+                //Target = "Определение рыночной стоимости"
             };
 
             TypeCosts = ListStorage.TypeCosts;
