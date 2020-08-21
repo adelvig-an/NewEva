@@ -23,9 +23,10 @@ namespace NewEva.VM
             set
             {
                 Write<ReportVM>(fileName);
+                SetProperty(ref currentPage, value);
             }
         }
-        const string fileName = "repor.json";
+        const string fileName = "ReportVM.json";
 
         public ReportVM()
         {

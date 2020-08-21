@@ -17,7 +17,9 @@ namespace NewEva.VM
                         JsonConvert.DeserializeObject<T>(json);
             }
             else
-                return default;
+            {
+                return null;
+            }
         }
 
         public bool Write<T>(string filePath)
