@@ -14,12 +14,19 @@ namespace NewEva.VM
             get => currentPage;
             set
             {
-                CurrentPage?.Write(fileName);
+                CurrentPage?.Write(nameToFile[CurrentPage.Name]);
                 SetProperty(ref currentPage, value);
             }
         }
 
-        const string fileName = "ReportVM.json";
+        //const string fileName = nameToFile;
+
+        private readonly Dictionary<string, string> nameToFile = new Dictionary<string, string> 
+        { 
+            { PageNames.ReportPage, "ReportVM.json" }, 
+            { PageNames.PrivatePersonPage, "PrivatePersonVM.json" }, 
+            { PageNames.FirstPage, "FirstPageVM.json" } 
+        };
 
         public MainVM()
         {
@@ -38,7 +45,7 @@ namespace NewEva.VM
         //Команда для кнопки "Отчет об оценке"
         public void ReportPageAction()
         {
-            CurrentPage = PageVM.Read<ReportVM>(fileName) ?? new ReportVM();
+            CurrentPage = PageVM.Read<ReportVM>(nameToFile[CurrentPage.Name]) ?? new ReportVM();
         }
 
         public void PrivatePersonAction()
@@ -77,7 +84,7 @@ namespace NewEva.VM
             {
                 //запуск метода для чтения сохраненного файла данных форм
                 
-                CurrentPage = PageVM.Read<ReportVM>(fileName) ?? new ReportVM();
+                CurrentPage = PageVM.Read<ReportVM>(nameToFile[CurrentPage.Name]) ?? new ReportVM();
             }    
                 
         }

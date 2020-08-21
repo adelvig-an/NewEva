@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NewEva.VM
 {
-    public class PageVM : ViewModelBase
+    public abstract class PageVM : ViewModelBase
     {
         public static T Read<T>(string filePath) where T : PageVM
         {
@@ -36,6 +36,7 @@ namespace NewEva.VM
             }
         }
 
+        public abstract string Name { get; }
 
         //public PageVM Read(string filePath)
         //{
@@ -44,18 +45,18 @@ namespace NewEva.VM
         //        JsonConvert.DeserializeObject<PageVM>(json);
         //}
 
-            //public bool Write(string filePath, PageVM pageVM)
-            //{
-            //    try
-            //    {
-            //        string json = JsonConvert.SerializeObject(pageVM);
-            //        File.WriteAllText(filePath, json);
-            //        return true;
-            //    }
-            //    catch
-            //    {
-            //        return false;
-            //    }
-            //}
-        }
+        //public bool Write(string filePath, PageVM pageVM)
+        //{
+        //    try
+        //    {
+        //        string json = JsonConvert.SerializeObject(pageVM);
+        //        File.WriteAllText(filePath, json);
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
+    }
 }

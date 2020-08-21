@@ -17,6 +17,8 @@ namespace NewEva.VM
         public bool IsPrivatePerson { get; set; }
         public bool IsOrganization { get; set; }
 
+        public override string Name => PageNames.ReportPage;
+
         public ReportVM()
         {
             Report = new Report()
@@ -35,8 +37,6 @@ namespace NewEva.VM
 
             TypeCosts = ListStorage.TypeCosts;
             Appraisers = ListStorage.Appraisers;
-
-            //CurrentPage = Read<ReportVM>(fileName) ?? new ReportVM();
         }
     }
 }

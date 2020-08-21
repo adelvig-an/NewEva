@@ -6,5 +6,6 @@ namespace NewEva.VM
 {
     public class PrivatePersonVM : PageVM
     {
+        public override string Name => PageNames.PrivatePersonPage;
     }
 }
