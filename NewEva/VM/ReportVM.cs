@@ -38,5 +38,19 @@ namespace NewEva.VM
             TypeCosts = ListStorage.TypeCosts;
             Appraisers = ListStorage.Appraisers;
         }
+
+        private string isTypeCost;
+        public string IsTypeCost
+        {
+            get => isTypeCost;
+            set => SetProperty(ref isTypeCost, value);
+        }
+
+        private string isAppraiser;
+        public string IsAppraiser
+        {
+            get => isAppraiser;
+            set => SetProperty(ref isAppraiser, value);
+        }
     }
 }
