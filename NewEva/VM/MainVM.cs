@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -18,8 +19,10 @@ namespace NewEva.VM
                 SetProperty(ref currentPage, value);
             }
         }
+        //Удаление временных файлов по завершению сессии работы в программе
+        //public FileStream fileStream = new FileStream("", FileMode.Create, FileAccess.ReadWrite, FileShare.None, 4096, FileOptions.DeleteOnClose);
 
-        //const string fileName = nameToFile;
+
 
         private readonly Dictionary<string, string> nameToFile = new Dictionary<string, string> 
         { 
@@ -34,6 +37,7 @@ namespace NewEva.VM
             ReportPage = new RelayCommand(_=>ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
+            FileDelete.FileDel();
         }
 
         //Команда для кнопки "Отчет об оценке"
