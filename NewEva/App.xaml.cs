@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewEva.VM;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,20 @@ namespace NewEva
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //FileDelete.FileDel(); //удаление файлов
+        }
+
+        //protected override void OnClosed(EventArgs e)
+        //{
+        //    base.OnClosed(e);
+
+        //    // Shut things down 10 secs from now
+        //    Timer t = new Timer(
+        //        (state) => { App.Current.Shutdown(); },
+        //        null, 10000, -1);
+        //}
+
     }
 }

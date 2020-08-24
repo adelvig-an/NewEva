@@ -19,11 +19,7 @@ namespace NewEva.VM
                 SetProperty(ref currentPage, value);
             }
         }
-        //Удаление временных файлов по завершению сессии работы в программе
-        //public FileStream fileStream = new FileStream("", FileMode.Create, FileAccess.ReadWrite, FileShare.None, 4096, FileOptions.DeleteOnClose);
-
-
-
+        
         private readonly Dictionary<string, string> nameToFile = new Dictionary<string, string> 
         { 
             { PageNames.ReportPage, "ReportVM.json" }, 
@@ -37,7 +33,7 @@ namespace NewEva.VM
             ReportPage = new RelayCommand(_=>ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
-            FileDelete.FileDel();
+            FileDelete.FileDel(); //удаление файлов
         }
 
         //Команда для кнопки "Отчет об оценке"
