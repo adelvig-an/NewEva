@@ -33,7 +33,6 @@ namespace NewEva.VM
             ReportPage = new RelayCommand(_=>ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
-            FileDelete.FileDel(); //удаление файлов
         }
 
         //Команда для кнопки "Отчет об оценке"
