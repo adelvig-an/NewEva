@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace NewEva.Ui
 {
     /// <summary>
-    /// Логика взаимодействия для Organization.xaml
+    /// Логика взаимодействия для OrganizationUC.xaml
     /// </summary>
-    public partial class Organization : UserControl
+    public partial class OrganizationUC : UserControl
     {
-        public Organization()
+        public OrganizationUC()
         {
             InitializeComponent();
         }

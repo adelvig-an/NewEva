@@ -31,8 +31,8 @@ namespace NewEva.VM
                 DateContract = DateTime.Today
             };
 
-            TypeCosts = ListStorage.TypeCosts;
-            Appraisers = ListStorage.Appraisers;
+            TypeCosts = LocalStorage.TypeCosts;
+            Appraisers = LocalStorage.Appraisers;
         }
 
         private string isTypeCost;

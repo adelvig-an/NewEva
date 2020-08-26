@@ -8,7 +8,7 @@ namespace NewEva.Model
     {
         public string TitleFull { get; set; } //Полное наименование
         public string TitleShort { get; set; } //Сокращенное наименование
-        public string OgranizationForm { get; set; } //Организационно-правовая форма
+        public string OrganizationForm { get; set; } //Организационно-правовая форма
         public int OGRN { get; set; } //ОГРН
         public DateTime DateRegistration { get; set; } //Дата регистрации
         public int INN { get; set; } //ИНН

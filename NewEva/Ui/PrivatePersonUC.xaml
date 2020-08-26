@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="700"
+    d:DesignHeight="690"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -49,7 +49,8 @@
                 <TextBox
                     x:Name="tbx_SecondName"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding PrivatePerson.SecondName}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -59,7 +60,8 @@
                     x:Name="tbx_FirstName"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding PrivatePerson.FirstName}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -69,17 +71,20 @@
                     x:Name="tbx_MiddleName"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding PrivatePerson.MiddleName}" />
 
                 <TextBlock
                     Grid.Row="3"
                     Margin="5"
                     Text="Паспорт" />
-                <TextBox
-                    x:Name="tbx_Passport"
+                <ComboBox
+                    x:Name="cb_Passport"
                     Grid.Row="3"
                     Grid.Column="2"
-                    Margin="5" />
+                    Margin="5"
+                    ItemsSource="{Binding TypeDocs}"
+                    SelectedItem="{Binding IsTypeDocs}" />
             </Grid>
 
             <Grid Grid.Row="1" Margin="10,0,10,10">
@@ -97,28 +102,31 @@
 
                 <TextBlock Margin="5" Text="Серия" />
                 <TextBox
-                    x:Name="tbx_SerialPass"
+                    x:Name="tbx_Serial"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding PrivatePerson.Serial}" />
 
                 <TextBlock
                     Grid.Column="2"
                     Margin="5"
                     Text="Номер" />
                 <TextBox
-                    x:Name="tbx_NumberPass"
+                    x:Name="tbx_Number"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding PrivatePerson.Number}" />
 
                 <TextBlock
                     Grid.Row="1"
                     Margin="5"
                     Text="Дата выдачи" />
                 <DatePicker
-                    x:Name="dp_DatePass"
+                    x:Name="dp_DateIssued"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    SelectedDate="{Binding PrivatePerson.DateIssued}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -126,21 +134,23 @@
                     Margin="5"
                     Text="Код подразделения" />
                 <TextBox
-                    x:Name="tbx_CodPass"
+                    x:Name="tbx_Division"
                     Grid.Row="1"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding PrivatePerson.Division}" />
 
                 <TextBlock
                     Grid.Row="2"
                     Margin="5"
                     Text="Кем выдан" />
                 <TextBox
-                    x:Name="tbx_IssuedPass"
+                    x:Name="tbx_Issued"
                     Grid.Row="2"
                     Grid.Column="1"
                     Grid.ColumnSpan="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding PrivatePerson.Issued}" />
             </Grid>
 
             <Grid Grid.Row="2" Margin="10,0">
@@ -169,51 +179,56 @@
                     Margin="5"
                     Text="Адресс полностью" />
                 <TextBox
-                    x:Name="tbx_AddressRegFull"
+                    x:Name="tbx_AddressRegistration"
                     Grid.Row="1"
                     Grid.Column="1"
                     Grid.ColumnSpan="4"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.AddressFull}" />
 
                 <TextBlock
                     Grid.Row="2"
                     Margin="5"
                     Text="Индекс" />
                 <TextBox
-                    x:Name="tbx_IndexReg"
+                    x:Name="tbx_IndexRegistration"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.Index}" />
 
                 <TextBlock
                     Grid.Row="3"
                     Margin="5"
                     Text="Страна" />
                 <TextBox
-                    x:Name="tbx_CountryReg"
+                    x:Name="tbx_CountryRegistration"
                     Grid.Row="3"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.Country}" />
 
                 <TextBlock
                     Grid.Row="4"
                     Margin="5"
                     Text="Субъект" />
                 <TextBox
-                    x:Name="tbx_RegionReg"
+                    x:Name="tbx_RegionRegistration"
                     Grid.Row="4"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.Region}" />
 
                 <TextBlock
                     Grid.Row="5"
                     Margin="5"
                     Text="Район" />
                 <TextBox
-                    x:Name="tbx_RayonReg"
+                    x:Name="tbx_DistrictRegistration"
                     Grid.Row="5"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.District}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -221,10 +236,11 @@
                     Margin="5"
                     Text="Город" />
                 <TextBox
-                    x:Name="tbx_CityReg"
+                    x:Name="tbx_CityRegistration"
                     Grid.Row="2"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.City}" />
 
                 <TextBlock
                     Grid.Row="3"
@@ -232,10 +248,11 @@
                     Margin="5"
                     Text="Улица" />
                 <TextBox
-                    x:Name="tbx_StreetReg"
+                    x:Name="tbx_StreetRegistration"
                     Grid.Row="3"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.Street}" />
 
                 <TextBlock
                     Grid.Row="4"
@@ -243,10 +260,11 @@
                     Margin="5"
                     Text="Дом/Здание" />
                 <TextBox
-                    x:Name="tbx_NumBuilldingReg"
+                    x:Name="tbx_HouseRegistration"
                     Grid.Row="4"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.House}" />
 
                 <TextBlock
                     Grid.Row="5"
@@ -254,16 +272,19 @@
                     Margin="5"
                     Text="Офис/пом." />
                 <TextBox
-                    x:Name="tbx_NumOfficeReg"
+                    x:Name="tbx_RoomRegistration"
                     Grid.Row="5"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Registration.Room}" />
             </Grid>
 
             <CheckBox
+                x:Name="AddressMatch"
                 Grid.Row="3"
                 Margin="10,5,10,10"
-                Content="Юридический адрес совпадает с фактическим адресом" />
+                Content="Юридический адрес совпадает с фактическим адресом"
+                IsChecked="{Binding IsAddressMatch}" />
 
             <Grid Grid.Row="4" Margin="10,0">
                 <Grid.ColumnDefinitions>
@@ -291,51 +312,106 @@
                     Margin="5"
                     Text="Адресс полностью" />
                 <TextBox
-                    x:Name="tbx_AddressPostFull"
+                    x:Name="tbx_AddressActual"
                     Grid.Row="1"
                     Grid.Column="1"
                     Grid.ColumnSpan="4"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.AddressFull}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="2"
                     Margin="5"
                     Text="Индекс" />
                 <TextBox
-                    x:Name="tbx_IndexPost"
+                    x:Name="tbx_IndexActual"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.Index}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="3"
                     Margin="5"
                     Text="Страна" />
                 <TextBox
-                    x:Name="tbx_CountryPost"
+                    x:Name="tbx_CountryActual"
                     Grid.Row="3"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.Country}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="4"
                     Margin="5"
                     Text="Субъект" />
                 <TextBox
-                    x:Name="tbx_RegionPost"
+                    x:Name="tbx_RegionActual"
                     Grid.Row="4"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.Region}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="5"
                     Margin="5"
                     Text="Район" />
                 <TextBox
-                    x:Name="tbx_RayonPost"
+                    x:Name="tbx_DistrictActual"
                     Grid.Row="5"
                     Grid.Column="1"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.District}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="2"
@@ -343,10 +419,21 @@
                     Margin="5"
                     Text="Город" />
                 <TextBox
-                    x:Name="tbx_CityPost"
+                    x:Name="tbx_CityActual"
                     Grid.Row="2"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.City}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="3"
@@ -354,10 +441,21 @@
                     Margin="5"
                     Text="Улица" />
                 <TextBox
-                    x:Name="tbx_StreetPost"
+                    x:Name="tbx_StreetActual"
                     Grid.Row="3"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.Street}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="4"
@@ -365,10 +463,21 @@
                     Margin="5"
                     Text="Дом/Здание" />
                 <TextBox
-                    x:Name="tbx_NumBuilldingPost"
+                    x:Name="tbx_HouseActual"
                     Grid.Row="4"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.House}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="5"
@@ -376,10 +485,21 @@
                     Margin="5"
                     Text="Офис/пом." />
                 <TextBox
-                    x:Name="tbx_NumOfficePost"
+                    x:Name="tbx_RoomActual"
                     Grid.Row="5"
                     Grid.Column="3"
-                    Margin="5" />
+                    Margin="5"
+                    Text="{Binding Actual.Room}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
             </Grid>
 
             <Button

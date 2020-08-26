@@ -21,6 +21,9 @@
         <DataTemplate DataType="{x:Type vm:PrivatePersonVM}">
             <ui:PrivatePersonUC />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OrganizationVM}">
+            <ui:OrganizationUC />
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <ContentControl Content="{Binding CurrentPage}" />

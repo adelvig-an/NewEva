@@ -24,7 +24,8 @@ namespace NewEva.VM
         { 
             { PageNames.ReportPage, "temp/ReportVM.json" }, 
             { PageNames.PrivatePersonPage, "temp/PrivatePersonVM.json" }, 
-            { PageNames.FirstPage, "temp/FirstPageVM.json" } 
+            { PageNames.FirstPage, "temp/FirstPageVM.json" },
+            { PageNames.OrganizationPage, "temp/OrganizationVM.json" }
         };
 
         public MainVM()
@@ -47,10 +48,10 @@ namespace NewEva.VM
             CurrentPage = PageVM.Read<ReportVM>(nameToFile[PageNames.ReportPage]) ?? new ReportVM();
         }
 
-        public void PrivatePersonAction()
-        {
-            CurrentPage = new PrivatePersonVM();
-        }
+        //public void PrivatePersonAction()
+        //{
+        //    CurrentPage = new PrivatePersonVM();
+        //}
 
         // Условие для выбора страницы Клиента
         public void FromReportAction()
@@ -61,12 +62,11 @@ namespace NewEva.VM
             {
                 if (reportPage.IsPrivatePerson)
                 {
-                    CurrentPage = new PrivatePersonVM();
+                    CurrentPage = PageVM.Read<PrivatePersonVM>(nameToFile[PageNames.PrivatePersonPage]) ?? new PrivatePersonVM();
                 }
                 else if (reportPage.IsOrganization)
                 {
-                    MessageBox.Show("Переход на страницу информации об Организации!");
-                    //CurrentPage = new OrganizationVM();
+                    CurrentPage = PageVM.Read<OrganizationVM>(nameToFile[PageNames.OrganizationPage]) ?? new OrganizationVM();
                 }
                 else
                 {
@@ -79,7 +79,7 @@ namespace NewEva.VM
         public void BackPageAction()
         {
             
-            if (CurrentPage is PrivatePersonVM)
+            if (CurrentPage is PrivatePersonVM || CurrentPage is OrganizationVM)
             {
                 //запуск метода для чтения сохраненного файла данных форм
                 
