@@ -7,9 +7,9 @@ namespace NewEva.Model
     public class Appraiser
     {
         public int Id { get; set; }
-        public string SurName { get; set; }
+        public string SecondName { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string MiddleName { get; set; }
         public int Experience { get; set; }
         //Информация об образовании
         public string TitleDiplom { get; set; }

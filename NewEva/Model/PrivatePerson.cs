@@ -6,9 +6,9 @@ namespace NewEva.Model
 {
     public class PrivatePerson
     {
-        public string SurName { get; set; }
-        public string FristName { get; set; }
-        public string LastName { get; set; }
+        public string SecondName { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
         public string TypePas { get; set; }
         public int SerialPas { get; set; }
         public int NumerPas { get; set; }

@@ -7,9 +7,9 @@ namespace NewEva.Model
     public class Organization
     {
         public string Position { get; set; } // Должность подписывающего лица от Организации заказчика
-        public string SurName { get; set; }
-        public string FristName { get; set; }
-        public string LastName { get; set; }
+        public string SecondName { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
         public string TypeAttorney { get; set; }
         public int SerialAttorney { get; set; }
         public int NumerAttorney { get; set; }

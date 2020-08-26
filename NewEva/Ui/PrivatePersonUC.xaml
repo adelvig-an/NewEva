@@ -45,7 +45,7 @@
 
                 <TextBlock Margin="5" Text="Фамилия" />
                 <TextBox
-                    x:Name="tbx_MiddleName"
+                    x:Name="tbx_SecondName"
                     Grid.Column="1"
                     Margin="5" />
 
@@ -64,7 +64,7 @@
                     Margin="5"
                     Text="Отчество" />
                 <TextBox
-                    x:Name="tbx_LastName"
+                    x:Name="tbx_MiddleName"
                     Grid.Row="2"
                     Grid.Column="1"
                     Margin="5" />
