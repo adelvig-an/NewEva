@@ -15,157 +15,152 @@
         <Style TargetType="ComboBox">
             <Setter Property="Height" Value="24" />
         </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
     </UserControl.Resources>
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <Label
-            Grid.Row="1"
-            Grid.Column="1"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Номер отчета" />
-        <TextBox
-            Name="tbNumberReport"
-            Grid.Row="1"
-            Grid.Column="2"
-            Margin="5"
-            Text="{Binding Report.Number}" />
-        <Label
-            Grid.Row="2"
-            Grid.Column="1"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Дата оценки" />
-        <DatePicker
-            Grid.Row="2"
-            Grid.Column="2"
-            Margin="5"
-            
-            SelectedDate="{Binding Report.DateVulation}" />
-        <Label
-            Grid.Row="3"
-            Grid.Column="1"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Дата составления" />
-        <DatePicker
-            Grid.Row="3"
-            Grid.Column="2"
-            Margin="5"
-            SelectedDate="{Binding Report.DateCompilation}" />
-        <Label
-            Grid.Row="1"
-            Grid.Column="3"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Номер договора" />
-        <TextBox
-            Grid.Row="1"
-            Grid.Column="4"
-            Margin="5"
-            Text="{Binding DocsFoundation.Number}" />
-        <Label
-            Grid.Row="2"
-            Grid.Column="3"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Дата договора" />
-        <DatePicker
-            Grid.Row="2"
-            Grid.Column="4"
-            Margin="5"
-            SelectedDate="{Binding DocsFoundation.DateFoundation}" />
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <Label
-            Grid.Row="4"
-            Grid.Column="1"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Цель оценки" />
-        <TextBox
-            Grid.Row="4"
-            Grid.Column="2"
-            Grid.ColumnSpan="3"
-            Margin="5"
-            Text="{Binding DocsFoundation.Target}" />
-        <Label
-            Grid.Row="5"
-            Grid.Column="1"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Вид стоимости" />
-        <ComboBox
-            Grid.Row="5"
-            Grid.Column="2"
-            Grid.ColumnSpan="3"
-            Margin="5"
-            ItemsSource="{Binding TypeCosts}" SelectedItem="{Binding IsTypeCost}" />
-        <Label
-            Grid.Row="6"
-            Grid.Column="1"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Оценщик" />
-        <ComboBox
-            Grid.Row="6"
-            Grid.Column="2"
-            Grid.ColumnSpan="3"
-            Margin="5"
-            ItemsSource="{Binding Appraisers}" SelectedItem="{Binding IsAppraiser}" />
-        <Label
-            Grid.Row="7"
-            Grid.Column="1"
-            Margin="5"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Content="Тип клиента" />
-        <Canvas
-            Grid.Row="7"
-            Grid.Column="2"
-            Grid.ColumnSpan="3"
-            Height="12"
-            Margin="5"
-            VerticalAlignment="Center">
-            <RadioButton Content="Частное лицо" IsChecked="{Binding IsPrivatePerson}" />
-            <RadioButton
-                Canvas.Left="100"
-                Content="Организация"
-                IsChecked="{Binding IsOrganization}" />
-        </Canvas>
+            <TextBlock Margin="5" Text="Номер отчета" />
+            <TextBox
+                x:Name="txb_NumberReport"
+                Grid.Column="1"
+                Margin="5"
+                Text="{Binding Report.Number}" />
+            <TextBlock
+                Grid.Column="2"
+                Margin="5"
+                Text="Номер договора" />
+            <TextBox
+                x:Name="txb_NumberFoundation"
+                Grid.Column="3"
+                Margin="5"
+                Text="{Binding DocsFoundation.Number}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Margin="5"
+                Text="Дата оценки" />
+            <DatePicker
+                x:Name="dp_DateVulation"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5"
+                SelectedDate="{Binding Report.DateVulation}" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="2"
+                Margin="5"
+                Text="Дата договора" />
+            <DatePicker
+                x:Name="dp_DateFoundation"
+                Grid.Row="1"
+                Grid.Column="3"
+                Margin="5"
+                SelectedDate="{Binding DocsFoundation.DateFoundation}" />
+
+            <TextBlock
+                Grid.Row="2"
+                Margin="5"
+                Text="Дата отчета" />
+            <DatePicker
+                x:Name="dp_DateCompilation"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5"
+                SelectedDate="{Binding Report.DateCompilation}" />
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Margin="5" Text="Цель оценки" />
+            <TextBox
+                x:Name="cb_Target"
+                Grid.Column="1"
+                Margin="5"
+                Text="{Binding DocsFoundation.Target}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Margin="5"
+                Text="Вид стоимости" />
+            <ComboBox
+                x:Name="cb_TypeCost"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5"
+                ItemsSource="{Binding TypeCosts}"
+                SelectedItem="{Binding IsTypeCost}" />
+
+            <TextBlock
+                Grid.Row="2"
+                Margin="5"
+                Text="Оценщик" />
+            <ComboBox
+                x:Name="cb_Appraiser"
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5"
+                ItemsSource="{Binding Appraisers}"
+                SelectedItem="{Binding IsAppraiser}" />
+
+            <TextBlock
+                Grid.Row="3"
+                Margin="5"
+                Text="Тип заказчика" />
+            <WrapPanel Grid.Row="3" Grid.Column="1">
+                <RadioButton
+                    Margin="5"
+                    Content="Физическое лицо"
+                    IsChecked="{Binding IsPrivatePerson}" />
+                <RadioButton
+                    Margin="5"
+                    Content="Юридическое лицо"
+                    IsChecked="{Binding IsOrganization}" />
+            </WrapPanel>
+        </Grid>
 
         <Button
-            Grid.Row="8"
-            Grid.Column="4"
-            Margin="5"
+            x:Name="bt_Next"
+            Grid.Row="3"
+            Width="100"
+            Margin="10"
+            Padding="5"
+            HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Command="{Binding DataContext.FromReportPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-            Content="Далее &gt;&gt;" />
+            Content="Продолжить &gt;&gt;" />
+
     </Grid>
 </UserControl>
