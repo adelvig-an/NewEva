@@ -19,6 +19,7 @@ namespace NewEva
         {
             base.OnStartup(e);
             MainWindow window = new MainWindow();
+            window.Show();
             window.Closed += OnClosed;
         }
         private void OnClosed(object sender, EventArgs e)
