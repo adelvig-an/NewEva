@@ -15,7 +15,7 @@ namespace NewEva.Model
         public int KPP { get; set; } //КПП
         public string TitleBank { get; set; } //Название банка
         public int BIK { get; set; } //БИК Банка
-        public int PaymentAccount { get; set; } //Расчетный счет
+        public int PayAccount { get; set; } //Расчетный счет
         public int CorrAccount { get; set; } //Корреспондентский счет
     }
 }

@@ -9,10 +9,10 @@ namespace NewEva.Model
         public DateTime GettingStarted { get; set; } //Год начала работы
         public int Experience { get; set; } //Опыт работы
         //Информация об образовании
-        public string Diplom { get; set; } //Название специальности
+        public string Diploma { get; set; } //Название специальности
         public string Serial { get; set; } //Сери диплома
         public int Number { get; set; } //Номер диплома
-        public DateTime DateDiplom { get; set; } //Дата выдачи диплома
+        public DateTime DateDiploma { get; set; } //Дата выдачи диплома
         public string Universety { get; set; } //Название Университета
         //Информация о СРО
         public string SRO { get; set; } //Название СРО
