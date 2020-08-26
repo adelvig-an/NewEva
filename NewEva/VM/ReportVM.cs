@@ -11,7 +11,7 @@ namespace NewEva.VM
     public class ReportVM : PageVM
     {
         public Report Report { get; private set; }
-        public DocsFoundation DocsFoundation { get; }
+        public Contract Contract { get; }
         public IEnumerable<string> TypeCosts { get; }
         public IEnumerable<string> Appraisers { get; }
         public bool IsPrivatePerson { get; set; }
@@ -23,16 +23,13 @@ namespace NewEva.VM
         {
             Report = new Report()
             {
-                //Number = "001",
                 DateVulation = DateTime.Today,
                 DateCompilation = DateTime.Today
             };
 
-            DocsFoundation = new DocsFoundation()
+            Contract = new Contract()
             {
-                //Number = "001",
-                DateFoundation = DateTime.Today
-                //Target = "Определение рыночной стоимости"
+                DateContract = DateTime.Today
             };
 
             TypeCosts = ListStorage.TypeCosts;

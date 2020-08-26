@@ -56,7 +56,7 @@
                 x:Name="txb_NumberFoundation"
                 Grid.Column="3"
                 Margin="5"
-                Text="{Binding DocsFoundation.Number}" />
+                Text="{Binding Contract.Number}" />
 
             <TextBlock
                 Grid.Row="1"
@@ -78,7 +78,7 @@
                 Grid.Row="1"
                 Grid.Column="3"
                 Margin="5"
-                SelectedDate="{Binding DocsFoundation.DateFoundation}" />
+                SelectedDate="{Binding Contract.DateContract}" />
 
             <TextBlock
                 Grid.Row="2"
@@ -109,7 +109,7 @@
                 x:Name="cb_Target"
                 Grid.Column="1"
                 Margin="5"
-                Text="{Binding DocsFoundation.Target}" />
+                Text="{Binding Contract.Target}" />
 
             <TextBlock
                 Grid.Row="1"
