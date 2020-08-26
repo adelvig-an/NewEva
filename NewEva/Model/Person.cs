@@ -6,8 +6,8 @@ namespace NewEva.Model
 {
     public class Person
     {
-        public string SecondName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
+        public string SecondName { get; set; } //Фамилия
+        public string FirstName { get; set; } //Имя
+        public string MiddleName { get; set; } //Отчество
     }
 }

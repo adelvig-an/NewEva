@@ -6,10 +6,8 @@ namespace NewEva.Model
 {
     public class Report
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Number { get; set; }
-        public DateTime DateVulation { get; set; }
-        public DateTime DateCompilation { get; set; }
+        public string Number { get; set; } //Номер отчета
+        public DateTime DateVulation { get; set; } //Дата оценки
+        public DateTime DateCompilation { get; set; } //Дата составления
     }
 }

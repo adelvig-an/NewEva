@@ -6,14 +6,14 @@ namespace NewEva.Model
 {
     public class Address
     {
-        public string AddressFull { get; set; }
-        public int Index { get; set; }
-        public string Country { get; set; }
-        public string Region { get; set; }
-        public string District { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
-        public string House { get; set; }
-        public string Room { get; set; }
+        public string AddressFull { get; set; } //Адрес полностью
+        public int Index { get; set; } //Индекс
+        public string Country { get; set; } //Страна
+        public string Region { get; set; } //Субъект (область, край)
+        public string District { get; set; } //Район
+        public string City { get; set; } //Город, населенный пункт
+        public string Street { get; set; } //Улица
+        public string House { get; set; } //Номер дома
+        public string Room { get; set; } //Номер помещения
     }
 }
