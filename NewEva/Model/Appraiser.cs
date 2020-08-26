@@ -4,12 +4,8 @@ using System.Text;
 
 namespace NewEva.Model
 {
-    public class Appraiser
+    public class Appraiser : Person
     {
-        public int Id { get; set; }
-        public string SecondName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
         public int Experience { get; set; }
         //Информация об образовании
         public string TitleDiplom { get; set; }
@@ -21,12 +17,12 @@ namespace NewEva.Model
         public string TitleSRO { get; set; }
         public int NumberRegistry { get; set; }
         public DateTime DateRegistry { get; set; }
-        //Информация о страховке
-        public string TitleInsurance { get; set; }
-        public string NumberInsurance { get; set; }
-        public int SumInsurance { get; set; }
-        public DateTime DateFromInsurance { get; set; }
-        public DateTime DetaBeforeInsurance { get; set; }
+        //Информация о страховщике и страховке
+        public string TitleInsurance { get; set; } //Название страховщика
+        public string NumberPolis { get; set; } //Номер полиса
+        public int InsuranceIndemnity { get; set; } //Страховое возмещение
+        public DateTime DateFrom { get; set; } //Дата "от"
+        public DateTime DetaBefore { get; set; } //Дата "до"
         //Данные Квалификационного аттестата "Оценка недвижимости"
         public int NumberQCR { get; set; }
         public DateTime DateFromQCR { get; set; }

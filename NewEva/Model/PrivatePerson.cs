@@ -4,16 +4,13 @@ using System.Text;
 
 namespace NewEva.Model
 {
-    public class PrivatePerson
+    public class PrivatePerson : Person
     {
-        public string SecondName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string TypePas { get; set; }
-        public int SerialPas { get; set; }
-        public int NumerPas { get; set; }
-        public string IssuedPas { get; set; }
-        public int CodePas { get; set; }
-        public DateTime DatePas { get; set; }
+        public string Type { get; set; } //Тип документа подтверждающего личность
+        public int Serial { get; set; } //Серия документа
+        public int Number { get; set; } //Номер документа
+        public string Issued { get; set; } //Кем выдан документ
+        public int Division { get; set; } //Код подразделения
+        public DateTime DateIssued { get; set; } //Дата выдачи
     }
 }
