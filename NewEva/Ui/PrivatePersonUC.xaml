@@ -5,15 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="700"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="24" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
         <Style TargetType="ComboBox">
             <Setter Property="Height" Value="24" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
@@ -80,7 +82,7 @@
                     Margin="5" />
             </Grid>
 
-            <Grid Grid.Row="1" Margin="10,0">
+            <Grid Grid.Row="1" Margin="10,0,10,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="180" />
                     <ColumnDefinition Width="*" />
@@ -260,7 +262,7 @@
 
             <CheckBox
                 Grid.Row="3"
-                Margin="15,5,5,5"
+                Margin="10,5,10,10"
                 Content="Юридический адрес совпадает с фактическим адресом" />
 
             <Grid Grid.Row="4" Margin="10,0">

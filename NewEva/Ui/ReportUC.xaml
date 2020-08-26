@@ -11,9 +11,11 @@
     <UserControl.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="24" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
         <Style TargetType="ComboBox">
             <Setter Property="Height" Value="24" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
@@ -102,11 +104,12 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <TextBlock Margin="5" Text="Цель оценки" />
             <TextBox
-                x:Name="cb_Target"
+                x:Name="txb_Target"
                 Grid.Column="1"
                 Margin="5"
                 Text="{Binding Contract.Target}" />
@@ -138,8 +141,20 @@
             <TextBlock
                 Grid.Row="3"
                 Margin="5"
+                Text="Исполнитель" />
+            <TextBox
+                x:Name="txb_Contractor"
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="5"
+                Background="#E7E7E7"
+                IsReadOnly="True" />
+
+            <TextBlock
+                Grid.Row="4"
+                Margin="5"
                 Text="Тип заказчика" />
-            <WrapPanel Grid.Row="3" Grid.Column="1">
+            <WrapPanel Grid.Row="4" Grid.Column="1">
                 <RadioButton
                     Margin="5"
                     Content="Физическое лицо"
