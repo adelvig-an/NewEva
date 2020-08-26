@@ -22,9 +22,9 @@ namespace NewEva.VM
         
         private readonly Dictionary<string, string> nameToFile = new Dictionary<string, string> 
         { 
-            { PageNames.ReportPage, "ReportVM.json" }, 
-            { PageNames.PrivatePersonPage, "PrivatePersonVM.json" }, 
-            { PageNames.FirstPage, "FirstPageVM.json" } 
+            { PageNames.ReportPage, "temp/ReportVM.json" }, 
+            { PageNames.PrivatePersonPage, "temp/PrivatePersonVM.json" }, 
+            { PageNames.FirstPage, "temp/FirstPageVM.json" } 
         };
 
         public MainVM()
