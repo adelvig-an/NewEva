@@ -12,5 +12,6 @@ namespace NewEva.VM
         public const string ReportPage = "ReportPage";
         public const string PrivatePersonPage = "PrivatePersonPage";
         public const string OrganizationPage = "OrganizationPage";
+        public const string TypeObjectsPage = "TypeObjectsPage";
     }
 }

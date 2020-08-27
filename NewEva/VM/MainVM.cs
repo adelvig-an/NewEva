@@ -25,7 +25,8 @@ namespace NewEva.VM
             { PageNames.ReportPage, "temp/ReportVM.json" }, 
             { PageNames.PrivatePersonPage, "temp/PrivatePersonVM.json" }, 
             { PageNames.FirstPage, "temp/FirstPageVM.json" },
-            { PageNames.OrganizationPage, "temp/OrganizationVM.json" }
+            { PageNames.OrganizationPage, "temp/OrganizationVM.json" },
+            { PageNames.TypeObjectsPage, "temp/TypeObjectsVM.json" }
         };
 
         public MainVM()
@@ -34,13 +35,14 @@ namespace NewEva.VM
             ReportPage = new RelayCommand(_=>ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
+            NextPage = new RelayCommand(_ => NextPageAction());
         }
 
         //Команда для кнопки "Отчет об оценке"
         public ICommand ReportPage { get; }
         public ICommand FromReportPage { get; }
         public ICommand BackPage { get; }
-        //public ICommand NextPage { get; }
+        public ICommand NextPage { get; }
 
         //Команда для кнопки "Отчет об оценке"
         public void ReportPageAction()
@@ -82,18 +84,21 @@ namespace NewEva.VM
             if (CurrentPage is PrivatePersonVM || CurrentPage is OrganizationVM)
             {
                 //запуск метода для чтения сохраненного файла данных форм
-                
                 CurrentPage = PageVM.Read<ReportVM>(nameToFile[PageNames.ReportPage]) ?? new ReportVM();
-            }    
+            }
+            else if (CurrentPage is TypeObjectsVM)
+            {
+                CurrentPage = PageVM.Read<PrivatePersonVM>(nameToFile[PageNames.PrivatePersonPage]) ?? new PrivatePersonVM();
+            }
                 
         }
-
-        //public void NextPageAction()
-        //{
-        //    if (CurrentPage is PrivatePersonVM)
-        //    {
-        //        CurrentPage = new TypeObjectsVM();
-        //    }
-        //}
+        //Переход на следующую страницу
+        public void NextPageAction()
+        {
+            if (CurrentPage is PrivatePersonVM)
+            {
+                CurrentPage = new TypeObjectsVM();
+            }
+        }
     }
 }

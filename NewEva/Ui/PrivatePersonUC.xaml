@@ -528,6 +528,7 @@
                 Padding="5"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
+                Command="{Binding DataContext.NextPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                 Content="Продолжить &gt;&gt;" />
 
             <Button
