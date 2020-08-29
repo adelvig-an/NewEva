@@ -81,7 +81,7 @@
                     <Grid x:Name="ObjectParameter">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="175" />
-                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="150" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
@@ -495,7 +495,7 @@
                     <Grid
                         x:Name="ObjectAnalog1"
                         Grid.Column="1"
-                        Width="100">
+                        Width="150">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
@@ -648,7 +648,7 @@
                     <Grid
                         x:Name="ObjectAnalog2"
                         Grid.Column="1"
-                        Width="100">
+                        Width="150">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
@@ -801,7 +801,7 @@
                                 <Grid
                                     x:Name="ObjectAnalog3"
                                     Grid.Column="1"
-                                    Width="100">
+                                    Width="150">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="30" />
                                         <RowDefinition Height="30" />
@@ -949,7 +949,7 @@
 
                     <Grid>
                         <Button
-                            Width="70"
+                            Width="75"
                             Margin="5"
                             VerticalAlignment="Top"
                             Content="+" />
