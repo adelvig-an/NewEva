@@ -26,10 +26,6 @@ namespace NewEva.VM
                 {
                     Actual = Registration;
                 }
-                else
-                {
-                    Actual = null;
-                }
                 OnPropertyChanged(nameof(Actual));
             }
         }

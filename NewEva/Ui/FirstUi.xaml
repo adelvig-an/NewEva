@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
         <!--  Пример меню  -->
-        <Menu Height="25" VerticalAlignment="Top">
+        <!--<Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New Project" />
                 <MenuItem Header="Open Project">
@@ -32,7 +32,7 @@
             </MenuItem>
             <MenuItem Header="Edit" />
             <MenuItem Header="View" />
-        </Menu>
+        </Menu>-->
 
         <Button
             Grid.Row="1"
@@ -41,7 +41,6 @@
             Margin="25,5"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Background="Gray"
             Command="{Binding DataContext.ReportPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
             Content="Отчет об оценке" />
         <Button
@@ -51,7 +50,6 @@
             Margin="25,5"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Background="Gray"
             Command="{Binding}"
             Content="Экспертиза" />
         <Button
@@ -61,7 +59,6 @@
             Margin="25,5"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Background="Gray"
             Command="{Binding}"
             Content="Строительно-техническая экспертиза" />
     </Grid>
