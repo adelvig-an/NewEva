@@ -16,7 +16,7 @@ namespace NewEva.VM
             AddCommand = new RelayCommand(_ => Add());
             Items = new ObservableCollection<ItemVM>();
             Categories = ListBuilding.Categories;
-            RemoveItem = new RelayCommand(item => RemoveCommand(item as ItemVM));
+            RemoveCommand = new RelayCommand(item => Remove(item as ItemVM));
         }
 
         public int n = 1;
@@ -26,7 +26,7 @@ namespace NewEva.VM
             n++;
         }
 
-        public void RemoveCommand(ItemVM item)
+        public void Remove(ItemVM item)
         {
             Items.Remove(item); //удаление Элемента
             for (int i = 0; i < Items.Count; i--) // получение i-го элемента из коллекций
@@ -40,7 +40,7 @@ namespace NewEva.VM
 
         public IEnumerable<Category> Categories { get; set; }
         public ICommand AddCommand { get; }
-        public ICommand RemoveItem { get; }
+        public ICommand RemoveCommand { get; }
         public ObservableCollection<ItemVM> Items { get; }
 
     }

@@ -58,15 +58,15 @@
                                     Grid.Column="1"
                                     MinWidth="120"
                                     Margin="5"
-                                    Command="{Binding DataContext.ShowObjects, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"
+                                    Command="{Binding DataContext.ShowObjects, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
                                     CommandParameter="{Binding}"
                                     Content="{Binding ButtonContent}" />
                                 <Button
                                     Grid.Column="2"
                                     MinWidth="120"
                                     Margin="5"
-                                    Command="{Binding RemoveItem, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"
-                                    CommandParameter="{Binding Items, ElementName=ItemsControl}"
+                                    Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
+                                    CommandParameter="{Binding}"
                                     Content="Удалить" />
                             </Grid>
                         </DataTemplate>
