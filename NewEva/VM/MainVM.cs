@@ -31,7 +31,7 @@ namespace NewEva.VM
 
         public MainVM()
         {
-            CurrentPage = new FirstPageVM();
+            CurrentPage = new ReportVM();
             ReportPage = new RelayCommand(_=>ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
@@ -49,11 +49,6 @@ namespace NewEva.VM
         {
             CurrentPage = PageVM.Read<ReportVM>(nameToFile[PageNames.ReportPage]) ?? new ReportVM();
         }
-
-        //public void PrivatePersonAction()
-        //{
-        //    CurrentPage = new PrivatePersonVM();
-        //}
 
         // Условие для выбора страницы Клиента
         public void FromReportAction()
@@ -95,7 +90,7 @@ namespace NewEva.VM
         //Переход на следующую страницу
         public void NextPageAction()
         {
-            if (CurrentPage is PrivatePersonVM)
+            if (CurrentPage is PrivatePersonVM || CurrentPage is OrganizationVM)
             {
                 CurrentPage = new TypeObjectsVM();
             }

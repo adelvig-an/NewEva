@@ -29,6 +29,8 @@
         </DataTemplate>
     </Window.Resources>
     <Grid>
+
         <ContentControl Content="{Binding CurrentPage}" />
+
     </Grid>
 </Window>

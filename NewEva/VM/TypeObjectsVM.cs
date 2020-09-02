@@ -19,22 +19,17 @@ namespace NewEva.VM
             RemoveCommand = new RelayCommand(item => Remove(item as ItemVM));
         }
 
-        public int n = 1;
         public void Add()
         {
-            Items.Add(new ItemVM("Описание объекта " + n));
-            n++;
+            Items.Add(new ItemVM("Описание объекта " + (Items.Count+1)));
         }
 
         public void Remove(ItemVM item)
         {
-            Items.Remove(item); //удаление Элемента
-            for (int i = 0; i < Items.Count; i--) // получение i-го элемента из коллекций
+            Items.Remove(item); //удаление элемента
+            for (int i = 0; i < Items.Count; i++) //получение i-го элемента из коллекций
             {
-                if (true)
-                {
-                    item.ButtonContent = "Описание объекта " + n;
-                }
+                    Items[i].ButtonContent = "Описание объекта " + (i + 1);
             }
         }
 
