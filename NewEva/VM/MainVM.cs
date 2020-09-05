@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewEva.DbLayer;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -9,6 +10,10 @@ namespace NewEva.VM
 {
     public class MainVM : ViewModelBase
     {
+        public DataBase Data = new DataBase();
+
+        readonly string connectionPath = @"Database.db";
+
         private PageVM currentPage;
         public PageVM CurrentPage
         {
@@ -36,6 +41,8 @@ namespace NewEva.VM
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
             NextPage = new RelayCommand(_ => NextPageAction());
+
+            Data.DbConnection(connectionPath);
         }
 
         //Команда для кнопки "Отчет об оценке"

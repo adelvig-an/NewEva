@@ -8,13 +8,11 @@ namespace NewEva.DbLayer
 {
     public class DataBase
     {
-        readonly string connectionPath = @"Data Sourse=Database.db; Version=3";
-
         //Создание новой БД
-        public DataBase()
-        {
-            DbConnection(connectionPath);
-        }
+        //public DataBase()
+        //{
+        //    DbConnection(string databasePath);
+        //}
 
         public void DbConnection(string databasePath)
         {
