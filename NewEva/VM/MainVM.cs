@@ -92,6 +92,7 @@ namespace NewEva.VM
         {
             if (CurrentPage is PrivatePersonVM || CurrentPage is OrganizationVM)
             {
+                //CurrentPage = PageVM.Read<TypeObjectsVM>(nameToFile[PageNames.TypeObjectsPage]) ?? new TypeObjectsVM();
                 CurrentPage = new TypeObjectsVM();
             }
         }

@@ -139,22 +139,38 @@
             <TextBlock
                 Grid.Row="4"
                 Margin="5"
+                VerticalAlignment="Center"
                 Text="Тип заказчика" />
             <WrapPanel Grid.Row="4" Grid.Column="1">
                 <RadioButton
                     Margin="5"
+                    VerticalAlignment="Center"
                     Content="Физическое лицо"
                     IsChecked="{Binding IsPrivatePerson}" />
                 <RadioButton
                     Margin="5"
+                    VerticalAlignment="Center"
                     Content="Юридическое лицо"
                     IsChecked="{Binding IsOrganization}" />
+                <Button
+                    x:Name="Client"
+                    Margin="5"
+                    Padding="5"
+                    Content="Выбрать заказчика" />
             </WrapPanel>
         </Grid>
 
+        <StackPanel
+            Grid.Row="3"
+            Margin="5,0"
+            Orientation="Horizontal">
+            <TextBlock Margin="10,0" Text="Заказчик:" />
+            <TextBlock Text="Тут должно быть Наименование (ИНН) или ФИО заказчика" />
+        </StackPanel>
+
         <Button
             x:Name="bt_Next"
-            Grid.Row="3"
+            Grid.Row="4"
             Width="100"
             Margin="10"
             Padding="5"

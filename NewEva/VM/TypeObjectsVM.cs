@@ -38,5 +38,20 @@ namespace NewEva.VM
         public ICommand RemoveCommand { get; }
         public ObservableCollection<ItemVM> Items { get; }
 
+        //Для сохранения выбраных значений в списке
+        private string selectedCategory;
+        public string SelectedCategory
+        { 
+            get => selectedCategory;
+            set => SetProperty(ref selectedCategory, value);
+        }
+
+        private string selectedBuilding;
+        public string SelectedBuilding
+        {
+            get => selectedBuilding;
+            set => SetProperty(ref selectedBuilding, value);
+        }
+
     }
 }
