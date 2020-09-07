@@ -6,20 +6,44 @@ using System.Text;
 
 namespace NewEva.DbLayer
 {
-    public class DataBase
+    public static class DataBase
     {
-        //Создание новой БД
-        //public DataBase()
-        //{
-        //    DbConnection(string databasePath);
-        //}
+        public static readonly SQLiteConnection db;
 
-        public void DbConnection(string databasePath)
+        //Создание новой БД
+        static DataBase()
         {
-            SQLiteConnection db = new SQLiteConnection(databasePath);
+            db = new SQLiteConnection("Database.db");
+            Init();
+        }
+
+        public static void Init()
+        {
+            db.CreateTable<TempData>();
             db.CreateTable<Contracts>();
             db.CreateTable<Customers>();
             db.CreateTable<Reports>();
         }
+
+        public static void Write(TempData tempData) =>
+            db.Insert(tempData);
+
+        public static string ReadJsonOrNull(object primaryKey)
+        {
+            try
+            {
+                return db.Get<TempData>(primaryKey).Json;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static void DeleteTempData() =>
+            db.DeleteAll<TempData>();
+
+
+
     }
 }

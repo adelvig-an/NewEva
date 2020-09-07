@@ -1,4 +1,5 @@
-﻿using NewEva.VM;
+﻿using NewEva.DbLayer;
+using NewEva.VM;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -24,7 +25,7 @@ namespace NewEva
         }
         private void OnClosed(object sender, EventArgs e)
         {
-            FileDelete.FileDel(); //удаление файлов
+            DataBase.DeleteTempData(); //удаление файлов
             Current.Shutdown();
         }
     }

@@ -7,7 +7,6 @@ namespace NewEva.VM
 {
     public class OrganizationVM : PageVM
     {
-        public override string Name => PageNames.OrganizationPage;
         public Organization Organization { get; }
         public Director Director { get; }
         public Address Registration { get; }

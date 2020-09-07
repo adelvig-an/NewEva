@@ -9,8 +9,6 @@ namespace NewEva.VM
 {
     public class TypeObjectsVM : PageVM
     {
-        public override string Name => PageNames.TypeObjectsPage;
-
         public TypeObjectsVM()
         {
             AddCommand = new RelayCommand(_ => Add());

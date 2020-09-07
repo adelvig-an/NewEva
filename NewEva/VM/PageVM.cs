@@ -1,39 +1,42 @@
-﻿using Newtonsoft.Json;
+﻿using NewEva.DbLayer;
+using Newtonsoft.Json;
+using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Text;
+using System.Windows;
 
 namespace NewEva.VM
 {
     public abstract class PageVM : ViewModelBase
     {
-        public abstract string Name { get; }
-        //Чтение файла
-        public static T Read<T>(string filePath) where T : PageVM
+        //Чтение данных
+        public static T Read<T>() where T : PageVM
         {
-            if (File.Exists(filePath))
-            {
-                string json = File.ReadAllText(filePath);
-                return
-                        JsonConvert.DeserializeObject<T>(json);
-            }
-            else
+            var primaryKey = typeof(T).Name;
+            var json = DataBase.ReadJsonOrNull(primaryKey);
+            if (json == null)
             {
                 return null;
             }
+            return JsonConvert.DeserializeObject<T>(json);
         }
-        //Запись файла
-        public bool Write(string filePath)
+        
+        //Запись данных
+        public bool Write()
         {
+            
             try
             {
-                if (!Directory.Exists(@"temp"))
+                var json = JsonConvert.SerializeObject(this);
+                var tempData = new TempData
                 {
-                    Directory.CreateDirectory(@"temp");
-                }   
-                string json = JsonConvert.SerializeObject(this);
-                File.WriteAllText(filePath, json);
+                    Page = GetType().Name,
+                    Json = json
+                };
+                DataBase.Write(tempData);
                 return true;
             }
             catch
@@ -41,7 +44,5 @@ namespace NewEva.VM
                 return false;
             }
         }
-
-
     }
 }

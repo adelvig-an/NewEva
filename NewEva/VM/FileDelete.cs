@@ -8,12 +8,12 @@ namespace NewEva.VM
 {
     public static class FileDelete
     {
-        public static void FileDel()
-        {
-            foreach (string str in TempFiles.AllPathes)
-            {
-                File.Delete(str);
-            }
-        }
+        //public static void FileDel()
+        //{
+        //    foreach (string str in TempFiles.AllPathes)
+        //    {
+        //        File.Delete(str);
+        //    }
+        //}
     }
 }

@@ -10,9 +10,6 @@ namespace NewEva.VM
 {
     public class MainVM : ViewModelBase
     {
-        public DataBase Data = new DataBase();
-
-        readonly string connectionPath = @"Database.db";
 
         private PageVM currentPage;
         public PageVM CurrentPage
@@ -20,19 +17,10 @@ namespace NewEva.VM
             get => currentPage;
             set
             {
-                CurrentPage?.Write(nameToFile[CurrentPage.Name]);
+                CurrentPage?.Write();
                 SetProperty(ref currentPage, value);
             }
         }
-        
-        private readonly Dictionary<string, string> nameToFile = new Dictionary<string, string> 
-        { 
-            { PageNames.ReportPage, "temp/ReportVM.json" }, 
-            { PageNames.PrivatePersonPage, "temp/PrivatePersonVM.json" }, 
-            { PageNames.FirstPage, "temp/FirstPageVM.json" },
-            { PageNames.OrganizationPage, "temp/OrganizationVM.json" },
-            { PageNames.TypeObjectsPage, "temp/TypeObjectsVM.json" }
-        };
 
         public MainVM()
         {
@@ -41,8 +29,6 @@ namespace NewEva.VM
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
             NextPage = new RelayCommand(_ => NextPageAction());
-
-            Data.DbConnection(connectionPath);
         }
 
         //Команда для кнопки "Отчет об оценке"
@@ -54,7 +40,7 @@ namespace NewEva.VM
         //Команда для кнопки "Отчет об оценке"
         public void ReportPageAction()
         {
-            CurrentPage = PageVM.Read<ReportVM>(nameToFile[PageNames.ReportPage]) ?? new ReportVM();
+            CurrentPage = PageVM.Read<ReportVM>() ?? new ReportVM();
         }
 
         // Условие для выбора страницы Клиента
@@ -66,11 +52,11 @@ namespace NewEva.VM
             {
                 if (reportPage.IsPrivatePerson)
                 {
-                    CurrentPage = PageVM.Read<PrivatePersonVM>(nameToFile[PageNames.PrivatePersonPage]) ?? new PrivatePersonVM();
+                    CurrentPage = PageVM.Read<PrivatePersonVM>() ?? new PrivatePersonVM();
                 }
                 else if (reportPage.IsOrganization)
                 {
-                    CurrentPage = PageVM.Read<OrganizationVM>(nameToFile[PageNames.OrganizationPage]) ?? new OrganizationVM();
+                    CurrentPage = PageVM.Read<OrganizationVM>() ?? new OrganizationVM();
                 }
                 else
                 {
@@ -86,11 +72,11 @@ namespace NewEva.VM
             if (CurrentPage is PrivatePersonVM || CurrentPage is OrganizationVM)
             {
                 //запуск метода для чтения сохраненного файла данных форм
-                CurrentPage = PageVM.Read<ReportVM>(nameToFile[PageNames.ReportPage]) ?? new ReportVM();
+                CurrentPage = PageVM.Read<ReportVM>() ?? new ReportVM();
             }
             else if (CurrentPage is TypeObjectsVM)
             {
-                CurrentPage = PageVM.Read<PrivatePersonVM>(nameToFile[PageNames.PrivatePersonPage]) ?? new PrivatePersonVM();
+                CurrentPage = PageVM.Read<PrivatePersonVM>() ?? new PrivatePersonVM();
             }
                 
         }
@@ -99,7 +85,7 @@ namespace NewEva.VM
         {
             if (CurrentPage is PrivatePersonVM || CurrentPage is OrganizationVM)
             {
-                //CurrentPage = PageVM.Read<TypeObjectsVM>(nameToFile[PageNames.TypeObjectsPage]) ?? new TypeObjectsVM();
+                //CurrentPage = PageVM.Read<TypeObjectsVM>() ??  new TypeObjectsVM();
                 CurrentPage = new TypeObjectsVM();
             }
         }

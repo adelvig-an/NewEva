@@ -6,6 +6,6 @@ namespace NewEva.VM
 {
     public class FirstPageVM : PageVM
     {
-        public override string Name => PageNames.FirstPage;
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using NewEva.Model;
+﻿using NewEva.DbLayer;
+using NewEva.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,8 +16,6 @@ namespace NewEva.VM
         public IEnumerable<string> Appraisers { get; }
         public bool IsPrivatePerson { get; set; }
         public bool IsOrganization { get; set; }
-
-        public override string Name => PageNames.ReportPage;
 
         public ReportVM()
         {
@@ -48,5 +47,6 @@ namespace NewEva.VM
             get => isAppraiser;
             set => SetProperty(ref isAppraiser, value);
         }
+
     }
 }
