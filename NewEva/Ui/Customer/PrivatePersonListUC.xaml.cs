@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace NewEva.Ui.Customer
 {
     /// <summary>
-    /// Логика взаимодействия для PrivatePirsonListUC.xaml
+    /// Логика взаимодействия для PrivatePersonListUC.xaml
     /// </summary>
-    public partial class PrivatePirsonListUC : UserControl
+    public partial class PrivatePersonListUC : UserControl
     {
-        public PrivatePirsonListUC()
+        public PrivatePersonListUC()
         {
             InitializeComponent();
         }

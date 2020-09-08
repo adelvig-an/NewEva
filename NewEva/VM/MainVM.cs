@@ -1,4 +1,5 @@
 ﻿using NewEva.DbLayer;
+using NewEva.VM.Customer;
 using System;
 using System.Collections.Generic;
 using System.IO;

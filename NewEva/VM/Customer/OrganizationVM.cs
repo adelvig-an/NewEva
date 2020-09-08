@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NewEva.VM
+namespace NewEva.VM.Customer
 {
     public class OrganizationVM : PageVM
     {

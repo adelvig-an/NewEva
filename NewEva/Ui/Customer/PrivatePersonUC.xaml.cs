@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewEva.Ui
+namespace NewEva.Ui.Customer
 {
     /// <summary>
     /// Логика взаимодействия для PrivatePersonUC.xaml

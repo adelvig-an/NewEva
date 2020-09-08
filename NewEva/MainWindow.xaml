@@ -18,12 +18,6 @@
         <DataTemplate DataType="{x:Type vm:ReportVM}">
             <ui:ReportUC />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:PrivatePersonVM}">
-            <ui:PrivatePersonUC />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:OrganizationVM}">
-            <ui:OrganizationUC />
-        </DataTemplate>
         <DataTemplate DataType="{x:Type vm:TypeObjectsVM}">
             <ui:TypeObjectsUC />
         </DataTemplate>
