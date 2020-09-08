@@ -156,7 +156,8 @@
                     x:Name="Client"
                     Margin="5"
                     Padding="5"
-                    Content="Выбрать заказчика" />
+                    Content="Выбрать заказчика"
+                    Command="{Binding Customer.CustomerCommand}"/>
             </WrapPanel>
         </Grid>
 

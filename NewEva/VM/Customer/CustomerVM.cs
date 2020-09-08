@@ -19,7 +19,7 @@ namespace NewEva.VM.Customer
 
         public CustomerVM()
         {
-
+            CurrentPage = new PrivatePersonListVM();
         }
     }
 }
