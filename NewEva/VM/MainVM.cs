@@ -24,7 +24,7 @@ namespace NewEva.VM
 
         public MainVM()
         {
-            CurrentPage = new ReportVM();
+            CurrentPage = new FirstPageVM();
             ReportPage = new RelayCommand(_=>ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
