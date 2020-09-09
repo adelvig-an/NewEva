@@ -1,5 +1,6 @@
 ﻿using NewEva.DbLayer;
 using NewEva.VM;
+using NewEva.VM.Customer;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +17,7 @@ namespace NewEva
     /// </summary>
     public partial class App : Application
     {
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);

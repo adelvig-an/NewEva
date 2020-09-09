@@ -153,11 +153,11 @@
                     Content="Юридическое лицо"
                     IsChecked="{Binding IsOrganization}" />
                 <Button
-                    x:Name="Client"
+                    x:Name="Customer"
                     Margin="5"
                     Padding="5"
-                    Content="Выбрать заказчика"
-                    Command="{Binding Customer.CustomerCommand}"/>
+                    Command="{Binding Customer.CustomerCommand}"
+                    Content="Выбрать заказчика" />
             </WrapPanel>
         </Grid>
 

@@ -29,7 +29,12 @@
 
         <!--<ContentControl Content="{Binding CurrentPage}" />-->
 
-        <TextBlock Text="Окно Customer Успешно открыто!" Margin="10" VerticalAlignment="Center" FontSize="28" HorizontalAlignment="Center"/>
+        <TextBlock
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="28"
+            Text="Окно Customer Успешно открыто!" />
 
     </Grid>
 </Window>
