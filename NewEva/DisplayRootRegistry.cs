@@ -72,11 +72,12 @@ namespace NewEva
             openWindows.Remove(vm);
         }
 
-        public async Task ShowModalPresentation(object vm)
+        public void ShowModalPresentation(object vm)
         {
             var window = CreateWindowInstanceWithVM(vm);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            await window.Dispatcher.InvokeAsync(() => window.ShowDialog());
+            //await window.Dispatcher.InvokeAsync(() => window.ShowDialog());
+            window.Dispatcher.Invoke(() => window.ShowDialog());
         }
 
     }

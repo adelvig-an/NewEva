@@ -23,10 +23,12 @@ namespace NewEva.VM
             }
         }
 
-        public MainVM()
+        private readonly IDialogService dialogService;
+        public MainVM(IDialogService dialogService)
         {
+            this.dialogService = dialogService;
             CurrentPage = new FirstPageVM();
-            ReportPage = new RelayCommand(_=>ReportPageAction());
+            ReportPage = new RelayCommand(_ => ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
             NextPage = new RelayCommand(_ => NextPageAction());

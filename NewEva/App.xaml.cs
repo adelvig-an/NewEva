@@ -18,12 +18,20 @@ namespace NewEva
     public partial class App : Application
     {
 
+        public DisplayRootRegistry DisplayRootRegistry { get; }
+
+        public App()
+        {
+            DisplayRootRegistry.RegisterWindowType<MainVM, MainWindow>();
+            DisplayRootRegistry.RegisterWindowType<CustomerVM, CustomerWindow>();
+        }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            MainWindow window = new MainWindow();
-            window.Show();
-            window.Closed += OnClosed;
+            var simpleDialog = new SimpleDialog();
+            simpleDialog.Show(new CustomerVM()); 
+            Current.Shutdown();
         }
         private void OnClosed(object sender, EventArgs e)
         {
