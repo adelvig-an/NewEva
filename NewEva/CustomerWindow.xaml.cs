@@ -11,7 +11,6 @@ namespace NewEva
         public CustomerWindow()
         {
             InitializeComponent();
-            DataContext = new CustomerVM();
         }
     }
 }

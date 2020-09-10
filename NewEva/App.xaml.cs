@@ -18,19 +18,20 @@ namespace NewEva
     public partial class App : Application
     {
 
-        public DisplayRootRegistry DisplayRootRegistry { get; }
+        public DisplayRootRegistry displayRootRegistry = new DisplayRootRegistry();
 
         public App()
         {
-            DisplayRootRegistry.RegisterWindowType<MainVM, MainWindow>();
-            DisplayRootRegistry.RegisterWindowType<CustomerVM, CustomerWindow>();
+            displayRootRegistry.RegisterWindowType<MainVM, MainWindow>();
+            displayRootRegistry.RegisterWindowType<CustomerVM, CustomerWindow>();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
+            base.OnStartup(e); 
             var simpleDialog = new SimpleDialog();
-            simpleDialog.Show(new CustomerVM()); 
+            //simpleDialog.Show(new MainVM(simpleDialog));
+            simpleDialog.Show(new CustomerVM()); //Временно для открытия окна
             Current.Shutdown();
         }
         private void OnClosed(object sender, EventArgs e)

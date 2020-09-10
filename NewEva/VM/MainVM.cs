@@ -24,6 +24,7 @@ namespace NewEva.VM
         }
 
         private readonly IDialogService dialogService;
+        
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
@@ -32,6 +33,7 @@ namespace NewEva.VM
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
             NextPage = new RelayCommand(_ => NextPageAction());
+            CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
         }
 
         //Команда для кнопки "Отчет об оценке"
@@ -39,6 +41,7 @@ namespace NewEva.VM
         public ICommand FromReportPage { get; }
         public ICommand BackPage { get; }
         public ICommand NextPage { get; }
+        public ICommand CustomerOpen { get; }
 
         //Команда для кнопки "Отчет об оценке"
         public void ReportPageAction()

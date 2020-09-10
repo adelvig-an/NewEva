@@ -11,7 +11,7 @@ namespace NewEva
     {
         public void Show(ViewModelBase viewModel)
         {
-            var displayRootRegistry = (Application.Current as App).DisplayRootRegistry;
+            var displayRootRegistry = (Application.Current as App).displayRootRegistry;
             displayRootRegistry.ShowModalPresentation(viewModel);
         }
     }

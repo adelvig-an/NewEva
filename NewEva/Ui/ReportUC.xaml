@@ -156,7 +156,7 @@
                     x:Name="Customer"
                     Margin="5"
                     Padding="5"
-                    Command="{Binding Customer.CustomerCommand}"
+                    Command="{Binding DataContext.CustomerOpen, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                     Content="Выбрать заказчика" />
             </WrapPanel>
         </Grid>
