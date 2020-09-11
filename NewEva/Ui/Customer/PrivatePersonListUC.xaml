@@ -43,7 +43,7 @@
                 x:Name="bt_Add"
                 Margin="20,5"
                 Padding="5"
-                Content="Добавить" />
+                Content="Добавить" Command="{Binding DataContext.PrivatePersonPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}" />
             <Button
                 x:Name="bt_Redact"
                 Margin="20,5"

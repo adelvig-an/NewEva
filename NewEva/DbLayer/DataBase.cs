@@ -28,6 +28,9 @@ namespace NewEva.DbLayer
         public static void Write(TempData tempData) =>
             db.Insert(tempData);
 
+        public static void Write(Customers customer) => 
+            db.Insert(customer);
+
         public static string ReadJsonOrNull(object primaryKey)
         {
             try

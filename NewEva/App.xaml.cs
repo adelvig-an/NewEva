@@ -18,7 +18,7 @@ namespace NewEva
     public partial class App : Application
     {
 
-        public DisplayRootRegistry displayRootRegistry = new DisplayRootRegistry();
+        public DisplayRootRegistry displayRootRegistry { get; } = new DisplayRootRegistry();
 
         public App()
         {

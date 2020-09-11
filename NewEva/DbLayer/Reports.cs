@@ -12,9 +12,9 @@ namespace NewEva.DbLayer
         public string Number { get; set; } //Номер отчета
         public DateTime DateVulation { get; set; } //Дата оценки
         public DateTime DateCompilation { get; set; } //Дата составления
-        [Indexed]
-        public int ContractsId { get; set; }
-        [Indexed]
-        public int CustomersId { get; set; }
+        //[Indexed]
+        //public int ContractsId { get; set; }
+        //[Indexed]
+        //public int CustomersId { get; set; }
     }
 }

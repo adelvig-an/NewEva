@@ -27,14 +27,14 @@
     </Window.Resources>
     <Grid>
 
-        <!--<ContentControl Content="{Binding CurrentPage}" />-->
+        <ContentControl Content="{Binding CurrentPage}" />
 
-        <TextBlock
+        <!--<TextBlock
             Margin="10"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="28"
-            Text="Окно Customer Успешно открыто!" />
+            Text="Окно Customer Успешно открыто!" />-->
 
     </Grid>
 </Window>
