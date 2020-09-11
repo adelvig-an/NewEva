@@ -69,6 +69,8 @@ namespace NewEva.VM.Customer
                 House = "8",
                 Room = "16"
             };
+
+            AddPrivatePerson();
         }
 
         private string isTypeDocs;
@@ -87,7 +89,7 @@ namespace NewEva.VM.Customer
                     SecondName = PrivatePerson.SecondName,
                     FirstName = PrivatePerson.FirstName,
                     MiddleName = PrivatePerson.MiddleName,
-                    Type = PrivatePerson.Type,
+                    Type = IsTypeDocs,
                     Serial = PrivatePerson.Serial,
                     Number = PrivatePerson.Number,
                     Issued = PrivatePerson.Issued,
