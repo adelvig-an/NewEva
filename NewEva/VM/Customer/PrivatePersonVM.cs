@@ -69,8 +69,6 @@ namespace NewEva.VM.Customer
                 House = "8",
                 Room = "16"
             };
-
-            AddPrivatePerson();
         }
 
         private string isTypeDocs;
@@ -122,7 +120,6 @@ namespace NewEva.VM.Customer
 
                 return false;
             }
-
         }
     }
 }

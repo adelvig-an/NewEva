@@ -27,7 +27,6 @@ namespace NewEva.VM
         //Запись данных
         public bool Write()
         {
-            
             try
             {
                 var json = JsonConvert.SerializeObject(this);
