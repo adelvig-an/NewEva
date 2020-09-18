@@ -29,6 +29,8 @@ namespace NewEva.VM.Customer
         public ICommand OrganizationPage { get; }
         public ICommand PrivatePersonPage { get; }
         public ICommand BackPage { get; }
+        public ICommand SaveClosedWindow { get; }
+        public ICommand ClosedWindow { get; }
         public void OrganizationCommand()
         {
             CurrentPage = new OrganizationVM();
@@ -43,6 +45,16 @@ namespace NewEva.VM.Customer
                 CurrentPage = new PrivatePersonListVM();
             else if (CurrentPage is OrganizationVM)
                 CurrentPage = new OrganizationListVM();
+        }
+
+        public void SaveClosedCommand()
+        {
+
+        }
+
+        public void ClosedCommand()
+        {
+
         }
     }
 }
