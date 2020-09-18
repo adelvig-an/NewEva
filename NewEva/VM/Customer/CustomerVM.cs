@@ -24,6 +24,8 @@ namespace NewEva.VM.Customer
             OrganizationPage = new RelayCommand(_ => OrganizationCommand());
             PrivatePersonPage = new RelayCommand(_ => PrivatePersonCommand());
             BackPage = new RelayCommand(_ => BackCommand());
+            SaveClosedWindow = new RelayCommand(_ => SaveClosedCommand());
+            ClosedWindow = new RelayCommand(_ => ClosedCommand());
         }
 
         public ICommand OrganizationPage { get; }
@@ -49,7 +51,7 @@ namespace NewEva.VM.Customer
 
         public void SaveClosedCommand()
         {
-
+            
         }
 
         public void ClosedCommand()

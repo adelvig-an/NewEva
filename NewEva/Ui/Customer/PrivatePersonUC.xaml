@@ -41,7 +41,7 @@
                     Margin="10"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
-                    Command="{Binding DataContext.NextPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                    Command="{Binding DataContext.SaveClosedWindow, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                     Content="Сохранить и закрыть" />
 
                 <Button
@@ -50,7 +50,7 @@
                     Margin="10"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
-                    Command="{Binding DataContext.NextPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                    Command="{Binding DataContext.ClosedWindow, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                     Content="Закрыть без сохранения" />
 
             </Grid>
