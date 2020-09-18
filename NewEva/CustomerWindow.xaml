@@ -27,14 +27,26 @@
     </Window.Resources>
     <Grid>
 
-        <ContentControl Content="{Binding CurrentPage}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <!--<TextBlock
-            Margin="10"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="28"
-            Text="Окно Customer Успешно открыто!" />-->
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Физические лица" />
+            <Button Grid.Column="1" Content="Юридические лица" />
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ContentControl Content="{Binding CurrentPage}" />
+        </Grid>
 
     </Grid>
 </Window>
