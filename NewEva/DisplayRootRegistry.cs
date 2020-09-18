@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewEva.VM;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
@@ -78,6 +79,11 @@ namespace NewEva
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             //await window.Dispatcher.InvokeAsync(() => window.ShowDialog());
             window.Dispatcher.Invoke(() => window.ShowDialog());
+            if (vm is CloseableViewModel cvm)
+            {
+                
+                cvm.ClosingRequest += (sender, e) => window.Dispatcher.Invoke(() => window.Close());
+            }
         }
 
     }

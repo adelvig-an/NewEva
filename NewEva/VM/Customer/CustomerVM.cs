@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace NewEva.VM.Customer
 {
-    public class CustomerVM : ViewModelBase
+    public class CustomerVM : CloseableViewModel
     {
         private PageVM currentPage;
         public PageVM CurrentPage
@@ -51,12 +51,18 @@ namespace NewEva.VM.Customer
 
         public void SaveClosedCommand()
         {
-            
+            if (CurrentPage is PrivatePersonVM privatePersonVM) 
+            { 
+                privatePersonVM.AddPrivatePerson();
+            }
+            this.OnClosingRequest();
         }
+
+
 
         public void ClosedCommand()
         {
-
+            this.OnClosingRequest();
         }
     }
 }

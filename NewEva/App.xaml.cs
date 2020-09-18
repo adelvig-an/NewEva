@@ -34,6 +34,7 @@ namespace NewEva
             simpleDialog.Show(new CustomerVM()); //Временно для открытия окна
             Current.Shutdown();
         }
+
         private void OnClosed(object sender, EventArgs e)
         {
             DataBase.DeleteTempData(); //удаление файлов
