@@ -78,12 +78,12 @@ namespace NewEva
             var window = CreateWindowInstanceWithVM(vm);
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             //await window.Dispatcher.InvokeAsync(() => window.ShowDialog());
-            window.Dispatcher.Invoke(() => window.ShowDialog());
             if (vm is CloseableViewModel cvm)
             {
-                
+
                 cvm.ClosingRequest += (sender, e) => window.Dispatcher.Invoke(() => window.Close());
             }
+            window.Dispatcher.Invoke(() => window.ShowDialog());
         }
 
     }

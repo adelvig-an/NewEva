@@ -19,7 +19,10 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+        <StackPanel
+            Margin="0,10"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
             <TextBox
                 x:Name="txb_Search"
                 Width="200"
@@ -28,7 +31,6 @@
                 x:Name="bt_Search"
                 Width="90"
                 Margin="5"
-                Padding="5"
                 Content="Найти" />
         </StackPanel>
 
@@ -36,22 +38,19 @@
             <Button
                 x:Name="bt_Choice"
                 Margin="20,5"
-                Padding="5"
                 Content="Выбрать" />
             <Button
                 x:Name="bt_Add"
                 Margin="20,5"
-                Padding="5"
+                Command="{Binding DataContext.OrganizationPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                 Content="Добавить" />
             <Button
                 x:Name="bt_Redact"
                 Margin="20,5"
-                Padding="5"
                 Content="Редактировать" />
             <Button
                 x:Name="bt_Delete"
                 Margin="20,5"
-                Padding="5"
                 Content="Удалить" />
         </StackPanel>
 

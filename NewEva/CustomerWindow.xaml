@@ -39,8 +39,14 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Content="Физические лица" />
-            <Button Grid.Column="1" Content="Юридические лица" />
+            <Button
+                Grid.Column="0"
+                Command="{Binding DataContext.PrivatePersonListPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Content="Физические лица" />
+            <Button
+                Grid.Column="1"
+                Command="{Binding DataContext.OrganizationListPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Content="Юридические лица" />
 
         </Grid>
 

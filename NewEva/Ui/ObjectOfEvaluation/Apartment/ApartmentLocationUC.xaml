@@ -1,0 +1,313 @@
+﻿<UserControl
+    x:Class="NewEva.Ui.ObjectOfEvaluation.Apartment.ApartmentLocationUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Apartment"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="1000"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Visible">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Image Source="Img/yachtdusseldorf7.jpg" />
+
+            <Grid Grid.Row="1" Margin="10,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Margin="5" Text="Адресс полностью" />
+                        <TextBox
+                            x:Name="tbx_AddressRegistration"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="4"
+                            Margin="5"
+                            Text="{Binding Registration.AddressFull}" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="5"
+                            Text="Индекс" />
+                        <TextBox
+                            x:Name="tbx_IndexRegistration"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="5"
+                            Text="{Binding Registration.Index}" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Margin="5"
+                            Text="Страна" />
+                        <TextBox
+                            x:Name="tbx_CountryRegistration"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="5"
+                            Text="{Binding Registration.Country}" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Margin="5"
+                            Text="Субъект" />
+                        <TextBox
+                            x:Name="tbx_RegionRegistration"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Margin="5"
+                            Text="{Binding Registration.Region}" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Margin="5"
+                            Text="Район" />
+                        <TextBox
+                            x:Name="tbx_DistrictRegistration"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Margin="5"
+                            Text="{Binding Registration.District}" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="5"
+                            Text="Город" />
+                        <TextBox
+                            x:Name="tbx_CityRegistration"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Margin="5"
+                            Text="{Binding Registration.City}" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="5"
+                            Text="Улица" />
+                        <TextBox
+                            x:Name="tbx_StreetRegistration"
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Margin="5"
+                            Text="{Binding Registration.Street}" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Margin="5"
+                            Text="Дом/Здание" />
+                        <TextBox
+                            x:Name="tbx_HouseRegistration"
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            Margin="5"
+                            Text="{Binding Registration.House}" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            Margin="5"
+                            Text="Офис/пом." />
+                        <TextBox
+                            x:Name="tbx_RoomRegistration"
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            Margin="5"
+                            Text="{Binding Registration.Room}" />
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Margin="5" Text="Кадастровый номер" />
+                        <TextBox Grid.Column="1" Margin="5" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <GroupBox Grid.Row="2" Header="Описание дома и территории">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Margin="5">
+                            <TextBlock Margin="0,0,0,7" Text="Год построй" />
+                            <TextBox Name="txb_YearBuilding" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="5">
+                            <TextBlock Margin="0,0,0,7" Text="Материа наружных стен" />
+                            <ComboBox Name="cbx_" />
+                        </StackPanel>
+
+                        <Button
+                            Grid.Column="2"
+                            Margin="0,0,0,7"
+                            Padding="5"
+                            VerticalAlignment="Bottom"
+                            Content="Расчитать износ" />
+
+                        <StackPanel Grid.Column="3" Margin="5">
+                            <TextBlock Margin="0,0,0,7" Text="Физически износ (%)" />
+                            <TextBox Name="txb_" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Margin="10,5" Orientation="Horizontal">
+                            <TextBlock Margin="0,0,5,0" Text="Тип здания" />
+                            <StackPanel Margin="10,0" Orientation="Vertical">
+                                <RadioButton
+                                    Margin="5,2,5,5"
+                                    Content="Жилой дом"
+                                    IsChecked="True" />
+                                <RadioButton Margin="5,5" Content="Апарт-отель" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="10,5">
+                            <TextBlock Margin="0,0,0,7" Text="Число этажей" />
+                            <TextBox />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Margin="10,5">
+                            <TextBlock Margin="0,0,0,7" Text="Благоустройство дома" />
+                            <CheckBox Margin="0,0,0,7" Content="Лифт" />
+                            <CheckBox Content="Мусоропровод" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Margin="10,5">
+                            <TextBlock Margin="0,0,0,7" Text="Материал стен" />
+                            <ComboBox />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="10,5">
+                            <TextBlock Margin="0,0,0,7" Text="Состояние дома" />
+                            <ComboBox />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Margin="10,5">
+                            <TextBlock Margin="0,0,0,7" Text="Планы на снос/рекострукцию" />
+                            <ComboBox />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="3" Margin="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Margin="10,5">
+                            <TextBlock Margin="0,0,0,7" Text="Горячее водоснабжение" />
+                            <ComboBox />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="10,5">
+                            <TextBlock Margin="0,0,0,7" Text="Газоснабжение" />
+                            <ComboBox />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="4" Margin="10,0">
+                        <WrapPanel Margin="10,5">
+
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Стихийная парковка" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Организованная охраняемая парковка" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Подземный паркинг" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Не огорожена" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Огороженная территория" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Огороженная территория и КПП" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Асфальтовое покрытие" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Детская площадка" />
+                            <ToggleButton
+                                Margin="5"
+                                Padding="10"
+                                Content="Огороженная и охраняемая территория" />
+
+                        </WrapPanel>
+                    </Grid>
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

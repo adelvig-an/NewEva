@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewEva.Ui
+namespace NewEva.Ui.ObjectOfEvaluation.Apartment
 {
     /// <summary>
-    /// Логика взаимодействия для СalculationUC.xaml
+    /// Логика взаимодействия для ApartmentDescriptionUC.xaml
     /// </summary>
-    public partial class СalculationUC : UserControl
+    public partial class ApartmentDescriptionUC : UserControl
     {
-        public СalculationUC()
+        public ApartmentDescriptionUC()
         {
             InitializeComponent();
         }

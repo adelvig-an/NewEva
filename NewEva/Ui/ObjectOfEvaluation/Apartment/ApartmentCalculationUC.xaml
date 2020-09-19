@@ -1,0 +1,1028 @@
+﻿<UserControl
+    x:Class="NewEva.Ui.ObjectOfEvaluation.Apartment.ApartmentCalculationUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Apartment"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <!--
+            Пример страници расчета (возможно изменение количеста полей, это только пример для понимания):
+            1. Для каждого вида/типа объекта оценки будет своя, различие в основном полей относящихся к "Параметр" и их количества;
+            2. Кнопка "Добавить аналоги" - добавляет автомотически до 10 объектов из Базы данных собранных парсерами ранее с заполненными полями (пока нет нормального парсера, не работает);
+            3. Кнопка "+" - добавляет объекты аналоги с пустыми полями для самостоятельного заполнения пользователем;
+            4. "Описание корректировки" - ссылка которая открывает "Окно" для редактирования описания;
+            5. Кнопка "Включить" - при нажатии учитывает Объект аналог в расчете и изменяет описание на "Отключить", если кнопка не нажата, то Объект аналог не учитывается в описании;
+            6. После "Статистика расчета", цифровые значения - результат расчета, все формулы для расчета будут;
+            7. Правее "Разброс цен" - должен быть "график" минимальная и максимальная цена и среднее значение в %-ах разброса;
+            8. Реализация данной страницы - это отдельное окно, кнопка открытия рассположена на странице после TypeObjectUC или дополнительно довать кнопку на страницу TypeObjectUC.
+            После заполнения всех данных для объекта оценки (обязатьно должна быть реализована проверка) пользователю становится доступна кнопка для расчета
+            или переход на следующую страницу, где она расположена
+        -->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Padding="5,5,0,5" HorizontalScrollBarVisibility="Visible">
+            <StackPanel Orientation="Vertical">
+
+                <Button
+                    x:Name="bt_Back"
+                    Margin="10"
+                    Padding="10,5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Добавить аналоги" />
+
+                <WrapPanel Orientation="Horizontal">
+
+                    <Grid x:Name="ObjectParameter">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="175" />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Показатель" />
+                        <TextBlock
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Объект оценки" />
+
+                        <Border
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Background="Green" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Text="Общая информация" />
+
+                        <TextBlock Grid.Row="2" Text="Функциональное назначение" />
+                        <TextBox Grid.Row="2" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="3" Text="Источник информации" />
+                        <TextBox Grid.Row="3" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="4" Text="Скриншоты страницы объявления" />
+                        <TextBox Grid.Row="4" Grid.Column="1" />
+
+                        <Border
+                            Grid.Row="5"
+                            Grid.ColumnSpan="2"
+                            Background="Green" />
+
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.ColumnSpan="2"
+                            Text="Параметры сделки" />
+
+                        <TextBlock Grid.Row="6" Text="Цена предложения, руб." />
+                        <TextBox Grid.Row="6" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="7" Text="Стоимость объекта за кв.м., руб." />
+                        <TextBox Grid.Row="7" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="8" Text="Торг" />
+                        <TextBox Grid.Row="8" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="9" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="10" Text="Передоваемые права" />
+                        <TextBox Grid.Row="10" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="11" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="11"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="12" Text="Условия финансирования" />
+                        <TextBox Grid.Row="12" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="13" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="13"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="14" Text="Условия продажи" />
+                        <TextBox Grid.Row="14" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="15" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="15"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="16" Text="Дата предложения" />
+                        <DatePicker
+                            Grid.Row="16"
+                            Grid.Column="1"
+                            Margin="5,0"
+                            VerticalAlignment="Center" />
+
+                        <TextBlock Grid.Row="17" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="17"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <Border
+                            Grid.Row="18"
+                            Grid.ColumnSpan="2"
+                            Background="Green" />
+
+                        <TextBlock
+                            Grid.Row="18"
+                            Grid.ColumnSpan="2"
+                            Text="Параметры местоположения" />
+
+                        <TextBlock Grid.Row="19" Text="Адрес" />
+                        <TextBox Grid.Row="19" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="20" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="20"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="21" Text="Метро/ж.д. станция/остановка общественного транспорта" />
+                        <TextBox Grid.Row="21" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="22" Text="Время до метро/ж.д. станции/остановки общественного транспорта" />
+                        <TextBox Grid.Row="22" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="23" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="23"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <Border
+                            Grid.Row="24"
+                            Grid.ColumnSpan="2"
+                            Background="Green" />
+
+                        <TextBlock
+                            Grid.Row="24"
+                            Grid.ColumnSpan="2"
+                            Text="Параметры дома" />
+
+                        <TextBlock Grid.Row="25" Text="Материал стен дома" />
+                        <TextBox Grid.Row="25" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="26" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="26"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="27" Text="Этаж расположения" />
+                        <TextBox Grid.Row="27" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="28" Text="Этажность дома" />
+                        <TextBox Grid.Row="28" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="29" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="29"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="30" Text="Благоусьройство дома" />
+                        <TextBox Grid.Row="30" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="31" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="31"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="32" Text="Состояние дома" />
+                        <TextBox Grid.Row="32" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="33" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="33"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="34" Text="Инжинерные системы" />
+                        <TextBox Grid.Row="34" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="35" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="35"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <Border
+                            Grid.Row="36"
+                            Grid.ColumnSpan="2"
+                            Background="Green" />
+
+                        <TextBlock
+                            Grid.Row="36"
+                            Grid.ColumnSpan="2"
+                            Text="Параметры объекта оценки" />
+
+                        <TextBlock Grid.Row="37" Text="Количество комнат в квартире" />
+                        <TextBox Grid.Row="37" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="38" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="38"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="39" Text="Площадь объекта, кв.м." />
+                        <TextBox Grid.Row="39" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="40" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="40"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="41" Text="Жилая площадь, кв.м." />
+                        <TextBox Grid.Row="41" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="42" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="42"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="43" Text="Площадь кухни, кв.м." />
+                        <TextBox Grid.Row="43" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="44" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="44"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="45" Text="Высота потолков, м" />
+                        <TextBox Grid.Row="45" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="46" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="46"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="47" Text="Наличие балкона/лоджии" />
+                        <TextBox Grid.Row="47" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="48" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="48"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="49" Text="Вид из окна" />
+                        <TextBox Grid.Row="49" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="50" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="50"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="51" Text="Санузел" />
+                        <TextBox Grid.Row="51" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="52" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="52"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="53" Text="Состояние отделки объекта" />
+                        <TextBox Grid.Row="53" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="54" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="54"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <TextBlock Grid.Row="55" Text="Наличие мебели" />
+                        <TextBox Grid.Row="55" Grid.Column="1" />
+
+                        <TextBlock Grid.Row="56" Text="Описание корректировки" />
+                        <TextBlock
+                            Grid.Row="56"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Text="Корректировка, %" />
+
+                        <Border
+                            Grid.Row="57"
+                            Grid.ColumnSpan="2"
+                            Background="Green" />
+
+                        <TextBlock
+                            Grid.Row="57"
+                            Grid.ColumnSpan="2"
+                            Text="Калькулятор стоимости объекта" />
+
+                        <TextBlock
+                            Grid.Row="58"
+                            Grid.ColumnSpan="2"
+                            Text="Итоговое значение относительных корректировок, %" />
+                        <TextBlock
+                            Grid.Row="59"
+                            Grid.ColumnSpan="2"
+                            Text="Скорректированная цена, руб./кв.м" />
+                        <TextBlock
+                            Grid.Row="60"
+                            Grid.ColumnSpan="2"
+                            Text="Валовая корректировка" />
+                        <TextBlock
+                            Grid.Row="61"
+                            Grid.ColumnSpan="2"
+                            Text="Весовой коэффициент" />
+                        <TextBlock
+                            Grid.Row="62"
+                            Grid.ColumnSpan="2"
+                            Text="Взвешенная стоимость 1 кв.м, руб." />
+
+                        <TextBlock
+                            Grid.Row="63"
+                            Grid.ColumnSpan="2"
+                            Text="Включение аналога в отчёте об оценке:" />
+                    </Grid>
+
+                    <!--<ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>-->
+
+                    <Grid
+                        x:Name="ObjectAnalog1"
+                        Grid.Column="1"
+                        Width="150">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Row="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Аналог 1" />
+                        <Border Grid.Row="1" Background="Green" />
+                        <TextBox Grid.Row="2" />
+                        <TextBox Grid.Row="3" />
+                        <TextBox Grid.Row="4" />
+                        <Border Grid.Row="5" Background="Green" />
+                        <TextBox Grid.Row="6" />
+                        <TextBox Grid.Row="7" />
+                        <TextBox Grid.Row="8" />
+                        <TextBox Grid.Row="9" />
+                        <TextBox Grid.Row="10" />
+                        <TextBox Grid.Row="11" />
+                        <TextBox Grid.Row="12" />
+                        <TextBox Grid.Row="13" />
+                        <TextBox Grid.Row="14" />
+                        <TextBox Grid.Row="15" />
+                        <TextBox Grid.Row="16" />
+                        <TextBox Grid.Row="17" />
+                        <Border Grid.Row="18" Background="Green" />
+                        <TextBox Grid.Row="19" />
+                        <TextBox Grid.Row="20" />
+                        <TextBox Grid.Row="21" />
+                        <TextBox Grid.Row="22" />
+                        <TextBox Grid.Row="23" />
+                        <Border Grid.Row="24" Background="Green" />
+                        <TextBox Grid.Row="25" />
+                        <TextBox Grid.Row="26" />
+                        <TextBox Grid.Row="27" />
+                        <TextBox Grid.Row="28" />
+                        <TextBox Grid.Row="29" />
+                        <TextBox Grid.Row="30" />
+                        <TextBox Grid.Row="31" />
+                        <TextBox Grid.Row="32" />
+                        <TextBox Grid.Row="33" />
+                        <TextBox Grid.Row="34" />
+                        <TextBox Grid.Row="35" />
+                        <Border Grid.Row="36" Background="Green" />
+                        <TextBox Grid.Row="37" />
+                        <TextBox Grid.Row="38" />
+                        <TextBox Grid.Row="39" />
+                        <TextBox Grid.Row="40" />
+                        <TextBox Grid.Row="41" />
+                        <TextBox Grid.Row="42" />
+                        <TextBox Grid.Row="43" />
+                        <TextBox Grid.Row="44" />
+                        <TextBox Grid.Row="45" />
+                        <TextBox Grid.Row="46" />
+                        <TextBox Grid.Row="47" />
+                        <TextBox Grid.Row="48" />
+                        <TextBox Grid.Row="49" />
+                        <TextBox Grid.Row="50" />
+                        <TextBox Grid.Row="51" />
+                        <TextBox Grid.Row="52" />
+                        <TextBox Grid.Row="53" />
+                        <TextBox Grid.Row="54" />
+                        <TextBox Grid.Row="55" />
+                        <TextBox Grid.Row="56" />
+                        <Border Grid.Row="57" Background="Green" />
+                        <TextBox Grid.Row="58" />
+                        <TextBox Grid.Row="59" />
+                        <TextBox Grid.Row="60" />
+                        <TextBox Grid.Row="61" />
+                        <TextBox Grid.Row="62" />
+                        <Button
+                            Grid.Row="63"
+                            Grid.Column="1"
+                            Margin="5,0"
+                            Padding="5"
+                            Content="Включить" />
+                    </Grid>
+
+                    <!--</DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>-->
+
+                    <!--<ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>-->
+
+                    <Grid
+                        x:Name="ObjectAnalog2"
+                        Grid.Column="1"
+                        Width="150">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Row="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Аналог 2" />
+                        <Border Grid.Row="1" Background="Green" />
+                        <TextBox Grid.Row="2" />
+                        <TextBox Grid.Row="3" />
+                        <TextBox Grid.Row="4" />
+                        <Border Grid.Row="5" Background="Green" />
+                        <TextBox Grid.Row="6" />
+                        <TextBox Grid.Row="7" />
+                        <TextBox Grid.Row="8" />
+                        <TextBox Grid.Row="9" />
+                        <TextBox Grid.Row="10" />
+                        <TextBox Grid.Row="11" />
+                        <TextBox Grid.Row="12" />
+                        <TextBox Grid.Row="13" />
+                        <TextBox Grid.Row="14" />
+                        <TextBox Grid.Row="15" />
+                        <TextBox Grid.Row="16" />
+                        <TextBox Grid.Row="17" />
+                        <Border Grid.Row="18" Background="Green" />
+                        <TextBox Grid.Row="19" />
+                        <TextBox Grid.Row="20" />
+                        <TextBox Grid.Row="21" />
+                        <TextBox Grid.Row="22" />
+                        <TextBox Grid.Row="23" />
+                        <Border Grid.Row="24" Background="Green" />
+                        <TextBox Grid.Row="25" />
+                        <TextBox Grid.Row="26" />
+                        <TextBox Grid.Row="27" />
+                        <TextBox Grid.Row="28" />
+                        <TextBox Grid.Row="29" />
+                        <TextBox Grid.Row="30" />
+                        <TextBox Grid.Row="31" />
+                        <TextBox Grid.Row="32" />
+                        <TextBox Grid.Row="33" />
+                        <TextBox Grid.Row="34" />
+                        <TextBox Grid.Row="35" />
+                        <Border Grid.Row="36" Background="Green" />
+                        <TextBox Grid.Row="37" />
+                        <TextBox Grid.Row="38" />
+                        <TextBox Grid.Row="39" />
+                        <TextBox Grid.Row="40" />
+                        <TextBox Grid.Row="41" />
+                        <TextBox Grid.Row="42" />
+                        <TextBox Grid.Row="43" />
+                        <TextBox Grid.Row="44" />
+                        <TextBox Grid.Row="45" />
+                        <TextBox Grid.Row="46" />
+                        <TextBox Grid.Row="47" />
+                        <TextBox Grid.Row="48" />
+                        <TextBox Grid.Row="49" />
+                        <TextBox Grid.Row="50" />
+                        <TextBox Grid.Row="51" />
+                        <TextBox Grid.Row="52" />
+                        <TextBox Grid.Row="53" />
+                        <TextBox Grid.Row="54" />
+                        <TextBox Grid.Row="55" />
+                        <TextBox Grid.Row="56" />
+                        <Border Grid.Row="57" Background="Green" />
+                        <TextBox Grid.Row="58" />
+                        <TextBox Grid.Row="59" />
+                        <TextBox Grid.Row="60" />
+                        <TextBox Grid.Row="61" />
+                        <TextBox Grid.Row="62" />
+                        <Button
+                            Grid.Row="63"
+                            Grid.Column="1"
+                            Margin="5,0"
+                            Padding="5"
+                            Content="Включить" />
+                    </Grid>
+
+                    <!--</DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>-->
+
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+
+                                <Grid
+                                    x:Name="ObjectAnalog3"
+                                    Grid.Column="1"
+                                    Width="150">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Center"
+                                        Text="Аналог 3" />
+                                    <Border Grid.Row="1" Background="Green" />
+                                    <TextBox Grid.Row="2" />
+                                    <TextBox Grid.Row="3" />
+                                    <TextBox Grid.Row="4" />
+                                    <Border Grid.Row="5" Background="Green" />
+                                    <TextBox Grid.Row="6" />
+                                    <TextBox Grid.Row="7" />
+                                    <TextBox Grid.Row="8" />
+                                    <TextBox Grid.Row="9" />
+                                    <TextBox Grid.Row="10" />
+                                    <TextBox Grid.Row="11" />
+                                    <TextBox Grid.Row="12" />
+                                    <TextBox Grid.Row="13" />
+                                    <TextBox Grid.Row="14" />
+                                    <TextBox Grid.Row="15" />
+                                    <TextBox Grid.Row="16" />
+                                    <TextBox Grid.Row="17" />
+                                    <Border Grid.Row="18" Background="Green" />
+                                    <TextBox Grid.Row="19" />
+                                    <TextBox Grid.Row="20" />
+                                    <TextBox Grid.Row="21" />
+                                    <TextBox Grid.Row="22" />
+                                    <TextBox Grid.Row="23" />
+                                    <Border Grid.Row="24" Background="Green" />
+                                    <TextBox Grid.Row="25" />
+                                    <TextBox Grid.Row="26" />
+                                    <TextBox Grid.Row="27" />
+                                    <TextBox Grid.Row="28" />
+                                    <TextBox Grid.Row="29" />
+                                    <TextBox Grid.Row="30" />
+                                    <TextBox Grid.Row="31" />
+                                    <TextBox Grid.Row="32" />
+                                    <TextBox Grid.Row="33" />
+                                    <TextBox Grid.Row="34" />
+                                    <TextBox Grid.Row="35" />
+                                    <Border Grid.Row="36" Background="Green" />
+                                    <TextBox Grid.Row="37" />
+                                    <TextBox Grid.Row="38" />
+                                    <TextBox Grid.Row="39" />
+                                    <TextBox Grid.Row="40" />
+                                    <TextBox Grid.Row="41" />
+                                    <TextBox Grid.Row="42" />
+                                    <TextBox Grid.Row="43" />
+                                    <TextBox Grid.Row="44" />
+                                    <TextBox Grid.Row="45" />
+                                    <TextBox Grid.Row="46" />
+                                    <TextBox Grid.Row="47" />
+                                    <TextBox Grid.Row="48" />
+                                    <TextBox Grid.Row="49" />
+                                    <TextBox Grid.Row="50" />
+                                    <TextBox Grid.Row="51" />
+                                    <TextBox Grid.Row="52" />
+                                    <TextBox Grid.Row="53" />
+                                    <TextBox Grid.Row="54" />
+                                    <TextBox Grid.Row="55" />
+                                    <TextBox Grid.Row="56" />
+                                    <Border Grid.Row="57" Background="Green" />
+                                    <TextBox Grid.Row="58" />
+                                    <TextBox Grid.Row="59" />
+                                    <TextBox Grid.Row="60" />
+                                    <TextBox Grid.Row="61" />
+                                    <TextBox Grid.Row="62" />
+                                    <Button
+                                        Grid.Row="63"
+                                        Grid.Column="1"
+                                        Margin="5,0"
+                                        Padding="5"
+                                        Content="Включить" />
+                                </Grid>
+
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <Grid>
+                        <Button
+                            Width="75"
+                            Margin="5"
+                            VerticalAlignment="Top"
+                            Content="+" />
+                    </Grid>
+
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid x:Name="FinalPrice" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Margin="10"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="Green"
+                Text="Статистика расчета" />
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.RowSpan="2"
+                    Margin="10,2"
+                    VerticalAlignment="Top"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Text="Рыночная стоимость объекта оценки:" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="5,5,5,0"
+                    Text="32 000" />
+                <TextBlock
+                    Grid.Column="2"
+                    Margin="5,5,5,0"
+                    Text="1 200 000" />
+
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="5,0"
+                    Text="руб./кв.м." />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="5,0"
+                    Text="всего за объект, руб." />
+            </Grid>
+
+            <WrapPanel Grid.Row="2">
+
+                <TextBlock
+                    Margin="10,5"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Text="Разброс цен" />
+
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="3">
+
+                <TextBlock Margin="10,5" Text="Максимальный разброс цен за кв.м. между объектами и аналогами:" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,5"
+                    Text="3%" />
+
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="4">
+
+                <TextBlock Margin="10,5" Text="Среднее арифметическое значение стоимости:" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,5"
+                    Text="31 000 руб." />
+
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="5">
+                <TextBlock Margin="10,5" Text="Дисперсия" />
+                <TextBlock Margin="10,5" Text="659 395" />
+                <TextBlock Margin="10,5" Text="Стандартное отклонение" />
+                <TextBlock Margin="10,5" Text="812" />
+                <TextBlock Margin="10,5" Text="Коэффициент вариации" />
+                <TextBlock Margin="10,5" Text="3%" />
+            </WrapPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>

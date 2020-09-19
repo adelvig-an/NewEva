@@ -1,0 +1,336 @@
+﻿<UserControl
+    x:Class="NewEva.Ui.ObjectOfEvaluation.Apartment.ApartmentDescriptionUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Apartment"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Visible">
+
+        <Grid Margin="5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <GroupBox Header="Площадь, кв.м.">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Margin="10">
+                        <TextBlock Margin="0,0,0,7" Text="Общя площадь" />
+                        <TextBox />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="10">
+                        <TextBlock Margin="0,0,0,7" Text="С учетом лтних" />
+                        <TextBox />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Margin="10">
+                        <TextBlock Margin="0,0,0,7" Text="Жилая" />
+                        <TextBox />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3" Margin="10">
+                        <TextBlock Margin="0,0,0,7" Text="Кухня" />
+                        <TextBox />
+                    </StackPanel>
+                </Grid>
+
+            </GroupBox>
+
+            <GroupBox
+                Grid.Row="1"
+                VerticalContentAlignment="Center"
+                Header="Описание объекта">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Margin="10,5">
+                        <TextBlock Margin="0,0,0,5" Text="Количество комнат" />
+                        <WrapPanel>
+                            <RadioButton
+                                Margin="5"
+                                Content="Студия"
+                                GroupName="Rooms" />
+                            <RadioButton
+                                Margin="5"
+                                Content="1"
+                                GroupName="Rooms" />
+                            <RadioButton
+                                Margin="5"
+                                Content="2"
+                                GroupName="Rooms" />
+                            <RadioButton
+                                Margin="5"
+                                Content="3"
+                                GroupName="Rooms" />
+                            <RadioButton
+                                Margin="5"
+                                Content="4"
+                                GroupName="Rooms" />
+                            <RadioButton
+                                Margin="5"
+                                Content="5"
+                                GroupName="Rooms" />
+                            <RadioButton
+                                Margin="5"
+                                Content="Многокомнатная"
+                                GroupName="Rooms" />
+                        </WrapPanel>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1" Margin="10,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Margin="0,0,0,7" Text="Высота потолков, м." />
+                        <TextBox Grid.Row="1" />
+                    </Grid>
+
+                    <Grid Grid.Column="2" Margin="10,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Margin="0,0,0,7" Text="Этаж размещения" />
+                        <TextBox Grid.Row="1" />
+                    </Grid>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="2" Header="Перепланировки">
+
+                <StackPanel Margin="10,5">
+
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Orientation="Vertical">
+                            <TextBlock Text="Наличие перепланировок" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,10,0" Text="Не выявлено" />
+                                <ToggleButton
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    IsChecked="True" />
+                                <TextBlock Margin="10,0,0,0" Text="Выявлено" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <TextBlock Text="Возможность узаконивания" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,10,0" Text="Опсутствует" />
+                                <ToggleButton HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <TextBlock Margin="10,0,0,0" Text="Присутствует" />
+                            </StackPanel>
+                        </StackPanel>
+
+                    </Grid>
+
+                    <StackPanel Margin="0,0,0,10" Orientation="Vertical">
+
+                        <CheckBox Margin="0,0,0,2.5" Content="Устройство лоджий и террас на вторых и выше этажах, которые не соответствуют техническим документам" />
+                        <CheckBox Margin="0,0,0,2.5" Content="Изменение общих границ объекта недвижимости" />
+                        <CheckBox Margin="0,0,0,2.5" Content="Перенос подключенных к общедомовой системе горячего водоснабжения радиаторов отопления на площади летних помещений (балкон, лоджия)" />
+                        <CheckBox Margin="0,0,0,2.5" Content="Полный/чатичный демонтаж несущей конструкции здания (за исключением подоконного блока)" />
+                        <CheckBox Content="Перенос газового оборудования за пределы кухни без соответствующего разрешения" />
+
+                    </StackPanel>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Затраты на согласование/восстановление перепланировки" />
+                        <TextBox Grid.Row="1" />
+                        <TextBlock Grid.Row="2" Text="Описание перепланировок" />
+                        <TextBox Grid.Row="3" Height="70" />
+
+                    </Grid>
+
+                </StackPanel>
+
+            </GroupBox>
+
+            <GroupBox Grid.Row="3" Header="Иная информация">
+
+                <Grid Margin="10,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Имущественные права" />
+                    <ComboBox Grid.Row="1" Margin="0,5,0,0" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Margin="0,5,0,0"
+                        Text="Сведения о правообладателях" />
+                    <TextBlock
+                        Grid.Row="3"
+                        Margin="0,5,0,0"
+                        Text="ФИО (1)" />
+                    <TextBox Grid.Row="4" Margin="0,5,0,0" />
+                    <Button
+                        x:Name="bt_Rightholder"
+                        Grid.Row="5"
+                        Margin="0,5,0,0"
+                        Content="Добавить собственника" />
+                    <TextBlock
+                        Grid.Row="6"
+                        Margin="0,5,0,0"
+                        Text="Обременения" />
+                    <ComboBox Grid.Row="7" Margin="0,5,0,0" />
+                    <TextBlock
+                        Grid.Row="8"
+                        Margin="0,5,0,0"
+                        Text="Система коммуникаций" />
+                    <ComboBox Grid.Row="9" Margin="0,5,0,0" />
+
+                    <StackPanel
+                        Grid.Row="10"
+                        Margin="0,10"
+                        Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Подключение коммуникаций" />
+                            <StackPanel Margin="0,10" Orientation="Horizontal">
+                                <RadioButton
+                                    Margin="0,0,10,0"
+                                    Content="Установлено"
+                                    GroupName="ObjectCommunication"
+                                    IsChecked="True" />
+                                <RadioButton
+                                    Margin="0,0,10,0"
+                                    Content="Не установлено"
+                                    GroupName="ObjectCommunication" />
+                                <RadioButton
+                                    Margin="0,0,10,0"
+                                    Content="Частично установлено"
+                                    GroupName="ObjectCommunication" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="50,0" Orientation="Vertical">
+                            <TextBlock Text="Текущее использование" />
+                            <StackPanel Margin="0,10" Orientation="Horizontal">
+                                <RadioButton
+                                    Margin="0,0,10,0"
+                                    Content="Жилая"
+                                    GroupName="ObjectUsage"
+                                    IsChecked="True" />
+                                <RadioButton
+                                    Margin="0,0,10,0"
+                                    Content="Нежилая"
+                                    GroupName="ObjectUsage" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Grid Grid.Row="11">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Вид из окон" />
+                        <ComboBox Grid.Row="1" Margin="0,5,5,5" />
+                        <TextBlock Grid.Column="1" Text="Наличие балконов/лоджий" />
+                        <ComboBox
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,5,5,5" />
+                        <TextBlock Grid.Column="2" Text="Остекление балконов/лоджии" />
+                        <ComboBox
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0,5,5,5" />
+                    </Grid>
+
+                    <Grid Grid.Row="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Качество ремонта" />
+                        <ComboBox
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="0,5,5,5" />
+                        <TextBlock Grid.Column="1" Text="Санузел" />
+                        <ComboBox
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,5,5,5" />
+                    </Grid>
+
+                    <Grid Grid.Row="13">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Источники:" />
+                        <TextBox
+                            Grid.Row="1"
+                            Height="70"
+                            Margin="0,5,0,0" />
+                    </Grid>
+
+                </Grid>
+
+            </GroupBox>
+        </Grid>
+
+    </ScrollViewer>
+</UserControl>

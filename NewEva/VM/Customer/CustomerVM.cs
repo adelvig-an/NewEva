@@ -23,6 +23,8 @@ namespace NewEva.VM.Customer
             CurrentPage = new PrivatePersonListVM();
             OrganizationPage = new RelayCommand(_ => OrganizationCommand());
             PrivatePersonPage = new RelayCommand(_ => PrivatePersonCommand());
+            OrganizationListPage = new RelayCommand(_ => OrganizationListCommand());
+            PrivatePersonListPage = new RelayCommand(_ => PrivatePersonListCommand());
             BackPage = new RelayCommand(_ => BackCommand());
             SaveClosedWindow = new RelayCommand(_ => SaveClosedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
@@ -30,6 +32,8 @@ namespace NewEva.VM.Customer
 
         public ICommand OrganizationPage { get; }
         public ICommand PrivatePersonPage { get; }
+        public ICommand OrganizationListPage { get; }
+        public ICommand PrivatePersonListPage { get; }
         public ICommand BackPage { get; }
         public ICommand SaveClosedWindow { get; }
         public ICommand ClosedWindow { get; }
@@ -40,6 +44,14 @@ namespace NewEva.VM.Customer
         public void PrivatePersonCommand()
         {
             CurrentPage = new PrivatePersonVM();
+        }
+        public void OrganizationListCommand()
+        {
+            CurrentPage = new OrganizationListVM();
+        }
+        public void PrivatePersonListCommand()
+        {
+            CurrentPage = new PrivatePersonListVM();
         }
         public void BackCommand()
         {

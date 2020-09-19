@@ -51,10 +51,7 @@
                     VerticalAlignment="Top"
                     Command="{Binding DataContext.ClosedWindow, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                     Content="Закрыть без сохранения" />
-
             </Grid>
-
-
 
             <Grid Grid.Row="1" Margin="10">
                 <Grid.ColumnDefinitions>
