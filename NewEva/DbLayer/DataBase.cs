@@ -33,9 +33,15 @@ namespace NewEva.DbLayer
         public static void Write(Customers customer) => 
             db.Insert(customer);
 
-        //Метод чтения
+        //Метод чтения одного объекта
         public static T Read<T>(object primaryKey) where T : new() =>
             db.Get<T>(primaryKey);
+
+        //Метод чтения списка
+        public static IEnumerable<T> ReadAll<T>() where T : new() => 
+            db.Table<T>();
+
+
 
         public static string ReadJsonOrNull(object primaryKey)
         {

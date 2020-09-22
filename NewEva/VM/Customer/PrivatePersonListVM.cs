@@ -14,16 +14,11 @@ namespace NewEva.VM.Customer
 
         public PrivatePersonListVM()
         {
-            PrivatePersonList = new ObservableCollection<PrivatePerson>()
+            PrivatePersonList = new ObservableCollection<PrivatePerson>(DataBase.ReadAll<Customers>())
             {
                  
             };
+  
         }
-
-        //public static Customers ReadCustomer()
-        //{
-        //    var customer = select * from Customers;
-        //    return DataBase.Read<Customers>(customer);
-        //}
     }
 }

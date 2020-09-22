@@ -61,6 +61,7 @@
             AutoGenerateColumns="False"
             CanUserAddRows="False"
             CanUserDeleteRows="False"
+            ItemsSource="{Binding PrivatePersonList}"
             SelectionMode="Extended"
             SelectionUnit="FullRow"
             VerticalScrollBarVisibility="Visible">
@@ -72,32 +73,32 @@
                     IsReadOnly="False" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding}"
+                    Binding="{Binding SecondName}"
                     Header="Фамилия"
                     IsReadOnly="False" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding}"
+                    Binding="{Binding FirstName}"
                     Header="Имя"
                     IsReadOnly="False" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding}"
+                    Binding="{Binding MiddleName}"
                     Header="Отчество"
                     IsReadOnly="False" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding}"
+                    Binding="{Binding Type}"
                     Header="Тип документа"
                     IsReadOnly="False" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding}"
+                    Binding="{Binding Serial}"
                     Header="Серия"
                     IsReadOnly="False" />
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding}"
+                    Binding="{Binding Namber}"
                     Header="Номер"
                     IsReadOnly="False" />
             </DataGrid.Columns>
