@@ -141,24 +141,13 @@
                 Margin="5"
                 VerticalAlignment="Center"
                 Text="Тип заказчика" />
-            <WrapPanel Grid.Row="4" Grid.Column="1">
-                <RadioButton
-                    Margin="5"
-                    VerticalAlignment="Center"
-                    Content="Физическое лицо"
-                    IsChecked="{Binding IsPrivatePerson}" />
-                <RadioButton
-                    Margin="5"
-                    VerticalAlignment="Center"
-                    Content="Юридическое лицо"
-                    IsChecked="{Binding IsOrganization}" />
-                <Button
-                    x:Name="Customer"
-                    Margin="5"
-                    Padding="5"
-                    Command="{Binding DataContext.CustomerOpen, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Content="Выбрать заказчика" />
-            </WrapPanel>
+            <Button
+                x:Name="Customer"
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="5"
+                Command="{Binding DataContext.CustomerOpen, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Content="Выбрать заказчика" />
         </Grid>
 
         <StackPanel
@@ -172,9 +161,7 @@
         <Button
             x:Name="bt_Next"
             Grid.Row="4"
-            Width="100"
             Margin="10"
-            Padding="5"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Command="{Binding DataContext.FromReportPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"

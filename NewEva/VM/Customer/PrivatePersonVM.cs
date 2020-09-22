@@ -84,6 +84,7 @@ namespace NewEva.VM.Customer
             {
                 var customer = new Customers
                 {
+                    TypeCustomer = true,
                     SecondName = PrivatePerson.SecondName,
                     FirstName = PrivatePerson.FirstName,
                     MiddleName = PrivatePerson.MiddleName,

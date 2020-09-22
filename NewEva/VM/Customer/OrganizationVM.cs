@@ -1,4 +1,5 @@
-﻿using NewEva.Model;
+﻿using NewEva.DbLayer;
+using NewEva.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -50,7 +51,7 @@ namespace NewEva.VM.Customer
                 FirstName = "Петр",
                 MiddleName = "Петрович",
                 Position = "Генеральный директор",
-                NumderAttorney = "123Д-2019",
+                NumberAttorney = "123Д-2019",
                 DateAttorney = DateTime.Today,
                 DateAttorneyBefore = DateTime.Today
             };
@@ -95,6 +96,61 @@ namespace NewEva.VM.Customer
         {
             get => isTypeAttorney;
             set => SetProperty(ref isTypeAttorney, value);
+        }
+
+        public bool AddOrganization()
+        {
+            try
+            {
+                var customer = new Customers()
+                {
+                    TypeCustomer = false,
+                    TitleFull = Organization.TitleFull,
+                    TitleShort = Organization.TitleShort,
+                    OrganizationForm = Organization.OrganizationForm,
+                    OGRN = Organization.OGRN,
+                    DateRegistration = Organization.DateRegistration,
+                    INN = Organization.INN,
+                    KPP = Organization.KPP,
+                    TitleBank = Organization.TitleBank,
+                    BIK = Organization.BIK,
+                    PayAccount = Organization.PayAccount,
+                    CorrAccount = Organization.CorrAccount,
+                    Position = Director.Position,
+                    SecondName = Director.SecondName,
+                    FirstName = Director.FirstName,
+                    MiddleName = Director.MiddleName,
+                    TypeAttorney = Director.TypeAttorney,
+                    NumberAttorney = Director.NumberAttorney,
+                    DateAttorney = Director.DateAttorney,
+                    DateAttorneyBefore = Director.DateAttorneyBefore,
+                    AddressFullRegistration = Registration.AddressFull,
+                    IndexRegistration = Registration.Index,
+                    CountryRegistration = Registration.Country,
+                    RegionRegistration = Registration.Region,
+                    DistrictRegistration = Registration.District,
+                    CityRegistration = Registration.City,
+                    StreetRegistration = Registration.Street,
+                    HouseRegistration = Registration.House,
+                    RoomRegistration = Registration.Room,
+                    AddressFullActual = Actual.AddressFull,
+                    IndexActual = Actual.Index,
+                    CountryActual = Actual.Country,
+                    RegionActual = Actual.Region,
+                    DistrictActual = Actual.District,
+                    CityActual = Actual.City,
+                    StreetActual = Actual.Street,
+                    HouseActual = Actual.House,
+                    RoomActual = Actual.Room
+                };
+                DataBase.Write(customer);
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

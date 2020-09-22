@@ -9,6 +9,7 @@ namespace NewEva.DbLayer
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        public bool TypeCustomer { get; set; }
         public string SecondName { get; set; } //Фамилия
         public string FirstName { get; set; } //Имя
         public string MiddleName { get; set; } //Отчество
@@ -31,7 +32,7 @@ namespace NewEva.DbLayer
         public int CorrAccount { get; set; } //Корреспондентский счет
         public string Position { get; set; } // Должность руководителя
         public string TypeAttorney { get; set; } //Действующий на основании (Устав, Доверенность, Закон)
-        public string NumderAttorney { get; set; } //Номер доверенности
+        public string NumberAttorney { get; set; } //Номер доверенности
         public DateTime DateAttorney { get; set; } //Дата доверения
         public DateTime DateAttorneyBefore { get; set; } //Дата "действует до"
         public string AddressFullRegistration { get; set; } //Адрес полностью

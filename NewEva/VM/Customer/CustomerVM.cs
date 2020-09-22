@@ -61,17 +61,17 @@ namespace NewEva.VM.Customer
                 CurrentPage = new OrganizationListVM();
         }
 
+        //Команда сохранения данных в БД и закрытия окна
         public void SaveClosedCommand()
         {
             if (CurrentPage is PrivatePersonVM privatePersonVM) 
-            { 
                 privatePersonVM.AddPrivatePerson();
-            }
+            else if (CurrentPage is OrganizationVM organizationVM)
+                organizationVM.AddOrganization();
             this.OnClosingRequest();
         }
 
-
-
+        //Команда закрытия окна
         public void ClosedCommand()
         {
             this.OnClosingRequest();
