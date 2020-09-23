@@ -1,4 +1,5 @@
-﻿using NewEva.VM;
+﻿using NewEva.Model;
+using NewEva.VM;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,40 @@ namespace NewEva.DbLayer
         public static IEnumerable<T> ReadAll<T>() where T : new() => 
             db.Table<T>();
 
-
+        public static PrivatePerson ToPrivatePerson(Customers customers)
+        {
+            return new PrivatePerson
+            {
+                FullName = customers.SecondName + " " + customers.FirstName + " " + customers.MiddleName,
+                SecondName = customers.SecondName,
+                FirstName = customers.FirstName,
+                MiddleName = customers.MiddleName,
+                Type = customers.Type,
+                Serial = customers.Serial,
+                Number = customers.Number,
+                Issued = customers.Issued,
+                Division = customers.Division,
+                DateIssued = customers.DateIssued,
+                //AddressFull = customers.AddressFullRegistration,
+                //Index = customers.IndexRegistration,
+                //Country = customers.CountryRegistration,
+                //Region = customers.RegionRegistration,
+                //District = customers.DistrictRegistration,
+                //City = customers.CityRegistration,
+                //Street = customers.StreetRegistration,
+                //House = customers.HouseRegistration,
+                //Room = customers.RoomRegistration,
+                //AddressFull = customers.AddressFullActual,
+                //Index = customers.IndexActual,
+                //Country = customers.CountryActual,
+                //Region = customers.RegionActual,
+                //District = customers.DistrictActual,
+                //City = customers.CityActual,
+                //Street = customers.StreetActual,
+                //House = customers.HouseActual,
+                //Room = customers.RoomActual
+            };
+        }
 
         public static string ReadJsonOrNull(object primaryKey)
         {
@@ -55,7 +89,7 @@ namespace NewEva.DbLayer
             }
         }
 
-        public static int DalateCustomers<T>(object primaryKey) where T : new() =>
+        public static int DeleteData<T>(object primaryKey) where T : new() =>
             db.Delete<T>(primaryKey);
 
         public static void DeleteTempData() =>

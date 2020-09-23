@@ -68,7 +68,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Width="*"
-                    Binding="{Binding}"
+                    Binding="{Binding FullName}"
                     Header="ФИО"
                     IsReadOnly="False" />
                 <DataGridTextColumn
