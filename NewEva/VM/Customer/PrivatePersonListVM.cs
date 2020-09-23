@@ -11,7 +11,7 @@ namespace NewEva.VM.Customer
 {
     public class PrivatePersonListVM : PageVM
     {
-        public ObservableCollection<PrivatePerson> PrivatePersonList { get; }
+        public ObservableCollection<PrivatePerson> PrivatePersonList { get; set; }
 
         public PrivatePersonListVM()
         {

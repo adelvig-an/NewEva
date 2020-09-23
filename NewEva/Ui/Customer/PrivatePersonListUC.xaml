@@ -52,6 +52,8 @@
             <Button
                 x:Name="bt_Delete"
                 Margin="20,5"
+                Command="{Binding DataContext.DeleteCustomer, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                CommandParameter="{Binding SelectedItems, ElementName=dgPrivatePirsonList}"
                 Content="Удалить" />
         </StackPanel>
 

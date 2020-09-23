@@ -6,6 +6,7 @@ namespace NewEva.Model
 {
     public class Organization
     {
+        public int Id { get; set; }
         public string TitleFull { get; set; } //Полное наименование
         public string TitleShort { get; set; } //Сокращенное наименование
         public string OrganizationForm { get; set; } //Организационно-правовая форма

@@ -1,5 +1,9 @@
-﻿using System;
+﻿using NewEva.DbLayer;
+using NewEva.Model;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
@@ -28,6 +32,7 @@ namespace NewEva.VM.Customer
             BackPage = new RelayCommand(_ => BackCommand());
             SaveClosedWindow = new RelayCommand(_ => SaveClosedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
+            DeleteCustomer = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
         }
 
         public ICommand OrganizationPage { get; }
@@ -37,6 +42,7 @@ namespace NewEva.VM.Customer
         public ICommand BackPage { get; }
         public ICommand SaveClosedWindow { get; }
         public ICommand ClosedWindow { get; }
+        public ICommand DeleteCustomer { get; } //Команда удаления Customer
         public void OrganizationCommand()
         {
             CurrentPage = new OrganizationVM();
@@ -68,13 +74,27 @@ namespace NewEva.VM.Customer
                 privatePersonVM.AddPrivatePerson();
             else if (CurrentPage is OrganizationVM organizationVM)
                 organizationVM.AddOrganization();
-            this.OnClosingRequest();
+            //this.OnClosingRequest();
         }
 
         //Команда закрытия окна
         public void ClosedCommand()
         {
             this.OnClosingRequest();
+        }
+
+        //Метод удаления Customer из списка
+        public void DeleteSelectedCommand(object p)
+        {
+            IList selectedItems = (IList)p;
+            foreach (var customer in selectedItems.OfType<PrivatePerson>().ToArray())
+            {
+                int deleteCustomer = DataBase.DeleteData<Customers>(customer.Id);
+                if (deleteCustomer == 1)
+                {
+                    PrivatePersonList.Remove(customer);
+                }
+            }
         }
     }
 }

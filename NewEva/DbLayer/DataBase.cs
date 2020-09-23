@@ -46,6 +46,7 @@ namespace NewEva.DbLayer
         {
             return new PrivatePerson
             {
+                Id = customers.Id,
                 FullName = customers.SecondName + " " + customers.FirstName + " " + customers.MiddleName,
                 SecondName = customers.SecondName,
                 FirstName = customers.FirstName,
