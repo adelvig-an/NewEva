@@ -1,5 +1,6 @@
 ﻿using NewEva.DbLayer;
 using NewEva.Model;
+using NewEva.VM.Customer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,9 +31,9 @@ namespace NewEva.VM.Customer
             OrganizationListPage = new RelayCommand(_ => OrganizationListCommand());
             PrivatePersonListPage = new RelayCommand(_ => PrivatePersonListCommand());
             BackPage = new RelayCommand(_ => BackCommand());
-            SaveClosedWindow = new RelayCommand(_ => SaveClosedCommand());
+            SaveBackPage = new RelayCommand(_ => SaveBackCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
-            DeleteCustomer = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
+            
         }
 
         public ICommand OrganizationPage { get; }
@@ -40,9 +41,9 @@ namespace NewEva.VM.Customer
         public ICommand OrganizationListPage { get; }
         public ICommand PrivatePersonListPage { get; }
         public ICommand BackPage { get; }
-        public ICommand SaveClosedWindow { get; }
+        public ICommand SaveBackPage { get; }
         public ICommand ClosedWindow { get; }
-        public ICommand DeleteCustomer { get; } //Команда удаления Customer
+        
         public void OrganizationCommand()
         {
             CurrentPage = new OrganizationVM();
@@ -67,14 +68,21 @@ namespace NewEva.VM.Customer
                 CurrentPage = new OrganizationListVM();
         }
 
-        //Команда сохранения данных в БД и закрытия окна
-        public void SaveClosedCommand()
+        //Команда сохранения данных в БД и возвращения к списку
+        public void SaveBackCommand()
         {
-            if (CurrentPage is PrivatePersonVM privatePersonVM) 
+            if (CurrentPage is PrivatePersonVM privatePersonVM)
+            {
                 privatePersonVM.AddPrivatePerson();
+                CurrentPage = new PrivatePersonListVM();
+            }
             else if (CurrentPage is OrganizationVM organizationVM)
+            {
                 organizationVM.AddOrganization();
-            //this.OnClosingRequest();
+                CurrentPage = new OrganizationListVM();
+            }
+
+            //this.OnClosingRequest(); //Закрытие окна
         }
 
         //Команда закрытия окна
@@ -83,18 +91,6 @@ namespace NewEva.VM.Customer
             this.OnClosingRequest();
         }
 
-        //Метод удаления Customer из списка
-        public void DeleteSelectedCommand(object p)
-        {
-            IList selectedItems = (IList)p;
-            foreach (var customer in selectedItems.OfType<PrivatePerson>().ToArray())
-            {
-                int deleteCustomer = DataBase.DeleteData<Customers>(customer.Id);
-                if (deleteCustomer == 1)
-                {
-                    PrivatePersonList.Remove(customer);
-                }
-            }
-        }
+        
     }
 }

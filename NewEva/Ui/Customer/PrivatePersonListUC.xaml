@@ -52,7 +52,7 @@
             <Button
                 x:Name="bt_Delete"
                 Margin="20,5"
-                Command="{Binding DataContext.DeleteCustomer, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Command="{Binding DeleteCustomer}"
                 CommandParameter="{Binding SelectedItems, ElementName=dgPrivatePirsonList}"
                 Content="Удалить" />
         </StackPanel>
@@ -64,6 +64,7 @@
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             ItemsSource="{Binding PrivatePersonList}"
+            SelectedItem="{Binding SelectedPrivatePerson}"
             SelectionMode="Extended"
             SelectionUnit="FullRow"
             VerticalScrollBarVisibility="Visible">

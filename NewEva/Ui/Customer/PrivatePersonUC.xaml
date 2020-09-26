@@ -40,7 +40,7 @@
                     Margin="10"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
-                    Command="{Binding DataContext.SaveClosedWindow, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                    Command="{Binding DataContext.SaveBackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                     Content="Сохранить и закрыть" />
 
                 <Button

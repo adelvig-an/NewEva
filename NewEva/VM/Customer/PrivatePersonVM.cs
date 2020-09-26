@@ -27,7 +27,6 @@ namespace NewEva.VM.Customer
                 OnPropertyChanged(nameof(Actual));
             }
         }
-
         public PrivatePersonVM()
         {
             PrivatePerson = new PrivatePerson()
@@ -41,9 +40,7 @@ namespace NewEva.VM.Customer
                 //Division = "025-046",
                 DateIssued = DateTime.Today
             };
-
             TypeDocs = LocalStorage.TypeDocs;
-
             Registration = new Address()
             {
                 //AddressFull = "662145, Российская Федерация, Смоленская область, Велижский район, г. Велиж, ул. Маяковского, д. 15, кв. 6",
@@ -56,7 +53,6 @@ namespace NewEva.VM.Customer
                 //House = "15",
                 //Room = "6"
             };
-
             Actual = new Address()
             {
                 //AddressFull = "266542, Российская Федерация, Саратовская область, Аркадакский район, г. Аркадак, ул. Горького, д. 8, кв. 16",
@@ -78,7 +74,7 @@ namespace NewEva.VM.Customer
             set => SetProperty(ref isTypeDocs, value);
         }
 
-        public bool AddPrivatePerson()
+        public int AddPrivatePerson()
         {
             try
             {
@@ -114,12 +110,13 @@ namespace NewEva.VM.Customer
                     RoomActual = Actual.Room
                 };
                 DataBase.Write(customer);
-                return true;
+                var newId = customer.Id;
+                return newId;
             }
             catch
             {
 
-                return false;
+                return -1;
             }
         }
     }

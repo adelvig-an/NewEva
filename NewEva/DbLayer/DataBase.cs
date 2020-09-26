@@ -19,6 +19,7 @@ namespace NewEva.DbLayer
             Init();
         }
 
+        //Создание столбцов в БД
         public static void Init()
         {
             db.CreateTable<TempData>();
@@ -26,7 +27,7 @@ namespace NewEva.DbLayer
             db.CreateTable<Customers>();
             db.CreateTable<Reports>();
         }
-
+        //Временное сохранение
         public static void Write(TempData tempData) =>
             db.Insert(tempData);
         
@@ -41,7 +42,7 @@ namespace NewEva.DbLayer
         //Метод чтения списка
         public static IEnumerable<T> ReadAll<T>() where T : new() => 
             db.Table<T>();
-
+        //Преобразование
         public static PrivatePerson ToPrivatePerson(Customers customers)
         {
             return new PrivatePerson
@@ -76,8 +77,9 @@ namespace NewEva.DbLayer
                 //House = customers.HouseActual,
                 //Room = customers.RoomActual
             };
+            
         }
-
+        //Чтение временно сохраненного
         public static string ReadJsonOrNull(object primaryKey)
         {
             try
@@ -89,14 +91,16 @@ namespace NewEva.DbLayer
                 return null;
             }
         }
-
+        //Удаление одного элемента
         public static int DeleteData<T>(object primaryKey) where T : new() =>
             db.Delete<T>(primaryKey);
-
+        //Удаление всх элементов
         public static void DeleteTempData() =>
             db.DeleteAll<TempData>();
 
-
+        //Изменение данных
+        public static int UpdateData(object obj) =>
+            db.Update(obj);
 
     }
 }
