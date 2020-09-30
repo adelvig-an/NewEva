@@ -52,7 +52,7 @@ namespace NewEva.DbLayer
                 SecondName = customers.SecondName,
                 FirstName = customers.FirstName,
                 MiddleName = customers.MiddleName,
-                Type = customers.Type,
+                TypePassport = customers.TypePassport,
                 Serial = customers.Serial,
                 Number = customers.Number,
                 Issued = customers.Issued,

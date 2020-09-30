@@ -42,6 +42,7 @@ namespace NewEva.VM.Customer
         }
 
         
+
         //public void UpdateSelectedCommand(object p)
         //{
         //    IList selectedItems = (IList)p;
@@ -53,17 +54,17 @@ namespace NewEva.VM.Customer
 
         //        PrivatePerson privatePerson = new PrivatePerson()
         //        { 
-                
+
         //        };
 
         //        Address registrationVM = new Address()
         //        {
-                
+
         //        };
 
         //        Address actualVM = new Address()
         //        { 
-                
+
         //        };
         //    }
         //}

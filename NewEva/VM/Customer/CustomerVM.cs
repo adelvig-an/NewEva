@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Input;
 
@@ -73,15 +74,15 @@ namespace NewEva.VM.Customer
         {
             if (CurrentPage is PrivatePersonVM privatePersonVM)
             {
-                privatePersonVM.AddPrivatePerson();
-                CurrentPage = new PrivatePersonListVM();
+                var id = privatePersonVM.AddPrivatePerson();
+                CurrentPage = new PrivatePersonListVM(id);
+
             }
             else if (CurrentPage is OrganizationVM organizationVM)
             {
                 organizationVM.AddOrganization();
                 CurrentPage = new OrganizationListVM();
             }
-
             //this.OnClosingRequest(); //Закрытие окна
         }
 
@@ -91,6 +92,13 @@ namespace NewEva.VM.Customer
             this.OnClosingRequest();
         }
 
-        
+        //public Customers Customers { get; }
+
+        public int UpdateSelectedCommand(Customers customer)
+        {
+            DataBase.UpdateData(customer);
+            return customer.Id;
+        }
+
     }
 }

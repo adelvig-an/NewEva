@@ -8,8 +8,8 @@ namespace NewEva.VM.Customer
 {
     public class PrivatePersonVM : PageVM
     {
-        public PrivatePerson PrivatePerson { get; }
-        public Address Registration { get; }
+        public PrivatePerson PrivatePerson { get; private set; }
+        public Address Registration { get; private set; }
         public Address Actual { get; private set; }
         public IEnumerable<string> TypeDocs { get; }
 
@@ -84,7 +84,7 @@ namespace NewEva.VM.Customer
                     SecondName = PrivatePerson.SecondName,
                     FirstName = PrivatePerson.FirstName,
                     MiddleName = PrivatePerson.MiddleName,
-                    Type = IsTypeDocs,
+                    TypePassport = IsTypeDocs,
                     Serial = PrivatePerson.Serial,
                     Number = PrivatePerson.Number,
                     Issued = PrivatePerson.Issued,
@@ -118,6 +118,48 @@ namespace NewEva.VM.Customer
 
                 return -1;
             }
+        }
+
+        public int UpdatePrivatePerson(Customers customer)
+        {
+            PrivatePerson = new PrivatePerson()
+            {
+                Id = customer.Id,
+                SecondName = customer.SecondName,
+                FirstName = customer.FirstName,
+                MiddleName = customer.MiddleName,
+                TypePassport = customer.TypePassport,
+                Serial = customer.Serial,
+                Number = customer.Number,
+                Issued = customer.Issued,
+                Division = customer.Division,
+                DateIssued = customer.DateIssued
+            };
+            Registration = new Address()
+            {
+                AddressFull = customer.AddressFullRegistration,
+                Index = customer.IndexRegistration,
+                Country = customer.CountryRegistration,
+                Region = customer.RegionRegistration,
+                District = customer.DistrictRegistration,
+                City = customer.CityRegistration,
+                Street = customer.StreetRegistration,
+                House = customer.HouseRegistration,
+                Room = customer.RoomRegistration
+            };
+            Actual = new Address()
+            {
+                AddressFull = customer.AddressFullActual,
+                Index = customer.IndexActual,
+                Country = customer.CountryActual,
+                Region = customer.RegionActual,
+                District = customer.DistrictActual,
+                City = customer.CityActual,
+                Street = customer.StreetActual,
+                House = customer.HouseActual,
+                Room = customer.RoomActual
+            };
+            return customer.Id;
         }
     }
 }
