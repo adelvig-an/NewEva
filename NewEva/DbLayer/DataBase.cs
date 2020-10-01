@@ -42,7 +42,7 @@ namespace NewEva.DbLayer
         //Метод чтения списка
         public static IEnumerable<T> ReadAll<T>() where T : new() => 
             db.Table<T>();
-        //Преобразование
+        //Преобразование Физичекого лица
         public static PrivatePerson ToPrivatePerson(Customers customers)
         {
             return new PrivatePerson
@@ -79,6 +79,25 @@ namespace NewEva.DbLayer
             };
             
         }
+        public static Organization ToOrganization(Customers customers)
+        {
+            return new Organization
+            {
+                Id = customers.Id,
+                TitleFull = customers.TitleFull,
+                TitleShort = customers.TitleShort,
+                OrganizationForm = customers.OrganizationForm,
+                OGRN= customers.OGRN,
+                DateRegistration = customers.DateRegistration,
+                INN = customers.INN,
+                KPP = customers.KPP,
+                TitleBank = customers.TitleBank,
+                BIK = customers.BIK,
+                PayAccount = customers.PayAccount,
+                CorrAccount = customers.CorrAccount
+            };
+        }
+
         //Чтение временно сохраненного
         public static string ReadJsonOrNull(object primaryKey)
         {

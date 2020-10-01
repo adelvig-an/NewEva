@@ -80,8 +80,8 @@ namespace NewEva.VM.Customer
             }
             else if (CurrentPage is OrganizationVM organizationVM)
             {
-                organizationVM.AddOrganization();
-                CurrentPage = new OrganizationListVM();
+                var id = organizationVM.AddOrganization();
+                CurrentPage = new OrganizationListVM(id);
             }
             //this.OnClosingRequest(); //Закрытие окна
         }
@@ -92,12 +92,21 @@ namespace NewEva.VM.Customer
             this.OnClosingRequest();
         }
 
-        //public Customers Customers { get; }
-
-        public int UpdateSelectedCommand(Customers customer)
+        public void UpdateSelectedCommand(Customers customer)
         {
-            DataBase.UpdateData(customer);
-            return customer.Id;
+            if (CurrentPage is PrivatePersonListVM pplVM)
+            {
+                var selectItem = pplVM.SelectedPrivatePerson; //получаем данные выделенного оъбекта
+                customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
+                CurrentPage = new PrivatePersonVM(customer);
+            }      
+            else if (CurrentPage is OrganizationListVM olVM)
+            {
+                //var selectItem = olVM.SelectedPrivatePerson;
+                //customer = DataBase.Read<Customers>(selectItem.Id);
+                CurrentPage = new OrganizationVM(customer);
+            }    
+                
         }
 
     }

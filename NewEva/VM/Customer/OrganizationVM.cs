@@ -8,12 +8,18 @@ namespace NewEva.VM.Customer
 {
     public class OrganizationVM : PageVM
     {
-        public Organization Organization { get; }
-        public Director Director { get; }
-        public Address Registration { get; }
+        public Organization Organization { get; private set; }
+        public Director Director { get; private set; }
+        public Address Registration { get; private set; }
         public Address Actual { get; private set; }
         public IEnumerable<string> TypeAttorney { get; }
         public IEnumerable<string> OrganizationForm { get; }
+
+        /// <summary>
+        /// переменная которая будет явно показывать для чего предназначена PrivatePersonVM
+        /// для редактирования или добавления
+        /// </summary>
+        public bool IsEdit { get; }
 
         private bool isAddressMatch;
         public bool IsAddressMatch
@@ -30,59 +36,32 @@ namespace NewEva.VM.Customer
             }
         }
 
-        public OrganizationVM()
+        public OrganizationVM(Customers customer = null)
         {
-            Organization = new Organization()
+            if (IsEdit == true)
             {
-                TitleFull = "Общество с огараниченной ответственностью \"Рога и Копыта\"",
-                TitleShort = "ООО \"Рога и Копыта\"",
-                OGRN = 123,
-                DateRegistration = DateTime.Today,
-                INN = 123,
-                KPP = 123,
-                TitleBank = "Филиал в г. Владивосток ББР Банк",
-                BIK = 123,
-                PayAccount = 123,
-                CorrAccount = 123
-            };
-            Director = new Director()
-            {
-                SecondName = "Петров",
-                FirstName = "Петр",
-                MiddleName = "Петрович",
-                Position = "Генеральный директор",
-                NumberAttorney = "123Д-2019",
-                DateAttorney = DateTime.Today,
-                DateAttorneyBefore = DateTime.Today
-            };
-            Registration = new Address()
-            {
-                AddressFull = "662145, Российская Федерация, Смоленская область, Велижский район, г. Велиж, ул. Маяковского, д. 15, пом. 6",
-                Index = 662145,
-                Country = "Российская Федерация",
-                Region = "Смоленская область",
-                District = "Велижский район",
-                City = "Велиж",
-                Street = "Маяковского",
-                House = "15",
-                Room = "6"
-            };
 
-            Actual = new Address()
+            }
+            else
             {
-                AddressFull = "266542, Российская Федерация, Саратовская область, Аркадакский район, г. Аркадак, ул. Горького, д. 8, оф. 216",
-                Index = 266542,
-                Country = "Российская Федерация",
-                Region = "Саратовская область",
-                District = "Аркадакский район",
-                City = "Аркадак",
-                Street = "Горького",
-                House = "8",
-                Room = "216"
-            };
+                Organization = new Organization()
+                {
+                    DateRegistration = DateTime.Today,
+                };
+                Director = new Director()
+                {
+                    DateAttorney = DateTime.Today,
+                    DateAttorneyBefore = DateTime.Today
+                };
+                Registration = new Address()
+                { };
 
-            OrganizationForm = LocalStorage.OrganizationForm;
-            TypeAttorney = LocalStorage.TypeAttorney;
+                Actual = new Address()
+                { };
+
+                OrganizationForm = LocalStorage.OrganizationForm;
+                TypeAttorney = LocalStorage.TypeAttorney;
+            }
         }
 
         private string isOrganizationForm;
@@ -98,7 +77,7 @@ namespace NewEva.VM.Customer
             set => SetProperty(ref isTypeAttorney, value);
         }
 
-        public bool AddOrganization()
+        public int AddOrganization()
         {
             try
             {
@@ -144,13 +123,37 @@ namespace NewEva.VM.Customer
                     RoomActual = Actual.Room
                 };
                 DataBase.Write(customer);
-                return true;
+                var newId = customer.Id;
+                return newId;
 
             }
             catch
             {
-                return false;
+                return -1;
             }
+        }
+
+        public int UpdateOrganization(Customers customer)
+        {
+            Organization = new Organization()
+            {
+
+            };
+            Director = new Director()
+            {
+
+            };
+            Registration = new Address()
+            {
+
+            };
+            Actual = new Address()
+            {
+
+            };
+            DataBase.UpdateData(customer);
+            var updateId = customer.Id;
+            return updateId;
         }
     }
 }
