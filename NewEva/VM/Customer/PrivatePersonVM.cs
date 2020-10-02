@@ -12,7 +12,7 @@ namespace NewEva.VM.Customer
         public PrivatePerson PrivatePerson { get; private set; }
         public Address Registration { get; private set; }
         public Address Actual { get; private set; }
-        public IEnumerable<string> TypeDocs { get; }
+        public IEnumerable<string> TypeDocs { get; private set; }
         
         /// <summary>
         /// переменная которая будет явно показывать для чего предназначена PrivatePersonVM
@@ -31,12 +31,18 @@ namespace NewEva.VM.Customer
                 {
                     Actual = Registration;
                 }
+                else
+                    Actual = new Address();
                 OnPropertyChanged(nameof(Actual));
             }
         }
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="customer"></param>
         public PrivatePersonVM(Customers customer = null)
         {
-           if (IsEdit = customer != null)
+           if (IsEdit = customer != null) 
             {
                 PrivatePerson = new PrivatePerson()
                 {
@@ -51,6 +57,8 @@ namespace NewEva.VM.Customer
                     Division = customer.Division,
                     DateIssued = customer.DateIssued
                 };
+                IsTypeDocs = customer.TypePassport;
+                TypeDocs = LocalStorage.TypeDocs;
                 Registration = new Address()
                 {
                     AddressFull = customer.AddressFullRegistration,
@@ -63,6 +71,7 @@ namespace NewEva.VM.Customer
                     House = customer.HouseRegistration,
                     Room = customer.RoomRegistration
                 };
+                IsAddressMatch = customer.AddressMatch;
                 Actual = new Address()
                 {
                     AddressFull = customer.AddressFullActual,
@@ -126,6 +135,7 @@ namespace NewEva.VM.Customer
                     StreetRegistration = Registration.Street,
                     HouseRegistration = Registration.House,
                     RoomRegistration = Registration.Room,
+                    AddressMatch = IsAddressMatch,
                     AddressFullActual = Actual.AddressFull,
                     IndexActual = Actual.Index,
                     CountryActual = Actual.Country,
@@ -146,13 +156,17 @@ namespace NewEva.VM.Customer
                 return -1;
             }
         }
-
+        /// <summary>
+        /// Метод сохрания изменений Физического лица
+        /// </summary>
+        /// <returns></returns>
         public bool UpdatePrivatePerson()
         {
             try
             {
                 var customer = new Customers
                 {
+                    Id = PrivatePerson.Id,
                     TypeCustomer = true,
                     SecondName = PrivatePerson.SecondName,
                     FirstName = PrivatePerson.FirstName,
@@ -172,6 +186,7 @@ namespace NewEva.VM.Customer
                     StreetRegistration = Registration.Street,
                     HouseRegistration = Registration.House,
                     RoomRegistration = Registration.Room,
+                    AddressMatch = IsAddressMatch,
                     AddressFullActual = Actual.AddressFull,
                     IndexActual = Actual.Index,
                     CountryActual = Actual.Country,

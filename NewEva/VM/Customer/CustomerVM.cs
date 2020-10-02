@@ -23,7 +23,6 @@ namespace NewEva.VM.Customer
                 SetProperty(ref currentPage, value);
             }
         }
-
         public CustomerVM()
         {
             CurrentPage = new PrivatePersonListVM();
@@ -35,9 +34,9 @@ namespace NewEva.VM.Customer
             SaveBackPage = new RelayCommand(_ => SaveBackCommand());
             UpdateSelectedPage = new RelayCommand(_ => UpdateSelectedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
-            
         }
 
+        //Команды
         public ICommand OrganizationPage { get; }
         public ICommand PrivatePersonPage { get; }
         public ICommand OrganizationListPage { get; }
@@ -47,6 +46,8 @@ namespace NewEva.VM.Customer
         public ICommand UpdateSelectedPage { get; }
         public ICommand ClosedWindow { get; }
         
+        //Обработчики команд
+
         public void OrganizationCommand()
         {
             CurrentPage = new OrganizationVM();
@@ -71,7 +72,7 @@ namespace NewEva.VM.Customer
                 CurrentPage = new OrganizationListVM();
         }
 
-        //Команда сохранения данных в БД и возвращения к списку
+        //Обработчик команды сохранения данных в БД и возвращения к списку
         public void SaveBackCommand()
         {
             if (CurrentPage is PrivatePersonVM privatePersonVM)
@@ -96,12 +97,13 @@ namespace NewEva.VM.Customer
             //this.OnClosingRequest(); //Закрытие окна
         }
 
-        //Команда закрытия окна
+        //Обработчик команды закрытия окна
         public void ClosedCommand()
         {
             this.OnClosingRequest();
         }
 
+        //Обработчик команды изменения данных в БД
         public void UpdateSelectedCommand()
         {
             if (CurrentPage is PrivatePersonListVM pplVM)
@@ -116,8 +118,6 @@ namespace NewEva.VM.Customer
                 var customer = DataBase.Read<Customers>(selectItem.Id);
                 CurrentPage = new OrganizationVM(customer);
             }    
-                
         }
-
     }
 }

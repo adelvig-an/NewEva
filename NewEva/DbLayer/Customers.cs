@@ -45,6 +45,7 @@ namespace NewEva.DbLayer
         public string HouseRegistration { get; set; } //Номер дома
         public string RoomRegistration { get; set; } //Номер помещения
         public string AddressFullActual { get; set; } //Адрес полностью
+        public bool AddressMatch { get; set; } //Соответствие адреса регистрации и фактического
         public int IndexActual { get; set; } //Индекс
         public string CountryActual { get; set; } //Страна
         public string RegionActual { get; set; } //Субъект (область, край)
