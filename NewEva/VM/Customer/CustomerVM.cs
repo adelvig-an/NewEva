@@ -33,6 +33,7 @@ namespace NewEva.VM.Customer
             PrivatePersonListPage = new RelayCommand(_ => PrivatePersonListCommand());
             BackPage = new RelayCommand(_ => BackCommand());
             SaveBackPage = new RelayCommand(_ => SaveBackCommand());
+            UpdateSelectedPage = new RelayCommand(_ => UpdateSelectedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
             
         }
@@ -43,6 +44,7 @@ namespace NewEva.VM.Customer
         public ICommand PrivatePersonListPage { get; }
         public ICommand BackPage { get; }
         public ICommand SaveBackPage { get; }
+        public ICommand UpdateSelectedPage { get; }
         public ICommand ClosedWindow { get; }
         
         public void OrganizationCommand()
@@ -74,9 +76,17 @@ namespace NewEva.VM.Customer
         {
             if (CurrentPage is PrivatePersonVM privatePersonVM)
             {
-                var id = privatePersonVM.AddPrivatePerson();
-                CurrentPage = new PrivatePersonListVM(id);
-
+                if (privatePersonVM.IsEdit)
+                {
+                    privatePersonVM.UpdatePrivatePerson();
+                    var id = privatePersonVM.PrivatePerson.Id;
+                    CurrentPage = new PrivatePersonListVM(id);
+                }
+                else
+                {
+                    var id = privatePersonVM.AddPrivatePerson();
+                    CurrentPage = new PrivatePersonListVM(id);
+                } 
             }
             else if (CurrentPage is OrganizationVM organizationVM)
             {
@@ -92,18 +102,18 @@ namespace NewEva.VM.Customer
             this.OnClosingRequest();
         }
 
-        public void UpdateSelectedCommand(Customers customer)
+        public void UpdateSelectedCommand()
         {
             if (CurrentPage is PrivatePersonListVM pplVM)
             {
                 var selectItem = pplVM.SelectedPrivatePerson; //получаем данные выделенного оъбекта
-                customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
+                var customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
                 CurrentPage = new PrivatePersonVM(customer);
             }      
             else if (CurrentPage is OrganizationListVM olVM)
             {
-                //var selectItem = olVM.SelectedPrivatePerson;
-                //customer = DataBase.Read<Customers>(selectItem.Id);
+                var selectItem = olVM.SelectedOrganization;
+                var customer = DataBase.Read<Customers>(selectItem.Id);
                 CurrentPage = new OrganizationVM(customer);
             }    
                 

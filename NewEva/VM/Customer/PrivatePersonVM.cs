@@ -3,6 +3,7 @@ using NewEva.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace NewEva.VM.Customer
 {
@@ -35,9 +36,45 @@ namespace NewEva.VM.Customer
         }
         public PrivatePersonVM(Customers customer = null)
         {
-            if (IsEdit == true)
+           if (IsEdit = customer != null)
             {
-                UpdatePrivatePerson(customer);
+                PrivatePerson = new PrivatePerson()
+                {
+                    Id = customer.Id,
+                    SecondName = customer.SecondName,
+                    FirstName = customer.FirstName,
+                    MiddleName = customer.MiddleName,
+                    TypePassport = customer.TypePassport,
+                    Serial = customer.Serial,
+                    Number = customer.Number,
+                    Issued = customer.Issued,
+                    Division = customer.Division,
+                    DateIssued = customer.DateIssued
+                };
+                Registration = new Address()
+                {
+                    AddressFull = customer.AddressFullRegistration,
+                    Index = customer.IndexRegistration,
+                    Country = customer.CountryRegistration,
+                    Region = customer.RegionRegistration,
+                    District = customer.DistrictRegistration,
+                    City = customer.CityRegistration,
+                    Street = customer.StreetRegistration,
+                    House = customer.HouseRegistration,
+                    Room = customer.RoomRegistration
+                };
+                Actual = new Address()
+                {
+                    AddressFull = customer.AddressFullActual,
+                    Index = customer.IndexActual,
+                    Country = customer.CountryActual,
+                    Region = customer.RegionActual,
+                    District = customer.DistrictActual,
+                    City = customer.CityActual,
+                    Street = customer.StreetActual,
+                    House = customer.HouseActual,
+                    Room = customer.RoomActual
+                };
             }
             else
             {
@@ -51,8 +88,7 @@ namespace NewEva.VM.Customer
                 Actual = new Address()
                 { };
             }
-            
-            
+
         }
 
         private string isTypeDocs;
@@ -61,7 +97,10 @@ namespace NewEva.VM.Customer
             get => isTypeDocs;
             set => SetProperty(ref isTypeDocs, value);
         }
-
+        /// <summary>
+        /// Метод сохранения Физического лица
+        /// </summary>
+        /// <returns></returns>
         public int AddPrivatePerson()
         {
             try
@@ -108,48 +147,51 @@ namespace NewEva.VM.Customer
             }
         }
 
-        public int UpdatePrivatePerson(Customers customer)
+        public bool UpdatePrivatePerson()
         {
-            PrivatePerson = new PrivatePerson()
+            try
             {
-                Id = customer.Id,
-                SecondName = customer.SecondName,
-                FirstName = customer.FirstName,
-                MiddleName = customer.MiddleName,
-                TypePassport = customer.TypePassport,
-                Serial = customer.Serial,
-                Number = customer.Number,
-                Issued = customer.Issued,
-                Division = customer.Division,
-                DateIssued = customer.DateIssued
-            };
-            Registration = new Address()
+                var customer = new Customers
+                {
+                    TypeCustomer = true,
+                    SecondName = PrivatePerson.SecondName,
+                    FirstName = PrivatePerson.FirstName,
+                    MiddleName = PrivatePerson.MiddleName,
+                    TypePassport = IsTypeDocs,
+                    Serial = PrivatePerson.Serial,
+                    Number = PrivatePerson.Number,
+                    Issued = PrivatePerson.Issued,
+                    Division = PrivatePerson.Division,
+                    DateIssued = PrivatePerson.DateIssued,
+                    AddressFullRegistration = Registration.AddressFull,
+                    IndexRegistration = Registration.Index,
+                    CountryRegistration = Registration.Country,
+                    RegionRegistration = Registration.Region,
+                    DistrictRegistration = Registration.District,
+                    CityRegistration = Registration.City,
+                    StreetRegistration = Registration.Street,
+                    HouseRegistration = Registration.House,
+                    RoomRegistration = Registration.Room,
+                    AddressFullActual = Actual.AddressFull,
+                    IndexActual = Actual.Index,
+                    CountryActual = Actual.Country,
+                    RegionActual = Actual.Region,
+                    DistrictActual = Actual.District,
+                    CityActual = Actual.City,
+                    StreetActual = Actual.Street,
+                    HouseActual = Actual.House,
+                    RoomActual = Actual.Room
+                };
+                DataBase.UpdateData(customer);
+                return true;
+            }
+            catch
             {
-                AddressFull = customer.AddressFullRegistration,
-                Index = customer.IndexRegistration,
-                Country = customer.CountryRegistration,
-                Region = customer.RegionRegistration,
-                District = customer.DistrictRegistration,
-                City = customer.CityRegistration,
-                Street = customer.StreetRegistration,
-                House = customer.HouseRegistration,
-                Room = customer.RoomRegistration
-            };
-            Actual = new Address()
-            {
-                AddressFull = customer.AddressFullActual,
-                Index = customer.IndexActual,
-                Country = customer.CountryActual,
-                Region = customer.RegionActual,
-                District = customer.DistrictActual,
-                City = customer.CityActual,
-                Street = customer.StreetActual,
-                House = customer.HouseActual,
-                Room = customer.RoomActual
-            };
-            DataBase.UpdateData(customer);
-            var updateId = customer.Id;
-            return updateId;
+
+                return false;
+            }
         }
+
+
     }
 }

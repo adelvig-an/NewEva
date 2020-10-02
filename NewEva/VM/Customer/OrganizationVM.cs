@@ -38,7 +38,7 @@ namespace NewEva.VM.Customer
 
         public OrganizationVM(Customers customer = null)
         {
-            if (IsEdit == true)
+            if (IsEdit = customer != null)
             {
 
             }

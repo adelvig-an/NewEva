@@ -40,34 +40,5 @@ namespace NewEva.VM.Customer
                 }
             }
         }
-
-        
-
-        //public void UpdateSelectedCommand(object p)
-        //{
-        //    IList selectedItems = (IList)p;
-        //    foreach (var customer in selectedItems.OfType<PrivatePerson>().ToArray())
-        //    {
-        //        DataBase.UpdateData(customer);
-
-        //        PrivatePersonVM privatePersonVM = selectedItems as PrivatePersonVM;
-
-        //        PrivatePerson privatePerson = new PrivatePerson()
-        //        { 
-
-        //        };
-
-        //        Address registrationVM = new Address()
-        //        {
-
-        //        };
-
-        //        Address actualVM = new Address()
-        //        { 
-
-        //        };
-        //    }
-        //}
-
     }
 }
