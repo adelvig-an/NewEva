@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 
 namespace NewEva.VM.Customer
@@ -109,8 +110,15 @@ namespace NewEva.VM.Customer
             if (CurrentPage is PrivatePersonListVM pplVM)
             {
                 var selectItem = pplVM.SelectedPrivatePerson; //получаем данные выделенного оъбекта
-                var customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
-                CurrentPage = new PrivatePersonVM(customer);
+                if (selectItem != null)
+                {
+                    var customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
+                    CurrentPage = new PrivatePersonVM(customer);
+                }
+                else
+                    MessageBox.Show("Заказчик не выбран!!!\nВыберите заказчика для редактирования!");
+
+                
             }      
             else if (CurrentPage is OrganizationListVM olVM)
             {

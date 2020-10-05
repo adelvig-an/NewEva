@@ -265,42 +265,15 @@
                     <Grid Grid.Row="4" Margin="10,0">
                         <WrapPanel Margin="10,5">
 
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Стихийная парковка" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Организованная охраняемая парковка" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Подземный паркинг" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Не огорожена" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Огороженная территория" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Огороженная территория и КПП" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Асфальтовое покрытие" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Детская площадка" />
-                            <ToggleButton
-                                Margin="5"
-                                Padding="10"
-                                Content="Огороженная и охраняемая территория" />
+                            <ToggleButton Margin="5" Content="Стихийная парковка" />
+                            <ToggleButton Margin="5" Content="Организованная охраняемая парковка" />
+                            <ToggleButton Margin="5" Content="Подземный паркинг" />
+                            <ToggleButton Margin="5" Content="Не огорожена" />
+                            <ToggleButton Margin="5" Content="Огороженная территория" />
+                            <ToggleButton Margin="5" Content="Огороженная территория и КПП" />
+                            <ToggleButton Margin="5" Content="Асфальтовое покрытие" />
+                            <ToggleButton Margin="5" Content="Детская площадка" />
+                            <ToggleButton Margin="5" Content="Огороженная и охраняемая территория" />
 
                         </WrapPanel>
                     </Grid>

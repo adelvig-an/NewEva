@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Apartment"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -128,26 +129,18 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="0" Orientation="Vertical">
-                            <TextBlock Text="Наличие перепланировок" />
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="Не выявлено" />
-                                <ToggleButton
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    IsChecked="True" />
-                                <TextBlock Margin="10,0,0,0" Text="Выявлено" />
-                            </StackPanel>
-                        </StackPanel>
+                        <mah:ToggleSwitch
+                            Header="Наличие перепланировок"
+                            OffContent="Не выявлено"
+                            OnContent="Выявлено"
+                            Toggled="ToggleSwitch_Toggled" />
 
-                        <StackPanel Grid.Column="1" Orientation="Vertical">
-                            <TextBlock Text="Возможность узаконивания" />
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="Опсутствует" />
-                                <ToggleButton HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                <TextBlock Margin="10,0,0,0" Text="Присутствует" />
-                            </StackPanel>
-                        </StackPanel>
+                        <mah:ToggleSwitch
+                            Grid.Column="1"
+                            Header="Возможность узаконивания"
+                            OffContent="Отсутствует"
+                            OnContent="Присутствует"
+                            Toggled="ToggleSwitch_Toggled" />
 
                     </Grid>
 
