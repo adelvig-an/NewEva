@@ -91,7 +91,6 @@
                     Grid.Column="1"
                     Margin="5"
                     Text="{Binding PrivatePerson.SecondName}" />
-
                 <TextBlock
                     Grid.Row="1"
                     Margin="5"
@@ -230,7 +229,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Registration.Index}" />
+                        Text="{Binding Registration.Index, StringFormat='{}{0:#}'}" />
 
                     <TextBlock
                         Grid.Row="2"
@@ -370,7 +369,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Actual.Index}">
+                        Text="{Binding Actual.Index, StringFormat='{}{0:#}'}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />

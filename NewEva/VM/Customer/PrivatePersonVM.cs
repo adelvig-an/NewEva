@@ -106,6 +106,45 @@ namespace NewEva.VM.Customer
             get => isTypeDocs;
             set => SetProperty(ref isTypeDocs, value);
         }
+
+        public Customers ToCustomers()
+        {
+            var customer = new Customers
+            {
+                Id = PrivatePerson.Id,
+                TypeCustomer = true,
+                SecondName = PrivatePerson.SecondName,
+                FirstName = PrivatePerson.FirstName,
+                MiddleName = PrivatePerson.MiddleName,
+                TypePassport = IsTypeDocs,
+                Serial = PrivatePerson.Serial,
+                Number = PrivatePerson.Number,
+                Issued = PrivatePerson.Issued,
+                Division = PrivatePerson.Division,
+                DateIssued = PrivatePerson.DateIssued,
+                AddressFullRegistration = Registration.AddressFull,
+                IndexRegistration = Registration.Index,
+                CountryRegistration = Registration.Country,
+                RegionRegistration = Registration.Region,
+                DistrictRegistration = Registration.District,
+                CityRegistration = Registration.City,
+                StreetRegistration = Registration.Street,
+                HouseRegistration = Registration.House,
+                RoomRegistration = Registration.Room,
+                AddressMatch = IsAddressMatch,
+                AddressFullActual = Actual.AddressFull,
+                IndexActual = Actual.Index,
+                CountryActual = Actual.Country,
+                RegionActual = Actual.Region,
+                DistrictActual = Actual.District,
+                CityActual = Actual.City,
+                StreetActual = Actual.Street,
+                HouseActual = Actual.House,
+                RoomActual = Actual.Room
+            };
+            return customer;
+        }
+
         /// <summary>
         /// Метод сохранения Физического лица
         /// </summary>
@@ -114,38 +153,7 @@ namespace NewEva.VM.Customer
         {
             try
             {
-                var customer = new Customers
-                {
-                    TypeCustomer = true,
-                    SecondName = PrivatePerson.SecondName,
-                    FirstName = PrivatePerson.FirstName,
-                    MiddleName = PrivatePerson.MiddleName,
-                    TypePassport = IsTypeDocs,
-                    Serial = PrivatePerson.Serial,
-                    Number = PrivatePerson.Number,
-                    Issued = PrivatePerson.Issued,
-                    Division = PrivatePerson.Division,
-                    DateIssued = PrivatePerson.DateIssued,
-                    AddressFullRegistration = Registration.AddressFull,
-                    IndexRegistration = Registration.Index,
-                    CountryRegistration = Registration.Country,
-                    RegionRegistration = Registration.Region,
-                    DistrictRegistration = Registration.District,
-                    CityRegistration = Registration.City,
-                    StreetRegistration = Registration.Street,
-                    HouseRegistration = Registration.House,
-                    RoomRegistration = Registration.Room,
-                    AddressMatch = IsAddressMatch,
-                    AddressFullActual = Actual.AddressFull,
-                    IndexActual = Actual.Index,
-                    CountryActual = Actual.Country,
-                    RegionActual = Actual.Region,
-                    DistrictActual = Actual.District,
-                    CityActual = Actual.City,
-                    StreetActual = Actual.Street,
-                    HouseActual = Actual.House,
-                    RoomActual = Actual.Room
-                };
+                var customer = ToCustomers();
                 DataBase.Write(customer);
                 var newId = customer.Id;
                 return newId;
@@ -164,39 +172,7 @@ namespace NewEva.VM.Customer
         {
             try
             {
-                var customer = new Customers
-                {
-                    Id = PrivatePerson.Id,
-                    TypeCustomer = true,
-                    SecondName = PrivatePerson.SecondName,
-                    FirstName = PrivatePerson.FirstName,
-                    MiddleName = PrivatePerson.MiddleName,
-                    TypePassport = IsTypeDocs,
-                    Serial = PrivatePerson.Serial,
-                    Number = PrivatePerson.Number,
-                    Issued = PrivatePerson.Issued,
-                    Division = PrivatePerson.Division,
-                    DateIssued = PrivatePerson.DateIssued,
-                    AddressFullRegistration = Registration.AddressFull,
-                    IndexRegistration = Registration.Index,
-                    CountryRegistration = Registration.Country,
-                    RegionRegistration = Registration.Region,
-                    DistrictRegistration = Registration.District,
-                    CityRegistration = Registration.City,
-                    StreetRegistration = Registration.Street,
-                    HouseRegistration = Registration.House,
-                    RoomRegistration = Registration.Room,
-                    AddressMatch = IsAddressMatch,
-                    AddressFullActual = Actual.AddressFull,
-                    IndexActual = Actual.Index,
-                    CountryActual = Actual.Country,
-                    RegionActual = Actual.Region,
-                    DistrictActual = Actual.District,
-                    CityActual = Actual.City,
-                    StreetActual = Actual.Street,
-                    HouseActual = Actual.House,
-                    RoomActual = Actual.Room
-                };
+                var customer = ToCustomers();
                 DataBase.UpdateData(customer);
                 return true;
             }

@@ -129,7 +129,12 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <mah:ToggleSwitch
+                        <ToggleSwitch
+                            Header="Наличие перепланировок"
+                            OffContent="Не выявлено"
+                            OnContent="Выявлено" />
+
+                        <!--<mah:ToggleSwitch
                             Header="Наличие перепланировок"
                             OffContent="Не выявлено"
                             OnContent="Выявлено"
@@ -140,7 +145,7 @@
                             Header="Возможность узаконивания"
                             OffContent="Отсутствует"
                             OnContent="Присутствует"
-                            Toggled="ToggleSwitch_Toggled" />
+                            Toggled="ToggleSwitch_Toggled" />-->
 
                     </Grid>
 
