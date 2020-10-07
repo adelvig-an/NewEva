@@ -129,10 +129,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <ToggleSwitch
-                            Header="Наличие перепланировок"
-                            OffContent="Не выявлено"
-                            OnContent="Выявлено" />
+
 
                         <!--<mah:ToggleSwitch
                             Header="Наличие перепланировок"

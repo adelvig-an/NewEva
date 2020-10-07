@@ -89,8 +89,15 @@
                 <TextBox
                     x:Name="tbx_SecondName"
                     Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding PrivatePerson.SecondName}" />
+                    Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="PrivatePerson.SecondName">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <TextBlock
                     Grid.Row="1"
                     Margin="5"
@@ -99,8 +106,15 @@
                     x:Name="tbx_FirstName"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding PrivatePerson.FirstName}" />
+                    Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="PrivatePerson.FirstName">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="2"
@@ -110,8 +124,15 @@
                     x:Name="tbx_MiddleName"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding PrivatePerson.MiddleName}" />
+                    Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="PrivatePerson.MiddleName">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="3"
@@ -143,8 +164,15 @@
                 <TextBox
                     x:Name="tbx_Serial"
                     Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding PrivatePerson.Serial}" />
+                    Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="PrivatePerson.Serial">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <TextBlock
                     Grid.Column="2"
@@ -153,8 +181,15 @@
                 <TextBox
                     x:Name="tbx_Number"
                     Grid.Column="3"
-                    Margin="5"
-                    Text="{Binding PrivatePerson.Number}" />
+                    Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="PrivatePerson.Number">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="1"
@@ -164,8 +199,15 @@
                     x:Name="dp_DateIssued"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="5"
-                    SelectedDate="{Binding PrivatePerson.DateIssued}" />
+                    Margin="5">
+                    <DatePicker.SelectedDate>
+                        <Binding Path="PrivatePerson.DateIssued">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
 
                 <TextBlock
                     Grid.Row="1"
@@ -176,8 +218,15 @@
                     x:Name="tbx_Division"
                     Grid.Row="1"
                     Grid.Column="3"
-                    Margin="5"
-                    Text="{Binding PrivatePerson.Division}" />
+                    Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="PrivatePerson.Division">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
 
                 <TextBlock
                     Grid.Row="2"
@@ -188,8 +237,15 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Grid.ColumnSpan="3"
-                    Margin="5"
-                    Text="{Binding PrivatePerson.Issued}" />
+                    Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="PrivatePerson.Issued">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </Grid>
 
 
