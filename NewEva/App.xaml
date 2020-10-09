@@ -27,7 +27,14 @@
         <Color x:Key="MainTransparentColor">#33C6AC</Color>
         <Color x:Key="MainBorderColor">#C6EAFF</Color>
         <Color x:Key="SecondColor">#00A2FF</Color>
-
+        
+        
+        <!--<Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="Open Sans" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#0d0d0d" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>-->
 
         <!--  Style для всех элементов типа TextBox  -->
         <Style TargetType="{x:Type TextBox}">
@@ -75,6 +82,54 @@
                                             </ColorAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  Style для всех элементов типа Button  -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Open Sans" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="MinWidth" Value="100" />
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Name="Border"
+                            Padding="12,0"
+                            BorderThickness="0"
+                            CornerRadius="4"
+                            TextBlock.Foreground="#f1f1f1">
+                            <Border.Background>
+                                <SolidColorBrush Color="{DynamicResource SecondColor}" />
+                            </Border.Background>
+                            <ContentPresenter
+                                Margin="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.5" />
+                                        <VisualTransition GeneratedDuration="0" To="Pressed" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource MainBorderColor}" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed" />
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                         </Border>

@@ -69,15 +69,9 @@
                 <TextBox
                     x:Name="tbx_SecondName"
                     Grid.Column="1"
-                    Margin="5">
-                    <TextBox.Text>
-                        <Binding Path="PrivatePerson.SecondName">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                    Margin="5"
+                    Text="{Binding PrivatePerson.SecondName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+
                 <TextBlock
                     Grid.Row="1"
                     Margin="5"
@@ -86,15 +80,8 @@
                     x:Name="tbx_FirstName"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="5">
-                    <TextBox.Text>
-                        <Binding Path="PrivatePerson.FirstName">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                    Margin="5"
+                    Text="{Binding PrivatePerson.FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -104,15 +91,9 @@
                     x:Name="tbx_MiddleName"
                     Grid.Row="2"
                     Grid.Column="1"
-                    Margin="5">
-                    <TextBox.Text>
-                        <Binding Path="PrivatePerson.MiddleName">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                    Margin="5"
+                    Text="{Binding PrivatePerson.MiddleName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+
 
                 <TextBlock
                     Grid.Row="3"
@@ -144,15 +125,8 @@
                 <TextBox
                     x:Name="tbx_Serial"
                     Grid.Column="1"
-                    Margin="5">
-                    <TextBox.Text>
-                        <Binding Path="PrivatePerson.Serial">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                    Margin="5"
+                    Text="{Binding PrivatePerson.Serial, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Column="2"
@@ -161,15 +135,8 @@
                 <TextBox
                     x:Name="tbx_Number"
                     Grid.Column="3"
-                    Margin="5">
-                    <TextBox.Text>
-                        <Binding Path="PrivatePerson.Number">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                    Margin="5"
+                    Text="{Binding PrivatePerson.Number, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -179,15 +146,8 @@
                     x:Name="dp_DateIssued"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Margin="5">
-                    <DatePicker.SelectedDate>
-                        <Binding Path="PrivatePerson.DateIssued">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </DatePicker.SelectedDate>
-                </DatePicker>
+                    Margin="5"
+                    SelectedDate="{Binding PrivatePerson.DateIssued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -198,15 +158,8 @@
                     x:Name="tbx_Division"
                     Grid.Row="1"
                     Grid.Column="3"
-                    Margin="5">
-                    <TextBox.Text>
-                        <Binding Path="PrivatePerson.Division">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                    Margin="5"
+                    Text="{Binding PrivatePerson.Division, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -217,15 +170,8 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Grid.ColumnSpan="3"
-                    Margin="5">
-                    <TextBox.Text>
-                        <Binding Path="PrivatePerson.Issued">
-                            <Binding.ValidationRules>
-                                <DataErrorValidationRule />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                    Margin="5"
+                    Text="{Binding PrivatePerson.PrivatePerson.Issued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
 
 

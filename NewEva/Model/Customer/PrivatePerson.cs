@@ -56,7 +56,6 @@ namespace NewEva.Model
             }
         }
 
-
         public int Id { get; set; }
         public string TypePassport { get; set; } //Тип документа подтверждающего личность
         public string Serial { get; set; } //Серия документа
