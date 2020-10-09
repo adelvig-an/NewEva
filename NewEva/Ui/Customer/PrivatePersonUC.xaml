@@ -174,7 +174,6 @@
                     Text="{Binding PrivatePerson.PrivatePerson.Issued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
 
-
             <GroupBox
                 Grid.Row="3"
                 Margin="10,0"
@@ -306,7 +305,8 @@
             <GroupBox
                 Grid.Row="5"
                 Margin="10,0"
-                Header="Фактический адрес">
+                Header="Фактический адрес"
+                IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}">
                 <Grid Margin="10,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="180" />
