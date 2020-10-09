@@ -65,6 +65,6 @@ namespace NewEva.Model
         public string Division { get; set; } //Код подразделения
         public DateTime DateIssued { get; set; } //Дата выдачи
 
-        public string Error => throw new NotImplementedException();
+        public string Error => "";
     }
 }
