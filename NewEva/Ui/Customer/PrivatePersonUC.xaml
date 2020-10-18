@@ -94,7 +94,6 @@
                     Margin="5"
                     Text="{Binding MiddleName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
-
                 <TextBlock
                     Grid.Row="3"
                     Margin="5"

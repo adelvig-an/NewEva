@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace NewEva.VM.Customer
 {
-    public class PrivatePersonVM : ValidationDataVM, IDataErrorInfo
+    public class PrivatePersonVM : PageVM, IDataErrorInfo
     {
         public PrivatePerson PrivatePerson { get; private set; }
         public Address Registration { get; private set; }
@@ -213,13 +213,114 @@ namespace NewEva.VM.Customer
             }
         }
 
-        //Реализация валидации данных
+        #region Реализация валидации данных
         public string Error => "";
         public string this[string columnName]
         {
             get
             {
                 string error = string.Empty;
+                switch(columnName)
+                {
+                    case
+                        "Фамилия":
+                        if (MiddleName == null)
+                        {
+                            error = "Поле \"Фамилия\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Имя":
+                        if (FirstName == null)
+                        {
+                            error = "Поле \"Имя\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Отчество":
+                        if (MiddleName == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Серия":
+                        if (Serial == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Номер":
+                        if (Number == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Кем выдан":
+                        if (Issued == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Код подразделения":
+                        if (Division == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Адрес полностью":
+                        if (AddressFull == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Страна":
+                        if (Country == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Регион":
+                        if (Region == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Район":
+                        if (District == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Город":
+                        if (City == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Дом":
+                        if (House == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                    case
+                        "Комната":
+                        if (Room == null)
+                        {
+                            error = "Поле \"Отчество\": обязательно для заполнения";
+                        }
+                        break;
+                }
                 return error;
             }
         }
@@ -320,28 +421,7 @@ namespace NewEva.VM.Customer
             get => room;
             set => SetProperty(ref room, value);
         }
-        public void Validate()
-        {
-            Errors.Clear();
-            AddErrorIf(SecondName, string.IsNullOrWhiteSpace, "Поле \"Фамилия\": обязательно для заполнения");
-            AddErrorIf(FirstName, string.IsNullOrWhiteSpace, "Поле \"Имя\": обязательно для заполнения");
-            AddErrorIf(MiddleName, string.IsNullOrWhiteSpace, "Поле \"Отчество\": обязательно для заполнения");
-            AddErrorIf(Serial, string.IsNullOrWhiteSpace, "Поле \"Кем выдан\": обязательно для заполнения");
-            AddErrorIf(Number, string.IsNullOrWhiteSpace, "Поле \"Серия\": обязательно для заполнения");
-            AddErrorIf(Issued, string.IsNullOrWhiteSpace, "Поле \"Номер\": обязательно для заполнения");
-            AddErrorIf(Division, string.IsNullOrWhiteSpace, "Поле \"Код подразделения\": обязательно для заполнения");
-            AddErrorIf(AddressFull, string.IsNullOrWhiteSpace, "Поле \"Адрес полностью\": обязательно для заполнения");
-            AddErrorIf(Country, string.IsNullOrWhiteSpace, "Поле \"Страна\": обязательно для заполнения");
-            AddErrorIf(Region, string.IsNullOrWhiteSpace, "Поле \"Субъект\": обязательно для заполнения");
-            AddErrorIf(District, string.IsNullOrWhiteSpace, "Поле \"Район\": обязательно для заполнения");
-            AddErrorIf(City, string.IsNullOrWhiteSpace, "Поле \"Город\": обязательно для заполнения");
-            AddErrorIf(House, string.IsNullOrWhiteSpace, "Поле \"Дом\": обязательно для заполнения");
-            AddErrorIf(Room, string.IsNullOrWhiteSpace, "Поле \"Квартира\": обязательно для заполнения");
-            if (Errors.Count > 0)
-            {
-                IsVisible = true;
-                return;
-            }
-        }
+
+        #endregion Реализация валидации данных
     }
 }
