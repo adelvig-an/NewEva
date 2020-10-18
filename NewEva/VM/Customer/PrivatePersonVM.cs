@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Input;
 
 namespace NewEva.VM.Customer
@@ -195,17 +196,59 @@ namespace NewEva.VM.Customer
             }
         }
 
+        private string secondName;
+        public string SecondName
+        {
+            get => secondName;
+            set => SetProperty(ref secondName, value);
+        }
         private string firstName;
         public string FirstName 
         {
             get => firstName;
             set => SetProperty(ref firstName, value);
         }
+        private string middleName;
+        public string MiddleName
+        {
+            get => middleName;
+            set => SetProperty(ref middleName, value);
+        }
+        private string serial;
+        public string Serial
+        {
+            get => serial;
+            set => SetProperty(ref serial, value);
+        }
+        private string number;
+        public string Number
+        {
+            get => number;
+            set => SetProperty(ref number, value);
+        }
+        private string issued;
+        public string Issued
+        {
+            get => issued;
+            set => SetProperty(ref issued, value);
+        }
+        private string division;
+        public string Division
+        {
+            get => division;
+            set => SetProperty(ref division, value);
+        }
 
         public void Validate()
         {
             Errors.Clear();
-            AddErrorIf(FirstName, string.IsNullOrWhiteSpace, "сообщение об ошибке");
+            AddErrorIf(SecondName, string.IsNullOrWhiteSpace, "Поле \"Фамилия\": обязательно для заполнения");
+            AddErrorIf(FirstName, string.IsNullOrWhiteSpace, "Поле \"Имя\": обязательно для заполнения");
+            AddErrorIf(MiddleName, string.IsNullOrWhiteSpace, "Поле \"Отчество\": обязательно для заполнения");
+            AddErrorIf(Serial, string.IsNullOrWhiteSpace, "Поле \"Кем выдан\": обязательно для заполнения");
+            AddErrorIf(Number, string.IsNullOrWhiteSpace, "Поле \"Серия\": обязательно для заполнения");
+            AddErrorIf(Issued, string.IsNullOrWhiteSpace, "Поле \"Номер\": обязательно для заполнения");
+            AddErrorIf(Division, string.IsNullOrWhiteSpace, "Поле \"Код подразделения\": обязательно для заполнения");
             if (Errors.Count > 0)
             {
                 IsVisible = true;

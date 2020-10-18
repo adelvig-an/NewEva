@@ -80,9 +80,18 @@ namespace NewEva.VM.Customer
             {
                 if (privatePersonVM.IsEdit)
                 {
-                    privatePersonVM.UpdatePrivatePerson();
-                    var id = privatePersonVM.PrivatePerson.Id;
-                    CurrentPage = new PrivatePersonListVM(id);
+                    privatePersonVM.Validate();
+                    if(privatePersonVM.Errors.Count != 0)
+                    {
+                        privatePersonVM.Validate();
+                    }
+                    else
+                    {
+                        privatePersonVM.UpdatePrivatePerson();
+                        var id = privatePersonVM.PrivatePerson.Id;
+                        CurrentPage = new PrivatePersonListVM(id);
+                    }
+                    
                 }
                 else
                 {
