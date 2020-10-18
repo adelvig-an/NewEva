@@ -230,43 +230,43 @@ namespace NewEva.VM.Customer
             get => secondName;
             set => SetProperty(ref secondName, value);
         }
-        private string firstName;
+        private string firstName = "";
         public string FirstName 
         {
             get => firstName;
             set => SetProperty(ref firstName, value);
         }
-        private string middleName;
+        private string middleName = "";
         public string MiddleName
         {
             get => middleName;
             set => SetProperty(ref middleName, value);
         }
-        private string serial;
+        private string serial = "";
         public string Serial
         {
             get => serial;
             set => SetProperty(ref serial, value);
         }
-        private string number;
+        private string number = "";
         public string Number
         {
             get => number;
             set => SetProperty(ref number, value);
         }
-        private string issued;
+        private string issued = "";
         public string Issued
         {
             get => issued;
             set => SetProperty(ref issued, value);
         }
-        private string division;
+        private string division = "";
         public string Division
         {
             get => division;
             set => SetProperty(ref division, value);
         }
-        private string addressFull;
+        private string addressFull = "";
         public string AddressFull
         {
             get => addressFull;
@@ -278,43 +278,43 @@ namespace NewEva.VM.Customer
             get => index;
             set => SetProperty(ref index, value); 
         }
-        private string country;
+        private string country = "";
         public string Country 
         {
             get => country;
             set => SetProperty(ref country, value); 
         }
-        private string region;
+        private string region = "";
         public string Region 
         {
             get => region;
             set => SetProperty(ref region, value); 
         }
-        private string district;
+        private string district = "";
         public string District 
         {
             get => district;
             set => SetProperty(ref district, value);
         }
-        private string city;
+        private string city = "";
         public string City 
         {
             get => city;
             set => SetProperty(ref city, value);
         }
-        private string street;
+        private string street = "";
         public string Street
         {
             get => street;
             set => SetProperty(ref street, value);
         }
-        private string house;
+        private string house = "";
         public string House
         {
             get => house;
             set => SetProperty(ref house, value);
         }
-        private string room;
+        private string room = "";
         public string Room
         {
             get => room;
