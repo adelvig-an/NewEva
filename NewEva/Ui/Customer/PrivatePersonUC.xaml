@@ -146,7 +146,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Margin="5"
-                    SelectedDate="{Binding PrivatePerson.DateIssued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    SelectedDate="{Binding DateIssued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -170,7 +170,7 @@
                     Grid.Column="1"
                     Grid.ColumnSpan="3"
                     Margin="5"
-                    Text="{Binding Issued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding PrivatePerson.Issued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
 
             <GroupBox

@@ -46,7 +46,7 @@ namespace NewEva.VM.Customer
         /// <param name="customer"></param>
         public PrivatePersonVM(Customers customer = null)
         {
-           if (IsEdit = customer != null) 
+            if (IsEdit = customer != null)
             {
                 PrivatePerson = new PrivatePerson()
                 {
@@ -213,118 +213,6 @@ namespace NewEva.VM.Customer
             }
         }
 
-        #region Реализация валидации данных
-        public string Error => "";
-        public string this[string columnName]
-        {
-            get
-            {
-                string error = string.Empty;
-                switch(columnName)
-                {
-                    case
-                        "Фамилия":
-                        if (MiddleName == null)
-                        {
-                            error = "Поле \"Фамилия\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Имя":
-                        if (FirstName == null)
-                        {
-                            error = "Поле \"Имя\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Отчество":
-                        if (MiddleName == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Серия":
-                        if (Serial == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Номер":
-                        if (Number == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Кем выдан":
-                        if (Issued == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Код подразделения":
-                        if (Division == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Адрес полностью":
-                        if (AddressFull == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Страна":
-                        if (Country == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Регион":
-                        if (Region == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Район":
-                        if (District == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Город":
-                        if (City == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Дом":
-                        if (House == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                    case
-                        "Комната":
-                        if (Room == null)
-                        {
-                            error = "Поле \"Отчество\": обязательно для заполнения";
-                        }
-                        break;
-                }
-                return error;
-            }
-        }
-
         private string secondName = "";
         public string SecondName
         {
@@ -332,7 +220,7 @@ namespace NewEva.VM.Customer
             set => SetProperty(ref secondName, value);
         }
         private string firstName = "";
-        public string FirstName 
+        public string FirstName
         {
             get => firstName;
             set => SetProperty(ref firstName, value);
@@ -374,31 +262,31 @@ namespace NewEva.VM.Customer
             set => SetProperty(ref addressFull, value);
         }
         private int index;
-        public int Index 
+        public int Index
         {
             get => index;
-            set => SetProperty(ref index, value); 
+            set => SetProperty(ref index, value);
         }
         private string country = "";
-        public string Country 
+        public string Country
         {
             get => country;
-            set => SetProperty(ref country, value); 
+            set => SetProperty(ref country, value);
         }
         private string region = "";
-        public string Region 
+        public string Region
         {
             get => region;
-            set => SetProperty(ref region, value); 
+            set => SetProperty(ref region, value);
         }
         private string district = "";
-        public string District 
+        public string District
         {
             get => district;
             set => SetProperty(ref district, value);
         }
         private string city = "";
-        public string City 
+        public string City
         {
             get => city;
             set => SetProperty(ref city, value);
@@ -422,6 +310,58 @@ namespace NewEva.VM.Customer
             set => SetProperty(ref room, value);
         }
 
-        #endregion Реализация валидации данных
+        #region IDataErrorInfo
+        string IDataErrorInfo.this[string propertyName]
+        {
+            get
+            {
+                return GetValidationError(propertyName);
+            }
+        }
+        string IDataErrorInfo.Error => null;
+        #endregion
+
+        #region Validation
+        static readonly string[] ValidateProperties =
+        {
+            "SecondName",
+            "FirstName",
+            "MiddleName"
+        };
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (string property in ValidateProperties)
+                    if (GetValidationError(property) != null)
+                        return false;
+
+                return true;
+            }
+        }
+
+        string GetValidationError(string propertyName)
+        {
+            string error = null;
+
+            switch (propertyName)
+            {
+                case "SecondName":
+                    error = ValidateSecondName();
+                    break;
+            }
+
+            return error;
+        }
+        private string ValidateSecondName()
+        {
+            if (String.IsNullOrWhiteSpace(SecondName))
+            {
+                return "Поле \"Фамилия\" не заполненно";
+            }
+            return null;
+        }
+        #endregion
     }
 }
