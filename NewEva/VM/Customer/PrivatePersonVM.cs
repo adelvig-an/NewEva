@@ -106,6 +106,7 @@ namespace NewEva.VM.Customer
                 Registration = new Address()
                 {
                     AddressFull = AddressFull,
+                    Index = Index,
                     Country = Country,
                     Region = Region,
                     District = District,
@@ -117,6 +118,7 @@ namespace NewEva.VM.Customer
                 Actual = new Address()
                 {
                     AddressFull = AddressFull,
+                    Index = Index,
                     Country = Country,
                     Region = Region,
                     District = District,
@@ -328,6 +330,13 @@ namespace NewEva.VM.Customer
             AddErrorIf(Number, string.IsNullOrWhiteSpace, "Поле \"Серия\": обязательно для заполнения");
             AddErrorIf(Issued, string.IsNullOrWhiteSpace, "Поле \"Номер\": обязательно для заполнения");
             AddErrorIf(Division, string.IsNullOrWhiteSpace, "Поле \"Код подразделения\": обязательно для заполнения");
+            AddErrorIf(AddressFull, string.IsNullOrWhiteSpace, "Поле \"Адрес полностью\": обязательно для заполнения");
+            AddErrorIf(Country, string.IsNullOrWhiteSpace, "Поле \"Страна\": обязательно для заполнения");
+            AddErrorIf(Region, string.IsNullOrWhiteSpace, "Поле \"Субъект\": обязательно для заполнения");
+            AddErrorIf(District, string.IsNullOrWhiteSpace, "Поле \"Район\": обязательно для заполнения");
+            AddErrorIf(City, string.IsNullOrWhiteSpace, "Поле \"Город\": обязательно для заполнения");
+            AddErrorIf(House, string.IsNullOrWhiteSpace, "Поле \"Дом\": обязательно для заполнения");
+            AddErrorIf(Room, string.IsNullOrWhiteSpace, "Поле \"Квартира\": обязательно для заполнения");
             if (Errors.Count > 0)
             {
                 IsVisible = true;

@@ -285,7 +285,7 @@
                         Grid.Row="4"
                         Grid.Column="2"
                         Margin="5"
-                        Text="Офис/пом." />
+                        Text="Квартира" />
                     <TextBox
                         x:Name="tbx_RoomRegistration"
                         Grid.Row="4"
@@ -510,7 +510,7 @@
                         Grid.Row="4"
                         Grid.Column="2"
                         Margin="5"
-                        Text="Офис/пом." />
+                        Text="Квартира" />
                     <TextBox
                         x:Name="tbx_RoomActual"
                         Grid.Row="4"
