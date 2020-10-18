@@ -95,6 +95,7 @@ namespace NewEva.VM.Customer
                 var id = organizationVM.AddOrganization();
                 CurrentPage = new OrganizationListVM(id);
             }
+            
             //this.OnClosingRequest(); //Закрытие окна
         }
 

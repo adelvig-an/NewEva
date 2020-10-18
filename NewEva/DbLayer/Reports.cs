@@ -14,7 +14,5 @@ namespace NewEva.DbLayer
         public DateTime DateCompilation { get; set; } //Дата составления
         //[Indexed]
         //public int ContractsId { get; set; }
-        //[Indexed]
-        //public int CustomersId { get; set; }
     }
 }

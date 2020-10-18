@@ -2,12 +2,15 @@
 using NewEva.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
+using System.Windows.Input;
 
 namespace NewEva.VM.Customer
 {
-    public class PrivatePersonVM : PageVM
+    public class PrivatePersonVM : ValidationDataVM, IDataErrorInfo
     {
         public PrivatePerson PrivatePerson { get; private set; }
         public Address Registration { get; private set; }
@@ -97,7 +100,6 @@ namespace NewEva.VM.Customer
                 Actual = new Address()
                 { };
             }
-
         }
 
         private string isTypeDocs;
@@ -183,6 +185,32 @@ namespace NewEva.VM.Customer
             }
         }
 
+        public string Error => "";
+        public string this[string columnName]
+        {
+            get
+            {
+                string error = string.Empty;
+                return error;
+            }
+        }
 
+        private string firstName;
+        public string FirstName 
+        {
+            get => firstName;
+            set => SetProperty(ref firstName, value);
+        }
+
+        public void Validate()
+        {
+            Errors.Clear();
+            AddErrorIf(FirstName, string.IsNullOrWhiteSpace, "сообщение об ошибке");
+            if (Errors.Count > 0)
+            {
+                IsVisible = true;
+                return;
+            }
+        }
     }
 }

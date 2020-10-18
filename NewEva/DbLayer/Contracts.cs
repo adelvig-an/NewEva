@@ -13,5 +13,7 @@ namespace NewEva.DbLayer
         public DateTime DateContract { get; set; } //Дата договора
         public string Target { get; set; } //Цель оценки
         public string TypeCost { get; set; } //Вид стоимости
+        //[Indexed]
+        //public int CustomersId { get; set; }
     }
 }
