@@ -55,7 +55,8 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Command="{Binding ErrorBarClosed}"
-                Content="Скрыть ошибки" />
+                Content="Скрыть ошибки"
+                Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
         </Grid>
 
         <Grid Grid.Row="1">

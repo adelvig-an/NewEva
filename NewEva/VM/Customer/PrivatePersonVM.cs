@@ -93,13 +93,38 @@ namespace NewEva.VM.Customer
             {
                 PrivatePerson = new PrivatePerson()
                 {
-                    DateIssued = DateTime.Today
+                    SecondName = SecondName,
+                    FirstName = FirstName,
+                    MiddleName = MiddleName,
+                    Serial = Serial,
+                    Number = Number,
+                    DateIssued = DateTime.Today,
+                    Issued = Issued,
+                    Division = Division
                 };
                 TypeDocs = LocalStorage.TypeDocs;
                 Registration = new Address()
-                { };
+                {
+                    AddressFull = AddressFull,
+                    Country = Country,
+                    Region = Region,
+                    District = District,
+                    City = City,
+                    Street = Street,
+                    House = House,
+                    Room = Room
+                };
                 Actual = new Address()
-                { };
+                {
+                    AddressFull = AddressFull,
+                    Country = Country,
+                    Region = Region,
+                    District = District,
+                    City = City,
+                    Street = Street,
+                    House = House,
+                    Room = Room
+                };
             }
         }
 
@@ -186,6 +211,7 @@ namespace NewEva.VM.Customer
             }
         }
 
+        //Реализация валидации данных
         public string Error => "";
         public string this[string columnName]
         {
@@ -196,7 +222,7 @@ namespace NewEva.VM.Customer
             }
         }
 
-        private string secondName;
+        private string secondName = "";
         public string SecondName
         {
             get => secondName;
@@ -238,7 +264,60 @@ namespace NewEva.VM.Customer
             get => division;
             set => SetProperty(ref division, value);
         }
-
+        private string addressFull;
+        public string AddressFull
+        {
+            get => addressFull;
+            set => SetProperty(ref addressFull, value);
+        }
+        private int index;
+        public int Index 
+        {
+            get => index;
+            set => SetProperty(ref index, value); 
+        }
+        private string country;
+        public string Country 
+        {
+            get => country;
+            set => SetProperty(ref country, value); 
+        }
+        private string region;
+        public string Region 
+        {
+            get => region;
+            set => SetProperty(ref region, value); 
+        }
+        private string district;
+        public string District 
+        {
+            get => district;
+            set => SetProperty(ref district, value);
+        }
+        private string city;
+        public string City 
+        {
+            get => city;
+            set => SetProperty(ref city, value);
+        }
+        private string street;
+        public string Street
+        {
+            get => street;
+            set => SetProperty(ref street, value);
+        }
+        private string house;
+        public string House
+        {
+            get => house;
+            set => SetProperty(ref house, value);
+        }
+        private string room;
+        public string Room
+        {
+            get => room;
+            set => SetProperty(ref room, value);
+        }
         public void Validate()
         {
             Errors.Clear();

@@ -78,26 +78,28 @@ namespace NewEva.VM.Customer
         {
             if (CurrentPage is PrivatePersonVM privatePersonVM)
             {
-                if (privatePersonVM.IsEdit)
+                privatePersonVM.Validate();
+                if (privatePersonVM.Errors.Count != 0)
                 {
                     privatePersonVM.Validate();
-                    if(privatePersonVM.Errors.Count != 0)
-                    {
-                        privatePersonVM.Validate();
-                    }
-                    else
-                    {
-                        privatePersonVM.UpdatePrivatePerson();
-                        var id = privatePersonVM.PrivatePerson.Id;
-                        CurrentPage = new PrivatePersonListVM(id);
-                    }
-                    
                 }
                 else
                 {
-                    var id = privatePersonVM.AddPrivatePerson();
-                    CurrentPage = new PrivatePersonListVM(id);
-                } 
+                    if (privatePersonVM.IsEdit)
+                    {
+
+                        privatePersonVM.UpdatePrivatePerson();
+                        var id = privatePersonVM.PrivatePerson.Id;
+                        CurrentPage = new PrivatePersonListVM(id);
+
+
+                    }
+                    else
+                    {
+                        var id = privatePersonVM.AddPrivatePerson();
+                        CurrentPage = new PrivatePersonListVM(id);
+                    }
+                }
             }
             else if (CurrentPage is OrganizationVM organizationVM)
             {

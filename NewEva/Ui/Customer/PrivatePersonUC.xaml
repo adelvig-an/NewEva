@@ -70,7 +70,7 @@
                     x:Name="tbx_SecondName"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding PrivatePerson.SecondName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding SecondName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -81,7 +81,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding PrivatePerson.FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -92,7 +92,7 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding PrivatePerson.MiddleName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding MiddleName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
 
                 <TextBlock
@@ -126,7 +126,7 @@
                     x:Name="tbx_Serial"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding PrivatePerson.Serial, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Serial, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Column="2"
@@ -136,7 +136,7 @@
                     x:Name="tbx_Number"
                     Grid.Column="3"
                     Margin="5"
-                    Text="{Binding PrivatePerson.Number, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Number, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -159,7 +159,7 @@
                     Grid.Row="1"
                     Grid.Column="3"
                     Margin="5"
-                    Text="{Binding PrivatePerson.Division, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Division, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -171,7 +171,7 @@
                     Grid.Column="1"
                     Grid.ColumnSpan="3"
                     Margin="5"
-                    Text="{Binding PrivatePerson.PrivatePerson.Issued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Issued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
 
             <GroupBox
@@ -199,7 +199,7 @@
                         Grid.Column="1"
                         Grid.ColumnSpan="4"
                         Margin="5"
-                        Text="{Binding Registration.AddressFull}" />
+                        Text="{Binding AddressFull}" />
 
                     <TextBlock
                         Grid.Row="1"
@@ -210,7 +210,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Registration.Index, StringFormat='{}{0:#}'}" />
+                        Text="{Binding Index, StringFormat='{}{0:#}'}" />
 
                     <TextBlock
                         Grid.Row="2"
@@ -221,7 +221,7 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Registration.Country}" />
+                        Text="{Binding Country}" />
 
                     <TextBlock
                         Grid.Row="3"
@@ -232,7 +232,7 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Registration.Region}" />
+                        Text="{Binding Region}" />
 
                     <TextBlock
                         Grid.Row="4"
@@ -243,7 +243,7 @@
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Registration.District}" />
+                        Text="{Binding District}" />
 
                     <TextBlock
                         Grid.Row="1"
@@ -255,7 +255,7 @@
                         Grid.Row="1"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Registration.City}" />
+                        Text="{Binding City}" />
 
                     <TextBlock
                         Grid.Row="2"
@@ -267,7 +267,7 @@
                         Grid.Row="2"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Registration.Street}" />
+                        Text="{Binding Street}" />
 
                     <TextBlock
                         Grid.Row="3"
@@ -279,7 +279,7 @@
                         Grid.Row="3"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Registration.House}" />
+                        Text="{Binding House}" />
 
                     <TextBlock
                         Grid.Row="4"
@@ -291,7 +291,7 @@
                         Grid.Row="4"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Registration.Room}" />
+                        Text="{Binding Room}" />
                 </Grid>
             </GroupBox>
 
@@ -328,7 +328,7 @@
                         Grid.Column="1"
                         Grid.ColumnSpan="4"
                         Margin="5"
-                        Text="{Binding Actual.AddressFull}">
+                        Text="{Binding AddressFull}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -351,7 +351,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Actual.Index, StringFormat='{}{0:#}'}">
+                        Text="{Binding Index, StringFormat='{}{0:#}'}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -374,7 +374,7 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Actual.Country}">
+                        Text="{Binding Country}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -397,7 +397,7 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Actual.Region}">
+                        Text="{Binding Region}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -420,7 +420,7 @@
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding Actual.District}">
+                        Text="{Binding District}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -444,7 +444,7 @@
                         Grid.Row="1"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Actual.City}">
+                        Text="{Binding City}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -468,7 +468,7 @@
                         Grid.Row="2"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Actual.Street}">
+                        Text="{Binding Street}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -492,7 +492,7 @@
                         Grid.Row="3"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Actual.House}">
+                        Text="{Binding House}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
@@ -516,7 +516,7 @@
                         Grid.Row="4"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding Actual.Room}">
+                        Text="{Binding Room}">
                         <!--<TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Height" Value="24" />
