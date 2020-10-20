@@ -66,7 +66,7 @@ namespace NewEva.VM.Customer
                 Registration = new Address()
                 {
                     AddressFull = customer.AddressFullRegistration,
-                    Index = customer.IndexRegistration,
+                    Index = customer.IndexRegistration.ToString(),
                     Country = customer.CountryRegistration,
                     Region = customer.RegionRegistration,
                     District = customer.DistrictRegistration,
@@ -79,7 +79,7 @@ namespace NewEva.VM.Customer
                 Actual = new Address()
                 {
                     AddressFull = customer.AddressFullActual,
-                    Index = customer.IndexActual,
+                    Index = customer.IndexActual.ToString(),
                     Country = customer.CountryActual,
                     Region = customer.RegionActual,
                     District = customer.DistrictActual,
@@ -105,27 +105,27 @@ namespace NewEva.VM.Customer
                 TypeDocs = LocalStorage.TypeDocs;
                 Registration = new Address()
                 {
-                    AddressFull = AddressFull,
-                    Index = Index,
-                    Country = Country,
-                    Region = Region,
-                    District = District,
-                    City = City,
-                    Street = Street,
-                    House = House,
-                    Room = Room
+                    AddressFull = AddressFullRegistration,
+                    Index = IndexRegistration,
+                    Country = CountryRegistration,
+                    Region = RegionRegistration,
+                    District = DistrictRegistration,
+                    City = CityRegistration,
+                    Street = StreetRegistration,
+                    House = HouseRegistration,
+                    Room = RoomRegistration
                 };
                 Actual = new Address()
                 {
-                    AddressFull = AddressFull,
-                    Index = Index,
-                    Country = Country,
-                    Region = Region,
-                    District = District,
-                    City = City,
-                    Street = Street,
-                    House = House,
-                    Room = Room
+                    AddressFull = AddressFullActual,
+                    Index = IndexActual,
+                    Country = CountryActual,
+                    Region = RegionActual,
+                    District = DistrictActual,
+                    City = CityActual,
+                    Street = StreetActual,
+                    House = HouseActual,
+                    Room = RoomActual
                 };
             }
         }
@@ -143,34 +143,34 @@ namespace NewEva.VM.Customer
             {
                 Id = PrivatePerson.Id,
                 TypeCustomer = true,
-                SecondName = PrivatePerson.SecondName,
-                FirstName = PrivatePerson.FirstName,
-                MiddleName = PrivatePerson.MiddleName,
+                SecondName = SecondName,
+                FirstName = FirstName,
+                MiddleName = MiddleName,
                 TypePassport = IsTypeDocs,
-                Serial = PrivatePerson.Serial,
-                Number = PrivatePerson.Number,
-                Issued = PrivatePerson.Issued,
-                Division = PrivatePerson.Division,
+                Serial = Serial,
+                Number = Number,
+                Issued = Issued,
+                Division = Division,
                 DateIssued = PrivatePerson.DateIssued,
-                AddressFullRegistration = Registration.AddressFull,
-                IndexRegistration = Registration.Index,
-                CountryRegistration = Registration.Country,
-                RegionRegistration = Registration.Region,
-                DistrictRegistration = Registration.District,
-                CityRegistration = Registration.City,
-                StreetRegistration = Registration.Street,
-                HouseRegistration = Registration.House,
-                RoomRegistration = Registration.Room,
+                AddressFullRegistration = AddressFullRegistration,
+                IndexRegistration = int.Parse(IndexRegistration),
+                CountryRegistration = CountryRegistration,
+                RegionRegistration = RegionRegistration,
+                DistrictRegistration = DistrictRegistration,
+                CityRegistration = CityRegistration,
+                StreetRegistration = StreetRegistration,
+                HouseRegistration = HouseRegistration,
+                RoomRegistration = RoomRegistration,
                 AddressMatch = IsAddressMatch,
-                AddressFullActual = Actual.AddressFull,
-                IndexActual = Actual.Index,
-                CountryActual = Actual.Country,
-                RegionActual = Actual.Region,
-                DistrictActual = Actual.District,
-                CityActual = Actual.City,
-                StreetActual = Actual.Street,
-                HouseActual = Actual.House,
-                RoomActual = Actual.Room
+                AddressFullActual = AddressFullActual,
+                IndexActual = int.Parse(IndexActual),
+                CountryActual = CountryActual,
+                RegionActual = RegionActual,
+                DistrictActual = DistrictActual,
+                CityActual = CityActual,
+                StreetActual = StreetActual,
+                HouseActual = HouseActual,
+                RoomActual = RoomActual
             };
             return customer;
         }
@@ -213,155 +213,301 @@ namespace NewEva.VM.Customer
             }
         }
 
-        private string secondName = "";
+        #region Свойства
+        #region Properties PrivatePerson
+        private string secondName;
         public string SecondName
         {
             get => secondName;
             set => SetProperty(ref secondName, value);
         }
-        private string firstName = "";
+        private string firstName;
         public string FirstName
         {
             get => firstName;
             set => SetProperty(ref firstName, value);
         }
-        private string middleName = "";
+        private string middleName;
         public string MiddleName
         {
             get => middleName;
             set => SetProperty(ref middleName, value);
         }
-        private string serial = "";
+        private string serial;
         public string Serial
         {
             get => serial;
             set => SetProperty(ref serial, value);
         }
-        private string number = "";
+        private string number;
         public string Number
         {
             get => number;
             set => SetProperty(ref number, value);
         }
-        private string issued = "";
+        private string issued;
         public string Issued
         {
             get => issued;
             set => SetProperty(ref issued, value);
         }
-        private string division = "";
+        private string division;
         public string Division
         {
             get => division;
             set => SetProperty(ref division, value);
         }
-        private string addressFull = "";
-        public string AddressFull
+        #endregion Properties PreivatePerson
+        #region Properties Address Registration
+        private string addressFullRegistration;
+        public string AddressFullRegistration
         {
-            get => addressFull;
-            set => SetProperty(ref addressFull, value);
+            get => addressFullRegistration;
+            set => SetProperty(ref addressFullRegistration, value);
         }
-        private int index;
-        public int Index
+        private string indexRegistration;
+        public string IndexRegistration
         {
-            get => index;
-            set => SetProperty(ref index, value);
+            get => indexRegistration;
+            set => SetProperty(ref indexRegistration, value);
         }
-        private string country = "";
-        public string Country
+        private string countryRegistration;
+        public string CountryRegistration
         {
-            get => country;
-            set => SetProperty(ref country, value);
+            get => countryRegistration;
+            set => SetProperty(ref countryRegistration, value);
         }
-        private string region = "";
-        public string Region
+        private string regionRegistration;
+        public string RegionRegistration
         {
-            get => region;
-            set => SetProperty(ref region, value);
+            get => regionRegistration;
+            set => SetProperty(ref regionRegistration, value);
         }
-        private string district = "";
-        public string District
+        private string districtRegistration;
+        public string DistrictRegistration
         {
-            get => district;
-            set => SetProperty(ref district, value);
+            get => districtRegistration;
+            set => SetProperty(ref districtRegistration, value);
         }
-        private string city = "";
-        public string City
+        private string cityRegistration;
+        public string CityRegistration
         {
-            get => city;
-            set => SetProperty(ref city, value);
+            get => cityRegistration;
+            set => SetProperty(ref cityRegistration, value);
         }
-        private string street = "";
-        public string Street
+        private string streetRegistration;
+        public string StreetRegistration
         {
-            get => street;
-            set => SetProperty(ref street, value);
+            get => streetRegistration;
+            set => SetProperty(ref streetRegistration, value);
         }
-        private string house = "";
-        public string House
+        private string houseRegistration;
+        public string HouseRegistration
         {
-            get => house;
-            set => SetProperty(ref house, value);
+            get => houseRegistration;
+            set => SetProperty(ref houseRegistration, value);
         }
-        private string room = "";
-        public string Room
+        private string roomRegistration;
+        public string RoomRegistration
         {
-            get => room;
-            set => SetProperty(ref room, value);
+            get => roomRegistration;
+            set => SetProperty(ref roomRegistration, value);
         }
+        #endregion Properties Address Registration
+        #region Properties Address Actual
+        private string addressFullActual;
+        public string AddressFullActual
+        {
+            get => addressFullActual;
+            set => SetProperty(ref addressFullActual, value);
+        }
+        private string indexActual;
+        public string IndexActual
+        {
+            get => indexActual;
+            set => SetProperty(ref indexActual, value);
+        }
+        private string countryActual;
+        public string CountryActual
+        {
+            get => countryActual;
+            set => SetProperty(ref countryActual, value);
+        }
+        private string regionActual;
+        public string RegionActual
+        {
+            get => regionActual;
+            set => SetProperty(ref regionActual, value);
+        }
+        private string districtActual;
+        public string DistrictActual
+        {
+            get => districtActual;
+            set => SetProperty(ref districtActual, value);
+        }
+        private string cityActual;
+        public string CityActual
+        {
+            get => cityActual;
+            set => SetProperty(ref cityActual, value);
+        }
+        private string streetActual;
+        public string StreetActual
+        {
+            get => streetActual;
+            set => SetProperty(ref streetActual, value);
+        }
+        private string houseActual;
+        public string HouseActual
+        {
+            get => houseActual;
+            set => SetProperty(ref houseActual, value);
+        }
+        private string roomActual;
+        public string RoomActual
+        {
+            get => roomActual;
+            set => SetProperty(ref roomActual, value);
+        }
+        #endregion Properties Address Actual
+        #endregion Свойства
 
         #region IDataErrorInfo
-        string IDataErrorInfo.this[string propertyName]
+        public string this[string columnName]
         {
             get
             {
-                return GetValidationError(propertyName);
+                string error = string.Empty;
+                switch (columnName)
+                {
+                    case
+                        "SecondName":
+                        if (SecondName == null)
+                            error = "\"Фамилия\": обязательно для заполнения";
+                        break;
+                    case
+                        "FirstName":
+                        if (FirstName == null)
+                            error = "\"Имя\": обязательно для заполнения";
+                        break;
+                    case
+                        "MiddleName":
+                        if (MiddleName == null)
+                            error = "\"Отчество\": обязательно для заполнения";
+                        break;
+                    case
+                        "Serial":
+                        if (Serial == null)
+                            error = "\"Серия паспорта\": обязательно для заполнения";
+                        else if (Serial.Length != 4)
+                            error = "\"Серия паспорта\": состоит из 4 символов";
+                        break;
+                    case
+                        "Number":
+                        if (Number == null)
+                            error = "\"Номер паспорта\": обязательно для заполнения";
+                        else if (Number.Length != 6)
+                            error = "\"Номер паспорта\": состоит из 6 символов";
+                        break;
+                    case
+                        "Issued":
+                        if (Issued == null)
+                            error = "\"Кем выдан пастпорт\": обязательно для заполнения";
+                        break;
+                    case
+                        "Division":
+                        if (Division == null)
+                            error = "\"Код подразделения\": обязательно для заполнения";
+                        break;
+                    case
+                        "AddressFullRegistration":
+                        if (AddressFullRegistration == null)
+                            error = "\"Адрес регистрации\": обязательно для заполнения";
+                        break;
+                    case "IndexRegistration":
+                        if (IndexRegistration == null)
+                            error = "\"Индекс адреса регистрации\": обязательно для заполнения";
+                        else if (IndexRegistration.Length != 6)
+                            error = "\"Индекс адреса регистрации\": состоит из 6 символов";
+                        break;
+                    case
+                        "CountryRegistration":
+                        if (CountryRegistration == null)
+                            error = "\"Страна адреса регистрации\": обязательно для заполнения";
+                        break;
+                    case
+                        "RegionRegistration":
+                        if (RegionRegistration == null)
+                            error = "\"Субъект адреса регистрации\": обязательно для заполнения";
+                        break;
+                    case
+                        "DistrictRegistration":
+                        if (DistrictRegistration == null)
+                            error = "\"Район адреса регистрации\": обязательно для заполнения";
+                        break;
+                    case
+                        "CityRegistration":
+                        if (CityRegistration == null)
+                            error = "\"Город адреса регистрации\": обязательно для заполнения";
+                        break;
+                    case
+                        "HouseRegistration":
+                        if (HouseRegistration == null)
+                            error = "\"Номер дома адреса регистрации\": обязательно для заполнения";
+                        break;
+                    case
+                        "RoomRegistration":
+                        if (RoomRegistration == null)
+                            error = "\"Номер квартиры адреса регистрации\": обязательно для заполнения";
+                        break;
+                    case
+                        "AddressFullActual":
+                        if (AddressFullActual == null)
+                            error = "\"Адрес фатического проживания\": обязательно для заполнения";
+                        break;
+                    case "IndexActual":
+                        if (IndexActual == null)
+                            error = "\"Индекс фатического проживания\": обязательно для заполнения";
+                        else if (IndexActual.Length != 6)
+                            error = "\"Индекс адреса регистрации\": состоит из 6 символов";
+                        break;
+                    case
+                        "CountryActual":
+                        if (CountryActual == null)
+                            error = "\"Страна фатического проживания\": обязательно для заполнения";
+                        break;
+                    case
+                        "RegionActual":
+                        if (RegionActual == null)
+                            error = "\"Субъект фатического проживания\": обязательно для заполнения";
+                        break;
+                    case
+                        "DistrictActual":
+                        if (DistrictActual == null)
+                            error = "\"Район фатического проживания\": обязательно для заполнения";
+                        break;
+                    case
+                        "CityActual":
+                        if (CityActual == null)
+                            error = "\"Город фатического проживания\": обязательно для заполнения";
+                        break;
+                    case
+                        "HouseActual":
+                        if (HouseActual == null)
+                            error = "\"Номер дома фатического проживания\": обязательно для заполнения";
+                        break;
+                    case
+                        "RoomActual":
+                        if (RoomActual == null)
+                            error = "\"Номер квартиры фатического проживания\": обязательно для заполнения";
+                        break;
+                }
+                return error;
             }
         }
-        string IDataErrorInfo.Error => null;
+        public string Error => "";
         #endregion
 
-        #region Validation
-        static readonly string[] ValidateProperties =
-        {
-            "SecondName",
-            "FirstName",
-            "MiddleName"
-        };
-
-        public bool IsValid
-        {
-            get
-            {
-                foreach (string property in ValidateProperties)
-                    if (GetValidationError(property) != null)
-                        return false;
-
-                return true;
-            }
-        }
-
-        string GetValidationError(string propertyName)
-        {
-            string error = null;
-
-            switch (propertyName)
-            {
-                case "SecondName":
-                    error = ValidateSecondName();
-                    break;
-            }
-
-            return error;
-        }
-        private string ValidateSecondName()
-        {
-            if (String.IsNullOrWhiteSpace(SecondName))
-            {
-                return "Поле \"Фамилия\" не заполненно";
-            }
-            return null;
-        }
-        #endregion
+        
     }
 }

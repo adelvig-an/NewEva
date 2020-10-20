@@ -7,7 +7,7 @@ namespace NewEva.Model
     public class Address
     {
         public string AddressFull { get; set; } //Адрес полностью
-        public int Index { get; set; } //Индекс
+        public string Index { get; set; } //Индекс
         public string Country { get; set; } //Страна
         public string Region { get; set; } //Субъект (область, край)
         public string District { get; set; } //Район
