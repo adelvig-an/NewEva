@@ -70,7 +70,7 @@
                     x:Name="tbx_SecondName"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
