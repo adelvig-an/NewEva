@@ -32,11 +32,9 @@ namespace NewEva.VM.Customer
             {
                 SetProperty(ref isAddressMatch, value);
                 if (value == true)
-                {
-                    Actual = Registration;
-                }
+                    ActualToRegistration();
                 else
-                    Actual = new Address();
+                    ActualToActual();
                 OnPropertyChanged(nameof(Actual));
             }
         }
@@ -212,9 +210,39 @@ namespace NewEva.VM.Customer
                 return false;
             }
         }
+        public void ActualToRegistration()
+        {
+            AddressFullActual = AddressFullRegistration;
+            IndexActual = IndexRegistration;
+            CountryActual = CountryRegistration;
+            RegionActual = RegionRegistration;
+            DistrictActual = DistrictRegistration;
+            CityActual = CityRegistration;
+            StreetActual = StreetRegistration;
+            HouseActual = HouseRegistration;
+            RoomActual = RoomRegistration;
+        }
+        public void ActualToActual()
+        {
+            AddressFullActual = "";
+            IndexActual = "";
+            CountryActual = "";
+            RegionActual = "";
+            DistrictActual = "";
+            CityActual = "";
+            StreetActual = "";
+            HouseActual = "";
+            RoomActual = "";
+        }
 
         #region Свойства
         #region Properties PrivatePerson
+        private int id;
+        public int Id
+        {
+            get => id;
+            set => SetProperty(ref id, value);
+        }
         private string secondName;
         public string SecondName
         {

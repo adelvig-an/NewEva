@@ -77,7 +77,6 @@ namespace NewEva.DbLayer
                 //House = customers.HouseActual,
                 //Room = customers.RoomActual
             };
-            
         }
         public static Organization ToOrganization(Customers customers)
         {

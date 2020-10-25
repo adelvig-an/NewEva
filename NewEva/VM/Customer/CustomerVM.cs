@@ -48,7 +48,6 @@ namespace NewEva.VM.Customer
         public ICommand ClosedWindow { get; }
         
         //Обработчики команд
-
         public void OrganizationCommand()
         {
             CurrentPage = new OrganizationVM();
@@ -110,7 +109,7 @@ namespace NewEva.VM.Customer
         {
             if (CurrentPage is PrivatePersonListVM pplVM)
             {
-                var selectItem = pplVM.SelectedPrivatePerson; //получаем данные выделенного оъбекта
+                var selectItem = pplVM.SelectedPrivatePerson; //получаем данные выделенного объекта
                 if (selectItem != null)
                 {
                     var customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
