@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Windows;
 using System.Windows.Automation;
@@ -11,13 +12,13 @@ using System.Windows.Input;
 
 namespace NewEva.VM.Customer
 {
-    public class PrivatePersonVM : PageVM, IDataErrorInfo
+    public class PrivatePersonVM : PageVM
     {
         public PrivatePerson PrivatePerson { get; private set; }
         public Address Registration { get; private set; }
         public Address Actual { get; private set; }
         public IEnumerable<string> TypeDocs { get; private set; }
-        
+
         /// <summary>
         /// переменная которая будет явно показывать для чего предназначена PrivatePersonVM
         /// для редактирования или добавления
@@ -35,7 +36,6 @@ namespace NewEva.VM.Customer
                     ActualToRegistration();
                 else
                     ActualToActual();
-                OnPropertyChanged(nameof(Actual));
             }
         }
         /// <summary>
@@ -237,13 +237,10 @@ namespace NewEva.VM.Customer
 
         #region Свойства
         #region Properties PrivatePerson
-        private int id;
-        public int Id
-        {
-            get => id;
-            set => SetProperty(ref id, value);
-        }
         private string secondName;
+        [Display(Name = "Second Name")]
+        [Required]
+        [StringLength(20)]
         public string SecondName
         {
             get => secondName;
@@ -262,6 +259,7 @@ namespace NewEva.VM.Customer
             set => SetProperty(ref middleName, value);
         }
         private string serial;
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
         public string Serial
         {
             get => serial;
@@ -406,155 +404,7 @@ namespace NewEva.VM.Customer
         #endregion Properties Address Actual
         #endregion Свойства
 
-        #region IDataErrorInfo
-        public string this[string columnName]
-        {
-            get
-            {
-                string error = string.Empty;
-                switch (columnName)
-                {
-                    case
-                        "SecondName":
-                        if (string.IsNullOrWhiteSpace(SecondName))
-                            error = "\"Фамилия\": обязательно для заполнения";
-                        break;
-                    case
-                        "FirstName":
-                        if (string.IsNullOrWhiteSpace(FirstName))
-                            error = "\"Имя\": обязательно для заполнения";
-                        break;
-                    case
-                        "MiddleName":
-                        if (string.IsNullOrWhiteSpace(MiddleName))
-                            error = "\"Отчество\": обязательно для заполнения";
-                        break;
-                    case
-                        "Serial":
-                        if (string.IsNullOrWhiteSpace(Serial))
-                            error = "\"Серия паспорта\": обязательно для заполнения";
-                        else if (Serial.Length != 4)
-                            error = "\"Серия паспорта\": состоит из 4 символов";
-                        break;
-                    case
-                        "Number":
-                        if (string.IsNullOrWhiteSpace(Number))
-                            error = "\"Номер паспорта\": обязательно для заполнения";
-                        else if (Number.Length != 6)
-                            error = "\"Номер паспорта\": состоит из 6 символов";
-                        break;
-                    case "DateIssued":
-                        if (DateIssued == null)
-                            error = "\"Дата выдачи\": обязательно для заполнения";
-                        break;
-                    case
-                        "Issued":
-                        if (string.IsNullOrWhiteSpace(Issued))
-                            error = "\"Кем выдан пастпорт\": обязательно для заполнения";
-                        break;
-                    case
-                        "Division":
-                        if (string.IsNullOrWhiteSpace(Division))
-                            error = "\"Код подразделения\": обязательно для заполнения";
-                        break;
-                    case
-                        "AddressFullRegistration":
-                        if (string.IsNullOrWhiteSpace(AddressFullRegistration))
-                            error = "\"Адрес регистрации\": обязательно для заполнения";
-                        break;
-                    case "IndexRegistration":
-                        if (string.IsNullOrWhiteSpace(IndexRegistration))
-                            error = "\"Индекс адреса регистрации\": обязательно для заполнения";
-                        else if (IndexRegistration.Length != 6)
-                            error = "\"Индекс адреса регистрации\": состоит из 6 символов";
-                        break;
-                    case
-                        "CountryRegistration":
-                        if (string.IsNullOrWhiteSpace(CountryRegistration))
-                            error = "\"Страна адреса регистрации\": обязательно для заполнения";
-                        break;
-                    case
-                        "RegionRegistration":
-                        if (string.IsNullOrWhiteSpace(RegionRegistration))
-                            error = "\"Субъект адреса регистрации\": обязательно для заполнения";
-                        break;
-                    case
-                        "DistrictRegistration":
-                        if (string.IsNullOrWhiteSpace(DistrictRegistration))
-                            error = "\"Район адреса регистрации\": обязательно для заполнения";
-                        break;
-                    case
-                        "CityRegistration":
-                        if (string.IsNullOrWhiteSpace(CityRegistration))
-                            error = "\"Город адреса регистрации\": обязательно для заполнения";
-                        break;
-                    case
-                        "StreetRegistration":
-                        if (string.IsNullOrWhiteSpace(StreetRegistration))
-                            error = "\"Улица адреса регистрации\": обязательно для заполнения";
-                        break;
-                    case
-                        "HouseRegistration":
-                        if (string.IsNullOrWhiteSpace(HouseRegistration))
-                            error = "\"Номер дома адреса регистрации\": обязательно для заполнения";
-                        break;
-                    case
-                        "RoomRegistration":
-                        if (string.IsNullOrWhiteSpace(RoomRegistration))
-                            error = "\"Номер квартиры адреса регистрации\": обязательно для заполнения";
-                        break;
-                    case
-                        "AddressFullActual":
-                        if (string.IsNullOrWhiteSpace(AddressFullActual))
-                            error = "\"Адрес фатического проживания\": обязательно для заполнения";
-                        break;
-                    case "IndexActual":
-                        if (string.IsNullOrWhiteSpace(IndexActual))
-                            error = "\"Индекс фатического проживания\": обязательно для заполнения";
-                        else if (IndexActual.Length != 6)
-                            error = "\"Индекс адреса регистрации\": состоит из 6 символов";
-                        break;
-                    case
-                        "CountryActual":
-                        if (string.IsNullOrWhiteSpace(CountryActual))
-                            error = "\"Страна фатического проживания\": обязательно для заполнения";
-                        break;
-                    case
-                        "RegionActual":
-                        if (string.IsNullOrWhiteSpace(RegionActual))
-                            error = "\"Субъект фатического проживания\": обязательно для заполнения";
-                        break;
-                    case
-                        "DistrictActual":
-                        if (string.IsNullOrWhiteSpace(DistrictActual))
-                            error = "\"Район фатического проживания\": обязательно для заполнения";
-                        break;
-                    case
-                        "CityActual":
-                        if (string.IsNullOrWhiteSpace(CityActual))
-                            error = "\"Город фатического проживания\": обязательно для заполнения";
-                        break;
-                    case
-                        "StreetActual":
-                        if (string.IsNullOrWhiteSpace(StreetActual))
-                            error = "\"Улица фатического проживания\": обязательно для заполнения";
-                        break;
-                    case
-                        "HouseActual":
-                        if (string.IsNullOrWhiteSpace(HouseActual))
-                            error = "\"Номер дома фатического проживания\": обязательно для заполнения";
-                        break;
-                    case
-                        "RoomActual":
-                        if (string.IsNullOrWhiteSpace(RoomActual))
-                            error = "\"Номер квартиры фатического проживания\": обязательно для заполнения";
-                        break;
-                }
-                return error;
-            }
-        }
-        public string Error => "";
-        #endregion
+
 
         
     }

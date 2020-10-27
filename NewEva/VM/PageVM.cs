@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace NewEva.VM
 {
-    public abstract class PageVM : ViewModelBase
+    public abstract class PageVM : ValidationBase
     {
         //Чтение данных
         public static T Read<T>() where T : PageVM

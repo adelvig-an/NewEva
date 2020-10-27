@@ -70,7 +70,7 @@
                     x:Name="tbx_SecondName"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -81,7 +81,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -92,7 +92,7 @@
                     Grid.Row="2"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding MiddleName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="3"
@@ -125,7 +125,7 @@
                     x:Name="tbx_Serial"
                     Grid.Column="1"
                     Margin="5"
-                    Text="{Binding Serial, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Serial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Column="2"
@@ -135,7 +135,7 @@
                     x:Name="tbx_Number"
                     Grid.Column="3"
                     Margin="5"
-                    Text="{Binding Number, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -146,7 +146,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Margin="5"
-                    SelectedDate="{Binding DateIssued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    SelectedDate="{Binding DateIssued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="1"
@@ -158,7 +158,7 @@
                     Grid.Row="1"
                     Grid.Column="3"
                     Margin="5"
-                    Text="{Binding Division, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Division, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBlock
                     Grid.Row="2"
@@ -170,7 +170,7 @@
                     Grid.Column="1"
                     Grid.ColumnSpan="3"
                     Margin="5"
-                    Text="{Binding Issued, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                    Text="{Binding Issued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
 
             <GroupBox
@@ -198,7 +198,7 @@
                         Grid.Column="1"
                         Grid.ColumnSpan="4"
                         Margin="5"
-                        Text="{Binding AddressFullRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="1"
@@ -209,7 +209,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding IndexRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding IndexRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="2"
@@ -220,7 +220,7 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding CountryRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding CountryRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="3"
@@ -231,7 +231,7 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding RegionRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding RegionRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="4"
@@ -242,7 +242,7 @@
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding DistrictRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding DistrictRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="1"
@@ -254,7 +254,7 @@
                         Grid.Row="1"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding CityRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding CityRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="2"
@@ -266,7 +266,7 @@
                         Grid.Row="2"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding StreetRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding StreetRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="3"
@@ -278,7 +278,7 @@
                         Grid.Row="3"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding HouseRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding HouseRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="4"
@@ -290,7 +290,7 @@
                         Grid.Row="4"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding RoomRegistration, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding RoomRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                 </Grid>
             </GroupBox>
 
@@ -327,7 +327,7 @@
                         Grid.Column="1"
                         Grid.ColumnSpan="4"
                         Margin="5"
-                        Text="{Binding AddressFullActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
 
                     <TextBlock
@@ -339,7 +339,7 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding IndexActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding IndexActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="2"
@@ -350,7 +350,7 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding CountryActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding CountryActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="3"
@@ -361,7 +361,7 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding RegionActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding RegionActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="4"
@@ -372,7 +372,7 @@
                         Grid.Row="4"
                         Grid.Column="1"
                         Margin="5"
-                        Text="{Binding DistrictActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding DistrictActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="1"
@@ -384,7 +384,7 @@
                         Grid.Row="1"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding CityActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding CityActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="2"
@@ -396,7 +396,7 @@
                         Grid.Row="2"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding StreetActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding StreetActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="3"
@@ -408,7 +408,7 @@
                         Grid.Row="3"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding HouseActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding HouseActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBlock
                         Grid.Row="4"
@@ -420,7 +420,7 @@
                         Grid.Row="4"
                         Grid.Column="3"
                         Margin="5"
-                        Text="{Binding RoomActual, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, ValidatesOnNotifyDataErrors=True}" />
+                        Text="{Binding RoomActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                 </Grid>
             </GroupBox>
 
