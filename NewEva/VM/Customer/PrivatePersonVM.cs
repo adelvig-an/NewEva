@@ -261,7 +261,7 @@ namespace NewEva.VM.Customer
             }
         }
         private string middleName;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
+        [Required]
         public string MiddleName
         {
             get => middleName;
@@ -273,7 +273,7 @@ namespace NewEva.VM.Customer
         private string serial;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         [Range(0, int.MaxValue, ErrorMessage = "В серии пасорта только цифры")]
-        [StringLength(4, ErrorMessage = "Должно быть 4 цифры")]
+        [StringLength(4, MinimumLength = 4, ErrorMessage = "Должно быть 4 цифры")]
         public string Serial
         {
             get => serial;
@@ -286,7 +286,7 @@ namespace NewEva.VM.Customer
         private string number;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         [Range(0, int.MaxValue, ErrorMessage = "В номере пасорта только цифры")]
-        [StringLength(6, ErrorMessage = "Должно быть 6 цифр")]
+        [StringLength(6, MinimumLength = 6, ErrorMessage = "Должно быть 6 цифр")]
         public string Number
         {
             get => number;
@@ -340,7 +340,7 @@ namespace NewEva.VM.Customer
         private string indexRegistration;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         [Range(0, int.MaxValue, ErrorMessage = "В индексе адреса только цифры")]
-        [StringLength(6, ErrorMessage = "Должно быть 6 цифр")]
+        [StringLength(6, MinimumLength = 6, ErrorMessage = "Должно быть 6 цифр")]
         public string IndexRegistration
         {
             get => indexRegistration;
@@ -434,7 +434,7 @@ namespace NewEva.VM.Customer
         private string indexActual;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         [Range(0, int.MaxValue, ErrorMessage = "В индексе адреса только цифры")]
-        [StringLength(6, ErrorMessage = "Должно быть 6 цифр")]
+        [StringLength(6, MinimumLength = 6, ErrorMessage = "Должно быть 6 цифр")]
         public string IndexActual
         {
             get => indexActual;

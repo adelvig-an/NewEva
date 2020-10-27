@@ -32,7 +32,7 @@ namespace NewEva.VM.Customer
             OrganizationListPage = new RelayCommand(_ => OrganizationListCommand());
             PrivatePersonListPage = new RelayCommand(_ => PrivatePersonListCommand());
             BackPage = new RelayCommand(_ => BackCommand());
-            SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => !CurrentPage.HasErrors);
+            SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => CurrentPage.IsValid);
             UpdateSelectedPage = new RelayCommand(_ => UpdateSelectedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
         }
@@ -77,6 +77,11 @@ namespace NewEva.VM.Customer
         {
             if (CurrentPage is PrivatePersonVM privatePersonVM)
             {
+                privatePersonVM.Validate();
+                if (!privatePersonVM.IsValid)
+                {
+                    return;
+                }
                 if (privatePersonVM.IsEdit)
                 {
                     privatePersonVM.UpdatePrivatePerson();
@@ -87,7 +92,8 @@ namespace NewEva.VM.Customer
                 {
                     var id = privatePersonVM.AddPrivatePerson();
                     CurrentPage = new PrivatePersonListVM(id);
-                } 
+                }
+
             }
             else if (CurrentPage is OrganizationVM organizationVM)
             {
