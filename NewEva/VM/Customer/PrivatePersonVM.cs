@@ -238,168 +238,280 @@ namespace NewEva.VM.Customer
         #region Свойства
         #region Properties PrivatePerson
         private string secondName;
-        [Display(Name = "Second Name")]
-        [Required]
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         [StringLength(20)]
         public string SecondName
         {
             get => secondName;
-            set => SetProperty(ref secondName, value);
+            set
+            {
+                ValidateProperty(value);
+                SetProperty(ref secondName, value);
+            }
         }
         private string firstName;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
+        [StringLength(20)]
         public string FirstName
         {
             get => firstName;
-            set => SetProperty(ref firstName, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref firstName, value);
+            }
         }
         private string middleName;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string MiddleName
         {
             get => middleName;
-            set => SetProperty(ref middleName, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref middleName, value);
+            }
         }
         private string serial;
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid integer Number")]
+        [Required(ErrorMessage = "Обязательно для заполнения")]
+        [Range(0, int.MaxValue, ErrorMessage = "В серии пасорта только цифры")]
+        [StringLength(4, ErrorMessage = "Должно быть 4 цифры")]
         public string Serial
         {
             get => serial;
-            set => SetProperty(ref serial, value);
+            set
+            {
+                ValidateProperty(value);
+                SetProperty(ref serial, value);
+            }
         }
         private string number;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
+        [Range(0, int.MaxValue, ErrorMessage = "В номере пасорта только цифры")]
+        [StringLength(6, ErrorMessage = "Должно быть 6 цифр")]
         public string Number
         {
             get => number;
-            set => SetProperty(ref number, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref number, value);
+            }
         }
         private DateTime dateIssued = DateTime.Today;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public DateTime DateIssued
         {
             get => dateIssued;
-            set => SetProperty(ref dateIssued, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref dateIssued, value);
+            }
         }
         private string issued;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string Issued
         {
             get => issued;
-            set => SetProperty(ref issued, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref issued, value);
+            }
         }
         private string division;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string Division
         {
             get => division;
-            set => SetProperty(ref division, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref division, value);
+            }
         }
         #endregion Properties PreivatePerson
         #region Properties Address Registration
         private string addressFullRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string AddressFullRegistration
         {
             get => addressFullRegistration;
-            set => SetProperty(ref addressFullRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref addressFullRegistration, value);
+            }
         }
         private string indexRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
+        [Range(0, int.MaxValue, ErrorMessage = "В индексе адреса только цифры")]
+        [StringLength(6, ErrorMessage = "Должно быть 6 цифр")]
         public string IndexRegistration
         {
             get => indexRegistration;
-            set => SetProperty(ref indexRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref indexRegistration, value);
+            }
         }
         private string countryRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CountryRegistration
         {
             get => countryRegistration;
-            set => SetProperty(ref countryRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref countryRegistration, value);
+            }
         }
         private string regionRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RegionRegistration
         {
             get => regionRegistration;
-            set => SetProperty(ref regionRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref regionRegistration, value);
+            }
         }
         private string districtRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string DistrictRegistration
         {
             get => districtRegistration;
-            set => SetProperty(ref districtRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref districtRegistration, value);
+            }
         }
         private string cityRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CityRegistration
         {
             get => cityRegistration;
-            set => SetProperty(ref cityRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref cityRegistration, value);
+            }
         }
         private string streetRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string StreetRegistration
         {
             get => streetRegistration;
-            set => SetProperty(ref streetRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref streetRegistration, value);
+            }
         }
         private string houseRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string HouseRegistration
         {
             get => houseRegistration;
-            set => SetProperty(ref houseRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref houseRegistration, value);
+            }
         }
         private string roomRegistration;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RoomRegistration
         {
             get => roomRegistration;
-            set => SetProperty(ref roomRegistration, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref roomRegistration, value);
+            }
         }
         #endregion Properties Address Registration
         #region Properties Address Actual
         private string addressFullActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string AddressFullActual
         {
             get => addressFullActual;
-            set => SetProperty(ref addressFullActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref addressFullActual, value);
+            }
         }
         private string indexActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
+        [Range(0, int.MaxValue, ErrorMessage = "В индексе адреса только цифры")]
+        [StringLength(6, ErrorMessage = "Должно быть 6 цифр")]
         public string IndexActual
         {
             get => indexActual;
-            set => SetProperty(ref indexActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref indexActual, value);
+            }
         }
         private string countryActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CountryActual
         {
             get => countryActual;
-            set => SetProperty(ref countryActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref countryActual, value);
+            }
         }
         private string regionActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RegionActual
         {
             get => regionActual;
-            set => SetProperty(ref regionActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref regionActual, value);
+            }
         }
         private string districtActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string DistrictActual
         {
             get => districtActual;
-            set => SetProperty(ref districtActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref districtActual, value);
+            }
         }
         private string cityActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CityActual
         {
             get => cityActual;
-            set => SetProperty(ref cityActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref cityActual, value);
+            }
         }
         private string streetActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string StreetActual
         {
             get => streetActual;
-            set => SetProperty(ref streetActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref streetActual, value);
+            }
         }
         private string houseActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string HouseActual
         {
             get => houseActual;
-            set => SetProperty(ref houseActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref houseActual, value);
+            }
         }
         private string roomActual;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RoomActual
         {
             get => roomActual;
-            set => SetProperty(ref roomActual, value);
+            set {
+                ValidateProperty(value);
+                SetProperty(ref roomActual, value);
+            }
         }
         #endregion Properties Address Actual
         #endregion Свойства

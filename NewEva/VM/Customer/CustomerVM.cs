@@ -32,7 +32,7 @@ namespace NewEva.VM.Customer
             OrganizationListPage = new RelayCommand(_ => OrganizationListCommand());
             PrivatePersonListPage = new RelayCommand(_ => PrivatePersonListCommand());
             BackPage = new RelayCommand(_ => BackCommand());
-            SaveBackPage = new RelayCommand(_ => SaveBackCommand());
+            SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => !CurrentPage.HasErrors);
             UpdateSelectedPage = new RelayCommand(_ => UpdateSelectedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
         }
