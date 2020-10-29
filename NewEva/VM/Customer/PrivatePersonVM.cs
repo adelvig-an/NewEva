@@ -46,85 +46,48 @@ namespace NewEva.VM.Customer
         {
             if (IsEdit = customer != null) // если редактировать
             {
+                SecondName = customer.SecondName;
+                FirstName = customer.FirstName;
+                MiddleName = customer.MiddleName;
+                Serial = customer.Serial;
+                Number = customer.Number;
+                Issued = customer.Issued;
+                Division = customer.Division;
+                DateIssued = customer.DateIssued;
+                
                 PrivatePerson = new PrivatePerson()
                 {
                     Id = customer.Id,
-                    SecondName = SecondName = customer.SecondName,
-                    FirstName = FirstName = customer.FirstName,
-                    MiddleName = MiddleName = customer.MiddleName,
-                    TypePassport = customer.TypePassport,
-                    Serial = Serial = customer.Serial,
-                    Number = Number = customer.Number,
-                    Issued = Issued = customer.Issued,
-                    Division = Division = customer.Division,
-                    DateIssued = DateIssued = customer.DateIssued
                 };
                 IsTypeDocs = customer.TypePassport;
                 TypeDocs = LocalStorage.TypeDocs;
-                Registration = new Address()
-                {
-                    AddressFull = AddressFullRegistration = customer.AddressFullRegistration,
-                    Index = customer.IndexRegistration.ToString(),
-                    Country = IndexRegistration = customer.CountryRegistration,
-                    Region = RegionRegistration = customer.RegionRegistration,
-                    District = DistrictRegistration = customer.DistrictRegistration,
-                    City = CityRegistration = customer.CityRegistration,
-                    Street = StreetRegistration = customer.StreetRegistration,
-                    House = HouseRegistration = customer.HouseRegistration,
-                    Room = RoomRegistration = customer.RoomRegistration
-                };
+
+                AddressFullRegistration = customer.AddressFullRegistration;
+                IndexRegistration = customer.IndexRegistration.ToString();
+                CountryRegistration = customer.CountryRegistration;
+                RegionRegistration = customer.RegionRegistration;
+                DistrictRegistration = customer.DistrictRegistration;
+                CityRegistration = customer.CityRegistration;
+                StreetRegistration = customer.StreetRegistration;
+                HouseRegistration = customer.HouseRegistration;
+                RoomRegistration = customer.RoomRegistration;
+                
                 IsAddressMatch = customer.AddressMatch;
-                Actual = new Address()
-                {
-                    AddressFull = AddressFullActual = customer.AddressFullActual,
-                    Index = IndexActual = customer.IndexActual.ToString(),
-                    Country = CountryActual = customer.CountryActual,
-                    Region = RegionActual = customer.RegionActual,
-                    District = DistrictActual = customer.DistrictActual,
-                    City = CityActual = customer.CityActual,
-                    Street = StreetActual = customer.StreetActual,
-                    House = HouseActual = customer.HouseActual,
-                    Room = RoomActual = customer.RoomActual
-                };
+
+                AddressFullActual = customer.AddressFullActual;
+                IndexActual = customer.IndexActual.ToString();
+                CountryActual = customer.CountryActual;
+                RegionActual = customer.RegionActual;
+                DistrictActual = customer.DistrictActual;
+                CityActual = customer.CityActual;
+                StreetActual = customer.StreetActual;
+                HouseActual = customer.HouseActual;
+                RoomActual = customer.RoomActual;
+                
             }
             else //новая страница
             {
-                PrivatePerson = new PrivatePerson()
-                {
-                    SecondName = SecondName,
-                    FirstName = FirstName,
-                    MiddleName = MiddleName,
-                    Serial = Serial,
-                    Number = Number,
-                    DateIssued = DateIssued,
-                    Issued = Issued,
-                    Division = Division
-                };
                 TypeDocs = LocalStorage.TypeDocs;
-                Registration = new Address()
-                {
-                    AddressFull = AddressFullRegistration,
-                    Index = IndexRegistration,
-                    Country = CountryRegistration,
-                    Region = RegionRegistration,
-                    District = DistrictRegistration,
-                    City = CityRegistration,
-                    Street = StreetRegistration,
-                    House = HouseRegistration,
-                    Room = RoomRegistration
-                };
-                Actual = new Address()
-                {
-                    AddressFull = AddressFullActual,
-                    Index = IndexActual,
-                    Country = CountryActual,
-                    Region = RegionActual,
-                    District = DistrictActual,
-                    City = CityActual,
-                    Street = StreetActual,
-                    House = HouseActual,
-                    Room = RoomActual
-                };
             }
         }
 
@@ -150,7 +113,7 @@ namespace NewEva.VM.Customer
                 Number = Number,
                 Issued = Issued,
                 Division = Division,
-                DateIssued = PrivatePerson.DateIssued,
+                DateIssued = DateIssued,
                 AddressFullRegistration = AddressFullRegistration,
                 IndexRegistration = int.Parse(IndexRegistration),
                 CountryRegistration = CountryRegistration,
