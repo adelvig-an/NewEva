@@ -44,50 +44,50 @@ namespace NewEva.VM.Customer
         /// <param name="customer"></param>
         public PrivatePersonVM(Customers customer = null)
         {
-            if (IsEdit = customer != null)
+            if (IsEdit = customer != null) // если редактировать
             {
                 PrivatePerson = new PrivatePerson()
                 {
                     Id = customer.Id,
-                    SecondName = customer.SecondName,
-                    FirstName = customer.FirstName,
-                    MiddleName = customer.MiddleName,
+                    SecondName = SecondName = customer.SecondName,
+                    FirstName = FirstName = customer.FirstName,
+                    MiddleName = MiddleName = customer.MiddleName,
                     TypePassport = customer.TypePassport,
-                    Serial = customer.Serial,
-                    Number = customer.Number,
-                    Issued = customer.Issued,
-                    Division = customer.Division,
-                    DateIssued = customer.DateIssued
+                    Serial = Serial = customer.Serial,
+                    Number = Number = customer.Number,
+                    Issued = Issued = customer.Issued,
+                    Division = Division = customer.Division,
+                    DateIssued = DateIssued = customer.DateIssued
                 };
                 IsTypeDocs = customer.TypePassport;
                 TypeDocs = LocalStorage.TypeDocs;
                 Registration = new Address()
                 {
-                    AddressFull = customer.AddressFullRegistration,
+                    AddressFull = AddressFullRegistration = customer.AddressFullRegistration,
                     Index = customer.IndexRegistration.ToString(),
-                    Country = customer.CountryRegistration,
-                    Region = customer.RegionRegistration,
-                    District = customer.DistrictRegistration,
-                    City = customer.CityRegistration,
-                    Street = customer.StreetRegistration,
-                    House = customer.HouseRegistration,
-                    Room = customer.RoomRegistration
+                    Country = IndexRegistration = customer.CountryRegistration,
+                    Region = RegionRegistration = customer.RegionRegistration,
+                    District = DistrictRegistration = customer.DistrictRegistration,
+                    City = CityRegistration = customer.CityRegistration,
+                    Street = StreetRegistration = customer.StreetRegistration,
+                    House = HouseRegistration = customer.HouseRegistration,
+                    Room = RoomRegistration = customer.RoomRegistration
                 };
                 IsAddressMatch = customer.AddressMatch;
                 Actual = new Address()
                 {
-                    AddressFull = customer.AddressFullActual,
-                    Index = customer.IndexActual.ToString(),
-                    Country = customer.CountryActual,
-                    Region = customer.RegionActual,
-                    District = customer.DistrictActual,
-                    City = customer.CityActual,
-                    Street = customer.StreetActual,
-                    House = customer.HouseActual,
-                    Room = customer.RoomActual
+                    AddressFull = AddressFullActual = customer.AddressFullActual,
+                    Index = IndexActual = customer.IndexActual.ToString(),
+                    Country = CountryActual = customer.CountryActual,
+                    Region = RegionActual = customer.RegionActual,
+                    District = DistrictActual = customer.DistrictActual,
+                    City = CityActual = customer.CityActual,
+                    Street = StreetActual = customer.StreetActual,
+                    House = HouseActual = customer.HouseActual,
+                    Room = RoomActual = customer.RoomActual
                 };
             }
-            else
+            else //новая страница
             {
                 PrivatePerson = new PrivatePerson()
                 {
@@ -135,6 +135,7 @@ namespace NewEva.VM.Customer
             set => SetProperty(ref isTypeDocs, value);
         }
 
+        //Для сохранения в базу данных
         public Customers ToCustomers()
         {
             var customer = new Customers
