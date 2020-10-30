@@ -6,15 +6,12 @@
     xmlns:local="clr-namespace:NewEva"
     ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
-        <conv:InverseBooleanConverter x:Key="InverseBooleanConverter" />
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Style/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <conv:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </ResourceDictionary>
-
-
     </Application.Resources>
 </Application>
