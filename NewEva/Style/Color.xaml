@@ -7,6 +7,7 @@
 
     <Color x:Key="TextColor">#0d0d0d</Color>
     <Color x:Key="ContentColor">#f2f2f2</Color>
+    <Color x:Key="DisebleContentColor">#3f3f3f</Color>
 
     <Color x:Key="ControlLightColor">#F2F2F2</Color>
     <Color x:Key="ControlMediumColor">#41b5f9</Color>
@@ -17,6 +18,7 @@
 
     <!--  Border colors  -->
     <Color x:Key="BorderLightColor">#8d8d8d</Color>
+    <Color x:Key="BorderMediumColor">#41b5f9</Color>
     <Color x:Key="BorderDarkColor">#12a2f8</Color>
 
     <Color x:Key="ErrorValidBorderColor">#bf2233</Color>
