@@ -5,8 +5,8 @@
 
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary x:Name="Fonts" Source="Fonts.xaml" />
-            <ResourceDictionary x:Name="Color" Source="Color.xaml" />
+            <ResourceDictionary Source="Fonts.xaml" />
+            <ResourceDictionary Source="Color.xaml" />
         </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 
@@ -20,7 +20,6 @@
         <Setter Property="MinHeight" Value="38" />
         <Setter Property="AllowDrop" Value="true" />
         <Setter Property="FontFamily" Value="{DynamicResource FontsFamilyControl}" />
-        <Setter Property="Background" Value="{DynamicResource ControlLightColor}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
@@ -30,6 +29,9 @@
                         Padding="8,0"
                         BorderThickness="1"
                         CornerRadius="0">
+                        <Border.Background>
+                            <SolidColorBrush Color="{DynamicResource ControlLightColor}" />
+                        </Border.Background>
                         <Border.BorderBrush>
                             <SolidColorBrush Color="{DynamicResource BorderLightColor}" />
                         </Border.BorderBrush>
