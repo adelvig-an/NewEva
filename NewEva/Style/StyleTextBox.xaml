@@ -3,12 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:NewEva.Style">
 
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="Fonts.xaml" />
-            <ResourceDictionary Source="Color.xaml" />
-        </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Fonts.xaml" />
+        <ResourceDictionary Source="Color.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
 
     <!--  Base Style TextBox  -->
     <Style TargetType="{x:Type TextBox}">
@@ -20,6 +20,8 @@
         <Setter Property="MinHeight" Value="38" />
         <Setter Property="AllowDrop" Value="true" />
         <Setter Property="FontFamily" Value="{DynamicResource FontsFamilyControl}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeContent}" />
+        <Setter Property="Foreground" Value="#0d0d0d" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
@@ -41,6 +43,9 @@
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{StaticResource DisabledBorderColor}" />
+                                        </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="0" Value="{StaticResource DisabledControlColor}" />
                                         </ColorAnimationUsingKeyFrames>
@@ -48,6 +53,9 @@
                                 </VisualState>
                                 <VisualState x:Name="ReadOnly">
                                     <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{StaticResource DisabledBorderColor}" />
+                                        </ColorAnimationUsingKeyFrames>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="0" Value="{StaticResource DisabledControlColor}" />
                                         </ColorAnimationUsingKeyFrames>
@@ -67,12 +75,53 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DockPanel>
+                        <Grid
+                            Width="24"
+                            Height="24"
+                            Margin="-39,0,0,0"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Right">
+                            <Ellipse
+                                Width="24"
+                                Height="24"
+                                Fill="#bf2233" />
+                            <Rectangle
+                                Width="2"
+                                Height="8"
+                                Margin="0,6,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                Fill="#f2f2f2" />
+                            <Rectangle
+                                Width="2"
+                                Height="2"
+                                Margin="0,0,0,6"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Fill="#f2f2f2" />
+                        </Grid>
+                        <Border
+                            BorderBrush="#bf2233"
+                            BorderThickness="1"
+                            CornerRadius="0">
+                            <AdornedElementPlaceholder />
+                        </Border>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--  Special Style TextBox  -->
-    <Style
-        x:Key="ColculateTextBox"
-        BasedOn="{StaticResource TextBox}"
-        TargetType="{x:Type TextBox}" />
+
 
 </ResourceDictionary>
