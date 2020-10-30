@@ -1,0 +1,12 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:NewEva.Style">
+
+    <FontFamily x:Key="FontsFamilySymbolTheme">DIN Pro</FontFamily>
+    <FontFamily x:Key="FontsFamilyButton">DIN Pro Medium</FontFamily>
+    <FontFamily x:Key="FontsFamilyControl">DIN Pro Medium</FontFamily>
+
+
+
+</ResourceDictionary>

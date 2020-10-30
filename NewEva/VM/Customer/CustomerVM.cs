@@ -85,7 +85,7 @@ namespace NewEva.VM.Customer
                 if (privatePersonVM.IsEdit)
                 {
                     privatePersonVM.UpdatePrivatePerson();
-                    var id = privatePersonVM.PrivatePerson.Id;
+                    var id = privatePersonVM.Id;
                     CurrentPage = new PrivatePersonListVM(id);
                 }
                 else

@@ -8,67 +8,13 @@
     <Application.Resources>
         <conv:InverseBooleanConverter x:Key="InverseBooleanConverter" />
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Style/StyleTextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
 
-        <!--  Base Style  -->
-
-        <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="FontFamily" Value="DIN Pro" />
-            <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="FontSize" Value="12" />
-        </Style>
-
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="FontFamily" Value="DIN Pro" />
-            <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="FontSize" Value="12" />
-            <Setter Property="Padding" Value="8,0" />
-            <Setter Property="MinHeight" Value="24" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Validation.ErrorTemplate">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <DockPanel>
-                            <Grid
-                                Width="16"
-                                Height="16"
-                                Margin="-27,0,0,0"
-                                VerticalAlignment="Center"
-                                DockPanel.Dock="Right">
-                                <Ellipse
-                                    Width="16"
-                                    Height="16"
-                                    Fill="Red" />
-                                <Ellipse
-                                    Width="3"
-                                    Height="8"
-                                    Margin="0,2,0,0"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Top"
-                                    Fill="White" />
-                                <Ellipse
-                                    Width="2"
-                                    Height="2"
-                                    Margin="0,0,0,2"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Bottom"
-                                    Fill="White" />
-                            </Grid>
-                            <Border
-                                BorderBrush="Red"
-                                BorderThickness="2"
-                                CornerRadius="0">
-                                <AdornedElementPlaceholder />
-                            </Border>
-                        </DockPanel>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
 
     </Application.Resources>
 </Application>

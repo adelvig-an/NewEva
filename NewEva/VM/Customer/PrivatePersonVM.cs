@@ -14,9 +14,6 @@ namespace NewEva.VM.Customer
 {
     public class PrivatePersonVM : PageVM
     {
-        public PrivatePerson PrivatePerson { get; private set; }
-        public Address Registration { get; private set; }
-        public Address Actual { get; private set; }
         public IEnumerable<string> TypeDocs { get; private set; }
 
         /// <summary>
@@ -46,6 +43,7 @@ namespace NewEva.VM.Customer
         {
             if (IsEdit = customer != null) // если редактировать
             {
+                Id = customer.Id;
                 SecondName = customer.SecondName;
                 FirstName = customer.FirstName;
                 MiddleName = customer.MiddleName;
@@ -55,12 +53,7 @@ namespace NewEva.VM.Customer
                 Division = customer.Division;
                 DateIssued = customer.DateIssued;
                 
-                PrivatePerson = new PrivatePerson()
-                {
-                    Id = customer.Id,
-                };
                 IsTypeDocs = customer.TypePassport;
-                TypeDocs = LocalStorage.TypeDocs;
 
                 AddressFullRegistration = customer.AddressFullRegistration;
                 IndexRegistration = customer.IndexRegistration.ToString();
@@ -85,10 +78,8 @@ namespace NewEva.VM.Customer
                 RoomActual = customer.RoomActual;
                 
             }
-            else //новая страница
-            {
-                TypeDocs = LocalStorage.TypeDocs;
-            }
+            
+            TypeDocs = LocalStorage.TypeDocs;
         }
 
         private string isTypeDocs;
@@ -103,7 +94,7 @@ namespace NewEva.VM.Customer
         {
             var customer = new Customers
             {
-                Id = PrivatePerson.Id,
+                Id = Id,
                 TypeCustomer = true,
                 SecondName = SecondName,
                 FirstName = FirstName,
@@ -201,6 +192,7 @@ namespace NewEva.VM.Customer
 
         #region Свойства
         #region Properties PrivatePerson
+        public int Id { get; set; }
         private string secondName;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         [StringLength(20)]
