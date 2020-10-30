@@ -11,7 +11,7 @@
         
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Style/StyleTextBox.xaml" />
+                <ResourceDictionary Source="/Style/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
