@@ -14,7 +14,7 @@
     <System:Double x:Key="FontSizeContent">14</System:Double>
     <System:Double x:Key="FontSizeButtonFlat">14</System:Double>
     <System:Double x:Key="FontSizeTabItem">26.67</System:Double>
-    <System:Double x:Key="FontSizeButton">10</System:Double>
+    <System:Double x:Key="FontSizeButton">14</System:Double>
     <System:Double x:Key="FontSizeFloatingWatermark">10</System:Double>
     <System:Double x:Key="FontSizeButton.ClearText">16</System:Double>
     <System:Double x:Key="FontSizeTooltip">12</System:Double>

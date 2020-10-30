@@ -16,6 +16,8 @@
     <Color x:Key="DisabledControlColor">#a4a4a4</Color>
     <Color x:Key="ErrorControlColor">#bf2233</Color>
 
+    <Color x:Key="SelectedBackgroundColor">#e7f6fe</Color>
+
     <!--  Border colors  -->
     <Color x:Key="BorderLightColor">#8d8d8d</Color>
     <Color x:Key="BorderMediumColor">#41b5f9</Color>
@@ -26,5 +28,6 @@
 
     <Color x:Key="DisabledBorderColor">#3f3f3f</Color>
 
+    <Color x:Key="GlyphColor">#8d8d8d</Color>
 
 </ResourceDictionary>
