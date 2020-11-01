@@ -2,13 +2,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:NewEva.Converters"
-    xmlns:local="clr-namespace:NewEva.Style"
     xmlns:wpf="clr-namespace:NewEva.StyleHelper">
 
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Fonts.xaml" />
-        <ResourceDictionary Source="Color.xaml" />
+        <ResourceDictionary Source="StyleValidationErrorTemplate.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -19,7 +17,7 @@
     <converters:FloatingHintOffsetCalculationConverter x:Key="FloatingHintOffsetCalculationConverter" />
 
     <!--  Base Style TextBox  -->
-    <Style x:Key="MaterialDesignTextBoxBase" TargetType="{x:Type TextBoxBase}">
+    <Style TargetType="{x:Type TextBoxBase}">
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
         <Setter Property="BorderThickness" Value="0,0,0,1" />
@@ -33,7 +31,7 @@
         <Setter Property="Padding" Value="{x:Static wpf:Constants.TextBoxDefaultPadding}" />
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
-        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource MaterialDesignValidationErrorTemplate}" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource StyleValidationErrorTemplate}" />
         <Setter Property="wpf:TextFieldAssist.UnderlineBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="wpf:HintAssist.Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="ContextMenu" Value="{StaticResource MaterialDesignDefaultContextMenu}" />
