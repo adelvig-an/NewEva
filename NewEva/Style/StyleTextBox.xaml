@@ -4,10 +4,10 @@
     xmlns:converters="clr-namespace:NewEva.Converters"
     xmlns:wpf="clr-namespace:NewEva.StyleHelper">
 
-
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="StyleValidationErrorTemplate.xaml" />
         <ResourceDictionary Source="StyleMenu.xaml" />
+        <ResourceDictionary Source="Color.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
