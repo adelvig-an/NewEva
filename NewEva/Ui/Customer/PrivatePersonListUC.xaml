@@ -29,7 +29,8 @@
                 x:Name="txb_Search"
                 Width="200"
                 Margin="5"
-                Style="{StaticResource FloatingHintTextBox}" styletheme:HintAssist.Hint="какой-то текст" />
+                styletheme:HintAssist.Hint="Text"
+                Style="{StaticResource FloatingHintTextBox}" />
             <Button
                 x:Name="bt_Search"
                 Width="90"
