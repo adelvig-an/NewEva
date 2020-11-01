@@ -133,4 +133,15 @@
         Color="#0A000000" />
     <!--  4% black  -->
 
+
+    <SolidColorBrush
+        x:Key="PrimaryHueMidBrush"
+        po:Freeze="True"
+        Color="#ffc107" />
+    <SolidColorBrush
+        x:Key="PrimaryHueMidForegroundBrush"
+        po:Freeze="True"
+        Color="#DD000000" />
+
+
 </ResourceDictionary>
