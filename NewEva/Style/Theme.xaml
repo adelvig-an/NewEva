@@ -5,6 +5,7 @@
 
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="StyleTextBlock.xaml" />
         <ResourceDictionary Source="StyleTextBox.xaml" />
         <ResourceDictionary Source="StyleButton.xaml" />
         <ResourceDictionary Source="StyleComboBox.xaml" />

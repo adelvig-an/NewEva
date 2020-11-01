@@ -48,6 +48,5 @@
         <Grid Grid.Row="1">
             <ContentControl Content="{Binding CurrentPage}" />
         </Grid>
-
     </Grid>
 </Window>
