@@ -427,13 +427,13 @@
     </Style>
 
     <Style
-        x:Key="TextBoxBase"
+        x:Key="BaseTextBox"
         BasedOn="{StaticResource MaterialDesignTextBoxBase}"
         TargetType="{x:Type TextBox}" />
 
     <Style
         x:Key="FloatingHintTextBox"
-        BasedOn="{StaticResource TextBoxBase}"
+        BasedOn="{StaticResource BaseTextBox}"
         TargetType="{x:Type TextBox}">
         <Setter Property="wpf:HintAssist.IsFloating" Value="True" />
     </Style>
