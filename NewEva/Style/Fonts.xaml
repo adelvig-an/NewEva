@@ -3,24 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:System="clr-namespace:System;assembly=mscorlib">
 
-    <FontFamily x:Key="FontsFamilySymbolTheme">DIN Pro</FontFamily>
-    <FontFamily x:Key="FontsFamilyButton">DIN Pro Medium</FontFamily>
-    <FontFamily x:Key="FontsFamilyControl">DIN Pro Regular</FontFamily>
-
-    <System:Double x:Key="FontSizeHeader">40</System:Double>
-    <System:Double x:Key="FontSizeSubHeader">29.333</System:Double>
-    <System:Double x:Key="FontSizeWindow.Title">16</System:Double>
-    <System:Double x:Key="FontSizeDefault">14</System:Double>
-    <System:Double x:Key="FontSizeContent">14</System:Double>
-    <System:Double x:Key="FontSizeButtonFlat">14</System:Double>
-    <System:Double x:Key="FontSizeTabItem">26.67</System:Double>
-    <System:Double x:Key="FontSizeButton">14</System:Double>
-    <System:Double x:Key="FontSizeFloatingWatermark">10</System:Double>
-    <System:Double x:Key="FontSizeButton.ClearText">16</System:Double>
-    <System:Double x:Key="FontSizeTooltip">12</System:Double>
-    <System:Double x:Key="FontSizeMenu">14</System:Double>
-    <System:Double x:Key="FontSizeContextMenu">14</System:Double>
-    <System:Double x:Key="FontSizeStatusBar">12</System:Double>
-
+    <FontFamily x:Key="FontsFamilyTheme">component/Resources/DINPro/#DINPro</FontFamily>
 
 </ResourceDictionary>

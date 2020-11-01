@@ -8,7 +8,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="StyleValidationErrorTemplate.xaml" />
         <ResourceDictionary Source="StyleMenu.xaml" />
-        <ResourceDictionary Source="Color.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />

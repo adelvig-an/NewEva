@@ -4,6 +4,10 @@
     xmlns:converters="clr-namespace:NewEva.Converters"
     xmlns:wpf="clr-namespace:NewEva.StyleHelper">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Fonts.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <converters:TextFieldHintVisibilityConverter
         x:Key="StringIsEmptyVisibilityConverter"
         IsEmptyValue="Collapsed"
@@ -55,7 +59,7 @@
 
     <Style x:Key="MaterialDesignMenu" TargetType="{x:Type MenuBase}">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFont}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontsFamilyTheme}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="TextBlock.FontSize" Value="15" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
