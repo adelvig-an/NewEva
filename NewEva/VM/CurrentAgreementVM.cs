@@ -4,8 +4,7 @@ using System.Text;
 
 namespace NewEva.VM
 {
-    public class FirstPageVM : PageVM
+    public class CurrentAgreementVM : PageVM
     {
-        
     }
 }

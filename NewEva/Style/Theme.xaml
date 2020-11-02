@@ -8,6 +8,7 @@
         <ResourceDictionary Source="StyleComboBox.xaml" />
         <ResourceDictionary Source="StyleMenu.xaml" />
         <ResourceDictionary Source="StyleSmartHint.xaml" />
+        <ResourceDictionary Source="StyleDatePicker.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 

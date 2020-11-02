@@ -101,14 +101,14 @@
                                 <StackPanel Orientation="Horizontal">
                                     <!--  Кнопка Выбрать  -->
                                     <Button
-                                        x:Name="bt_Choice"
+                                        x:Name="bt_Choice2"
                                         Width="25"
                                         Height="25"
                                         Margin="5,5"
                                         Content="В" />
                                     <!--  Кнопка Редактировать  -->
                                     <Button
-                                        x:Name="bt_Redact"
+                                        x:Name="bt_Redact2"
                                         Width="25"
                                         Height="25"
                                         Margin="5,5"
@@ -116,7 +116,7 @@
                                         Content="Р" />
                                     <!--  Кнопка Удалить  -->
                                     <Button
-                                        x:Name="bt_Delete"
+                                        x:Name="bt_Delete2"
                                         Width="25"
                                         Height="25"
                                         Margin="5,5"

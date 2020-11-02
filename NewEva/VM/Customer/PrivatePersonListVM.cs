@@ -27,6 +27,7 @@ namespace NewEva.VM.Customer
         }
 
         public ICommand DeleteCustomer { get; } //Команда удаления Customer
+        
         //Обработчик команды удаления Customer из списка
         public void DeleteSelectedCommand(object p)
         {

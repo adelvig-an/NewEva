@@ -50,7 +50,6 @@ namespace NewEva.VM.Customer
                 Serial = customer.Serial;
                 Number = customer.Number;
                 Issued = customer.Issued;
-                Division = customer.Division;
                 DateIssued = customer.DateIssued;
                 
                 IsTypeDocs = customer.TypePassport;
@@ -103,7 +102,6 @@ namespace NewEva.VM.Customer
                 Serial = Serial,
                 Number = Number,
                 Issued = Issued,
-                Division = Division,
                 DateIssued = DateIssued,
                 AddressFullRegistration = AddressFullRegistration,
                 IndexRegistration = int.Parse(IndexRegistration),
@@ -271,16 +269,7 @@ namespace NewEva.VM.Customer
                 SetProperty(ref issued, value);
             }
         }
-        private string division;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
-        public string Division
-        {
-            get => division;
-            set {
-                ValidateProperty(value);
-                SetProperty(ref division, value);
-            }
-        }
+       
         #endregion Properties PreivatePerson
         #region Properties Address Registration
         private string addressFullRegistration;

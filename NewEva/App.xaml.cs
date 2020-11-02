@@ -30,8 +30,8 @@ namespace NewEva
         {
             base.OnStartup(e); 
             var simpleDialog = new SimpleDialog();
-            //simpleDialog.Show(new MainVM(simpleDialog));
-            simpleDialog.Show(new CustomerVM()); //Временно для открытия окна
+            simpleDialog.Show(new MainVM(simpleDialog));
+            //simpleDialog.Show(new CustomerVM()); //Временно для открытия окна
             Current.Shutdown();
         }
 

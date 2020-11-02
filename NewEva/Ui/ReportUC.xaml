@@ -5,167 +5,55 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:styletheme="clr-namespace:NewEva.StyleHelper"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <Grid Grid.Row="1" Margin="10">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
 
-            <TextBlock Margin="5" Text="Номер отчета" />
             <TextBox
-                x:Name="txb_NumberReport"
-                Grid.Column="1"
-                Margin="5"
+                x:Name="tbx_NumberReport"
+                Margin="5,10"
+                styletheme:HintAssist.Hint="Номер отчета"
+                Style="{StaticResource FloatingHintTextBox}"
                 Text="{Binding Report.Number}" />
-            <TextBlock
-                Grid.Column="2"
-                Margin="5"
-                Text="Номер договора" />
-            <TextBox
-                x:Name="txb_NumberFoundation"
-                Grid.Column="3"
-                Margin="5"
-                Text="{Binding Contract.Number}" />
-
-            <TextBlock
-                Grid.Row="1"
-                Margin="5"
-                Text="Дата оценки" />
+            <DatePicker
+                x:Name="dp_DateOfInspection"
+                Grid.Column="1"
+                Margin="5,10"
+                styletheme:HintAssist.Hint="Дата осмотра"
+                Style="{StaticResource FloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateVulation"
-                Grid.Row="1"
-                Grid.Column="1"
-                Margin="5"
-                SelectedDate="{Binding Report.DateVulation}" />
-            <TextBlock
-                Grid.Row="1"
                 Grid.Column="2"
-                Margin="5"
-                Text="Дата договора" />
-            <DatePicker
-                x:Name="dp_DateFoundation"
-                Grid.Row="1"
-                Grid.Column="3"
-                Margin="5"
-                SelectedDate="{Binding Contract.DateContract}" />
-
-            <TextBlock
-                Grid.Row="2"
-                Margin="5"
-                Text="Дата отчета" />
+                Margin="5,10"
+                styletheme:HintAssist.Hint="Дата оценки"
+                SelectedDate="{Binding Report.DateVulation}"
+                Style="{StaticResource FloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateCompilation"
-                Grid.Row="2"
-                Grid.Column="1"
-                Margin="5"
-                SelectedDate="{Binding Report.DateCompilation}" />
+                Grid.Column="3"
+                Margin="5,10"
+                styletheme:HintAssist.Hint="Дата составления"
+                SelectedDate="{Binding Report.DateCompilation}"
+                Style="{StaticResource FloatingHintDatePicker}" />
         </Grid>
-
-        <Grid Grid.Row="2" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <TextBlock Margin="5" Text="Цель оценки" />
-            <TextBox
-                x:Name="txb_Target"
-                Grid.Column="1"
-                Margin="5"
-                Text="{Binding Contract.Target}" />
-
-            <TextBlock
-                Grid.Row="1"
-                Margin="5"
-                Text="Вид стоимости" />
-            <ComboBox
-                x:Name="cb_TypeCost"
-                Grid.Row="1"
-                Grid.Column="1"
-                Margin="5"
-                ItemsSource="{Binding TypeCosts}"
-                SelectedItem="{Binding IsTypeCost}" />
-
-            <TextBlock
-                Grid.Row="2"
-                Margin="5"
-                Text="Оценщик" />
-            <ComboBox
-                x:Name="cb_Appraiser"
-                Grid.Row="2"
-                Grid.Column="1"
-                Margin="5"
-                ItemsSource="{Binding Appraisers}"
-                SelectedItem="{Binding IsAppraiser}" />
-
-            <TextBlock
-                Grid.Row="3"
-                Margin="5"
-                Text="Исполнитель" />
-            <TextBox
-                x:Name="txb_Contractor"
-                Grid.Row="3"
-                Grid.Column="1"
-                Margin="5"
-                Background="#E7E7E7"
-                IsReadOnly="True" />
-
-            <TextBlock
-                Grid.Row="4"
-                Margin="5"
-                VerticalAlignment="Center"
-                Text="Тип заказчика" />
-            <Button
-                x:Name="Customer"
-                Grid.Row="4"
-                Grid.Column="1"
-                Margin="5"
-                Command="{Binding DataContext.CustomerOpen, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                Content="Выбрать заказчика" />
-        </Grid>
-
-        <StackPanel
-            Grid.Row="3"
-            Margin="5,0"
-            Orientation="Horizontal">
-            <TextBlock Margin="10,0" Text="Заказчик:" />
-            <TextBlock Text="Тут должно быть Наименование (ИНН) или ФИО заказчика" />
-        </StackPanel>
-
-        <Button
-            x:Name="bt_Next"
-            Grid.Row="4"
-            Margin="10"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Command="{Binding DataContext.FromReportPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-            Content="Продолжить &gt;&gt;" />
-
+        <ComboBox
+            x:Name="cb_Appraiser"
+            Grid.Row="1"
+            Margin="5,10"
+            ItemsSource="{Binding Appraisers}"
+            SelectedItem="{Binding IsAppraiser}" />
     </Grid>
 </UserControl>

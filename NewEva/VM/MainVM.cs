@@ -28,7 +28,7 @@ namespace NewEva.VM
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
-            CurrentPage = new FirstPageVM();
+            CurrentPage = new OverviewVM();
             ReportPage = new RelayCommand(_ => ReportPageAction());
             FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
