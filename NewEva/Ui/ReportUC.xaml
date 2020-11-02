@@ -31,17 +31,23 @@
             <DatePicker
                 x:Name="dp_DateOfInspection"
                 Grid.Column="1"
-                Margin="5,10" />
+                Margin="5,10"
+                styletheme:HintAssist.Hint="Дата осмотра"
+                Style="{StaticResource FloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateVulation"
                 Grid.Column="2"
                 Margin="5,10"
-                SelectedDate="{Binding Report.DateVulation}" />
+                styletheme:HintAssist.Hint="Дата оценки"
+                SelectedDate="{Binding Report.DateVulation}"
+                Style="{StaticResource FloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateCompilation"
                 Grid.Column="3"
-                Margin="5,10" Style="{StaticResource MaterialDesignDatePicker}"
-                SelectedDate="{Binding Report.DateCompilation}" />
+                Margin="5,10"
+                styletheme:HintAssist.Hint="Дата составления"
+                SelectedDate="{Binding Report.DateCompilation}"
+                Style="{StaticResource FloatingHintDatePicker}" />
         </Grid>
         <ComboBox
             x:Name="cb_Appraiser"
