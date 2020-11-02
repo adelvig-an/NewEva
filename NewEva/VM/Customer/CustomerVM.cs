@@ -26,7 +26,7 @@ namespace NewEva.VM.Customer
         }
         public CustomerVM()
         {
-            CurrentPage = new PrivatePersonListVM();
+            CurrentPage = new PrivatePersonListVM(); //Был ранее PrivatePersonListVM
             OrganizationPage = new RelayCommand(_ => OrganizationCommand());
             PrivatePersonPage = new RelayCommand(_ => PrivatePersonCommand());
             OrganizationListPage = new RelayCommand(_ => OrganizationListCommand());
