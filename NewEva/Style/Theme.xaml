@@ -9,7 +9,7 @@
         <ResourceDictionary Source="StyleMenu.xaml" />
         <ResourceDictionary Source="StyleSmartHint.xaml" />
         <ResourceDictionary Source="StyleDatePicker.xaml" />
+        <ResourceDictionary Source="StyleCalendar.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
 
 </ResourceDictionary>

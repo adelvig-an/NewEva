@@ -4,6 +4,12 @@
     xmlns:converters="clr-namespace:NewEva.Converters"
     xmlns:wpf="clr-namespace:NewEva.StyleHelper">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="StyleCalendar.xaml" />
+        <ResourceDictionary Source="StyleValidationErrorTemplate.xaml" />
+        <ResourceDictionary Source="StyleMenu.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <converters:TextFieldHintVisibilityConverter x:Key="TextFieldHintVisibilityConverter" />
     <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     <converters:MathConverter x:Key="DivisionMathConverter" Operation="Divide" />
