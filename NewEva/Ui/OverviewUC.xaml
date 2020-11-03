@@ -16,67 +16,29 @@
             <ColumnDefinition Width="150" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListBox Padding="0,150,0,0" BorderThickness="0" Background="#f2f2f2">
+        <ListBox
+            Padding="0,150,0,0"
+            Background="#f2f2f2"
+            BorderThickness="0">
             <ListBoxItem Height="40" Content="Задание" />
             <ListBoxItem Height="40" Content="Объект оценки" />
             <ListBoxItem Height="40" Content="Обзор рынка" />
             <ListBoxItem Height="40" Content="Расчет стоимости" />
         </ListBox>
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-            <Grid Background="#f2f2f2" Margin="15">
+            <Grid Margin="10,0,0,0" Background="#f2f2f2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock
-                    Margin="10,5"
-                    Style="{StaticResource Headline6TextBlock}"
-                    Text="Данные отчета об оценке" />
-                <Grid Grid.Row="1" Margin="10">
-                    <ContentControl Content="{Binding CurrentPage}" />
-                </Grid>
-                <StackPanel
-                    Grid.Row="2"
+                <ContentControl Content="{Binding CurrentPage}" />
+
+                <Button
+                    Grid.Row="1"
+                    Margin="10"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <TextBlock
-                        Margin="10,5"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource Headline6TextBlock}"
-                        Text="Данные договора" />
-                    <ListBox
-                        Margin="10,5"
-                        VerticalAlignment="Center"
-                        HorizontalContentAlignment="Center"
-                        BorderThickness="0">
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal" />
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-                        <ListBoxItem
-                            Width="150"
-                            BorderBrush="Black"
-                            BorderThickness="1"
-                            Content="Новый договор" />
-                        <ListBoxItem
-                            Width="150"
-                            BorderBrush="Black"
-                            BorderThickness="1"
-                            Content="Действующий договор" />
-                    </ListBox>
-                </StackPanel>
-                <Grid Grid.Row="3">
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource Headline2TextBlock}"
-                        Text="Тут блок данных договора"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </Grid>
+                    Content="Продолжить" />
             </Grid>
         </ScrollViewer>
 

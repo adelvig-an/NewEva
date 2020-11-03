@@ -30,7 +30,6 @@ namespace NewEva.VM
             this.dialogService = dialogService;
             CurrentPage = new OverviewVM();
             ReportPage = new RelayCommand(_ => ReportPageAction());
-            FromReportPage = new RelayCommand(_ => FromReportAction());
             BackPage = new RelayCommand(_ => BackPageAction());
             NextPage = new RelayCommand(_ => NextPageAction());
             CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
@@ -38,7 +37,6 @@ namespace NewEva.VM
 
         //Команда для кнопки "Отчет об оценке"
         public ICommand ReportPage { get; }
-        public ICommand FromReportPage { get; }
         public ICommand BackPage { get; }
         public ICommand NextPage { get; }
         public ICommand CustomerOpen { get; }
@@ -47,28 +45,6 @@ namespace NewEva.VM
         public void ReportPageAction()
         {
             CurrentPage = PageVM.Read<ReportVM>() ?? new ReportVM();
-        }
-
-        // Условие для выбора страницы Клиента
-        public void FromReportAction()
-        {
-            //запуск метода создание файла и сохрание данных форм
-            
-            if (CurrentPage is ReportVM reportPage)
-            {
-                if (reportPage.IsPrivatePerson)
-                {
-                    CurrentPage = PageVM.Read<PrivatePersonVM>() ?? new PrivatePersonVM();
-                }
-                else if (reportPage.IsOrganization)
-                {
-                    CurrentPage = PageVM.Read<OrganizationVM>() ?? new OrganizationVM();
-                }
-                else
-                {
-                    MessageBox.Show("Выберите Тип клиента!");
-                }
-            }
         }
 
         // Возвращение на предыдущую страницу

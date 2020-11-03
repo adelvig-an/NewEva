@@ -13,8 +13,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid>
+        <TextBlock
+            Margin="10,5"
+            Style="{StaticResource Headline6TextBlock}"
+            Text="Данные отчета об оценке" />
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -27,33 +34,84 @@
                 Margin="5,10"
                 styletheme:HintAssist.Hint="Номер отчета"
                 Style="{StaticResource FloatingHintTextBox}"
-                Text="{Binding Report.Number}" />
+                Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
             <DatePicker
                 x:Name="dp_DateOfInspection"
                 Grid.Column="1"
                 Margin="5,10"
                 styletheme:HintAssist.Hint="Дата осмотра"
+                SelectedDate="{Binding DateOfInspection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
                 Style="{StaticResource FloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateVulation"
                 Grid.Column="2"
                 Margin="5,10"
                 styletheme:HintAssist.Hint="Дата оценки"
-                SelectedDate="{Binding Report.DateVulation}"
+                SelectedDate="{Binding DateVulation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
                 Style="{StaticResource FloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateCompilation"
                 Grid.Column="3"
                 Margin="5,10"
                 styletheme:HintAssist.Hint="Дата составления"
-                SelectedDate="{Binding Report.DateCompilation}"
+                SelectedDate="{Binding DateCompilation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
                 Style="{StaticResource FloatingHintDatePicker}" />
         </Grid>
-        <ComboBox
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox
             x:Name="cb_Appraiser"
-            Grid.Row="1"
+            Grid.Column="0"
             Margin="5,10"
             ItemsSource="{Binding Appraisers}"
             SelectedItem="{Binding IsAppraiser}" />
+            <Button Margin="5,10" Grid.Column="1" Content="Данные оценщика"/>
+        </Grid>
+        
+
+        <StackPanel
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                Margin="10,5"
+                VerticalAlignment="Center"
+                Style="{StaticResource Headline6TextBlock}"
+                Text="Данные договора" />
+            <ListBox
+                Margin="10,5"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                BorderThickness="0">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem
+                    Width="150"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Content="Новый договор" />
+                <ListBoxItem
+                    Width="150"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Content="Действующий договор" />
+            </ListBox>
+        </StackPanel>
+        <Grid Grid.Row="4">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Style="{StaticResource Headline2TextBlock}"
+                Text="Тут блок данных договора"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+        </Grid>
+
     </Grid>
 </UserControl>

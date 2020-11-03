@@ -34,6 +34,8 @@ namespace NewEva.DbLayer
         //Метод сохранения
         public static void Write(Customers customer) => 
             db.Insert(customer);
+        public static void Write(Reports report) =>
+            db.Insert(report);
 
         //Метод чтения одного объекта
         public static T Read<T>(object primaryKey) where T : new() =>
@@ -42,7 +44,20 @@ namespace NewEva.DbLayer
         //Метод чтения списка
         public static IEnumerable<T> ReadAll<T>() where T : new() => 
             db.Table<T>();
-        //Преобразование Физичекого лица
+        
+        //Преобразование Отчета (Report)
+        public static Report ToReport(Reports reports)
+        {
+            return new Report
+            {
+                Id = reports.Id,
+                Number = reports.Number,
+                DateCompilation = reports.DateCompilation,
+                DateOfInspection = reports.DateOfInspection,
+                DateVulation = reports.DateVulation
+            };
+        }
+        //Преобразование Заказчиков (Customers)
         public static PrivatePerson ToPrivatePerson(Customers customers)
         {
             return new PrivatePerson
