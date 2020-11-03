@@ -59,18 +59,21 @@
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <ComboBox
-            x:Name="cb_Appraiser"
-            Grid.Column="0"
-            Margin="5,10"
-            ItemsSource="{Binding Appraisers}"
-            SelectedItem="{Binding IsAppraiser}" />
-            <Button Margin="5,10" Grid.Column="1" Content="Данные оценщика"/>
+                x:Name="cb_Appraiser"
+                Grid.Column="0"
+                Margin="5,10"
+                ItemsSource="{Binding Appraisers}"
+                SelectedItem="{Binding IsAppraiser}" />
+            <Button
+                Grid.Column="1"
+                Margin="5,10"
+                Content="Данные оценщика" Style="{StaticResource MaterialDesignRaisedButton}"/>
         </Grid>
-        
+
 
         <StackPanel
             Grid.Row="3"

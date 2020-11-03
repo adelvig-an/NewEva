@@ -12,7 +12,7 @@ namespace NewEva.Converters
 
         static ShadowInfo()
         {
-            var resourceDictionary = new ResourceDictionary { Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Shadows.xaml", UriKind.Absolute) };
+            var resourceDictionary = new ResourceDictionary { Source = new Uri("pack://application:,,,/;component/Style/StyleShadows.xaml", UriKind.Absolute) };
 
             ShadowsDictionary = new Dictionary<ShadowDepth, DropShadowEffect>
             {
