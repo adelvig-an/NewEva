@@ -15,9 +15,6 @@
         <DataTemplate DataType="{x:Type vm:OverviewVM}">
             <ui:OverviewUC />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:ReportVM}">
-            <ui:ReportUC />
-        </DataTemplate>
         <DataTemplate DataType="{x:Type vm:TypeObjectsVM}">
             <ui:TypeObjectsUC />
         </DataTemplate>

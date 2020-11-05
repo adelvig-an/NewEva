@@ -17,6 +17,8 @@
         <ResourceDictionary Source="StyleCalendar.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style BasedOn="{StaticResource StylePopupBox}" TargetType="{x:Type local:PopupBox}" />
+
     <Style TargetType="{x:Type local:Ripple}">
         <Setter Property="RecognizesAccessKey" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />

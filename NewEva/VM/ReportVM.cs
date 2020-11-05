@@ -11,12 +11,74 @@ namespace NewEva.VM
 {
     public class ReportVM : PageVM
     {
+        private PageVM currentPage;
+        public PageVM CurrentPage
+        {
+            get => currentPage;
+            set
+            {
+                currentPage?.Write();
+                SetProperty(ref currentPage, value);
+            }
+        }
+
+        private PageVM contractPage;
+        public PageVM ContractPage
+        {
+            get => contractPage;
+            set
+            {
+                contractPage?.Write();
+                SetProperty(ref contractPage, value);
+            }
+        }
+
+        private PageVM validContractPage;
+        public PageVM ValidContractPage
+        {
+            get => validContractPage;
+            set
+            {
+                validContractPage?.Write();
+                SetProperty(ref validContractPage, value);
+            }
+        }
+
         public Report Report { get; private set; }
         public IEnumerable<string> Appraisers { get; }
 
         public ReportVM()
         {
             Appraisers = LocalStorage.Appraisers;
+            currentPage = CreatePageByName(pageName);
+            pages = new PageVM[]
+            {
+            contractPage = new ContractVM(),
+            validContractPage = new ValidContractVM()
+            };
+        }
+
+        private PageVM[] pages;
+        public PageVM[] Pages
+        {
+            get => pages;
+            set => SetProperty(ref pages, value);
+        }
+
+        private int currentIndex;
+        public int CurrentIndex
+        {
+            get => currentIndex;
+            set
+            {
+                CurrentPage = CreatePageByName(pages[value]);
+                SetProperty(ref currentIndex, value);
+            }
+        }
+
+        public void CreatePageByName(string pageName)
+        {
+
         }
 
         #region Property

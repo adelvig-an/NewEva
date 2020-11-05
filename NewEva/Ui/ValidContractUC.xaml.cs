@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace NewEva.Ui
 {
     /// <summary>
-    /// Логика взаимодействия для CurrentAgreementUC.xaml
+    /// Логика взаимодействия для ValidContractUC.xaml
     /// </summary>
-    public partial class CurrentAgreementUC : UserControl
+    public partial class ValidContractUC : UserControl
     {
-        public CurrentAgreementUC()
+        public ValidContractUC()
         {
             InitializeComponent();
         }

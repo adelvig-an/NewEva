@@ -6,9 +6,16 @@
     xmlns:local="clr-namespace:NewEva.Ui"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:styletheme="clr-namespace:NewEva.StyleHelper"
+    xmlns:ui="clr-namespace:NewEva.Ui"
+    xmlns:vm="clr-namespace:NewEva.VM"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:ContractVM}">
+            <ui:ContractUC />
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -71,7 +78,8 @@
             <Button
                 Grid.Column="1"
                 Margin="5,10"
-                Content="Данные оценщика" Style="{StaticResource MaterialDesignRaisedButton}"/>
+                Content="Данные оценщика"
+                Style="{StaticResource MaterialDesignRaisedButton}" />
         </Grid>
 
 
@@ -88,7 +96,8 @@
                 Margin="10,5"
                 VerticalAlignment="Center"
                 HorizontalContentAlignment="Center"
-                BorderThickness="0">
+                BorderThickness="0"
+                SelectedIndex="{Binding CurrentIndex}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" />
@@ -107,13 +116,7 @@
             </ListBox>
         </StackPanel>
         <Grid Grid.Row="4">
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Style="{StaticResource Headline2TextBlock}"
-                Text="Тут блок данных договора"
-                TextAlignment="Center"
-                TextWrapping="Wrap" />
+            <ContentControl Content="{Binding ContractPage}" />
         </Grid>
 
     </Grid>

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NewEva.VM
 {
-    public class CurrentAgreementVM : PageVM
+    class ValidContractVM : PageVM
     {
     }
 }

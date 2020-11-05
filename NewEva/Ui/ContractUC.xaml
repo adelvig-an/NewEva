@@ -6,9 +6,25 @@
     xmlns:local="clr-namespace:NewEva.Ui"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:styletheme="clr-namespace:NewEva.StyleHelper"
+    xmlns:ui="clr-namespace:NewEva.Ui.Customer"
+    xmlns:vm="clr-namespace:NewEva.VM.Customer"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:PrivatePersonListVM}">
+            <ui:PrivatePersonListUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OrganizationListVM}">
+            <ui:OrganizationListUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PrivatePersonVM}">
+            <ui:PrivatePersonUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OrganizationVM}">
+            <ui:OrganizationUC />
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -81,10 +97,7 @@
                 </ListBox>
             </StackPanel>
             <Grid Grid.Row="1">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="Тут блок данных заказчика" />
+                <ContentControl Content="{Binding CustomerPage}" />
             </Grid>
         </Grid>
         <Button

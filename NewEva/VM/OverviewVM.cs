@@ -6,20 +6,20 @@ namespace NewEva.VM
 {
     public class OverviewVM : PageVM
     {
-        private PageVM currentPage;
-        public PageVM CurrentPage
+        private PageVM reportPage;
+        public PageVM ReportPage
         {
-            get => currentPage;
+            get => reportPage;
             set
             {
-                CurrentPage?.Write();
-                SetProperty(ref currentPage, value);
+                reportPage?.Write();
+                SetProperty(ref reportPage, value);
             }
         }
 
         public OverviewVM()
         {
-            CurrentPage = new ReportVM();
+            reportPage = new ReportVM();
         }
     }
 }
