@@ -15,6 +15,9 @@
         <DataTemplate DataType="{x:Type vm:ContractVM}">
             <ui:ContractUC />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ValidContractVM}">
+            <ui:ValidContractUC />
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -116,7 +119,7 @@
             </ListBox>
         </StackPanel>
         <Grid Grid.Row="4">
-            <ContentControl Content="{Binding ContractPage}" />
+            <ContentControl Content="{Binding CurrentPage}" />
         </Grid>
 
     </Grid>

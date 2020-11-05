@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows;
 
@@ -22,44 +23,21 @@ namespace NewEva.VM
             }
         }
 
-        private PageVM contractPage;
-        public PageVM ContractPage
-        {
-            get => contractPage;
-            set
-            {
-                contractPage?.Write();
-                SetProperty(ref contractPage, value);
-            }
-        }
-
-        private PageVM validContractPage;
-        public PageVM ValidContractPage
-        {
-            get => validContractPage;
-            set
-            {
-                validContractPage?.Write();
-                SetProperty(ref validContractPage, value);
-            }
-        }
-
         public Report Report { get; private set; }
         public IEnumerable<string> Appraisers { get; }
 
         public ReportVM()
         {
             Appraisers = LocalStorage.Appraisers;
-            pages = new PageVM[]
+            pages = new string[]
             {
-            contractPage = new ContractVM(),
-            validContractPage = new ValidContractVM()
+                "ContractVM", 
+                "ValidContractVM"
             };
-            currentPage = Pages[0];
         }
 
-        private PageVM[] pages;
-        public PageVM[] Pages
+        private string[] pages;
+        public string[] Pages
         {
             get => pages;
             set
@@ -79,9 +57,15 @@ namespace NewEva.VM
             }
         }
 
-        public void CreatePageByName(string pageName)
+        public PageVM CreatePageByName(string pageName)
         {
-            var pages = CurrentPage;
+            if (pageName == "ContractVM")
+                return new ContractVM();
+            else if (pageName == "ValidContractVM")
+                return new ValidContractVM();
+            else
+                return default;
+
         }
 
         #region Property
