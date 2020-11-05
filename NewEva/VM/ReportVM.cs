@@ -50,19 +50,22 @@ namespace NewEva.VM
         public ReportVM()
         {
             Appraisers = LocalStorage.Appraisers;
-            currentPage = CreatePageByName(pageName);
             pages = new PageVM[]
             {
             contractPage = new ContractVM(),
             validContractPage = new ValidContractVM()
             };
+            currentPage = Pages[0];
         }
 
         private PageVM[] pages;
         public PageVM[] Pages
         {
             get => pages;
-            set => SetProperty(ref pages, value);
+            set
+            {
+                SetProperty(ref pages, value);
+            }
         }
 
         private int currentIndex;
@@ -78,7 +81,7 @@ namespace NewEva.VM
 
         public void CreatePageByName(string pageName)
         {
-
+            var pages = CurrentPage;
         }
 
         #region Property
