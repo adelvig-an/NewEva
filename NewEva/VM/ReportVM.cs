@@ -64,7 +64,7 @@ namespace NewEva.VM
             else if (pageName == "ValidContractVM")
                 return new ValidContractVM();
             else
-                return default;
+                return null;
 
         }
 

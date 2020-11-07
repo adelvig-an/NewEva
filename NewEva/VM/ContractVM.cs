@@ -1,4 +1,5 @@
-﻿using NewEva.VM.Customer;
+﻿using NewEva.Model;
+using NewEva.VM.Customer;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,9 +19,13 @@ namespace NewEva.VM
             }
         }
 
+        public IEnumerable<string> TypeCosts { get; }
+
         public ContractVM()
         {
             customerPage = new PrivatePersonVM();
+            TypeCosts = LocalStorage.TypeCosts;
+
         }
     }
 }

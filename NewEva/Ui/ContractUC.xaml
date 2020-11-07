@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:styletheme="clr-namespace:NewEva.StyleHelper"
     xmlns:ui="clr-namespace:NewEva.Ui.Customer"
     xmlns:vm="clr-namespace:NewEva.VM.Customer"
     d:DesignHeight="450"
@@ -41,28 +41,32 @@
             <TextBox
                 x:Name="tbx_NumberContract"
                 Margin="5,10"
-                styletheme:HintAssist.Hint="Номер договора"
-                Style="{StaticResource FloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Номер договора"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 Text="{Binding Report.Number}" />
             <DatePicker
                 x:Name="dp_DateContract"
                 Grid.Column="1"
                 Margin="5,10"
-                SelectedDate="{Binding Report.DateVulation}" />
+                materialDesign:HintAssist.Hint="Дата договора"
+                SelectedDate="{Binding Report.DateVulation}"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
             <TextBox
                 x:Name="txb_Target"
                 Grid.Column="2"
                 Margin="5,10"
-                styletheme:HintAssist.Hint="Цель оценки"
-                Style="{StaticResource FloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Цель оценки"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 Text="{Binding Contract.Target}" />
         </Grid>
         <ComboBox
             x:Name="cb_TypeCost"
             Grid.Row="1"
             Margin="5,10"
+            materialDesign:HintAssist.Hint="Тип стоимости"
             ItemsSource="{Binding TypeCosts}"
-            SelectedItem="{Binding IsTypeCost}" />
+            SelectedItem="{Binding IsTypeCost}"
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -72,7 +76,7 @@
                 <TextBlock
                     Margin="5,10"
                     VerticalAlignment="Center"
-                    Style="{StaticResource Headline6TextBlock}"
+                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                     Text="Заказчик отчета" />
                 <ListBox
                     Margin="15,10"
@@ -101,7 +105,7 @@
             </Grid>
         </Grid>
         <Button
-            Grid.Row="3"
+            Grid.Row="3" Margin="10"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Content="Продолжить" />

@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:styletheme="clr-namespace:NewEva.StyleHelper"
-    d:DesignHeight="450"
+    d:DesignHeight="1500"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -17,44 +17,9 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <Button
-                    x:Name="bt_Back"
-                    Margin="10"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Command="{Binding DataContext.BackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Content="Вернуться к списку" />
-
-                <Button
-                    x:Name="bt_SaveClosed"
-                    Grid.Column="2"
-                    Margin="10"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Command="{Binding DataContext.SaveBackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Content="Сохранить и закрыть" />
-
-                <Button
-                    x:Name="bt_Closed"
-                    Grid.Column="1"
-                    Margin="10"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Command="{Binding DataContext.ClosedWindow, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Content="Закрыть без сохранения" />
-            </Grid>
-
-            <Grid Grid.Row="1" Margin="10">
+            <Grid Grid.Row="0" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -64,29 +29,29 @@
                 <TextBox
                     x:Name="tbx_SecondName"
                     Margin="5,10"
-                    styletheme:HintAssist.Hint="Фамилия"
-                    Style="{StaticResource FloatingHintTextBox}"
+                    materialDesign:HintAssist.Hint="Фамилия"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBox
                     x:Name="tbx_FirstName"
                     Grid.Column="1"
                     Margin="5,10"
-                    styletheme:HintAssist.Hint="Имя"
-                    Style="{StaticResource FloatingHintTextBox}"
+                    materialDesign:HintAssist.Hint="Имя"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                 <TextBox
                     x:Name="tbx_MiddleName"
                     Grid.Column="2"
                     Margin="5,10"
-                    styletheme:HintAssist.Hint="Отчество"
-                    Style="{StaticResource FloatingHintTextBox}"
+                    materialDesign:HintAssist.Hint="Отчество"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
 
             <GroupBox
-                Grid.Row="2"
+                Grid.Row="1"
                 Margin="10,0,10,10"
                 Header="Паспортные данные">
                 <Grid>
@@ -104,37 +69,39 @@
                     <TextBox
                         x:Name="tbx_Serial"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Серия паспорта"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Серия паспорта"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding Serial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
                         x:Name="tbx_Number"
                         Grid.Column="1"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Номер паспорта"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Номер паспорта"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <DatePicker
                         x:Name="dp_DateIssued"
                         Grid.Column="2"
                         Margin="5,10"
-                        SelectedDate="{Binding DateIssued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                        materialDesign:HintAssist.Hint="Дата выдачи"
+                        SelectedDate="{Binding DateIssued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
                     <TextBox
                         x:Name="tbx_Issued"
                         Grid.Row="2"
                         Grid.ColumnSpan="3"
                         Margin="5,15"
-                        styletheme:HintAssist.Hint="Подразделение выдавшее паспорт"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Подразделение выдавшее паспорт"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding Issued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                 </Grid>
             </GroupBox>
 
             <GroupBox
-                Grid.Row="3"
+                Grid.Row="2"
                 Margin="10,0"
                 Header="Адрес регистрации">
                 <Grid Margin="10,0">
@@ -154,8 +121,8 @@
                         x:Name="tbx_AddressRegistration"
                         Grid.ColumnSpan="3"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Адрес полность"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Адрес полность"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -163,8 +130,8 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Индекс"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Индекс"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding IndexRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -172,8 +139,8 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Страна"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Страна"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding CountryRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -181,8 +148,8 @@
                         Grid.Row="1"
                         Grid.Column="2"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Суъбект"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Суъбект"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding RegionRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -190,8 +157,8 @@
                         Grid.Row="2"
                         Grid.Column="0"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Район"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Район"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding DistrictRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -199,8 +166,8 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Город"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Город"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding CityRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -208,8 +175,8 @@
                         Grid.Row="2"
                         Grid.Column="2"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Улица"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Улица"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding StreetRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -217,8 +184,8 @@
                         Grid.Row="3"
                         Grid.Column="0"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Номер дома"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Номер дома"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding HouseRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -226,23 +193,23 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Номер квартиры"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Номер квартиры"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding RoomRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                 </Grid>
             </GroupBox>
 
             <CheckBox
                 x:Name="AddressMatch"
-                Grid.Row="4"
+                Grid.Row="3"
                 Margin="10"
-                Content="Адрес регистрации совпадает с фактическим адресом проживания"
+                Content="Адрес регистрации совпадает с адресом проживания"
                 IsChecked="{Binding IsAddressMatch}" />
 
             <GroupBox
-                Grid.Row="5"
+                Grid.Row="4"
                 Margin="10,0"
-                Header="Фактический адрес проживания"
+                Header="Адрес проживания"
                 IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}">
                 <Grid Margin="10,0">
                     <Grid.ColumnDefinitions>
@@ -261,8 +228,8 @@
                         x:Name="tbx_AddressActual"
                         Grid.ColumnSpan="3"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Адрес полность"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Адрес полность"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -270,8 +237,8 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Индекс"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Индекс"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding IndexActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -279,8 +246,8 @@
                         Grid.Row="1"
                         Grid.Column="1"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Страна"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Страна"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding CountryActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -288,8 +255,8 @@
                         Grid.Row="1"
                         Grid.Column="2"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Субъект"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Субъект"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding RegionActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -297,8 +264,8 @@
                         Grid.Row="2"
                         Grid.Column="0"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Район"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Район"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding DistrictActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -306,8 +273,8 @@
                         Grid.Row="2"
                         Grid.Column="1"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Город"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Город"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding CityActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -315,8 +282,8 @@
                         Grid.Row="2"
                         Grid.Column="2"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Улица"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Улица"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding StreetActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -324,8 +291,8 @@
                         Grid.Row="3"
                         Grid.Column="0"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Номер дома"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Номер дома"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding HouseActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
                     <TextBox
@@ -333,12 +300,11 @@
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="5,10"
-                        styletheme:HintAssist.Hint="Номер квартиры"
-                        Style="{StaticResource FloatingHintTextBox}"
+                        materialDesign:HintAssist.Hint="Номер квартиры"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Text="{Binding RoomActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                 </Grid>
             </GroupBox>
-
 
         </Grid>
     </ScrollViewer>

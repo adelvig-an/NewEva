@@ -4,12 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="1500"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -20,664 +27,360 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-
-            <Grid>
+            <ComboBox
+                x:Name="cbx_OrgForm"
+                Grid.Row="0"
+                Width="250"
+                Margin="5"
+                HorizontalAlignment="Left"
+                materialDesign:HintAssist.Hint="Организационно-правовая форма"
+                ItemsSource="{Binding OrganizationForm}"
+                SelectedItem="{Binding IsOrganizationForm}"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+            <TextBox
+                x:Name="tbx_TitleShort"
+                Grid.Row="1"
+                Margin="5"
+                materialDesign:HintAssist.Hint="Наименование"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Organization.TitleShort}" />
+            <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="250" />
                 </Grid.ColumnDefinitions>
-
-                <Button
-                    x:Name="bt_Back"
-                    Margin="10"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Command="{Binding DataContext.BackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Content="Вернуться к списку" />
-
-                <Button
-                    x:Name="bt_SaveClosed"
-                    Grid.Column="2"
-                    Margin="10"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Command="{Binding DataContext.SaveClosedWindow, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Content="Сохранить и закрыть" />
-
-                <Button
-                    x:Name="bt_Closed"
-                    Grid.Column="1"
-                    Margin="10"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Command="{Binding DataContext.ClosedWindow, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
-                    Content="Закрыть без сохранения" />
-            </Grid>
-
-            <Grid Grid.Row="1" Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <TextBlock
-                    Margin="5"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Text="Полное наименование" />
-                <TextBox
-                    x:Name="tbx_TitleFull"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Organization.TitleFull}" />
-
-                <TextBlock
-                    Grid.Row="1"
-                    Margin="5"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Text="Сокращенное наименование" />
-                <TextBox
-                    x:Name="tbx_TitleShort"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Organization.TitleShort}" />
-
-                <TextBlock
-                    Grid.Row="2"
-                    Margin="5"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Text="Орг.-правовая форма ЮЛ" />
-                <ComboBox
-                    x:Name="cbx_OrgForm"
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Width="250"
-                    Margin="5"
-                    HorizontalAlignment="Left"
-                    ItemsSource="{Binding OrganizationForm}"
-                    SelectedItem="{Binding IsOrganizationForm}" />
-
-            </Grid>
-
-            <Grid Grid.Row="2" Margin="10,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <TextBlock Margin="5" Text="ОГРН" />
                 <TextBox
                     x:Name="tbx_OGRN"
-                    Grid.Column="1"
-                    Margin="5"
+                    Grid.Column="0"
+                    Margin="5,5,6,5"
+                    materialDesign:HintAssist.Hint="ОГРН"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding Organization.OGRN}" />
-
-                <TextBlock
-                    Grid.Column="2"
-                    Margin="5"
-                    Text="Дата регистрации" />
                 <DatePicker
                     x:Name="dp_DateRegistration"
-                    Grid.Column="3"
-                    Margin="5"
-                    SelectedDate="{Binding Organization.DateRegistration}" />
-
-                <TextBlock
-                    Grid.Row="1"
-                    Margin="5"
-                    Text="ИНН" />
+                    Grid.Column="1"
+                    Margin="6,5,5,5"
+                    materialDesign:HintAssist.Hint="Дата регистрации"
+                    SelectedDate="{Binding Organization.DateRegistration}"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
                 <TextBox
                     x:Name="tbx_INN"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="5"
+                    Grid.Column="0"
+                    Margin="5,5,6,5"
+                    materialDesign:HintAssist.Hint="ИНН"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding Organization.INN}" />
-
-                <TextBlock
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Margin="5"
-                    Text="КПП" />
                 <TextBox
                     x:Name="tbx_KPP"
-                    Grid.Row="1"
-                    Grid.Column="3"
-                    Margin="5"
+                    Grid.Column="1"
+                    Margin="6,5,5,5"
+                    materialDesign:HintAssist.Hint="КПП"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding Organization.KPP}" />
             </Grid>
-
-            <Grid Grid.Row="3" Margin="10,5">
+            <TextBox
+                x:Name="txb_TitleBank"
+                Grid.Row="4"
+                Margin="5"
+                materialDesign:HintAssist.Hint="Банк заказчика"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Organization.TitleBank}" />
+            <TextBox
+                x:Name="txb_BIK"
+                Grid.Row="5"
+                Margin="5"
+                materialDesign:HintAssist.Hint="БИК"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Organization.BIK}" />
+            <TextBox
+                x:Name="txb_PayAccount"
+                Grid.Row="6"
+                Margin="5"
+                materialDesign:HintAssist.Hint="Расчетный счет"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Organization.PayAccount}" />
+            <TextBox
+                x:Name="txb_CorrAccount"
+                Grid.Row="7"
+                Margin="5"
+                materialDesign:HintAssist.Hint="Корреспондентский счет"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Organization.CorrAccount}" />
+            <TextBox
+                x:Name="tbx_Post"
+                Grid.Row="8"
+                Margin="5"
+                materialDesign:HintAssist.Hint="Должность руководителя"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Director.Position}" />
+            <Grid Grid.Row="9">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-                <TextBlock Margin="5" Text="Наименование банка" />
-                <TextBox
-                    x:Name="txb_TitleBank"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Organization.TitleBank}" />
-
-                <TextBlock
-                    Grid.Row="1"
-                    Margin="5"
-                    Text="БИК" />
-                <TextBox
-                    x:Name="txb_BIK"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Organization.BIK}" />
-
-                <TextBlock
-                    Grid.Row="2"
-                    Margin="5"
-                    Text="Расчетный счет" />
-                <TextBox
-                    x:Name="txb_PayAccount"
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Organization.PayAccount}" />
-
-                <TextBlock
-                    Grid.Row="3"
-                    Margin="5"
-                    Text="Корреспондентский счет" />
-                <TextBox
-                    x:Name="txb_CorrAccount"
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Organization.CorrAccount}" />
-
-            </Grid>
-
-            <Grid Grid.Row="4" Margin="10,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <TextBlock Margin="5" Text="Должность руководителя" />
-                <TextBox
-                    x:Name="tbx_Post"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Director.Position}" />
-
-                <TextBlock
-                    Grid.Row="1"
-                    Margin="5"
-                    Text="Фамилия" />
                 <TextBox
                     x:Name="tbx_SecondName"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Director.SecondName}" />
-
-                <TextBlock
-                    Grid.Row="2"
-                    Margin="5"
-                    Text="Имя" />
+                    Margin="5,5,6,5"
+                    materialDesign:HintAssist.Hint="Фамилия"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                 <TextBox
                     x:Name="tbx_FirstName"
-                    Grid.Row="2"
                     Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Director.FirstName}" />
-
-                <TextBlock
-                    Grid.Row="3"
-                    Margin="5"
-                    Text="Отчество" />
+                    Margin="6,5,6,5"
+                    materialDesign:HintAssist.Hint="Имя"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                 <TextBox
                     x:Name="tbx_MiddleName"
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    Margin="5"
-                    Text="{Binding Director.MiddleName}" />
-
-                <TextBlock
-                    Grid.Row="4"
-                    Margin="5"
-                    Text="Действующий на основании" />
-                <ComboBox
-                    x:Name="cbx_TypeAttorney"
-                    Grid.Row="4"
-                    Grid.Column="1"
-                    Margin="5"
-                    ItemsSource="{Binding TypeAttorney}"
-                    SelectedItem="{Binding IsTypeAttorney}" />
+                    Grid.Column="2"
+                    Margin="6,5,5,5"
+                    materialDesign:HintAssist.Hint="Отчество"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
-
-            <Grid Grid.Row="5" Margin="10,0,10,5">
+            <Grid Grid.Row="10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock
-                    Grid.Column="0"
-                    Margin="5"
-                    Text="Номер доверенности" />
                 <TextBox
                     x:Name="tbx_Attorney"
-                    Grid.Column="1"
-                    Margin="5"
+                    Grid.Column="0"
+                    Margin="5,5,6,5"
+                    materialDesign:HintAssist.Hint="Номер доверенности"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding Director.NumderAttorney}" />
-
-                <TextBlock
-                    Grid.Column="2"
-                    Margin="5"
-                    Text="Дата дов." />
                 <DatePicker
                     x:Name="dp_DateAttorney"
-                    Grid.Column="3"
-                    Margin="5"
-                    SelectedDate="{Binding Director.DateAttorney}" />
-
-                <TextBlock
-                    Grid.Column="4"
-                    Margin="5"
-                    Text="Оконч. срока действ." />
+                    Grid.Column="1"
+                    Margin="6,5,6,5"
+                    materialDesign:HintAssist.Hint="Дата доверения"
+                    SelectedDate="{Binding Director.DateAttorney}"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 <DatePicker
                     x:Name="dp_DateAttorneyBefore"
-                    Grid.Column="5"
-                    Margin="5"
-                    SelectedDate="{Binding Director.DateAttorneyBefore}" />
+                    Grid.Column="2"
+                    Margin="6,5,5,5"
+                    materialDesign:HintAssist.Hint="Дата окончания срока доверения"
+                    SelectedDate="{Binding Director.DateAttorneyBefore}"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
             </Grid>
-
-            <GroupBox
-                Grid.Row="6"
-                Margin="10,0"
-                Header="Юридический адрес">
-                <Grid Margin="10,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="180" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="180" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Margin="5" Text="Адресс полностью" />
-                    <TextBox
-                        x:Name="tbx_AddressRegistration"
-                        Grid.Column="1"
-                        Grid.ColumnSpan="4"
-                        Margin="5"
-                        Text="{Binding Registration.AddressFull}" />
-
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="5"
-                        Text="Индекс" />
-                    <TextBox
-                        x:Name="tbx_IndexRegistration"
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Registration.Index}" />
-
-                    <TextBlock
-                        Grid.Row="2"
-                        Margin="5"
-                        Text="Страна" />
-                    <TextBox
-                        x:Name="tbx_CountryRegistration"
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Registration.Country}" />
-
-                    <TextBlock
-                        Grid.Row="3"
-                        Margin="5"
-                        Text="Субъект" />
-                    <TextBox
-                        x:Name="tbx_RegionRegistration"
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Registration.Region}" />
-
-                    <TextBlock
-                        Grid.Row="4"
-                        Margin="5"
-                        Text="Район" />
-                    <TextBox
-                        x:Name="tbx_DistrictRegistration"
-                        Grid.Row="4"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Registration.District}" />
-
-                    <TextBlock
-                        Grid.Row="1"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Город" />
-                    <TextBox
-                        x:Name="tbx_CityRegistration"
-                        Grid.Row="1"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Registration.City}" />
-
-                    <TextBlock
-                        Grid.Row="2"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Улица" />
-                    <TextBox
-                        x:Name="tbx_StreetRegistration"
-                        Grid.Row="2"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Registration.Street}" />
-
-                    <TextBlock
-                        Grid.Row="3"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Дом/Здание" />
-                    <TextBox
-                        x:Name="tbx_HouseRegistration"
-                        Grid.Row="3"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Registration.House}" />
-
-                    <TextBlock
-                        Grid.Row="4"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Офис/пом." />
-                    <TextBox
-                        x:Name="tbx_RoomRegistration"
-                        Grid.Row="4"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Registration.Room}" />
-                </Grid>
-            </GroupBox>
-
-            <CheckBox
-                Grid.Row="7"
-                Margin="10,5,10,10"
-                Content="Юридический адрес совпадает с фактическим адресом"
-                IsChecked="{Binding IsAddressMatch}" />
-
-            <GroupBox
-                Grid.Row="8"
-                Margin="10,0"
-                Header="Фактический адрес">
-                <Grid Margin="10,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="180" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="180" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Margin="5" Text="Адресс полностью" />
-                    <TextBox
-                        x:Name="tbx_AddressActual"
-                        Grid.Column="1"
-                        Grid.ColumnSpan="4"
-                        Margin="5"
-                        Text="{Binding Actual.AddressFull}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="5"
-                        Text="Индекс" />
-                    <TextBox
-                        x:Name="tbx_IndexActual"
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Actual.Index}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="2"
-                        Margin="5"
-                        Text="Страна" />
-                    <TextBox
-                        x:Name="tbx_CountryActual"
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Actual.Country}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="3"
-                        Margin="5"
-                        Text="Субъект" />
-                    <TextBox
-                        x:Name="tbx_RegionActual"
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Actual.Region}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="4"
-                        Margin="5"
-                        Text="Район" />
-                    <TextBox
-                        x:Name="tbx_DistrictActual"
-                        Grid.Row="4"
-                        Grid.Column="1"
-                        Margin="5"
-                        Text="{Binding Actual.District}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="1"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Город" />
-                    <TextBox
-                        x:Name="tbx_CityActual"
-                        Grid.Row="1"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Actual.City}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="2"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Улица" />
-                    <TextBox
-                        x:Name="tbx_StreetActual"
-                        Grid.Row="2"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Actual.Street}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="3"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Дом/Здание" />
-                    <TextBox
-                        x:Name="tbx_HouseActual"
-                        Grid.Row="3"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Actual.House}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-
-                    <TextBlock
-                        Grid.Row="4"
-                        Grid.Column="2"
-                        Margin="5"
-                        Text="Офис/пом." />
-                    <TextBox
-                        x:Name="tbx_RoomActual"
-                        Grid.Row="4"
-                        Grid.Column="3"
-                        Margin="5"
-                        Text="{Binding Actual.Room}">
-                        <!--<TextBox.Style>
-                            <Style TargetType="TextBox">
-                                <Setter Property="Height" Value="24" />
-                                <Setter Property="VerticalContentAlignment" Value="Center" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsAddressMatch}" Value="True">
-                                        <Setter Property="IsEnabled" Value="False" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBox.Style>-->
-                    </TextBox>
-                </Grid>
-            </GroupBox>
         </Grid>
-    </ScrollViewer>
+        <GroupBox
+            Grid.Row="1"
+            Margin="10,0"
+            Header="Юридический адрес">
+            <Grid Margin="10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBox
+                    x:Name="tbx_AddressRegistration"
+                    Grid.ColumnSpan="3"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Адрес полность"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_IndexRegistration"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Индекс"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding IndexRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_CountryRegistration"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Страна"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding CountryRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_RegionRegistration"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Суъбект"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding RegionRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_DistrictRegistration"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Район"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding DistrictRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_CityRegistration"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Город"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding CityRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_StreetRegistration"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Улица"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding StreetRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_HouseRegistration"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Номер дома"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding HouseRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_RoomRegistration"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Номер квартиры"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding RoomRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            </Grid>
+        </GroupBox>
+        <CheckBox
+            Grid.Row="2"
+            Margin="10,5,10,10"
+            Content="Юридический адрес совпадает с фактическим адресом"
+            IsChecked="{Binding IsAddressMatch}" />
+        <GroupBox
+            Grid.Row="3"
+            Margin="10,0"
+            Header="Фактический адрес"
+            IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}">
+            <Grid Margin="10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBox
+                    x:Name="tbx_AddressActual"
+                    Grid.ColumnSpan="3"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Адрес полность"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_IndexActual"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Индекс"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding IndexActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_CountryActual"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Страна"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding CountryActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_RegionActual"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Субъект"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding RegionActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_DistrictActual"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Район"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding DistrictActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_CityActual"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Город"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding CityActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_StreetActual"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Улица"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding StreetActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_HouseActual"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Номер дома"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding HouseActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
+                <TextBox
+                    x:Name="tbx_RoomActual"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="5,10"
+                    materialDesign:HintAssist.Hint="Номер квартиры"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding RoomActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            </Grid>
+        </GroupBox>
+    </Grid>
 </UserControl>

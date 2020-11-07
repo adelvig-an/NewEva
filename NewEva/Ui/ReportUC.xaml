@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:styletheme="clr-namespace:NewEva.StyleHelper"
     xmlns:ui="clr-namespace:NewEva.Ui"
     xmlns:vm="clr-namespace:NewEva.VM"
     d:DesignHeight="450"
@@ -29,7 +29,7 @@
         </Grid.RowDefinitions>
         <TextBlock
             Margin="10,5"
-            Style="{StaticResource Headline6TextBlock}"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Данные отчета об оценке" />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -42,30 +42,30 @@
             <TextBox
                 x:Name="tbx_NumberReport"
                 Margin="5,10"
-                styletheme:HintAssist.Hint="Номер отчета"
-                Style="{StaticResource FloatingHintTextBox}"
+                materialDesign:HintAssist.Hint="Номер отчета"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
             <DatePicker
                 x:Name="dp_DateOfInspection"
                 Grid.Column="1"
                 Margin="5,10"
-                styletheme:HintAssist.Hint="Дата осмотра"
+                materialDesign:HintAssist.Hint="Дата осмотра"
                 SelectedDate="{Binding DateOfInspection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
-                Style="{StaticResource FloatingHintDatePicker}" />
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateVulation"
                 Grid.Column="2"
                 Margin="5,10"
-                styletheme:HintAssist.Hint="Дата оценки"
+                materialDesign:HintAssist.Hint="Дата оценки"
                 SelectedDate="{Binding DateVulation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
-                Style="{StaticResource FloatingHintDatePicker}" />
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
             <DatePicker
                 x:Name="dp_DateCompilation"
                 Grid.Column="3"
                 Margin="5,10"
-                styletheme:HintAssist.Hint="Дата составления"
+                materialDesign:HintAssist.Hint="Дата составления"
                 SelectedDate="{Binding DateCompilation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
-                Style="{StaticResource FloatingHintDatePicker}" />
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -76,13 +76,14 @@
                 x:Name="cb_Appraiser"
                 Grid.Column="0"
                 Margin="5,10"
+                materialDesign:HintAssist.Hint="Оценщик"
                 ItemsSource="{Binding Appraisers}"
-                SelectedItem="{Binding IsAppraiser}" />
+                SelectedItem="{Binding IsAppraiser}"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
             <Button
                 Grid.Column="1"
                 Margin="5,10"
-                Content="Данные оценщика"
-                Style="{StaticResource MaterialDesignRaisedButton}" />
+                Content="Данные оценщика" />
         </Grid>
 
 
@@ -93,7 +94,7 @@
             <TextBlock
                 Margin="10,5"
                 VerticalAlignment="Center"
-                Style="{StaticResource Headline6TextBlock}"
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
                 Text="Данные договора" />
             <ListBox
                 Margin="10,5"
