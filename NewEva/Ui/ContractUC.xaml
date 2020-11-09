@@ -34,27 +34,27 @@
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="130" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TextBox
                 x:Name="tbx_NumberContract"
-                Margin="5,10"
+                Margin="5,10,6,10"
                 materialDesign:HintAssist.Hint="Номер договора"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 Text="{Binding Report.Number}" />
             <DatePicker
                 x:Name="dp_DateContract"
                 Grid.Column="1"
-                Margin="5,10"
+                Margin="6,10,5,10"
                 materialDesign:HintAssist.Hint="Дата договора"
                 SelectedDate="{Binding Report.DateVulation}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
             <TextBox
                 x:Name="txb_Target"
                 Grid.Column="2"
-                Margin="5,10"
+                Margin="6,10,5,10"
                 materialDesign:HintAssist.Hint="Цель оценки"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 Text="{Binding Contract.Target}" />
@@ -82,7 +82,8 @@
                     Margin="15,10"
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="Center"
-                    BorderThickness="0">
+                    BorderThickness="0"
+                    SelectedIndex="{Binding CurrentIndex}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" />
@@ -101,11 +102,12 @@
                 </ListBox>
             </StackPanel>
             <Grid Grid.Row="1">
-                <ContentControl Content="{Binding CustomerPage}" />
+                <ContentControl Content="{Binding CurrentPage}" />
             </Grid>
         </Grid>
         <Button
-            Grid.Row="3" Margin="10"
+            Grid.Row="3"
+            Margin="10"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Content="Продолжить" />

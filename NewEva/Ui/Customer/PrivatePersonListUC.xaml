@@ -47,7 +47,7 @@
                             Grid.Column="1"
                             Margin="5,5"
                             VerticalAlignment="Center"
-                            Command="{Binding DataContext.PrivatePersonPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                            Command="{Binding DataContext.NewCustomerPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
                             Content="+ Добавить" />
                         <!--  Кнопка Удалить  -->
                         <Button

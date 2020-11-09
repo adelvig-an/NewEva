@@ -65,7 +65,6 @@ namespace NewEva.VM
                 return new ValidContractVM();
             else
                 return null;
-
         }
 
         #region Property
