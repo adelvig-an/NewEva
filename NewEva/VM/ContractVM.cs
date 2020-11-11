@@ -23,9 +23,17 @@ namespace NewEva.VM
             }
         }
         public IEnumerable<string> TypeCosts { get; }
-
-        public ContractVM()
+        public bool IsEdit { get; }
+        public ContractVM(Contracts contract = null)
         {
+            if (IsEdit = contract != null)
+            {
+                Id = contract.Id;
+                Number = contract.Number;
+                DateContract = contract.DateContract;
+                IsTypeCost = contract.TypeCost;
+                Target = contract.Target;
+            }
             pages = new string[]
             {
                 "PrivatePersonListVM",

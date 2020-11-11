@@ -22,12 +22,20 @@ namespace NewEva.VM
                 SetProperty(ref currentPage, value);
             }
         }
-
+        public bool IsEdit { get; }
         public Report Report { get; private set; }
         public IEnumerable<string> Appraisers { get; }
 
-        public ReportVM()
+        public ReportVM(Reports report = null)
         {
+            if (IsEdit = report != null)
+            {
+                Id = report.Id;
+                Number = report.Number;
+                DateVulation = report.DateVulation;
+                DateCompilation = report.DateCompilation;
+                DateOfInspection = report.DateOfInspection;
+            }
             Appraisers = LocalStorage.Appraisers;
             pages = new string[]
             {
