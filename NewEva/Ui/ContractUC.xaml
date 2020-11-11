@@ -43,13 +43,13 @@
                 Margin="5,10,6,10"
                 materialDesign:HintAssist.Hint="Номер договора"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding Report.Number}" />
+                Text="{Binding Number}" />
             <DatePicker
                 x:Name="dp_DateContract"
                 Grid.Column="1"
                 Margin="6,10,5,10"
                 materialDesign:HintAssist.Hint="Дата договора"
-                SelectedDate="{Binding Report.DateVulation}"
+                SelectedDate="{Binding DateContract}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
             <TextBox
                 x:Name="txb_Target"
@@ -57,7 +57,7 @@
                 Margin="6,10,5,10"
                 materialDesign:HintAssist.Hint="Цель оценки"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding Contract.Target}" />
+                Text="{Binding Target}" />
         </Grid>
         <ComboBox
             x:Name="cb_TypeCost"

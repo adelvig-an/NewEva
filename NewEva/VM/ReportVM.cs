@@ -70,7 +70,7 @@ namespace NewEva.VM
         #region Property
         public int Id { get; set; }
         private string number;
-        [Required(ErrorMessage = "Номер отчета обязателен")]
+        [Required(ErrorMessage = "Не указан номер отчета")]
         [StringLength(20)]
         public string Number
         { 
@@ -82,7 +82,7 @@ namespace NewEva.VM
             }
         }
         private DateTime? dateVulation;
-        [Required(ErrorMessage = "Дата оценки обязательна")]
+        [Required(ErrorMessage = "Не указана дата оценки")]
         public DateTime? DateVulation
         { get => dateVulation;
             set
@@ -92,7 +92,7 @@ namespace NewEva.VM
             }
         }
         private DateTime? dateCompilation;
-        [Required(ErrorMessage = "Дата составления отчета обязательна")]
+        [Required(ErrorMessage = "Не указана дата составления отчета")]
         public DateTime? DateCompilation
         { get => dateCompilation;
             set
@@ -102,7 +102,7 @@ namespace NewEva.VM
             }
         }
         private DateTime? dateOfInspection;
-        [Required(ErrorMessage = "Дата осмотра обязательна")]
+        [Required(ErrorMessage = "Не указан дата осмотра")]
         public DateTime? DateOfInspection
         {
             get => dateOfInspection;
@@ -113,7 +113,7 @@ namespace NewEva.VM
             }
         }
         private string isAppraiser;
-        [Required(ErrorMessage = "Необходимо выбрать оценщика исполнителя")]
+        [Required(ErrorMessage = "Не выбран оценщика исполнителя")]
         public string IsAppraiser
         {
             get => isAppraiser;

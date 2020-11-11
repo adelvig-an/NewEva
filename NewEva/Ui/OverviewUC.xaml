@@ -28,9 +28,9 @@
                 Background="#f2f2f2"
                 BorderThickness="0">
                 <ListBoxItem Height="40" Content="Задание" />
-                <ListBoxItem Height="40" Content="Объект оценки" />
                 <ListBoxItem Height="40" Content="Обзор рынка" />
-                <ListBoxItem Height="40" Content="Расчет стоимости" />
+                <ListBoxItem Height="40" Content="Объект оценки" />
+                <ListBoxItem Height="40" Content="Отчет" />
             </ListBox>
         </Grid>
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">

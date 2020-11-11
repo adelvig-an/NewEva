@@ -36,6 +36,8 @@ namespace NewEva.DbLayer
             db.Insert(customer);
         public static void Write(Reports report) =>
             db.Insert(report);
+        public static void Write(Contracts contract) =>
+            db.Insert(contract);
 
         //Метод чтения одного объекта
         public static T Read<T>(object primaryKey) where T : new() =>
@@ -55,6 +57,18 @@ namespace NewEva.DbLayer
                 DateCompilation = reports.DateCompilation,
                 DateOfInspection = reports.DateOfInspection,
                 DateVulation = reports.DateVulation
+            };
+        }
+        //Преобразование Договора (Contract)
+        public static Contract ToContract(Contracts contracts)
+        {
+            return new Contract
+            {
+                Id = contracts.Id,
+                Number = contracts.Number,
+                DateContract = contracts.DateContract,
+                Target = contracts.Target,
+                TypeCost = contracts.TypeCost
             };
         }
         //Преобразование Заказчиков (Customers)

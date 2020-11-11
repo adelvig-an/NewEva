@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -14,32 +15,203 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal">
-            <TextBlock
-                Margin="0,10,10,10"
-                VerticalAlignment="Center"
-                Text="Найти договор по" />
+        <StackPanel
+            Height="45"
+            Background="#ffffff"
+            Orientation="Horizontal">
             <ComboBox
-                Width="150"
-                Margin="0,10,10,10"
-                VerticalAlignment="Center">
-                <ComboBoxItem>Номеру дговора</ComboBoxItem>
-                <ComboBoxItem>Заказчику</ComboBoxItem>
+                Width="110"
+                Margin="8,0,8,0"
+                materialDesign:ColorZoneAssist.Mode="Standard"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
+                BorderBrush="Black"
+                BorderThickness="0"
+                SelectedIndex="0">
+                <ComboBoxItem>Номер дговора</ComboBoxItem>
+                <ComboBoxItem>Заказчик</ComboBoxItem>
                 <ComboBoxItem>ИНН</ComboBoxItem>
+                <ComboBoxItem>Номер паспорта</ComboBoxItem>
             </ComboBox>
             <TextBox
-                Width="150"
-                Margin="0,10,10,10"
+                Grid.Column="1"
+                MinWidth="200"
+                Margin="8,0,0,0"
                 VerticalAlignment="Center"
-                Text="Search..." />
-            <Button
-                Width="100"
-                Margin="0,10,10,10"
-                VerticalAlignment="Center"
-                Content="Найти" />
+                materialDesign:HintAssist.Hint="Строка поиска"
+                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                BorderThickness="0" />
+            <Button Style="{DynamicResource MaterialDesignToolButton}">
+                <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+            </Button>
         </StackPanel>
 
-        <Grid Grid.Row="1" />
+        <Grid Grid.Row="1">
+            <ListBox ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBoxItem>
+                    <StackPanel
+                        Margin="0,7"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <StackPanel
+                            Width="170"
+                            Margin="0,0,25,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="Договор №" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,2,0" Text="123" />
+                                <TextBlock Text="от" />
+                                <TextBlock Margin="2,0,0,0" Text="12.03.2019" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel
+                            Width="250"
+                            Margin="25,0,0,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="Заказчик:" />
+                            <TextBlock Text="ООО Много и сразу" TextWrapping="Wrap" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,4,0" Text="ИНН:" />
+                                <TextBlock Text="2466205624" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="0,0,7,0"
+                                Padding="0"
+                                Content="{materialDesign:PackIcon Download}"
+                                ToolTip="Скачать договор" />
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="7,0,7,0"
+                                Padding="0"
+                                Content="{materialDesign:PackIcon Printer}"
+                                ToolTip="Печать договора" />
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="7,0,0,0"
+                                Padding="0"
+                                Background="Red"
+                                BorderBrush="Red"
+                                Content="{materialDesign:PackIcon Delete}"
+                                ToolTip="Удалить договор" />
+                        </StackPanel>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel
+                        Margin="0,7"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <StackPanel
+                            Width="170"
+                            Margin="0,0,25,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="Договор №" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,2,0" Text="123" />
+                                <TextBlock Text="от" />
+                                <TextBlock Margin="2,0,0,0" Text="12.03.2019" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel
+                            Width="250"
+                            Margin="25,0,0,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="Заказчик:" />
+                            <TextBlock Text="ООО Много и сразу" TextWrapping="Wrap" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,4,0" Text="ИНН:" />
+                                <TextBlock Text="2466205624" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="0,0,7,0"
+                                Padding="0"
+                                Content="{materialDesign:PackIcon Download}"
+                                ToolTip="Скачать договор" />
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="7,0,7,0"
+                                Padding="0"
+                                Content="{materialDesign:PackIcon Printer}"
+                                ToolTip="Печать договора" />
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="7,0,0,0"
+                                Padding="0"
+                                Background="Red"
+                                BorderBrush="Red"
+                                Content="{materialDesign:PackIcon Delete}"
+                                ToolTip="Удалить договор" />
+                        </StackPanel>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel
+                        Margin="0,7"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <StackPanel
+                            Width="170"
+                            Margin="0,0,25,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="Договор №" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,2,0" Text="123" />
+                                <TextBlock Text="от" />
+                                <TextBlock Margin="2,0,0,0" Text="12.03.2019" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel
+                            Width="250"
+                            Margin="25,0,0,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="Заказчик:" />
+                            <TextBlock Text="ООО Много и сразу" TextWrapping="Wrap" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,4,0" Text="ИНН:" />
+                                <TextBlock Text="2466205624" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="0,0,7,0"
+                                Padding="0"
+                                Content="{materialDesign:PackIcon Download}"
+                                ToolTip="Скачать договор" />
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="7,0,7,0"
+                                Padding="0"
+                                Content="{materialDesign:PackIcon Printer}"
+                                ToolTip="Печать договора" />
+                            <Button
+                                Width="35"
+                                Height="35"
+                                Margin="7,0,0,0"
+                                Padding="0"
+                                Background="Red"
+                                BorderBrush="Red"
+                                Content="{materialDesign:PackIcon Delete}"
+                                ToolTip="Удалить договор" />
+                        </StackPanel>
+                    </StackPanel>
+                </ListBoxItem>
+            </ListBox>
+
+        </Grid>
 
     </Grid>
 </UserControl>
