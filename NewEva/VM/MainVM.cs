@@ -1,5 +1,6 @@
 ﻿using NewEva.DbLayer;
 using NewEva.VM.Customer;
+using NewEva.VM.ObjectOfEvaluation.Flat;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,7 +29,7 @@ namespace NewEva.VM
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
-            CurrentPage = new OverviewVM();
+            CurrentPage = new FlatLocationVM();
             ReportPage = new RelayCommand(_ => ReportPageAction());
             BackPage = new RelayCommand(_ => BackPageAction());
             NextPage = new RelayCommand(_ => NextPageAction());

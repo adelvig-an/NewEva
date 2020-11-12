@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Apartment"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1000"
     d:DesignWidth="800"
@@ -29,9 +30,8 @@
 
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="180" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -39,118 +39,95 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <TextBlock Margin="5" Text="Адресс полностью" />
                         <TextBox
                             x:Name="tbx_AddressRegistration"
-                            Grid.Column="1"
-                            Grid.ColumnSpan="4"
-                            Margin="5"
-                            Text="{Binding Registration.AddressFull}" />
+                            Grid.ColumnSpan="3"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Адрес полность"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
-                        <TextBlock
-                            Grid.Row="1"
-                            Margin="5"
-                            Text="Индекс" />
                         <TextBox
                             x:Name="tbx_IndexRegistration"
                             Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="5"
-                            Text="{Binding Registration.Index}" />
+                            Grid.Column="0"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Индекс"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding IndexRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
-                        <TextBlock
-                            Grid.Row="2"
-                            Margin="5"
-                            Text="Страна" />
                         <TextBox
                             x:Name="tbx_CountryRegistration"
-                            Grid.Row="2"
+                            Grid.Row="1"
                             Grid.Column="1"
-                            Margin="5"
-                            Text="{Binding Registration.Country}" />
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Страна"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding CountryRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
-                        <TextBlock
-                            Grid.Row="3"
-                            Margin="5"
-                            Text="Субъект" />
                         <TextBox
                             x:Name="tbx_RegionRegistration"
-                            Grid.Row="3"
-                            Grid.Column="1"
-                            Margin="5"
-                            Text="{Binding Registration.Region}" />
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Суъбект"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding RegionRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
-                        <TextBlock
-                            Grid.Row="4"
-                            Margin="5"
-                            Text="Район" />
                         <TextBox
                             x:Name="tbx_DistrictRegistration"
-                            Grid.Row="4"
-                            Grid.Column="1"
-                            Margin="5"
-                            Text="{Binding Registration.District}" />
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Район"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding DistrictRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
-                        <TextBlock
-                            Grid.Row="1"
-                            Grid.Column="2"
-                            Margin="5"
-                            Text="Город" />
                         <TextBox
                             x:Name="tbx_CityRegistration"
-                            Grid.Row="1"
-                            Grid.Column="3"
-                            Margin="5"
-                            Text="{Binding Registration.City}" />
-
-                        <TextBlock
                             Grid.Row="2"
-                            Grid.Column="2"
-                            Margin="5"
-                            Text="Улица" />
+                            Grid.Column="1"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Город"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding CityRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
                         <TextBox
                             x:Name="tbx_StreetRegistration"
                             Grid.Row="2"
-                            Grid.Column="3"
-                            Margin="5"
-                            Text="{Binding Registration.Street}" />
-
-                        <TextBlock
-                            Grid.Row="3"
                             Grid.Column="2"
-                            Margin="5"
-                            Text="Дом/Здание" />
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Улица"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding StreetRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
                         <TextBox
                             x:Name="tbx_HouseRegistration"
                             Grid.Row="3"
-                            Grid.Column="3"
-                            Margin="5"
-                            Text="{Binding Registration.House}" />
+                            Grid.Column="0"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Номер дома"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding HouseRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
 
-                        <TextBlock
-                            Grid.Row="4"
-                            Grid.Column="2"
-                            Margin="5"
-                            Text="Офис/пом." />
                         <TextBox
                             x:Name="tbx_RoomRegistration"
-                            Grid.Row="4"
-                            Grid.Column="3"
-                            Margin="5"
-                            Text="{Binding Registration.Room}" />
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Номер квартиры"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            Text="{Binding RoomRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
                     </Grid>
 
                     <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="180" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Margin="5" Text="Кадастровый номер" />
-                        <TextBox Grid.Column="1" Margin="5" />
+                        <TextBox
+                            Grid.Column="1"
+                            Margin="5,10"
+                            materialDesign:HintAssist.Hint="Кадастровый номер"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     </Grid>
                 </Grid>
             </Grid>
@@ -265,15 +242,42 @@
                     <Grid Grid.Row="4" Margin="10,0">
                         <WrapPanel Margin="10,5">
 
-                            <ToggleButton Margin="5" Content="Стихийная парковка" />
-                            <ToggleButton Margin="5" Content="Организованная охраняемая парковка" />
-                            <ToggleButton Margin="5" Content="Подземный паркинг" />
-                            <ToggleButton Margin="5" Content="Не огорожена" />
-                            <ToggleButton Margin="5" Content="Огороженная территория" />
-                            <ToggleButton Margin="5" Content="Огороженная территория и КПП" />
-                            <ToggleButton Margin="5" Content="Асфальтовое покрытие" />
-                            <ToggleButton Margin="5" Content="Детская площадка" />
-                            <ToggleButton Margin="5" Content="Огороженная и охраняемая территория" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Стихийная парковка"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Организованная охраняемая парковка"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Подземный паркинг"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Не огорожена"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Огороженная территория"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Огороженная территория и КПП"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Асфальтовое покрытие"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Детская площадка"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
+                            <CheckBox
+                                Margin="5"
+                                Content="Огороженная и охраняемая территория"
+                                Style="{StaticResource MaterialDesignFilterChipPrimaryOutlineCheckBox}" />
 
                         </WrapPanel>
                     </Grid>

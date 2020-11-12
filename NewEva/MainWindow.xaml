@@ -6,7 +6,9 @@
     xmlns:local="clr-namespace:NewEva"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="clr-namespace:NewEva.Ui"
+    xmlns:uiflat="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Flat"
     xmlns:vm="clr-namespace:NewEva.VM"
+    xmlns:vmflat="clr-namespace:NewEva.VM.ObjectOfEvaluation.Flat"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -18,10 +20,13 @@
         <DataTemplate DataType="{x:Type vm:TypeObjectsVM}">
             <ui:TypeObjectsUC />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vmflat:FlatLocationVM}">
+            <uiflat:FlatDescriptionUC />
+        </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
 
         <ContentControl Content="{Binding CurrentPage}" />
 
-    </Grid>
+    </ScrollViewer>
 </Window>
