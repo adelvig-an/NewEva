@@ -21,7 +21,7 @@
             <ui:TypeObjectsUC />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vmflat:FlatLocationVM}">
-            <uiflat:FlatDescriptionUC />
+            <uiflat:FlatCalculationUC />
         </DataTemplate>
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
