@@ -1,0 +1,98 @@
+﻿<UserControl
+    x:Class="NewEva.Ui.ContractUi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NewEva.Ui"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="clr-namespace:NewEva.Ui.Customer"
+    xmlns:vm="clr-namespace:NewEva.VM.Customer"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:PrivatePersonListVM}">
+            <ui:PrivatePersonListUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OrganizationListVM}">
+            <ui:OrganizationListUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PrivatePersonVM}">
+            <ui:PrivatePersonUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OrganizationVM}">
+            <ui:OrganizationUC />
+        </DataTemplate>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Номер договора"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Number}" />
+            <DatePicker
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата договора"
+                SelectedDate="{Binding DateContract}"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <ComboBox
+                x:Name="cb_TypeCost"
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Цель оценки"
+                ItemsSource="{Binding TypeCosts}"
+                SelectedItem="{Binding IsTypeCost}"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+        </Grid>
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Предполагаемое использование результатов оценки"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding Target}" />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Margin="5"
+                VerticalAlignment="Center"
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="Заказчик отчета" />
+            <ListBox
+                Margin="10,5"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                BorderThickness="0"
+                SelectedIndex="{Binding CurrentIndex}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem
+                    Width="150"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Content="Физическое лицо" />
+                <ListBoxItem
+                    Width="150"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Content="Юридическое лицо" />
+            </ListBox>
+        </StackPanel>
+        <ContentControl Content="{Binding CurrentPage}" />
+        <Button
+            Grid.Row="3"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Content="Продолжить"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}" />
+    </StackPanel>
+</UserControl>

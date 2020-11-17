@@ -29,6 +29,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <ComboBox
                 x:Name="cbx_OrgForm"
@@ -149,7 +150,12 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
             </Grid>
-            <Grid Grid.Row="10">
+            <ComboBox
+                Grid.Row="10"
+                Margin="5,5,6,5"
+                materialDesign:HintAssist.Hint="Дейсвующий на основании"
+                Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+            <Grid Grid.Row="11">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />

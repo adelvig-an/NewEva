@@ -1,8 +1,7 @@
 ﻿<UserControl
-    x:Class="NewEva.Ui.OverviewUC"
+    x:Class="NewEva.Ui.OverviewUi"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NewEva.Ui"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -14,7 +13,7 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type vm:ReportVM}">
-            <ui:ReportUC />
+            <ui:ReportUi />
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
@@ -22,24 +21,33 @@
             <ColumnDefinition Width="150" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid>
+        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3">
             <ListBox
                 Padding="0,100,0,0"
                 Background="#f2f2f2"
-                BorderThickness="0">
+                BorderBrush="#8d8d8d"
+                BorderThickness="0,0,1,0">
                 <ListBoxItem Height="40" Content="Задание" />
                 <ListBoxItem Height="40" Content="Обзор рынка" />
                 <ListBoxItem Height="40" Content="Объект оценки" />
                 <ListBoxItem Height="40" Content="Отчет" />
             </ListBox>
-        </Grid>
-        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-            <Grid Margin="10,0,0,0" Background="#f2f2f2">
-
+        </materialDesign:Card>
+        <materialDesign:Card
+            Grid.Column="1"
+            Margin="20,30,10,0"
+            Padding="18,25,18,25"
+            materialDesign:ShadowAssist.ShadowDepth="Depth3"
+            Background="#f2f2f2">
+            <StackPanel>
+                <Image
+                    Width="150"
+                    Margin="0,0,0,45"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Source="/Resources/Image/Logo.png" />
                 <ContentControl Content="{Binding ReportPage}" />
-
-            </Grid>
-        </ScrollViewer>
-
+            </StackPanel>
+        </materialDesign:Card>
     </Grid>
 </UserControl>

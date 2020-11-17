@@ -10,12 +10,12 @@
     xmlns:vm="clr-namespace:NewEva.VM"
     xmlns:vmflat="clr-namespace:NewEva.VM.ObjectOfEvaluation.Flat"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1024"
+    Height="600"
     mc:Ignorable="d">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:OverviewVM}">
-            <ui:OverviewUC />
+            <ui:OverviewUi />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:TypeObjectsVM}">
             <ui:TypeObjectsUC />

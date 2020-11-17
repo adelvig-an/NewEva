@@ -34,12 +34,13 @@ namespace NewEva.VM
                 IsTypeCost = contract.TypeCost;
                 Target = contract.Target;
             }
+            TypeCosts = LocalStorage.TypeCosts;
             pages = new string[]
             {
                 "PrivatePersonListVM",
                 "OrganizationListVM"
             };
-            TypeCosts = LocalStorage.TypeCosts;
+            CurrentIndex = 0;
             NewCustomerPage = new RelayCommand(_ => NewCustomerCommand());
         }
 

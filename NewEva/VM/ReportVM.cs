@@ -42,6 +42,7 @@ namespace NewEva.VM
                 "ContractVM", 
                 "ValidContractVM"
             };
+            CurrentIndex = 0;
         }
 
         private string[] pages;

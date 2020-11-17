@@ -29,7 +29,7 @@ namespace NewEva.VM
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
-            CurrentPage = new FlatLocationVM();
+            CurrentPage = new OverviewVM();
             ReportPage = new RelayCommand(_ => ReportPageAction());
             BackPage = new RelayCommand(_ => BackPageAction());
             NextPage = new RelayCommand(_ => NextPageAction());
