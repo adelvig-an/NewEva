@@ -1,0 +1,110 @@
+﻿<UserControl
+    x:Class="NewEva.Ui.Customer.PrivatePersonUi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NewEva.Ui.Customer"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel>
+        <Button
+            Margin="5,5,15,5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Вернуться к списку"
+            Style="{StaticResource MaterialDesignOutlinedButton}" />
+        <TextBlock
+            Margin="5"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="Новый заказчик" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                x:Name="tbx_SecondName"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Фамилия"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <TextBox
+                x:Name="tbx_FirstName"
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Имя"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <TextBox
+                x:Name="tbx_MiddleName"
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Отчество"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        </Grid>
+        <TextBlock
+            Margin="5"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="Паспорт" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                x:Name="tbx_Serial"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Серия"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Serial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <TextBox
+                x:Name="tbx_Number"
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Номер"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <DatePicker
+                x:Name="dp_DateIssued"
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата выдачи"
+                SelectedDate="{Binding DateIssued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+        </Grid>
+        <TextBox
+            x:Name="tbx_Issued"
+            Margin="5,5,5,10"
+            materialDesign:HintAssist.Hint="Кем выдан"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding Issued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <TextBlock
+            Margin="5"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="Адрес" />
+        <TextBox
+            x:Name="tbx_AddressRegistration"
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Адрес регистрации"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <CheckBox
+            x:Name="AddressMatch"
+            Margin="5"
+            Content="Адрес регистрации совпадает с адресом проживания"
+            IsChecked="{Binding IsAddressMatch}" />
+        <TextBox
+            x:Name="tbx_AddressActual"
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Адрес проживания"
+            IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+    </StackPanel>
+</UserControl>

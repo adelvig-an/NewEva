@@ -13,15 +13,15 @@
             </ResourceDictionary.MergedDictionaries>
             <conv:InverseBooleanConverter x:Key="InverseBooleanConverter" />
             <!--  PRIMARY  -->
-            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#41b5f9" />
-            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#333333" />
-            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#12a2f8" />
-            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#f2f2f2" />
-            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#074163" />
-            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#f2f2f2" />
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#ff9900" />
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#ffffff" />
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#006cd9" />
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#ffffff" />
+            <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#001133" />
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#ffffff" />
             <!--  ACCENT  -->
-            <SolidColorBrush x:Key="SecondaryHueMidBrush" Color="#12b697" />
-            <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="#f2f2f2" />
+            <SolidColorBrush x:Key="SecondaryHueMidBrush" Color="#88cc00" />
+            <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="#ffffff" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

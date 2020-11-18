@@ -62,16 +62,16 @@
             </Grid.ColumnDefinitions>
             <ComboBox
                 Grid.Column="0"
-                Margin="5,0,5,10"
+                Margin="5,5,5,10"
                 materialDesign:HintAssist.Hint="Оценщик"
                 ItemsSource="{Binding Appraisers}"
                 SelectedItem="{Binding IsAppraiser}"
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
             <Button
                 Grid.Column="1"
-                Margin="5,0,5,10"
+                Margin="5,5,5,10"
                 Content="Данные оценщика"
-                Style="{StaticResource MaterialDesignRaisedAccentButton}" />
+                Style="{StaticResource MaterialDesignRaisedLightButton}" />
         </Grid>
         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
             <TextBlock

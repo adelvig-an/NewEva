@@ -13,13 +13,13 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type vm:PrivatePersonListVM}">
-            <ui:PrivatePersonListUC />
+            <ui:PrivatePersonValidUi />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:OrganizationListVM}">
             <ui:OrganizationListUC />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:PrivatePersonVM}">
-            <ui:PrivatePersonUC />
+            <ui:PrivatePersonUi />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:OrganizationVM}">
             <ui:OrganizationUC />
@@ -53,7 +53,7 @@
                 Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
         </Grid>
         <TextBox
-            Margin="5,0,5,10"
+            Margin="5,5,5,10"
             materialDesign:HintAssist.Hint="Предполагаемое использование результатов оценки"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
             Text="{Binding Target}" />

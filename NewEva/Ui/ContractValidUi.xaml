@@ -17,7 +17,6 @@
                     Margin="8,0,8,0"
                     materialDesign:ColorZoneAssist.Mode="Standard"
                     materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource MaterialDesignPaper}"
-                    BorderBrush="Black"
                     BorderThickness="0"
                     SelectedIndex="0">
                     <ComboBoxItem>Номер дговора</ComboBoxItem>
@@ -84,9 +83,17 @@
                             Height="35"
                             Margin="0,0,7,0"
                             Padding="0"
-                            Content="{materialDesign:PackIcon Download}"
-                            Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                            ToolTip="Скачать договор" />
+                            Content="{materialDesign:PackIcon FileWord}"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            ToolTip="Скачать договор Word" />
+                        <Button
+                            Width="35"
+                            Height="35"
+                            Margin="7,0,7,0"
+                            Padding="0"
+                            Content="{materialDesign:PackIcon FilePdf}"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            ToolTip="Скачать договор PDF" />
                         <Button
                             Width="35"
                             Height="35"
@@ -140,9 +147,17 @@
                             Height="35"
                             Margin="0,0,7,0"
                             Padding="0"
-                            Content="{materialDesign:PackIcon Download}"
-                            Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                            ToolTip="Скачать договор" />
+                            Content="{materialDesign:PackIcon FileWord}"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            ToolTip="Скачать договор Word" />
+                        <Button
+                            Width="35"
+                            Height="35"
+                            Margin="7,0,7,0"
+                            Padding="0"
+                            Content="{materialDesign:PackIcon FilePdf}"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            ToolTip="Скачать договор PDF" />
                         <Button
                             Width="35"
                             Height="35"
@@ -196,9 +211,17 @@
                             Height="35"
                             Margin="0,0,7,0"
                             Padding="0"
-                            Content="{materialDesign:PackIcon Download}"
-                            Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                            ToolTip="Скачать договор" />
+                            Content="{materialDesign:PackIcon FileWord}"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            ToolTip="Скачать договор Word" />
+                        <Button
+                            Width="35"
+                            Height="35"
+                            Margin="7,0,7,0"
+                            Padding="0"
+                            Content="{materialDesign:PackIcon FilePdf}"
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            ToolTip="Скачать договор PDF" />
                         <Button
                             Width="35"
                             Height="35"

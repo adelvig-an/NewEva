@@ -9,21 +9,8 @@
     d:DesignHeight="1200"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+    <StackPanel>
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -50,7 +37,7 @@
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                 Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="250" />
@@ -68,198 +55,174 @@
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
         </Grid>
         <TextBlock
-            Grid.Row="2"
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Сведения об образовании" />
-        <Grid Grid.Row="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Наименование учебного заведения"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="250" />
+            </Grid.ColumnDefinitions>
             <TextBox
-                Grid.Row="0"
+                Grid.Column="0"
                 Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Наименование учебного заведения"
+                materialDesign:HintAssist.Hint="Серия диплома"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="250" />
-                </Grid.ColumnDefinitions>
-                <TextBox
-                    Grid.Column="0"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Серия диплома"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox
-                    Grid.Column="1"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Номер диплома"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <DatePicker
-                    Grid.Column="2"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Дата выдачи"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-            </Grid>
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="140" />
-                </Grid.ColumnDefinitions>
-                <TextBox
-                    Grid.Column="0"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Копия диплома об образовании"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <Button
-                    Grid.Column="1"
-                    Margin="5,0,5,10"
-                    Content="Выбрать"
-                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                    ToolTip="Выбрать файл" />
-            </Grid>
+            <TextBox
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Номер диплома"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <DatePicker
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата выдачи"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
         </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="140" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Grid.Column="0"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Копия диплома об образовании"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <Button
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                Content="Выбрать"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="Выбрать файл" />
+        </Grid>
+
         <TextBlock
-            Grid.Row="4"
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Членство в СРОО" />
-        <Grid Grid.Row="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Наименование СРОО"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="250" />
+            </Grid.ColumnDefinitions>
             <TextBox
-                Grid.Row="0"
+                Grid.Column="0"
                 Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Наименование СРОО"
+                materialDesign:HintAssist.Hint="Номер в реестре"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250" />
-                    <ColumnDefinition Width="250" />
-                </Grid.ColumnDefinitions>
-                <TextBox
-                    Grid.Column="0"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Номер в реестре"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <DatePicker
-                    Grid.Column="1"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Дата вступления"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-            </Grid>
-            <TextBlock
-                Grid.Row="2"
-                Margin="5"
-                Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
-                Text="Свидетельство" />
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="140" />
-                </Grid.ColumnDefinitions>
-                <TextBox
-                    Grid.Column="0"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Серия свидетельства"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox
-                    Grid.Column="1"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Номер свидетельства"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox
-                    Grid.Column="2"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Копия свидетельства СРОО"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <Button
-                    Grid.Column="3"
-                    Margin="5,0,5,10"
-                    Content="Выбрать"
-                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                    ToolTip="Выбрать файл" />
-            </Grid>
+            <DatePicker
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата вступления"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
         </Grid>
         <TextBlock
-            Grid.Row="6"
+            Margin="5"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="Свидетельство" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="140" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Grid.Column="0"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Серия свидетельства"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Номер свидетельства"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Копия свидетельства СРОО"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <Button
+                Grid.Column="3"
+                Margin="5,0,5,10"
+                Content="Выбрать"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="Выбрать файл" />
+        </Grid>
+
+        <TextBlock
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Сведения о страховании" />
-        <Grid Grid.Row="7">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+
+        <TextBox
+            Margin="5"
+            materialDesign:HintAssist.Hint="Наименование страховой компании"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
             <TextBox
-                Grid.Row="0"
-                Margin="5"
-                materialDesign:HintAssist.Hint="Наименование страховой компании"
+                Grid.Column="0"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Номер страхового полиса"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="250" />
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <TextBox
-                    Grid.Column="0"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Номер страхового полиса"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <DatePicker
-                    Grid.Column="1"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Дата начала"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                <DatePicker
-                    Grid.Column="2"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Дата окончания"
-                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                <TextBox
-                    Grid.Column="3"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Страховая сумма"
-                    materialDesign:TextFieldAssist.SuffixText="руб."
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            </Grid>
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="140" />
-                </Grid.ColumnDefinitions>
-                <TextBox
-                    Grid.Column="0"
-                    Margin="5,0,5,10"
-                    materialDesign:HintAssist.Hint="Копия стахового полиса"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <Button
-                    Grid.Column="1"
-                    Margin="5,0,5,10"
-                    Content="Выбрать"
-                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
-                    ToolTip="Выбрать файл" />
-            </Grid>
+            <DatePicker
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата начала"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <DatePicker
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата окончания"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <TextBox
+                Grid.Column="3"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Страховая сумма"
+                materialDesign:TextFieldAssist.SuffixText="руб."
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
         </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="140" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Grid.Column="0"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Копия стахового полиса"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <Button
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                Content="Выбрать"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="Выбрать файл" />
+        </Grid>
+
         <TextBlock
-            Grid.Row="8"
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Квалификационные аттестаты" />
-        <StackPanel Grid.Row="9">
+        <StackPanel>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -305,7 +268,7 @@
                         Grid.Column="1"
                         Margin="5,0,5,10"
                         Content="Выбрать"
-                        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                        Style="{StaticResource MaterialDesignRaisedLightButton}"
                         ToolTip="Выбрать файл" />
                 </Grid>
                 <Button
@@ -342,5 +305,5 @@
             VerticalAlignment="Center"
             Content="Сохранить"
             Style="{StaticResource MaterialDesignRaisedAccentButton}" />
-    </Grid>
+    </StackPanel>
 </UserControl>
