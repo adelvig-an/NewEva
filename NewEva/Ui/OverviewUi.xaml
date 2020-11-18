@@ -40,7 +40,7 @@
                     Margin="0,0,0,45"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Source="/Resources/Image/Logo.png" />
+                    Source="{StaticResource Logotype}" />
                 <ContentControl Content="{Binding ReportPage}" />
             </StackPanel>
         </materialDesign:Card>
