@@ -58,7 +58,6 @@
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Сведения об образовании" />
-
         <TextBox
             Margin="5,0,5,10"
             materialDesign:HintAssist.Hint="Наименование учебного заведения"
@@ -99,15 +98,13 @@
                 Grid.Column="1"
                 Margin="5,0,5,10"
                 Content="Выбрать"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Style="{StaticResource MaterialDesignFlatButton}"
                 ToolTip="Выбрать файл" />
         </Grid>
-
         <TextBlock
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Членство в СРОО" />
-
         <TextBox
             Margin="5,0,5,10"
             materialDesign:HintAssist.Hint="Наименование СРОО"
@@ -158,15 +155,13 @@
                 Grid.Column="3"
                 Margin="5,0,5,10"
                 Content="Выбрать"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Style="{StaticResource MaterialDesignFlatButton}"
                 ToolTip="Выбрать файл" />
         </Grid>
-
         <TextBlock
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Сведения о страховании" />
-
         <TextBox
             Margin="5"
             materialDesign:HintAssist.Hint="Наименование страховой компании"
@@ -214,10 +209,9 @@
                 Grid.Column="1"
                 Margin="5,0,5,10"
                 Content="Выбрать"
-                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                Style="{StaticResource MaterialDesignFlatButton}"
                 ToolTip="Выбрать файл" />
         </Grid>
-
         <TextBlock
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
@@ -268,7 +262,7 @@
                         Grid.Column="1"
                         Margin="5,0,5,10"
                         Content="Выбрать"
-                        Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Style="{StaticResource MaterialDesignFlatButton}"
                         ToolTip="Выбрать файл" />
                 </Grid>
                 <Button
@@ -296,7 +290,6 @@
                 Margin="5"
                 Content="Добавить квалификационный аттестат"
                 ToolTip="Можно добавить до трех квалификационных аттестата" />
-
         </StackPanel>
         <Button
             Grid.Row="10"

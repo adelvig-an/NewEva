@@ -93,6 +93,6 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Content="Продолжить"
-            Style="{StaticResource MaterialDesignRaisedAccentButton}" />
+            Style="{StaticResource MaterialDesignOutlinedButton}" />
     </StackPanel>
 </UserControl>

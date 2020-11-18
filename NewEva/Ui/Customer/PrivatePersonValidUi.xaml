@@ -45,7 +45,10 @@
                 </materialDesign:ColorZone>
             </StackPanel>
         </materialDesign:ColorZone>
-        <ListBox Margin="0,10" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <ListBox
+            Margin="0,10"
+            IsEnabled="{Binding IsChecked, ElementName=EnableListBox}"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListBoxItem Padding="16,8">
                 <StackPanel Orientation="Horizontal">
                     <StackPanel

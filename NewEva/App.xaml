@@ -14,14 +14,14 @@
             <conv:InverseBooleanConverter x:Key="InverseBooleanConverter" />
             <!--  PRIMARY  -->
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#ff9900" />
-            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#ffffff" />
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#f3f5f7" />
             <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#006cd9" />
-            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#ffffff" />
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#f3f5f7" />
             <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#001133" />
-            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#ffffff" />
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#f3f5f7" />
             <!--  ACCENT  -->
             <SolidColorBrush x:Key="SecondaryHueMidBrush" Color="#88cc00" />
-            <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="#ffffff" />
+            <SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="#f3f5f7" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

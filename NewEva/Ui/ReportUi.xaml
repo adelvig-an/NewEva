@@ -71,7 +71,7 @@
                 Grid.Column="1"
                 Margin="5,5,5,10"
                 Content="Данные оценщика"
-                Style="{StaticResource MaterialDesignRaisedLightButton}" />
+                Style="{StaticResource MaterialDesignFlatButton}" />
         </Grid>
         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
             <TextBlock
