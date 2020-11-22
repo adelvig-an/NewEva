@@ -16,13 +16,13 @@
             <ui:PrivatePersonValidUi />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:OrganizationListVM}">
-            <ui:OrganizationListUC />
+            <ui:OrganizationValidUi />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:PrivatePersonVM}">
             <ui:PrivatePersonUi />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:OrganizationVM}">
-            <ui:OrganizationUC />
+            <ui:OrganizationUi />
         </DataTemplate>
     </UserControl.Resources>
     <StackPanel>
@@ -87,12 +87,6 @@
             </ListBox>
         </StackPanel>
         <ContentControl Content="{Binding CurrentPage}" />
-        <Button
-            Grid.Row="3"
-            Margin="10"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Content="Продолжить"
-            Style="{StaticResource MaterialDesignOutlinedButton}" />
+
     </StackPanel>
 </UserControl>

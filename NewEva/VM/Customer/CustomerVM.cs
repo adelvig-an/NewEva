@@ -31,8 +31,7 @@ namespace NewEva.VM.Customer
             PrivatePersonPage = new RelayCommand(_ => PrivatePersonCommand());
             OrganizationListPage = new RelayCommand(_ => OrganizationListCommand());
             PrivatePersonListPage = new RelayCommand(_ => PrivatePersonListCommand());
-            BackPage = new RelayCommand(_ => BackCommand());
-            SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => CurrentPage.IsValid);
+            
             UpdateSelectedPage = new RelayCommand(_ => UpdateSelectedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
         }
@@ -73,36 +72,36 @@ namespace NewEva.VM.Customer
         }
 
         //Обработчик команды сохранения данных в БД и возвращения к списку
-        public void SaveBackCommand()
-        {
-            if (CurrentPage is PrivatePersonVM privatePersonVM)
-            {
-                privatePersonVM.Validate();
-                if (!privatePersonVM.IsValid)
-                {
-                    return;
-                }
-                if (privatePersonVM.IsEdit)
-                {
-                    privatePersonVM.UpdatePrivatePerson();
-                    var id = privatePersonVM.Id;
-                    CurrentPage = new PrivatePersonListVM(id);
-                }
-                else
-                {
-                    var id = privatePersonVM.AddPrivatePerson();
-                    CurrentPage = new PrivatePersonListVM(id);
-                }
+        //public void SaveBackCommand()
+        //{
+        //    if (CurrentPage is PrivatePersonVM privatePersonVM)
+        //    {
+        //        privatePersonVM.Validate();
+        //        if (!privatePersonVM.IsValid)
+        //        {
+        //            return;
+        //        }
+        //        if (privatePersonVM.IsEdit)
+        //        {
+        //            privatePersonVM.UpdatePrivatePerson();
+        //            var id = privatePersonVM.Id;
+        //            CurrentPage = new PrivatePersonListVM(id);
+        //        }
+        //        else
+        //        {
+        //            var id = privatePersonVM.AddPrivatePerson();
+        //            CurrentPage = new PrivatePersonListVM(id);
+        //        }
 
-            }
-            else if (CurrentPage is OrganizationVM organizationVM)
-            {
-                var id = organizationVM.AddOrganization();
-                CurrentPage = new OrganizationListVM(id);
-            }
+        //    }
+        //    else if (CurrentPage is OrganizationVM organizationVM)
+        //    {
+        //        var id = organizationVM.AddOrganization();
+        //        CurrentPage = new OrganizationListVM(id);
+        //    }
             
             //this.OnClosingRequest(); //Закрытие окна
-        }
+        //}
 
         //Обработчик команды закрытия окна
         public void ClosedCommand()

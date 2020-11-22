@@ -14,6 +14,6 @@ namespace NewEva.Model
         public string Number { get; set; } //Номер документа
         public string Issued { get; set; } //Кем выдан документ
         public string Division { get; set; } //Код подразделения
-        public DateTime DateIssued { get; set; } //Дата выдачи
+        public DateTime? DateIssued { get; set; } //Дата выдачи
     }
 }

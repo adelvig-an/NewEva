@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Image\Logo.png" />
+    <None Remove="Resources\Image\miniLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Image\Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Resources\Image\miniLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ControlzEx" Version="4.4.0" />
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

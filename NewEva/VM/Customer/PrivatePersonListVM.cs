@@ -18,10 +18,7 @@ namespace NewEva.VM.Customer
 
         public PrivatePersonListVM(int selectedId = -1)
         {
-            PrivatePersonList = new ObservableCollection<PrivatePerson>(DataBase.ReadAll<Customers>().Where(cust => cust.TypeCustomer == true).Select(сustomers => DataBase.ToPrivatePerson(сustomers)))
-            {
-                 
-            };
+            PrivatePersonList = new ObservableCollection<PrivatePerson>(DataBase.ReadAll<Customers>().Where(cust => cust.TypeCustomer == true).Select(сustomers => DataBase.ToPrivatePerson(сustomers)));
             SelectedPrivatePerson = PrivatePersonList.SingleOrDefault(privatePerson => privatePerson.Id == selectedId);
             DeleteCustomer = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
         }

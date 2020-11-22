@@ -38,7 +38,7 @@
                             MinWidth="200"
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"
-                            materialDesign:HintAssist.Hint="Найти договор"
+                            materialDesign:HintAssist.Hint="Найти заказчика"
                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                             BorderThickness="0" />
                     </Grid>
@@ -46,114 +46,51 @@
             </StackPanel>
         </materialDesign:ColorZone>
         <ListBox
+            x:Name="lstBoxPrivatePerson"
             Margin="0,10"
             IsEnabled="{Binding IsChecked, ElementName=EnableListBox}"
-            ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <ListBoxItem Padding="16,8">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel
-                        Grid.Column="0"
-                        Width="324"
-                        Margin="0,0,25,0"
-                        Orientation="Vertical">
-                        <TextBlock FontWeight="Medium" Text="Иванов Иван Иванович" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0,0,3,0" Text="Серия" />
-                            <TextBlock Margin="0,0,3,0" Text="0305" />
-                            <TextBlock Margin="0,0,3,0" Text="№" />
-                            <TextBlock Margin="0,0,3,0" Text="120319" />
-                            <TextBlock Margin="0,0,3,0" Text="выдан от" />
-                            <TextBlock Text="02.08.2020" />
+            ItemsSource="{Binding PrivatePersonList}"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            SelectedItem="{Binding SelectedPrivatePerson}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="16,8" Orientation="Horizontal">
+                        <StackPanel
+                            Grid.Column="0"
+                            Width="324"
+                            Margin="0,0,20,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="{Binding FullName}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,3,0" Text="Серия" />
+                                <TextBlock Margin="0,0,3,0" Text="{Binding Serial}" />
+                                <TextBlock Margin="0,0,3,0" Text="№" />
+                                <TextBlock Margin="0,0,3,0" Text="{Binding Number}" />
+                                <TextBlock Margin="0,0,3,0" Text="выдан от" />
+                                <TextBlock Text="{Binding DateIssued}" />
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel
-                        Grid.Column="1"
-                        Width="324"
-                        Margin="25,0,0,0"
-                        Orientation="Vertical">
-                        <TextBlock FontWeight="Medium" Text="Адрес регистрации:" />
-                        <TextBlock Text="г Красноярск, ул Ленина, д 70, кв 5" TextWrapping="Wrap" />
-                    </StackPanel>
-                    <Button
-                        Width="35"
-                        Height="35"
-                        Padding="0"
-                        Background="Red"
-                        BorderBrush="Red"
-                        Content="{materialDesign:PackIcon Delete}"
-                        ToolTip="Удалить" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Padding="16,8">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel
-                        Grid.Column="0"
-                        Width="324"
-                        Margin="0,0,25,0"
-                        Orientation="Vertical">
-                        <TextBlock FontWeight="Medium" Text="Сергеев Иван Васильевич" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0,0,3,0" Text="Серия" />
-                            <TextBlock Margin="0,0,3,0" Text="2712" />
-                            <TextBlock Margin="0,0,3,0" Text="№" />
-                            <TextBlock Margin="0,0,3,0" Text="120319" />
-                            <TextBlock Margin="0,0,3,0" Text="выдан от" />
-                            <TextBlock Text="02.07.2006" />
+                        <StackPanel
+                            Grid.Column="1"
+                            Width="324"
+                            Margin="20,0,15,0"
+                            Orientation="Vertical">
+                            <TextBlock FontWeight="Medium" Text="Адрес регистрации:" />
+                            <TextBlock Text="г Красноярск, ул Ленина, д 70, кв 5" TextWrapping="Wrap" />
                         </StackPanel>
+                        <Button
+                            Width="35"
+                            Height="35"
+                            Padding="0"
+                            Background="Red"
+                            BorderBrush="Red"
+                            Command="{Binding DeleteCustomer}"
+                            CommandParameter="{Binding SelectedItems, ElementName=lstBoxPrivatePerson}"
+                            Content="{materialDesign:PackIcon Delete}"
+                            ToolTip="Удалить" />
                     </StackPanel>
-                    <StackPanel
-                        Grid.Column="1"
-                        Width="324"
-                        Margin="25,0,0,0"
-                        Orientation="Vertical">
-                        <TextBlock FontWeight="Medium" Text="Адрес регистрации:" />
-                        <TextBlock Text="г Красноярск, пр-кт им.газеты Красноярский рабочий, д 67, кв 53" TextWrapping="Wrap" />
-                    </StackPanel>
-                    <Button
-                        Width="35"
-                        Height="35"
-                        Padding="0"
-                        Background="Red"
-                        BorderBrush="Red"
-                        Content="{materialDesign:PackIcon Delete}"
-                        ToolTip="Удалить" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Padding="16,8">
-                <StackPanel Orientation="Horizontal">
-                    <StackPanel
-                        Grid.Column="0"
-                        Width="324"
-                        Margin="0,0,25,0"
-                        Orientation="Vertical">
-                        <TextBlock FontWeight="Medium" Text="Листьева Мария Петровна" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0,0,3,0" Text="Серия" />
-                            <TextBlock Margin="0,0,3,0" Text="0507" />
-                            <TextBlock Margin="0,0,3,0" Text="№" />
-                            <TextBlock Margin="0,0,3,0" Text="365897" />
-                            <TextBlock Margin="0,0,3,0" Text="выдан от" />
-                            <TextBlock Text="15.09.2009" />
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel
-                        Grid.Column="1"
-                        Width="324"
-                        Margin="25,0,0,0"
-                        Orientation="Vertical">
-                        <TextBlock FontWeight="Medium" Text="Адрес регистрации:" />
-                        <TextBlock Text="г Красноярск, ул Мичурина, д 5А, кв 17" TextWrapping="Wrap" />
-                    </StackPanel>
-                    <Button
-                        Width="35"
-                        Height="35"
-                        Padding="0"
-                        Background="Red"
-                        BorderBrush="Red"
-                        Content="{materialDesign:PackIcon Delete}"
-                        ToolTip="Удалить" />
-                </StackPanel>
-            </ListBoxItem>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </StackPanel>
 </UserControl>

@@ -18,23 +18,23 @@ namespace NewEva.DbLayer
         public string Number { get; set; } //Номер документа
         public string Issued { get; set; } //Кем выдан документ
         public string Division { get; set; } //Код подразделения
-        public DateTime DateIssued { get; set; } //Дата выдачи
-        public string TitleFull { get; set; } //Полное наименование
-        public string TitleShort { get; set; } //Сокращенное наименование
+        public DateTime? DateIssued { get; set; } //Дата выдачи
+        public string NameFull { get; set; } //Полное наименование
+        public string NameShort { get; set; } //Сокращенное наименование
         public string OrganizationForm { get; set; } //Организационно-правовая форма
         public int OGRN { get; set; } //ОГРН
-        public DateTime DateRegistration { get; set; } //Дата регистрации
+        public DateTime? DateRegistration { get; set; } //Дата регистрации
         public int INN { get; set; } //ИНН
         public int KPP { get; set; } //КПП
-        public string TitleBank { get; set; } //Название банка
+        public string NameBank { get; set; } //Название банка
         public int BIK { get; set; } //БИК Банка
         public int PayAccount { get; set; } //Расчетный счет
         public int CorrAccount { get; set; } //Корреспондентский счет
         public string Position { get; set; } // Должность руководителя
         public string TypeAttorney { get; set; } //Действующий на основании (Устав, Доверенность, Закон)
         public string NumberAttorney { get; set; } //Номер доверенности
-        public DateTime DateAttorney { get; set; } //Дата доверения
-        public DateTime DateAttorneyBefore { get; set; } //Дата "действует до"
+        public DateTime? DateAttorney { get; set; } //Дата доверения
+        public DateTime? DateAttorneyBefore { get; set; } //Дата "действует до"
         public string AddressFullRegistration { get; set; } //Адрес полностью
         public int IndexRegistration { get; set; } //Индекс
         public string CountryRegistration { get; set; } //Страна

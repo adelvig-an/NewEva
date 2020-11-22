@@ -112,14 +112,14 @@ namespace NewEva.DbLayer
             return new Organization
             {
                 Id = customers.Id,
-                TitleFull = customers.TitleFull,
-                TitleShort = customers.TitleShort,
+                NameFull = customers.NameFull,
+                NameShort = customers.NameShort,
                 OrganizationForm = customers.OrganizationForm,
                 OGRN= customers.OGRN,
                 DateRegistration = customers.DateRegistration,
                 INN = customers.INN,
                 KPP = customers.KPP,
-                TitleBank = customers.TitleBank,
+                NameBank = customers.NameBank,
                 BIK = customers.BIK,
                 PayAccount = customers.PayAccount,
                 CorrAccount = customers.CorrAccount

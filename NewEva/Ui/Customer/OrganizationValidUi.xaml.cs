@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NewEva.Ui
+namespace NewEva.Ui.Customer
 {
     /// <summary>
-    /// Логика взаимодействия для OrganizationOfAppraiserUC.xaml
+    /// Логика взаимодействия для OrganizationValidUi.xaml
     /// </summary>
-    public partial class OrganizationOfAppraiserUC : UserControl
+    public partial class OrganizationValidUi : UserControl
     {
-        public OrganizationOfAppraiserUC()
+        public OrganizationValidUi()
         {
             InitializeComponent();
         }

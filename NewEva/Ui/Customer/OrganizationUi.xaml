@@ -1,0 +1,184 @@
+﻿<UserControl
+    x:Class="NewEva.Ui.Customer.OrganizationUi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NewEva.Ui.Customer"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="900"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel>
+        <Button
+            Margin="5,5,15,5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="Вернуться к списку"
+            Style="{StaticResource MaterialDesignOutlinedButton}" />
+        <TextBlock
+            Margin="5"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="Новый заказчик" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="175" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Наименование организации"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding NameFull, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <TextBox
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="ОГРН"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding OGRN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <DatePicker
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата регистрации"
+                SelectedDate="{Binding DateRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Grid.Column="0"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="ИНН"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding INN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <materialDesign:PackIcon
+                Grid.Column="1"
+                Width="18"
+                Height="18"
+                VerticalAlignment="Center"
+                Foreground="Blue"
+                Kind="AlertCircle"
+                ToolTip="Быстрый поиск данных организации по ИНН" />
+            <TextBox
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="КПП"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding KPP, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        </Grid>
+        <TextBlock
+            Margin="5"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="Руководитель" />
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Должность руководителя"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Фамилия"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <TextBox
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Имя"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <TextBox
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Отчество"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        </Grid>
+        <ComboBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Дейсвующий на основании"
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+        <Grid IsEnabled="True" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Номер доверенности"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <DatePicker
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата доверения"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <DatePicker
+                Grid.Column="2"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Дата окончания"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+        </Grid>
+        <TextBlock
+            Margin="5"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="Банковские реквизиты" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                Grid.Column="0"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Наименование банка"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding NameBank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <TextBox
+                Grid.Column="1"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="БИК"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding BIK, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        </Grid>
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Расчетный счет"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding PayAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Корреспондентский счет"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding CorrAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <TextBlock
+            Margin="5"
+            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+            Text="Местоположение" />
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Адрес регистрации"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <CheckBox
+            Margin="5,10,5,10"
+            Content="Юридический адрес совпадает с фактическим адресом"
+            IsChecked="{Binding IsAddressMatch}" />
+        <TextBox
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Фактический адрес"
+            IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+    </StackPanel>
+</UserControl>

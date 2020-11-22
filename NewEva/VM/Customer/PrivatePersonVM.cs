@@ -188,7 +188,7 @@ namespace NewEva.VM.Customer
             RoomActual = "";
         }
 
-        #region Свойства
+        #region Properties
         #region Properties PrivatePerson
         public int Id { get; set; }
         private string secondName;
@@ -249,9 +249,9 @@ namespace NewEva.VM.Customer
                 SetProperty(ref number, value);
             }
         }
-        private DateTime dateIssued = DateTime.Today;
+        private DateTime? dateIssued = DateTime.Today;
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public DateTime DateIssued
+        public DateTime? DateIssued
         {
             get => dateIssued;
             set {

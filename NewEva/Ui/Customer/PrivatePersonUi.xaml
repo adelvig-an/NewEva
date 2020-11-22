@@ -10,12 +10,22 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <StackPanel>
-        <Button
-            Margin="5,5,15,5"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Content="Вернуться к списку"
-            Style="{StaticResource MaterialDesignOutlinedButton}" />
+        <StackPanel Orientation="Horizontal">
+            <Button
+                Margin="5,5,15,5"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding DataContext.BackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Content="Вернуться к списку"
+                Style="{StaticResource MaterialDesignOutlinedButton}" />
+            <Button
+                Margin="5,5,15,5"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Command="{Binding DataContext.SaveBackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Content="Сохранить"
+                Style="{StaticResource MaterialDesignRaisedAccentButton}" />
+        </StackPanel>
         <TextBlock
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"

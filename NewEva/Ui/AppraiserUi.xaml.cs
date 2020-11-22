@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace NewEva.Ui
 {
     /// <summary>
-    /// Логика взаимодействия для AppraiserUC.xaml
+    /// Логика взаимодействия для AppraiserUi.xaml
     /// </summary>
-    public partial class AppraiserUC : UserControl
+    public partial class AppraiserUi : UserControl
     {
-        public AppraiserUC()
+        public AppraiserUi()
         {
             InitializeComponent();
         }
