@@ -19,7 +19,7 @@ namespace NewEva.VM
 
         public OverviewVM()
         {
-            reportPage = new ReportVM();
+            ReportPage = new ReportVM();
         }
     }
 }

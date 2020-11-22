@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:NewEva.Ui.Customer"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="clr-namespace:NewEva.Ui"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -15,14 +16,14 @@
                 Margin="5,5,15,5"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Command="{Binding DataContext.BackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Command="{Binding DataContext.BackPage, RelativeSource={RelativeSource AncestorType={x:Type ui:ContractUi}, Mode=FindAncestor}}"
                 Content="Вернуться к списку"
                 Style="{StaticResource MaterialDesignOutlinedButton}" />
             <Button
                 Margin="5,5,15,5"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Command="{Binding DataContext.SaveBackPage, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                Command="{Binding DataContext.SaveBackPage, RelativeSource={RelativeSource AncestorType={x:Type ui:ContractUi}, Mode=FindAncestor}}"
                 Content="Сохранить"
                 Style="{StaticResource MaterialDesignRaisedAccentButton}" />
         </StackPanel>

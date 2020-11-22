@@ -42,6 +42,8 @@ namespace NewEva.VM
             };
             CurrentIndex = 0;
             NewCustomerPage = new RelayCommand(_ => NewCustomerCommand());
+            BackPage = new RelayCommand(_ => BackCommand());
+            SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => CurrentPage.IsValid);
         }
 
         private string[] pages;
@@ -74,6 +76,8 @@ namespace NewEva.VM
         }
 
         public ICommand NewCustomerPage { get; }
+        public ICommand SaveBackPage { get; }
+        public ICommand BackPage { get; }
         public void NewCustomerCommand()
         {
             if (CurrentPage is PrivatePersonListVM)
@@ -81,6 +85,60 @@ namespace NewEva.VM
             else if (CurrentPage is OrganizationListVM)
                 CurrentPage = new OrganizationVM();
         }
+        //Обработчик команды сохранения данных в БД и возвращения к списку
+        public void SaveBackCommand()
+        {
+            if (CurrentPage is PrivatePersonVM privatePersonVM)
+            {
+                privatePersonVM.Validate();
+                if (!privatePersonVM.IsValid)
+                {
+                    return;
+                }
+                if (privatePersonVM.IsEdit)
+                {
+                    privatePersonVM.UpdatePrivatePerson();
+                    var id = privatePersonVM.Id;
+                    CurrentPage = new PrivatePersonListVM(id);
+                }
+                else
+                {
+                    var id = privatePersonVM.AddPrivatePerson();
+                    CurrentPage = new PrivatePersonListVM(id);
+                }
+
+            }
+            else if (CurrentPage is OrganizationVM organizationVM)
+            {
+                organizationVM.Validate();
+                if (!organizationVM.IsValid)
+                {
+                    return;
+                }
+                if (organizationVM.IsEdit)
+                {
+                    organizationVM.UpdateOrganization();
+                    var id = organizationVM.Id;
+                    CurrentPage = new OrganizationListVM(id);
+                }
+                else
+                {
+                    var id = organizationVM.AddOrganization();
+                    CurrentPage = new OrganizationListVM(id);
+                }
+
+            }
+
+            //this.OnClosingRequest(); //Закрытие окна
+        }
+        public void BackCommand()
+        {
+            if (CurrentPage is PrivatePersonVM)
+                CurrentPage = new PrivatePersonListVM();
+            else if (CurrentPage is OrganizationVM)
+                CurrentPage = new OrganizationListVM();
+        }
+        
 
         #region Property
         public int Id { get; set; }

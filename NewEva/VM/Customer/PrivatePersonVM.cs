@@ -268,8 +268,7 @@ namespace NewEva.VM.Customer
                 ValidateProperty(value);
                 SetProperty(ref issued, value);
             }
-        }
-       
+        } 
         #endregion Properties PreivatePerson
         #region Properties Address Registration
         private string addressFullRegistration;
@@ -283,9 +282,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string indexRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
-        [Range(0, int.MaxValue, ErrorMessage = "В индексе адреса только цифры")]
-        [StringLength(6, MinimumLength = 6, ErrorMessage = "Должно быть 6 цифр")]
         public string IndexRegistration
         {
             get => indexRegistration;
@@ -295,7 +291,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string countryRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CountryRegistration
         {
             get => countryRegistration;
@@ -305,7 +300,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string regionRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RegionRegistration
         {
             get => regionRegistration;
@@ -315,7 +309,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string districtRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string DistrictRegistration
         {
             get => districtRegistration;
@@ -325,7 +318,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string cityRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CityRegistration
         {
             get => cityRegistration;
@@ -335,7 +327,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string streetRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string StreetRegistration
         {
             get => streetRegistration;
@@ -345,7 +336,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string houseRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string HouseRegistration
         {
             get => houseRegistration;
@@ -355,7 +345,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string roomRegistration;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RoomRegistration
         {
             get => roomRegistration;
@@ -377,9 +366,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string indexActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
-        [Range(0, int.MaxValue, ErrorMessage = "В индексе адреса только цифры")]
-        [StringLength(6, MinimumLength = 6, ErrorMessage = "Должно быть 6 цифр")]
         public string IndexActual
         {
             get => indexActual;
@@ -389,7 +375,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string countryActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CountryActual
         {
             get => countryActual;
@@ -399,7 +384,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string regionActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RegionActual
         {
             get => regionActual;
@@ -409,7 +393,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string districtActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string DistrictActual
         {
             get => districtActual;
@@ -419,7 +402,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string cityActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string CityActual
         {
             get => cityActual;
@@ -429,7 +411,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string streetActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string StreetActual
         {
             get => streetActual;
@@ -439,7 +420,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string houseActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string HouseActual
         {
             get => houseActual;
@@ -449,7 +429,6 @@ namespace NewEva.VM.Customer
             }
         }
         private string roomActual;
-        [Required(ErrorMessage = "Обязательно для заполнения")]
         public string RoomActual
         {
             get => roomActual;

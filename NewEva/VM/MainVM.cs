@@ -30,65 +30,10 @@ namespace NewEva.VM
         {
             this.dialogService = dialogService;
             CurrentPage = new OverviewVM();
-            BackPage = new RelayCommand(_ => BackCommand());
-            SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => CurrentPage.IsValid);
+            
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
         }
-        public ICommand SaveBackPage { get; }
-        public ICommand BackPage { get; }
-        //Обработчик команды сохранения данных в БД и возвращения к списку
-        public void SaveBackCommand()
-        {
-            if (CurrentPage is PrivatePersonVM privatePersonVM)
-            {
-                privatePersonVM.Validate();
-                if (!privatePersonVM.IsValid)
-                {
-                    return;
-                }
-                if (privatePersonVM.IsEdit)
-                {
-                    privatePersonVM.UpdatePrivatePerson();
-                    var id = privatePersonVM.Id;
-                    CurrentPage = new PrivatePersonListVM(id);
-                }
-                else
-                {
-                    var id = privatePersonVM.AddPrivatePerson();
-                    CurrentPage = new PrivatePersonListVM(id);
-                }
-
-            }
-            else if (CurrentPage is OrganizationVM organizationVM)
-            {
-                organizationVM.Validate();
-                if (!organizationVM.IsValid)
-                {
-                    return;
-                }
-                if (organizationVM.IsEdit)
-                {
-                    organizationVM.UpdateOrganization();
-                    var id = organizationVM.Id;
-                    CurrentPage = new OrganizationListVM(id);
-                }
-                else
-                {
-                    var id = organizationVM.AddOrganization();
-                    CurrentPage = new OrganizationListVM(id);
-                }
-                
-            }
-
-            //this.OnClosingRequest(); //Закрытие окна
-        }
-        public void BackCommand()
-        {
-            if (CurrentPage is PrivatePersonVM)
-                CurrentPage = new PrivatePersonListVM();
-            else if (CurrentPage is OrganizationVM)
-                CurrentPage = new OrganizationListVM();
-        }
+        
 
 
 
