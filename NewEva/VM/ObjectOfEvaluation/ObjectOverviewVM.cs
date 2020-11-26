@@ -1,11 +1,11 @@
-﻿using NewEva.VM.ObjectOfEvaluation;
+﻿using NewEva.VM.ObjectOfEvaluation.Flat;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NewEva.VM
+namespace NewEva.VM.ObjectOfEvaluation
 {
-    public class OverviewVM : PageVM
+    class ObjectOverviewVM : PageVM
     {
         private PageVM currentPage;
         private string[] pages;
@@ -27,7 +27,6 @@ namespace NewEva.VM
                 SetProperty(ref pages, value);
             }
         }
-
         public int CurrentIndex
         {
             get => currentIndex;
@@ -39,19 +38,25 @@ namespace NewEva.VM
         }
         public PageVM CreatePageByName(string pageName)
         {
-            if (pageName == "ReportVM")
-                return new ReportVM();
-            else if (pageName == "ObjectOverviewVM")
-                return new ObjectOverviewVM();
+            if (pageName == "FlatLocationVM")
+                return new FlatLocationVM();
+            else if (pageName == "FlatDescriptionVM")
+                return new FlatDescriptionVM();
+            else if (pageName == "FlatCalculationVM")
+                return new FlatCalculationVM();
+            else if (pageName == "ObjectDocAndPhotoVM")
+                return new ObjectDocAndPhotoVM();
             else
                 return null;
         }
-        public OverviewVM()
+        public ObjectOverviewVM()
         {
             pages = new string[]
             {
-                "ReportVM",
-                "ObjectOverviewVM"
+                "FlatLocationVM",
+                "FlatDescriptionVM",
+                "FlatCalculationVM",
+                "ObjectDocAndPhotoVM"
             };
             CurrentIndex = 0;
         }

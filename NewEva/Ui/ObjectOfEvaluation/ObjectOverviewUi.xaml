@@ -1,0 +1,70 @@
+﻿<UserControl
+    x:Class="NewEva.Ui.ObjectOfEvaluation.ObjectOverviewUi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NewEva.Ui.ObjectOfEvaluation"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uiFlat="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Flat"
+    xmlns:uiObject="clr-namespace:NewEva.Ui.ObjectOfEvaluation"
+    xmlns:vmFlat="clr-namespace:NewEva.VM.ObjectOfEvaluation.Flat"
+    xmlns:vmObject="clr-namespace:NewEva.VM.ObjectOfEvaluation"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vmFlat:FlatLocationVM}">
+            <uiFlat:FlatLocationUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmFlat:FlatDescriptionVM}">
+            <uiFlat:FlatDescriptionUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmFlat:FlatCalculationVM}">
+            <uiFlat:FlatCalculationUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmFlat:FlatCalculationVM}">
+            <uiFlat:FlatCalculationUC />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmObject:ObjectDocAndPhotoVM}">
+            <uiObject:ObjectDocAndPhotoUi />
+        </DataTemplate>
+    </UserControl.Resources>
+    <StackPanel>
+        <ListBox
+            Margin="5,5"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            BorderThickness="0"
+            SelectedIndex="{Binding CurrentIndex}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBoxItem
+                Width="150"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Content="Местоположение" />
+            <ListBoxItem
+                Width="150"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Content="Описание объекта" />
+            <ListBoxItem
+                Width="150"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Content="Расчет стоимости" />
+            <ListBoxItem
+                Width="150"
+                BorderBrush="Black"
+                BorderThickness="1"
+                Content="Файлы" />
+        </ListBox>
+
+        <ContentControl Content="{Binding CurrentPage}" />
+
+    </StackPanel>
+</UserControl>
