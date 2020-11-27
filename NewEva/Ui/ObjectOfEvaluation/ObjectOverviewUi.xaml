@@ -23,9 +23,6 @@
         <DataTemplate DataType="{x:Type vmFlat:FlatCalculationVM}">
             <uiFlat:FlatCalculationUC />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vmFlat:FlatCalculationVM}">
-            <uiFlat:FlatCalculationUC />
-        </DataTemplate>
         <DataTemplate DataType="{x:Type vmObject:ObjectDocAndPhotoVM}">
             <uiObject:ObjectDocAndPhotoUi />
         </DataTemplate>
