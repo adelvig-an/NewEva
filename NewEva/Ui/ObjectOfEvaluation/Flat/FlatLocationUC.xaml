@@ -37,6 +37,7 @@
                     materialDesign:HintAssist.Hint="Кадастровый номер"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             </Grid>
+            <!--  Для Карты  -->
             <Grid Grid.Column="1" Margin="6">
                 <TextBlock
                     HorizontalAlignment="Center"

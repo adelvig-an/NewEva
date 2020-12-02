@@ -94,13 +94,13 @@ namespace NewEva.VM.Customer
             {
                 Id = Id,
                 NameFull = NameFull,
-                OGRN = int.Parse(OGRN),
+                OGRN = long.Parse(OGRN),
                 INN = int.Parse(INN),
                 KPP = int.Parse(KPP),
                 NameBank = NameBank,
                 BIK = int.Parse(BIK),
-                PayAccount = int.Parse(PayAccount),
-                CorrAccount = int.Parse(CorrAccount),
+                PayAccount = long.Parse(PayAccount),
+                CorrAccount = long.Parse(CorrAccount),
                 Position = Position,
                 TypeAttorney = IsTypeAttorney,
                 NumberAttorney = NumberAttorney,
@@ -184,7 +184,7 @@ namespace NewEva.VM.Customer
             } 
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        [Range(0, int.MaxValue, ErrorMessage = "В ОГРН только цифры")]
+        [Range(0, long.MaxValue, ErrorMessage = "В ОГРН только цифры")]
         [StringLength(13, MinimumLength = 13, ErrorMessage = "Должно быть 13 цифр")]
         public string OGRN{ 
             get=>ogrn; 
@@ -252,7 +252,7 @@ namespace NewEva.VM.Customer
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        [Range(0, int.MaxValue, ErrorMessage = "В расчетном счете только цифры")]
+        [Range(0, long.MaxValue, ErrorMessage = "В расчетном счете только цифры")]
         [StringLength(20, MinimumLength = 20, ErrorMessage = "Должно быть 20 цифр")]
         public string PayAccount
         { 
@@ -264,7 +264,7 @@ namespace NewEva.VM.Customer
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        [Range(0, int.MaxValue, ErrorMessage = "В корреспондентском счете только цифры")]
+        [Range(0, long.MaxValue, ErrorMessage = "В корреспондентском счете только цифры")]
         [StringLength(20, MinimumLength = 20, ErrorMessage = "Должно быть 20 цифр")]
         public string CorrAccount
         { 

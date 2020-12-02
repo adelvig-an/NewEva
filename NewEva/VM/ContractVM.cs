@@ -13,6 +13,8 @@ namespace NewEva.VM
     public class ContractVM : PageVM
     {
         private PageVM currentPage;
+        private string[] pages;
+        private int currentIndex;
         public PageVM CurrentPage
         {
             get => currentPage;
@@ -35,7 +37,7 @@ namespace NewEva.VM
                 Target = contract.Target;
             }
             TypeCosts = LocalStorage.TypeCosts;
-            pages = new string[]
+            Pages = new string[]
             {
                 "PrivatePersonListVM",
                 "OrganizationListVM"
@@ -45,8 +47,6 @@ namespace NewEva.VM
             BackPage = new RelayCommand(_ => BackCommand());
             SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => CurrentPage.IsValid);
         }
-
-        private string[] pages;
         public string[] Pages
         {
             get => pages;
@@ -55,7 +55,6 @@ namespace NewEva.VM
                 SetProperty(ref pages, value);
             }
         }
-        private int currentIndex;
         public int CurrentIndex
         {
             get => currentIndex;
@@ -128,8 +127,6 @@ namespace NewEva.VM
                 }
 
             }
-
-            //this.OnClosingRequest(); //Закрытие окна
         }
         public void BackCommand()
         {
@@ -138,7 +135,6 @@ namespace NewEva.VM
             else if (CurrentPage is OrganizationVM)
                 CurrentPage = new OrganizationListVM();
         }
-        
 
         #region Property
         public int Id { get; set; }

@@ -115,7 +115,7 @@ namespace NewEva.DbLayer
                 NameFull = customers.NameFull,
                 NameShort = customers.NameShort,
                 OrganizationForm = customers.OrganizationForm,
-                OGRN= customers.OGRN,
+                OGRN = customers.OGRN,
                 DateRegistration = customers.DateRegistration,
                 INN = customers.INN,
                 KPP = customers.KPP,

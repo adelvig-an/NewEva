@@ -12,7 +12,6 @@
     xmlns:vmObject="clr-namespace:NewEva.VM.ObjectOfEvaluation"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    FontSize="14"
     mc:Ignorable="d">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type vm:ReportVM}">

@@ -430,7 +430,8 @@
                             Height="100"
                             Margin="6,0,0,0"
                             VerticalContentAlignment="Center"
-                            BorderThickness="1" />
+                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            TextWrapping="Wrap" />
                     </StackPanel>
                     <StackPanel
                         Height="26"

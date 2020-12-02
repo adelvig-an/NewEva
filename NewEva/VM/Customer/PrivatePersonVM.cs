@@ -51,8 +51,6 @@ namespace NewEva.VM.Customer
                 Number = customer.Number;
                 Issued = customer.Issued;
                 DateIssued = customer.DateIssued;
-                
-                IsTypeDocs = customer.TypePassport;
 
                 AddressFullRegistration = customer.AddressFullRegistration;
                 IndexRegistration = customer.IndexRegistration.ToString();
@@ -75,17 +73,7 @@ namespace NewEva.VM.Customer
                 StreetActual = customer.StreetActual;
                 HouseActual = customer.HouseActual;
                 RoomActual = customer.RoomActual;
-                
             }
-            
-            TypeDocs = LocalStorage.TypeDocs;
-        }
-
-        private string isTypeDocs;
-        public string IsTypeDocs
-        {
-            get => isTypeDocs;
-            set => SetProperty(ref isTypeDocs, value);
         }
 
         //Для сохранения в базу данных
@@ -98,30 +86,12 @@ namespace NewEva.VM.Customer
                 SecondName = SecondName,
                 FirstName = FirstName,
                 MiddleName = MiddleName,
-                TypePassport = IsTypeDocs,
                 Serial = Serial,
                 Number = Number,
                 Issued = Issued,
                 DateIssued = DateIssued,
                 AddressFullRegistration = AddressFullRegistration,
-                IndexRegistration = int.Parse(IndexRegistration),
-                CountryRegistration = CountryRegistration,
-                RegionRegistration = RegionRegistration,
-                DistrictRegistration = DistrictRegistration,
-                CityRegistration = CityRegistration,
-                StreetRegistration = StreetRegistration,
-                HouseRegistration = HouseRegistration,
-                RoomRegistration = RoomRegistration,
-                AddressMatch = IsAddressMatch,
-                AddressFullActual = AddressFullActual,
-                IndexActual = int.Parse(IndexActual),
-                CountryActual = CountryActual,
-                RegionActual = RegionActual,
-                DistrictActual = DistrictActual,
-                CityActual = CityActual,
-                StreetActual = StreetActual,
-                HouseActual = HouseActual,
-                RoomActual = RoomActual
+                AddressFullActual = AddressFullActual
             };
             return customer;
         }
