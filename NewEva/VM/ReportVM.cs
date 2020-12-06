@@ -184,5 +184,32 @@ namespace NewEva.VM
                 return false;
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        #region CBOR
+
+        static CBORObject ToCBOR(ReportVM reportVM)
+        {
+            return CBORObject.NewArray()
+                .Add(reportVM.CurrentIndex)
+                .Add(reportVM.Number)
+                .Add(reportVM.DateVulation)
+                .Add(reportVM.DateCompilation)
+                .Add(reportVM.DateOfInspection)
+                .Add(reportVM.IsAppraiser);
+        }
+
+        static ReportVM FromCBOR(CBORObject cbor)
+        {
+            return new ReportVM()
+            {
+                CurrentIndex = cbor[0].AsInt32,
+                Number = cbor[1].AsString,
+            };
+        }
+
+        #endregion
+>>>>>>> Stashed changes
     }
 }
