@@ -4,10 +4,6 @@ using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows;
 
 namespace NewEva.VM
 {
@@ -201,8 +197,12 @@ namespace NewEva.VM
         {
             return new ReportVM()
             {
-                CurrentIndex = cbor[0].AsInt32,
-                Number = cbor[1].AsString,
+                CurrentIndex = cbor[0].AsInt32(),
+                Number = cbor[1].AsString(),
+                //DateVulation = new DateTime cbor[2],
+                //DateCompilation = new DateTime cbor[3],
+                //DateOfInspection = new DateTime cbor[4],
+                IsAppraiser = cbor[5].AsString()
             };
         }
         #endregion
