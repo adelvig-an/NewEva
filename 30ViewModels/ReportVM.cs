@@ -1,5 +1,6 @@
 ﻿using NewEva.DbLayer;
 using NewEva.Model;
+using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -184,8 +185,6 @@ namespace NewEva.VM
                 return false;
             }
         }
-<<<<<<< Updated upstream
-=======
 
         #region CBOR
 
@@ -204,12 +203,10 @@ namespace NewEva.VM
         {
             return new ReportVM()
             {
-                CurrentIndex = cbor[0].AsInt32,
-                Number = cbor[1].AsString,
+                
             };
         }
 
         #endregion
->>>>>>> Stashed changes
     }
 }

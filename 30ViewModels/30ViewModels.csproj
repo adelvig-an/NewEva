@@ -5,4 +5,14 @@
     <RootNamespace>NewEva.VM</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="PeterO.Cbor" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\10Model\10Model.csproj" />
+    <ProjectReference Include="..\20DbLayer\20DbLayer.csproj" />
+  </ItemGroup>
+
 </Project>
