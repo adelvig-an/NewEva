@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_30ViewModels</RootNamespace>
+    <RootNamespace>NewEva.VM</RootNamespace>
   </PropertyGroup>
 
 </Project>

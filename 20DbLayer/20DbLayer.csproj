@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_20DbLayer</RootNamespace>
+    <RootNamespace>NewEva.DbLayer</RootNamespace>
   </PropertyGroup>
 
 </Project>
