@@ -8,8 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uiFlat="clr-namespace:NewEva.Ui.ObjectOfEvaluation.Flat"
     xmlns:uiObject="clr-namespace:NewEva.Ui.ObjectOfEvaluation"
-    xmlns:vmFlat="clr-namespace:NewEva.VM.ObjectOfEvaluation.Flat"
-    xmlns:vmObject="clr-namespace:NewEva.VM.ObjectOfEvaluation"
+    xmlns:vmFlat="clr-namespace:NewEva.VM.ObjectOfEvaluation.Flat;assembly=30ViewModels"
+    xmlns:vmObject="clr-namespace:NewEva.VM.ObjectOfEvaluation;assembly=30ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">

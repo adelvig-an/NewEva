@@ -28,4 +28,10 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\10Model\10Model.csproj" />
+    <ProjectReference Include="..\20DbLayer\20DbLayer.csproj" />
+    <ProjectReference Include="..\30ViewModels\30ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

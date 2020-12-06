@@ -25,15 +25,15 @@ namespace NewEva.VM
         }
 
         private readonly IDialogService dialogService;
-        
+
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
             CurrentPage = new OverviewVM();
-            
+
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
         }
-        
+
 
 
 

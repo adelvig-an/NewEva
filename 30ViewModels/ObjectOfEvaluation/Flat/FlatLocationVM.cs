@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NewEva.VM
+namespace NewEva.VM.ObjectOfEvaluation.Flat
 {
-    class ValidContractVM : PageVM
+    public class FlatLocationVM : PageVM
     {
     }
 }

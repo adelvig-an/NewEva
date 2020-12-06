@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:NewEva"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="clr-namespace:NewEva.Ui.Customer"
-    xmlns:vm="clr-namespace:NewEva.VM.Customer"
+    xmlns:vm="clr-namespace:NewEva.VM.Customer;assembly=30ViewModels"
     Title="CustomerWindow"
     Width="800"
     Height="450"

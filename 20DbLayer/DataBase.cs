@@ -1,10 +1,7 @@
 ﻿using NewEva.Model;
-using NewEva.VM;
 using SQLite;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
+
 
 namespace NewEva.DbLayer
 {
