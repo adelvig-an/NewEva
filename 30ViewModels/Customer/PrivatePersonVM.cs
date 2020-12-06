@@ -1,14 +1,7 @@
 ﻿using NewEva.DbLayer;
-using NewEva.Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Windows;
-using System.Windows.Automation;
-using System.Windows.Input;
 
 namespace NewEva.VM.Customer
 {

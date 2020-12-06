@@ -1,9 +1,9 @@
 ﻿using NewEva.DbLayer;
 using NewEva.Model;
+using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using PeterO.Cbor;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -187,7 +187,6 @@ namespace NewEva.VM
         }
 
         #region CBOR
-
         static CBORObject ToCBOR(ReportVM reportVM)
         {
             return CBORObject.NewArray()
@@ -198,12 +197,13 @@ namespace NewEva.VM
                 .Add(reportVM.DateOfInspection)
                 .Add(reportVM.IsAppraiser);
         }
-
         static ReportVM FromCBOR(CBORObject cbor)
         {
-            return new ReportVM(cbor[0].AsInt32, cbor[1].AsString )
+            return new ReportVM()
+            {
+                
+            };
         }
-
         #endregion
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NewEva.VM.ObjectOfEvaluation.Flat
+namespace NewEva.VM.ObjectOfEvaluation
 {
-    class FlatCalculationVM : PageVM
+    public class ObjectDocAndPhotoVM : PageVM
     {
     }
 }

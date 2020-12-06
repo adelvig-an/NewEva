@@ -120,10 +120,6 @@ namespace NewEva.VM.Customer
                     var customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
                     CurrentPage = new PrivatePersonVM(customer);
                 }
-                else
-                    MessageBox.Show("Заказчик не выбран!!!\nВыберите заказчика для редактирования!");
-
-                
             }      
             else if (CurrentPage is OrganizationListVM olVM)
             {

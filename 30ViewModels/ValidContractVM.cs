@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NewEva.VM.ObjectOfEvaluation
+namespace NewEva.VM
 {
-    class ObjectDocAndPhotoVM : PageVM
+    public class ValidContractVM : PageVM
     {
     }
 }
