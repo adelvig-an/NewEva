@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NewEva.VM.ObjectOfEvaluation.Flat
 {
-    class FlatDescriptionVM : PageVM
+    public class FlatDescriptionVM : PageVM
     {
     }
 }

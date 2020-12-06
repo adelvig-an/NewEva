@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NewEva.VM.ObjectOfEvaluation
 {
-    class ObjectDocAndPhotoVM : PageVM
+    public class ObjectDocAndPhotoVM : PageVM
     {
     }
 }

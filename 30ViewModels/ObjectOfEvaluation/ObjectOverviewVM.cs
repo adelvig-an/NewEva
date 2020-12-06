@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NewEva.VM.ObjectOfEvaluation
 {
-    class ObjectOverviewVM : PageVM
+    public class ObjectOverviewVM : PageVM
     {
         private PageVM currentPage;
         private string[] pages;
