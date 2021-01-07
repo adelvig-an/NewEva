@@ -10,5 +10,6 @@ namespace NewEva.DbLayer
         [PrimaryKey]
         public string Page { get; set; }
         public string Json { get; set; }
+        public byte[] CBOR { get; set; }
     }
 }

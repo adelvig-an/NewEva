@@ -24,8 +24,27 @@ namespace NewEva.VM
             }
             return JsonConvert.DeserializeObject<T>(json);
         }
-        
+
         //Запись данных
+        public bool WriteCBOR()
+        {
+            try
+            {
+                var cbor = new byte[];
+                var tempData = new TempData
+                {
+                    Page = GetType().Name,
+                    CBOR = cbor
+                };
+                DataBase.Write(tempData);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public bool Write()
         {
             try
@@ -44,6 +63,5 @@ namespace NewEva.VM
                 return false;
             }
         }
-
     }
 }
