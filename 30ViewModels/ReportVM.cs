@@ -188,9 +188,15 @@ namespace NewEva.VM
             return CBORObject.NewArray()
                 .Add(reportVM.CurrentIndex)
                 .Add(reportVM.Number)
-                .Add(reportVM.DateVulation)
-                .Add(reportVM.DateCompilation)
-                .Add(reportVM.DateOfInspection)
+                .Add(reportVM.DateVulation.HasValue 
+                ? CBORObject.NewArray().Add(true).Add(reportVM.DateVulation.Value.ToBinary()) 
+                : CBORObject.NewArray().Add(false))
+                .Add(reportVM.DateCompilation.HasValue
+                ? CBORObject.NewArray().Add(true).Add(reportVM.DateCompilation.Value.ToBinary())
+                : CBORObject.NewArray().Add(false))
+                .Add(reportVM.DateOfInspection.HasValue
+                ? CBORObject.NewArray().Add(true).Add(reportVM.DateOfInspection.Value.ToBinary())
+                : CBORObject.NewArray().Add(false))
                 .Add(reportVM.IsAppraiser);
         }
         static ReportVM FromCBOR(CBORObject cbor)
@@ -199,9 +205,15 @@ namespace NewEva.VM
             {
                 CurrentIndex = cbor[0].AsInt32(),
                 Number = cbor[1].AsString(),
-                //DateVulation = new DateTime cbor[2],
-                //DateCompilation = new DateTime cbor[3],
-                //DateOfInspection = new DateTime cbor[4],
+                DateVulation = cbor[2][0].AsBoolean() 
+                ? new DateTime?(DateTime.FromBinary(cbor[2][1].AsInt64())) 
+                : null,
+                DateCompilation = cbor[3][0].AsBoolean() 
+                ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64())) 
+                : null,
+                DateOfInspection = cbor[4][0].AsBoolean() 
+                ? new DateTime?(DateTime.FromBinary(cbor[4][1].AsInt64())) 
+                : null,
                 IsAppraiser = cbor[5].AsString()
             };
         }
