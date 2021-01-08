@@ -187,6 +187,7 @@ namespace NewEva.VM
         {
             return CBORObject.NewArray()
                 .Add(reportVM.CurrentIndex)
+                .Add(reportVM.Id)
                 .Add(reportVM.Number)
                 .Add(reportVM.DateVulation.HasValue 
                 ? CBORObject.NewArray().Add(true).Add(reportVM.DateVulation.Value.ToBinary()) 
@@ -199,23 +200,30 @@ namespace NewEva.VM
                 : CBORObject.NewArray().Add(false))
                 .Add(reportVM.IsAppraiser);
         }
-        static ReportVM FromCBOR(CBORObject cbor)
+        void FromCBOR(CBORObject cbor)
         {
-            return new ReportVM()
-            {
-                CurrentIndex = cbor[0].AsInt32(),
-                Number = cbor[1].AsString(),
-                DateVulation = cbor[2][0].AsBoolean() 
-                ? new DateTime?(DateTime.FromBinary(cbor[2][1].AsInt64())) 
-                : null,
-                DateCompilation = cbor[3][0].AsBoolean() 
-                ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64())) 
-                : null,
-                DateOfInspection = cbor[4][0].AsBoolean() 
-                ? new DateTime?(DateTime.FromBinary(cbor[4][1].AsInt64())) 
-                : null,
-                IsAppraiser = cbor[5].AsString()
-            };
+            CurrentIndex = cbor[0].AsInt32();
+            Id = cbor[1].AsInt32();
+            Number = cbor[2].AsString();
+            DateVulation = cbor[3][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64()))
+            : null;
+            DateCompilation = cbor[4][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[4][1].AsInt64()))
+            : null;
+            DateOfInspection = cbor[5][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[5][1].AsInt64()))
+            : null;
+            IsAppraiser = cbor[6].AsString();
+        }
+
+        public override byte[] GetCBOR()
+        {
+            return ToCBOR(this).EncodeToBytes();
+        }
+        public override void SetCBOR(byte[] b)
+        {
+            return FromCBOR(b);
         }
         #endregion
     }

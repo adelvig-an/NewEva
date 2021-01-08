@@ -1,4 +1,5 @@
 ﻿using NewEva.DbLayer;
+using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -403,8 +404,72 @@ namespace NewEva.VM.Customer
         #endregion Properties Address Actual
         #endregion Свойства
 
+        #region CBOR
+        static CBORObject ToCBOR(PrivatePersonVM privatePersonVM)
+        {
+            return CBORObject.NewArray()
+                .Add(privatePersonVM.Id)
+                .Add(privatePersonVM.SecondName)
+                .Add(privatePersonVM.FirstName)
+                .Add(privatePersonVM.MiddleName)
+                .Add(privatePersonVM.Serial)
+                .Add(privatePersonVM.Number)
+                .Add(privatePersonVM.DateIssued.HasValue
+                ? CBORObject.NewArray().Add(true).Add(privatePersonVM.DateIssued.Value.ToBinary())
+                : CBORObject.NewArray().Add(false))
+                .Add(privatePersonVM.AddressFullRegistration)
+                .Add(privatePersonVM.IndexRegistration)
+                .Add(privatePersonVM.CountryRegistration)
+                .Add(privatePersonVM.RegionRegistration)
+                .Add(privatePersonVM.DistrictRegistration)
+                .Add(privatePersonVM.CityRegistration)
+                .Add(privatePersonVM.StreetRegistration)
+                .Add(privatePersonVM.HouseRegistration)
+                .Add(privatePersonVM.RoomRegistration)
+                .Add(privatePersonVM.AddressFullActual)
+                .Add(privatePersonVM.IndexActual)
+                .Add(privatePersonVM.CountryActual)
+                .Add(privatePersonVM.RegionActual)
+                .Add(privatePersonVM.DistrictActual)
+                .Add(privatePersonVM.CityActual)
+                .Add(privatePersonVM.StreetActual)
+                .Add(privatePersonVM.HouseActual)
+                .Add(privatePersonVM.RoomActual);
+        }
+        static PrivatePersonVM FromCBOR(CBORObject cbor)
+        {
+            return new PrivatePersonVM()
+            {
+                Id = cbor[0].AsInt32(),
+                SecondName = cbor[1].AsString(),
+                FirstName = cbor[2].AsString(),
+                MiddleName = cbor[3].AsString(),
+                Serial = cbor[4].AsString(),
+                Number = cbor[5].AsString(),
+                DateIssued = cbor[6][0].AsBoolean()
+                ? new DateTime?(DateTime.FromBinary(cbor[6][1].AsInt64()))
+                : null,
+                AddressFullRegistration = cbor[7].AsString(),
+                IndexRegistration = cbor[8].AsString(),
+                CountryRegistration = cbor[9].AsString(),
+                RegionRegistration = cbor[10].AsString(),
+                DistrictRegistration = cbor[11].AsString(),
+                CityRegistration = cbor[12].AsString(),
+                StreetRegistration = cbor[13].AsString(),
+                HouseRegistration = cbor[13].AsString(),
+                RoomRegistration = cbor[14].AsString(),
+                AddressFullActual = cbor[15].AsString(),
+                IndexActual = cbor[16].AsString(),
+                CountryActual = cbor[18].AsString(),
+                DistrictActual = cbor[19].AsString(),
+                CityActual = cbor[20].AsString(),
+                StreetActual = cbor[21].AsString(),
+                HouseActual = cbor[22].AsString(),
+                RoomActual = cbor[23].AsString()
+            };
+        }
+        #endregion CBOR
 
 
-        
     }
 }

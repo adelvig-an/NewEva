@@ -1,6 +1,7 @@
 ﻿using NewEva.DbLayer;
 using NewEva.Model;
 using NewEva.VM.Customer;
+using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -226,5 +227,35 @@ namespace NewEva.VM
                 return false;
             }
         }
+
+        #region CBOR
+        static CBORObject ToCBOR(ContractVM contractVM)
+        {
+            return CBORObject.NewArray()
+                .Add(contractVM.CurrentIndex)
+                .Add(contractVM.Id)
+                .Add(contractVM.Number)
+                .Add(contractVM.DateContract.HasValue
+                ? CBORObject.NewArray().Add(true).Add(contractVM.DateContract.Value.ToBinary())
+                : CBORObject.NewArray().Add(false))
+                .Add(contractVM.Target)
+                .Add(contractVM.IsTypeCost);
+        }
+        static ContractVM FromCBOR(CBORObject cbor)
+        {
+            return new ContractVM()
+            { 
+                CurrentIndex = cbor[0].AsInt32(),
+                Id = cbor[1].AsInt32(),
+                Number= cbor[2].AsString(),
+                DateContract = cbor[3][0].AsBoolean()
+                ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64()))
+                : null,
+                Target = cbor[5].AsString(),
+                IsTypeCost = cbor[6].AsString()
+            };
+        }
+
+        #endregion CBOR
     }
 }

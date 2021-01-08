@@ -13,7 +13,16 @@ namespace NewEva.VM
 {
     public abstract class PageVM : ValidationBase
     {
+        public abstract byte[] GetCBOR();
+        public abstract void SetCBOR(byte[] b);
+
         //Чтение данных
+        public void ReadCBOR(byte[] b)
+        {
+            var primaryKey = GetType().Name;
+            var tempData = DataBase.Read<TempData>(primaryKey);
+            SetCBOR(tempData.CBOR);
+        }
         public static T Read<T>() where T : PageVM
         {
             var primaryKey = typeof(T).Name;
@@ -30,7 +39,7 @@ namespace NewEva.VM
         {
             try
             {
-                var cbor = new byte[];
+                var cbor = GetCBOR();
                 var tempData = new TempData
                 {
                     Page = GetType().Name,

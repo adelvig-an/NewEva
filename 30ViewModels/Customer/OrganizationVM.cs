@@ -1,5 +1,6 @@
 ﻿using NewEva.DbLayer;
 using NewEva.Model;
+using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -383,8 +384,69 @@ namespace NewEva.VM.Customer
                 SetProperty(ref addressFullActual, value);
             }
         }
-        #endregion 
-        
         #endregion
+
+        #endregion
+
+        #region CBOR
+        static CBORObject ToCBOR(OrganizationVM organizationVM)
+        {
+            return CBORObject.NewArray()
+                .Add(organizationVM.Id)
+                .Add(organizationVM.NameFull)
+                .Add(organizationVM.NameShort)
+                .Add(organizationVM.OrganizationForm)
+                .Add(organizationVM.OGRN)
+                .Add(organizationVM.INN)
+                .Add(organizationVM.KPP)
+                .Add(organizationVM.NameBank)
+                .Add(organizationVM.BIK)
+                .Add(organizationVM.PayAccount)
+                .Add(organizationVM.CorrAccount)
+                .Add(organizationVM.SecondName)
+                .Add(organizationVM.FirstName)
+                .Add(organizationVM.MiddleName)
+                .Add(organizationVM.Position)
+                .Add(organizationVM.NumberAttorney)
+                .Add(organizationVM.DateAttorney.HasValue
+                ? CBORObject.NewArray().Add(true).Add(organizationVM.DateAttorney.Value.ToBinary())
+                : CBORObject.NewArray().Add(false))
+                .Add(organizationVM.DateAttorneyBefore.HasValue
+                ? CBORObject.NewArray().Add(true).Add(organizationVM.DateAttorneyBefore.Value.ToBinary())
+                : CBORObject.NewArray().Add(false))
+                .Add(organizationVM.AddressFullRegistration)
+                .Add(organizationVM.AddressFullActual);
+        }
+        static OrganizationVM FromCBOR(CBORObject cbor)
+        {
+            return new OrganizationVM()
+            {
+                Id = cbor[0].AsInt32(),
+                NameFull = cbor[1].AsString(),
+                NameShort = cbor[2].AsString(),
+                OrganizationForm = cbor[3].AsString(),
+                OGRN = cbor[4].AsString(),
+                INN = cbor[5].AsString(),
+                KPP = cbor[6].AsString(),
+                NameBank = cbor[7].AsString(),
+                BIK = cbor[8].AsString(),
+                PayAccount = cbor[9].AsString(),
+                CorrAccount = cbor[10].AsString(),
+                SecondName = cbor[11].AsString(),
+                FirstName = cbor[12].AsString(),
+                MiddleName = cbor[13].AsString(),
+                Position = cbor[14].AsString(),
+                NumberAttorney=cbor[15].AsString(),
+                DateAttorney = cbor[16][0].AsBoolean()
+                ? new DateTime?(DateTime.FromBinary(cbor[16][1].AsInt64()))
+                : null,
+                DateAttorneyBefore = cbor[17][0].AsBoolean()
+                ? new DateTime?(DateTime.FromBinary(cbor[17][1].AsInt64()))
+                : null,
+                AddressFullRegistration = cbor[18].AsString(),
+                AddressFullActual = cbor[19].AsString(),
+            };
+        }
+        #endregion CBOR
     }
 }
