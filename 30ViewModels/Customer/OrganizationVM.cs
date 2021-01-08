@@ -417,35 +417,40 @@ namespace NewEva.VM.Customer
                 .Add(organizationVM.AddressFullRegistration)
                 .Add(organizationVM.AddressFullActual);
         }
-        static OrganizationVM FromCBOR(CBORObject cbor)
+        void FromCBOR(CBORObject cbor)
         {
-            return new OrganizationVM()
-            {
-                Id = cbor[0].AsInt32(),
-                NameFull = cbor[1].AsString(),
-                NameShort = cbor[2].AsString(),
-                OrganizationForm = cbor[3].AsString(),
-                OGRN = cbor[4].AsString(),
-                INN = cbor[5].AsString(),
-                KPP = cbor[6].AsString(),
-                NameBank = cbor[7].AsString(),
-                BIK = cbor[8].AsString(),
-                PayAccount = cbor[9].AsString(),
-                CorrAccount = cbor[10].AsString(),
-                SecondName = cbor[11].AsString(),
-                FirstName = cbor[12].AsString(),
-                MiddleName = cbor[13].AsString(),
-                Position = cbor[14].AsString(),
-                NumberAttorney=cbor[15].AsString(),
-                DateAttorney = cbor[16][0].AsBoolean()
-                ? new DateTime?(DateTime.FromBinary(cbor[16][1].AsInt64()))
-                : null,
-                DateAttorneyBefore = cbor[17][0].AsBoolean()
-                ? new DateTime?(DateTime.FromBinary(cbor[17][1].AsInt64()))
-                : null,
-                AddressFullRegistration = cbor[18].AsString(),
-                AddressFullActual = cbor[19].AsString(),
-            };
+            Id = cbor[0].AsInt32();
+            NameFull = cbor[1].AsString();
+            NameShort = cbor[2].AsString();
+            OrganizationForm = cbor[3].AsString();
+            OGRN = cbor[4].AsString();
+            INN = cbor[5].AsString();
+            KPP = cbor[6].AsString();
+            NameBank = cbor[7].AsString();
+            BIK = cbor[8].AsString();
+            PayAccount = cbor[9].AsString();
+            CorrAccount = cbor[10].AsString();
+            SecondName = cbor[11].AsString();
+            FirstName = cbor[12].AsString();
+            MiddleName = cbor[13].AsString();
+                Position = cbor[14].AsString();
+            NumberAttorney = cbor[15].AsString();
+            DateAttorney = cbor[16][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[16][1].AsInt64()))
+            : null;
+            DateAttorneyBefore = cbor[17][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[17][1].AsInt64()))
+            : null;
+            AddressFullRegistration = cbor[18].AsString();
+            AddressFullActual = cbor[19].AsString();
+        }
+        public override byte[] GetCBOR()
+        {
+            return ToCBOR(this).EncodeToBytes();
+        }
+        public override void SetCBOR(byte[] b)
+        {
+            FromCBOR(CBORObject.DecodeFromBytes(b));
         }
         #endregion CBOR
     }

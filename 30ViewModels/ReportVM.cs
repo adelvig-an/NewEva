@@ -15,7 +15,7 @@ namespace NewEva.VM
             get => currentPage;
             set
             {
-                currentPage?.Write();
+                currentPage?.WriteCBOR();
                 SetProperty(ref currentPage, value);
             }
         }
@@ -223,8 +223,8 @@ namespace NewEva.VM
         }
         public override void SetCBOR(byte[] b)
         {
-            return FromCBOR(b);
+            FromCBOR(CBORObject.DecodeFromBytes(b));
         }
-        #endregion
+        #endregion CBOR
     }
 }

@@ -15,7 +15,7 @@ namespace NewEva.VM
             get => currentPage;
             set
             {
-                currentPage?.Write();
+                currentPage?.WriteCBOR();
                 SetProperty(ref currentPage, value);
             }
         }
@@ -54,6 +54,15 @@ namespace NewEva.VM
                 "ObjectOverviewVM"
             };
             CurrentIndex = 0;
+        }
+
+        public override byte[] GetCBOR()
+        {
+            throw new NotImplementedException();
+        }
+        public override void SetCBOR(byte[] b)
+        {
+            throw new NotImplementedException();
         }
     }
 }

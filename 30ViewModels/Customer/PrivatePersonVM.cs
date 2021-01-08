@@ -436,37 +436,42 @@ namespace NewEva.VM.Customer
                 .Add(privatePersonVM.HouseActual)
                 .Add(privatePersonVM.RoomActual);
         }
-        static PrivatePersonVM FromCBOR(CBORObject cbor)
+        void FromCBOR(CBORObject cbor)
         {
-            return new PrivatePersonVM()
-            {
-                Id = cbor[0].AsInt32(),
-                SecondName = cbor[1].AsString(),
-                FirstName = cbor[2].AsString(),
-                MiddleName = cbor[3].AsString(),
-                Serial = cbor[4].AsString(),
-                Number = cbor[5].AsString(),
-                DateIssued = cbor[6][0].AsBoolean()
-                ? new DateTime?(DateTime.FromBinary(cbor[6][1].AsInt64()))
-                : null,
-                AddressFullRegistration = cbor[7].AsString(),
-                IndexRegistration = cbor[8].AsString(),
-                CountryRegistration = cbor[9].AsString(),
-                RegionRegistration = cbor[10].AsString(),
-                DistrictRegistration = cbor[11].AsString(),
-                CityRegistration = cbor[12].AsString(),
-                StreetRegistration = cbor[13].AsString(),
-                HouseRegistration = cbor[13].AsString(),
-                RoomRegistration = cbor[14].AsString(),
-                AddressFullActual = cbor[15].AsString(),
-                IndexActual = cbor[16].AsString(),
-                CountryActual = cbor[18].AsString(),
-                DistrictActual = cbor[19].AsString(),
-                CityActual = cbor[20].AsString(),
-                StreetActual = cbor[21].AsString(),
-                HouseActual = cbor[22].AsString(),
-                RoomActual = cbor[23].AsString()
-            };
+            Id = cbor[0].AsInt32();
+            SecondName = cbor[1].AsString();
+            FirstName = cbor[2].AsString();
+            MiddleName = cbor[3].AsString();
+            Serial = cbor[4].AsString();
+            Number = cbor[5].AsString();
+            DateIssued = cbor[6][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[6][1].AsInt64()))
+            : null;
+            AddressFullRegistration = cbor[7].AsString();
+            IndexRegistration = cbor[8].AsString();
+            CountryRegistration = cbor[9].AsString();
+            RegionRegistration = cbor[10].AsString();
+            DistrictRegistration = cbor[11].AsString();
+            CityRegistration = cbor[12].AsString();
+            StreetRegistration = cbor[13].AsString();
+            HouseRegistration = cbor[13].AsString();
+            RoomRegistration = cbor[14].AsString();
+            AddressFullActual = cbor[15].AsString();
+            IndexActual = cbor[16].AsString();
+            CountryActual = cbor[18].AsString();
+            DistrictActual = cbor[19].AsString();
+            CityActual = cbor[20].AsString();
+            StreetActual = cbor[21].AsString();
+            HouseActual = cbor[22].AsString();
+            RoomActual = cbor[23].AsString();
+        }
+        public override byte[] GetCBOR()
+        {
+            return ToCBOR(this).EncodeToBytes();
+        }
+        public override void SetCBOR(byte[] b)
+        {
+            FromCBOR(CBORObject.DecodeFromBytes(b));
         }
         #endregion CBOR
 

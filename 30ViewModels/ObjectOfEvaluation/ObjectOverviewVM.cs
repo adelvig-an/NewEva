@@ -49,6 +49,17 @@ namespace NewEva.VM.ObjectOfEvaluation
             else
                 return null;
         }
+
+        public override byte[] GetCBOR()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetCBOR(byte[] b)
+        {
+            throw new NotImplementedException();
+        }
+
         public ObjectOverviewVM()
         {
             pages = new string[]

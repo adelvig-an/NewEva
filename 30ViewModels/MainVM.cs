@@ -34,14 +34,6 @@ namespace NewEva.VM
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
         }
 
-
-
-
-
-
-
-
-
         ////Команда для кнопки "Отчет об оценке"
         //public ICommand ReportPage { get; }
         //public ICommand BackPage { get; }

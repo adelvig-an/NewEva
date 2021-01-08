@@ -241,21 +241,25 @@ namespace NewEva.VM
                 .Add(contractVM.Target)
                 .Add(contractVM.IsTypeCost);
         }
-        static ContractVM FromCBOR(CBORObject cbor)
+        void FromCBOR(CBORObject cbor)
         {
-            return new ContractVM()
-            { 
-                CurrentIndex = cbor[0].AsInt32(),
-                Id = cbor[1].AsInt32(),
-                Number= cbor[2].AsString(),
-                DateContract = cbor[3][0].AsBoolean()
-                ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64()))
-                : null,
-                Target = cbor[5].AsString(),
-                IsTypeCost = cbor[6].AsString()
-            };
+            CurrentIndex = cbor[0].AsInt32();
+            Id = cbor[1].AsInt32();
+            Number = cbor[2].AsString();
+            DateContract = cbor[3][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64()))
+            : null;
+            Target = cbor[5].AsString();
+            IsTypeCost = cbor[6].AsString();
         }
-
+        public override byte[] GetCBOR()
+        {
+            return ToCBOR(this).EncodeToBytes();
+        }
+        public override void SetCBOR(byte[] b)
+        {
+            FromCBOR(CBORObject.DecodeFromBytes(b));
+        }
         #endregion CBOR
     }
 }

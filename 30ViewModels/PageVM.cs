@@ -17,7 +17,7 @@ namespace NewEva.VM
         public abstract void SetCBOR(byte[] b);
 
         //Чтение данных
-        public void ReadCBOR(byte[] b)
+        public void ReadCBOR()
         {
             var primaryKey = GetType().Name;
             var tempData = DataBase.Read<TempData>(primaryKey);

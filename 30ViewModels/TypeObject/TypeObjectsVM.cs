@@ -31,6 +31,16 @@ namespace NewEva.VM
             }
         }
 
+        public override byte[] GetCBOR()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetCBOR(byte[] b)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Category> Categories { get; set; }
         public ICommand AddCommand { get; }
         public ICommand RemoveCommand { get; }
