@@ -19,9 +19,16 @@ namespace NewEva.VM
         //Чтение данных
         public void ReadCBOR()
         {
-            var primaryKey = GetType().Name;
-            var tempData = DataBase.Read<TempData>(primaryKey);
-            SetCBOR(tempData.CBOR);
+            try
+            {
+                var primaryKey = GetType().Name;
+                var tempData = DataBase.Read<TempData>(primaryKey);
+                SetCBOR(tempData.CBOR);
+            }
+            catch
+            {
+                GetCBOR();
+            }
         }
         public static T Read<T>() where T : PageVM
         {

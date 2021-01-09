@@ -59,6 +59,7 @@ namespace NewEva.VM
             set
             {
                 CurrentPage = CreatePageByName(pages[value]);
+                CurrentPage.ReadCBOR();
                 SetProperty(ref currentIndex, value);
             }
         }

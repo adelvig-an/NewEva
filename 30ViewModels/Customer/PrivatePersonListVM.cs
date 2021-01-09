@@ -37,12 +37,12 @@ namespace NewEva.VM.Customer
 
         public override byte[] GetCBOR()
         {
-            throw new System.NotImplementedException();
+            return null;
         }
 
         public override void SetCBOR(byte[] b)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

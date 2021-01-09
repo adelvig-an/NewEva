@@ -20,7 +20,7 @@ namespace NewEva.VM.Customer
             get => currentPage;
             set
             {
-                CurrentPage?.Write();
+                CurrentPage?.WriteCBOR();
                 SetProperty(ref currentPage, value);
             }
         }
