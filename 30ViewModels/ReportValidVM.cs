@@ -24,12 +24,12 @@ namespace NewEva.VM
         }
 
         public ObservableCollection<Report>ReportList { get; set; }
-        //public ObservableCollection<Contract> ContractList { get; set; }
+        public ObservableCollection<Contract> ContractList { get; set; }
         public Report SelectedReport { get; set; }
 
         public ReportValidVM(int selectedId = -1)
         {
-            //ContractList = new ObservableCollection<Contract>(DataBase.ReadAll<Contracts>().Select(contracts => DataBase.ToContract(contracts)));
+            ContractList = new ObservableCollection<Contract>(DataBase.ReadAll<Contracts>().Select(contracts => DataBase.ToContract(contracts)));
             ReportList = new ObservableCollection<Report>(DataBase.ReadAll<Reports>().Select(reports => DataBase.ToReport(reports))); //Получение писка из базы данных
             SelectedReport = ReportList.SingleOrDefault(report => report.Id == selectedId);
             DeleteReport = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
