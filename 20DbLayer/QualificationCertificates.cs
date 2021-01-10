@@ -15,7 +15,7 @@ namespace NewEva.DbLayer
         public DateTime? DateBeforeQualification { get; set; } //Окончание действия квалификационного аттестата
         public string NameOrganizationQualification { get; set; } //Наименование учреждения выдавшее квалификационный аттестат
         public string ActvityQualification { get; set; } //Направление деятельности квалификационного аттестата
-        //[Indexed]
-        //public int AppraisersId { get; set; }
+        [Indexed]
+        public int AppraisersId { get; set; }
     }
 }

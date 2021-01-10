@@ -27,28 +27,30 @@ namespace NewEva.VM
             }
             catch
             {
-                GetCBOR();
+                
             }
         }
-        public static T Read<T>() where T : PageVM
-        {
-            var primaryKey = typeof(T).Name;
-            var json = DataBase.ReadJsonOrNull(primaryKey);
-            if (json == null)
-            {
-                return null;
-            }
-            return JsonConvert.DeserializeObject<T>(json);
-        }
+        //public static T Read<T>() where T : PageVM
+        //{
+        //    var primaryKey = typeof(T).Name;
+        //    var json = DataBase.ReadJsonOrNull(primaryKey);
+        //    if (json == null)
+        //    {
+        //        return null;
+        //    }
+        //    return JsonConvert.DeserializeObject<T>(json);
+        //}
 
         //Запись данных
         public bool WriteCBOR()
         {
             try
             {
+                var Id = 0;
                 var cbor = GetCBOR();
                 var tempData = new TempData
                 {
+                    Id = Id,
                     Page = GetType().Name,
                     CBOR = cbor
                 };
@@ -61,23 +63,23 @@ namespace NewEva.VM
             }
         }
 
-        public bool Write()
-        {
-            try
-            {
-                var json = JsonConvert.SerializeObject(this);
-                var tempData = new TempData
-                {
-                    Page = GetType().Name,
-                    Json = json
-                };
-                DataBase.Write(tempData);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //public bool Write()
+        //{
+        //    try
+        //    {
+        //        var json = JsonConvert.SerializeObject(this);
+        //        var tempData = new TempData
+        //        {
+        //            Page = GetType().Name,
+        //            Json = json
+        //        };
+        //        DataBase.Write(tempData);
+        //        return true;
+        //    }
+        //    catch
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

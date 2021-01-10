@@ -13,7 +13,7 @@ namespace NewEva.DbLayer
         public DateTime? DateVulation { get; set; } //Дата оценки
         public DateTime? DateCompilation { get; set; } //Дата составления
         public DateTime? DateOfInspection { get; set; } //Дата осмотра
-        //[Indexed]
-        //public int ContractsId { get; set; }
+        [Indexed]
+        public int ContractsId { get; set; }
     }
 }

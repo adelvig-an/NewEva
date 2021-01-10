@@ -13,7 +13,7 @@ namespace NewEva.VM.Customer
         public Organization SelectedOrganization { get; set; }
         public OrganizationListVM(int selectedId = -1)
         {
-            OrganizationList = new ObservableCollection<Organization>(DataBase.ReadAll<Customers>().Where(cust => cust.TypeCustomer == true).Select(сustomers => DataBase.ToOrganization(сustomers)));
+            OrganizationList = new ObservableCollection<Organization>(DataBase.ReadAll<Customers>().Where(cust => cust.TypeCustomer == false).Select(сustomers => DataBase.ToOrganization(сustomers)));
             SelectedOrganization = OrganizationList.SingleOrDefault(organization => organization.Id == selectedId);
             DeleteCustomer = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
         }

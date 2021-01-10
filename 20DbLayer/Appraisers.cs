@@ -27,7 +27,7 @@ namespace NewEva.DbLayer
         public string NameSRO { get; set; } //Название СРО
         public int NumberRegistry { get; set; } //Регистрационный номер
         public DateTime? DateRegistry { get; set; } //Дата регистрации в СРО
-        //[Indexed]
-        //public int OrganizationsOfAppraisersId { get; set; }
+        [Indexed]
+        public int OrganizationsOfAppraisersId { get; set; }
     }
 }

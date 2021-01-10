@@ -15,7 +15,7 @@ namespace NewEva.VM.ObjectOfEvaluation
             get => currentPage;
             set
             {
-                currentPage?.Write();
+                currentPage?.WriteCBOR();
                 SetProperty(ref currentPage, value);
             }
         }

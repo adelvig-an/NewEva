@@ -19,7 +19,7 @@ namespace NewEva.VM
             get => currentPage;
             set
             {
-                CurrentPage?.Write();
+                CurrentPage?.WriteCBOR();
                 SetProperty(ref currentPage, value);
             }
         }
@@ -29,9 +29,15 @@ namespace NewEva.VM
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
-            CurrentPage = new OverviewVM();
-
+            CurrentPage = new ReportValidVM();
+            NewReport = new RelayCommand(_ => NewReportAcion());
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
+        }
+
+        public ICommand NewReport { get; }
+        public void NewReportAcion()
+        {
+            CurrentPage = new OverviewVM();
         }
 
         ////Команда для кнопки "Отчет об оценке"

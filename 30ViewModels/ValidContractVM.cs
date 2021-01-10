@@ -8,12 +8,12 @@ namespace NewEva.VM
     {
         public override byte[] GetCBOR()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         public override void SetCBOR(byte[] b)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
