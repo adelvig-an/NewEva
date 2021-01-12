@@ -1,5 +1,6 @@
 ﻿using NewEva.DbLayer;
 using NewEva.VM.Customer;
+using NewEva.VM.ObjectOfEvaluation;
 using NewEva.VM.ObjectOfEvaluation.Flat;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace NewEva.VM
             this.dialogService = dialogService;
             CurrentPage = new ReportValidVM();
             NewReport = new RelayCommand(_ => NewReportAcion());
+            //NextPage = new RelayCommand(_ => NextPageAction());
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
         }
 
@@ -39,6 +41,11 @@ namespace NewEva.VM
         {
             CurrentPage = new OverviewVM();
         }
+        //public ICommand NextPage { get; }
+        //public void NextPageAction()
+        //{
+        //    CurrentPage = new ObjectOverviewVM();
+        //}
 
         ////Команда для кнопки "Отчет об оценке"
         //public ICommand ReportPage { get; }

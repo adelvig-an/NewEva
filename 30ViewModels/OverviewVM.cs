@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 
 namespace NewEva.VM
 {
@@ -55,6 +56,14 @@ namespace NewEva.VM
                 "ObjectOverviewVM"
             };
             CurrentIndex = 0;
+            NextPage = new RelayCommand(_ => NextPageAction());
+        }
+
+        
+        public ICommand NextPage { get; }
+        public void NextPageAction()
+        {
+            CurrentPage = new ObjectOverviewVM();
         }
 
         public override byte[] GetCBOR()
