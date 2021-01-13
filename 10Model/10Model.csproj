@@ -5,4 +5,8 @@
     <RootNamespace>NewEva.Model</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dadata" Version="20.10.0" />
+  </ItemGroup>
+
 </Project>
