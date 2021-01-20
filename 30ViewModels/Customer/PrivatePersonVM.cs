@@ -1,8 +1,10 @@
 ﻿using NewEva.DbLayer;
+using NewEva.Model;
 using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Windows.Input;
 
 namespace NewEva.VM.Customer
 {
@@ -68,6 +70,8 @@ namespace NewEva.VM.Customer
                 HouseActual = customer.HouseActual;
                 RoomActual = customer.RoomActual;
             }
+
+            ConvertAddress = new RelayCommand(_ => ConvertAddressAction());
         }
 
         //Для сохранения в базу данных
@@ -475,6 +479,30 @@ namespace NewEva.VM.Customer
         }
         #endregion CBOR
 
+        #region DadataService
+        public void FillAddressRegistration(Address address)
+        {
+            AddressFullRegistration = address.AddressFull;
+            IndexRegistration = address.Index;
+            CountryRegistration = address.Country;
+            RegionRegistration = address.Region;
+            DistrictRegistration = address.District;
+            CityRegistration = address.City;
+            StreetRegistration = address.Street;
+            HouseRegistration = address.House;
+            RoomRegistration = address.Room;
+        }
 
+        //Кнопка для теста
+        public ICommand ConvertAddress { get; }
+        public void ConvertAddressAction()
+        {
+            var result = DadataAdr.TypeGetAddress(AddressFullRegistration, out var address);
+            if (result == true)
+            {
+                FillAddressRegistration(address);
+            }
+        }
+        #endregion
     }
 }

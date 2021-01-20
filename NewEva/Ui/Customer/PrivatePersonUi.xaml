@@ -99,23 +99,34 @@
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Адрес" />
-        <TextBox
-            x:Name="tbx_AddressRegistration"
-            Margin="5,0,5,10"
-            materialDesign:HintAssist.Hint="Адрес регистрации"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <StackPanel Orientation="Horizontal">
+            <TextBox
+                x:Name="tbx_AddressRegistration"
+                Width="550"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Адрес регистрации"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <Button
+                Margin="10,0,0,0"
+                Command="{Binding ConvertAddress}"
+                Content="Преобразовать адрес" />
+        </StackPanel>
         <CheckBox
             x:Name="AddressMatch"
             Margin="5"
             Content="Адрес регистрации совпадает с адресом проживания"
             IsChecked="{Binding IsAddressMatch}" />
-        <TextBox
-            x:Name="tbx_AddressActual"
-            Margin="5,0,5,10"
-            materialDesign:HintAssist.Hint="Адрес проживания"
-            IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
-            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-            Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+        <StackPanel Orientation="Horizontal">
+            <TextBox
+                x:Name="tbx_AddressActual"
+                Width="550"
+                Margin="5,0,5,10"
+                materialDesign:HintAssist.Hint="Адрес проживания"
+                IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+            <Button Margin="10,0,0,0" Content="Преобразовать адрес" />
+        </StackPanel>
     </StackPanel>
 </UserControl>
