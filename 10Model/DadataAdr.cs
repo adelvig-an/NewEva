@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Dadata;
-using Dadata.Model;
+﻿using Dadata;
 
 namespace NewEva.Model
 {
@@ -10,8 +6,7 @@ namespace NewEva.Model
     {
         public static bool TypeGetAddress(string fullAddress, out Address address)
         {
-            var token = "";
-            var secret = "";
+            
 
             var client = new CleanClientSync(token, secret);
             try
