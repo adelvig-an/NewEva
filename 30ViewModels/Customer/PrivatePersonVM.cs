@@ -480,6 +480,18 @@ namespace NewEva.VM.Customer
         #endregion CBOR
 
         #region DadataService
+        private Address selectedAddress;
+        public Address SelectedAddress
+        {
+            get => selectedAddress;
+            set 
+            {
+                if (SetProperty(ref selectedAddress, value))
+                {
+                    FillAddressRegistration(selectedAddress);
+                }
+            }
+        }
         public void FillAddressRegistration(Address address)
         {
             AddressFullRegistration = address.AddressFull;
@@ -497,7 +509,7 @@ namespace NewEva.VM.Customer
         public ICommand ConvertAddress { get; }
         public void ConvertAddressAction()
         {
-            var result = DadataAdr.TypeGetAddress(AddressFullRegistration, out var address);
+            var result = DadataService.TypeGetAddress(AddressFullRegistration, out var address);
             if (result == true)
             {
                 FillAddressRegistration(address);

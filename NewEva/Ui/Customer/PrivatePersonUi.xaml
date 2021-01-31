@@ -7,10 +7,14 @@
     xmlns:local="clr-namespace:NewEva.Ui.Customer"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:providers="clr-namespace:NewEva.Model;assembly=10Model"
     xmlns:ui="clr-namespace:NewEva.Ui"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <providers:AddressSuggestionProvider x:Key="AddressSuggestionProvider" />
+    </UserControl.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button
@@ -101,9 +105,14 @@
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Адрес" />
         <StackPanel Orientation="Horizontal">
+            <acb:AutoCompleteTextBox
+                Width="300"
+                Margin="5,0,5,10"
+                Provider="{StaticResource ResourceKey=AddressSuggestionProvider}"
+                SelectedItem="{Binding SelectedAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 x:Name="tbx_AddressRegistration"
-                Width="550"
+                Width="300"
                 Margin="5,0,5,10"
                 materialDesign:HintAssist.Hint="Адрес регистрации"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
