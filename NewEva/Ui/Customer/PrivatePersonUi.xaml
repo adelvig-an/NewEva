@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:NewEva.Ui.Customer"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:providers="clr-namespace:NewEva.Model;assembly=10Model"
+    xmlns:providers="clr-namespace:NewEva"
     xmlns:ui="clr-namespace:NewEva.Ui"
     d:DesignHeight="450"
     d:DesignWidth="800"

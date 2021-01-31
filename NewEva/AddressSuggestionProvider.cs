@@ -1,7 +1,8 @@
 ﻿using AutoCompleteTextBox.Editors;
+using NewEva.Model;
 using System.Collections;
 
-namespace NewEva.Model
+namespace NewEva
 {
     public class AddressSuggestionProvider : ISuggestionProvider
     {

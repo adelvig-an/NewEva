@@ -46,11 +46,8 @@ namespace NewEva.Model
             try
             {
                 var adr = client.SuggestAddress(fullAddress);
-
                 addresses = adr.suggestions.Select(address => ToAddress(address)).ToArray();
-
                 return true;
-
             }
             catch
             {
