@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoCompleteTextBox" Version="1.1.1" />
     <PackageReference Include="Dadata" Version="20.10.0" />
   </ItemGroup>
 

@@ -2,14 +2,13 @@
 
 namespace NewEva.DbLayer
 {
-    public class Customers
+    class Organizations_appraisers
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public bool Type_customer { get; set; }
-        [Indexed]
-        public int Id_private_pirsons { get; set; }
         [Indexed]
         public int Id_organizations { get; set; }
+        [Indexed]
+        public int Id_insurance_policies { get; set; }
     }
 }

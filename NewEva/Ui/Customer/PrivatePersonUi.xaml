@@ -7,13 +7,15 @@
     xmlns:local="clr-namespace:NewEva.Ui.Customer"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:providers="clr-namespace:NewEva"
     xmlns:ui="clr-namespace:NewEva.Ui"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <providers:AddressSuggestionProvider x:Key="AddressSuggestionProvider" />
+
+        <DataTemplate x:Key="AddressItemTemplate">
+            <TextBlock Margin="5,0,5,0" Text="{Binding AddressFull}" />
+        </DataTemplate>
     </UserControl.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
@@ -104,39 +106,30 @@
             Margin="5"
             Style="{StaticResource MaterialDesignHeadline6TextBlock}"
             Text="Адрес" />
-        <StackPanel Orientation="Horizontal">
-            <acb:AutoCompleteTextBox
-                Width="300"
-                Margin="5,0,5,10"
-                Provider="{StaticResource ResourceKey=AddressSuggestionProvider}"
-                SelectedItem="{Binding SelectedAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBox
-                x:Name="tbx_AddressRegistration"
-                Width="300"
-                Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Адрес регистрации"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
-            <Button
-                Margin="10,0,0,0"
-                Command="{Binding ConvertAddress}"
-                Content="Преобразовать адрес" />
-        </StackPanel>
+
+        <acb:AutoCompleteTextBox
+            Margin="5,0,5,10"
+            CharacterCasing="Upper"
+            DisplayMember="AddressFull"
+            ItemTemplate="{StaticResource ResourceKey=AddressItemTemplate}"
+            MaxLength="50"
+            Provider="{StaticResource ResourceKey=AddressSuggestionProvider}"
+            SelectedItem="{Binding SelectedAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Text="{Binding AddressFullRegistration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
         <CheckBox
             x:Name="AddressMatch"
             Margin="5"
             Content="Адрес регистрации совпадает с адресом проживания"
             IsChecked="{Binding IsAddressMatch}" />
-        <StackPanel Orientation="Horizontal">
-            <TextBox
-                x:Name="tbx_AddressActual"
-                Width="550"
-                Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Адрес проживания"
-                IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
-            <Button Margin="10,0,0,0" Content="Преобразовать адрес" />
-        </StackPanel>
+
+        <TextBox
+            x:Name="tbx_AddressActual"
+            Margin="5,0,5,10"
+            materialDesign:HintAssist.Hint="Адрес проживания"
+            IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+
     </StackPanel>
 </UserControl>

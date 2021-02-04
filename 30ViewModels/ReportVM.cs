@@ -29,9 +29,9 @@ namespace NewEva.VM
             {
                 Id = report.Id;
                 Number = report.Number;
-                DateVulation = report.DateVulation;
-                DateCompilation = report.DateCompilation;
-                DateOfInspection = report.DateOfInspection;
+                VulationDate = report.Vulation_date;
+                CompilationDate = report.Compilation_date;
+                InspectionDate = report.Inspection_date;
             }
             Appraisers = LocalStorage.Appraisers;
             pages = new string[]
@@ -75,8 +75,14 @@ namespace NewEva.VM
         }
 
         #region Property
-        public int Id { get; set; }
+        private DateTime? vulationDate;
         private string number;
+        private DateTime? compilationDate;
+        private DateTime? inspectionDate;
+        private string inspectionFeaures = "Отсутствуют";
+        private string isAppraiser;
+        
+        public int Id { get; set; }
         [Required(ErrorMessage = "Не указан номер отчета")]
         [StringLength(20)]
         public string Number
@@ -88,38 +94,44 @@ namespace NewEva.VM
                 SetProperty(ref number, value);
             }
         }
-        private DateTime? dateVulation;
         [Required(ErrorMessage = "Не указана дата оценки")]
-        public DateTime? DateVulation
-        { get => dateVulation;
+        public DateTime? VulationDate
+        { get => vulationDate;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref dateVulation, value);
+                SetProperty(ref vulationDate, value);
             }
         }
-        private DateTime? dateCompilation;
         [Required(ErrorMessage = "Не указана дата составления отчета")]
-        public DateTime? DateCompilation
-        { get => dateCompilation;
+        public DateTime? CompilationDate
+        { get => compilationDate;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref dateCompilation, value);
+                SetProperty(ref compilationDate, value);
             }
         }
-        private DateTime? dateOfInspection;
         [Required(ErrorMessage = "Не указан дата осмотра")]
-        public DateTime? DateOfInspection
+        public DateTime? InspectionDate
         {
-            get => dateOfInspection;
+            get => inspectionDate;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref dateOfInspection, value);
+                SetProperty(ref inspectionDate, value);
             }
         }
-        private string isAppraiser;
+        [Required(ErrorMessage = "Обязательно для заполнения")]
+        public string InspectionFeaures 
+        { 
+            get => inspectionFeaures;
+            set
+            {
+                ValidateProperty(value);
+                SetProperty(ref inspectionFeaures, value);
+            }
+        }
         [Required(ErrorMessage = "Не выбран оценщика исполнителя")]
         public string IsAppraiser
         {
@@ -141,9 +153,9 @@ namespace NewEva.VM
             {
                 Id = Id,
                 Number = Number,
-                DateVulation = DateVulation,
-                DateCompilation = DateCompilation,
-                DateOfInspection = DateOfInspection
+                Vulation_date = VulationDate,
+                Compilation_date = CompilationDate,
+                Inspection_date = InspectionDate
             };
             return report;
         }
@@ -190,14 +202,14 @@ namespace NewEva.VM
                 .Add(reportVM.CurrentIndex)
                 .Add(reportVM.Id)
                 .Add(reportVM.Number)
-                .Add(reportVM.DateVulation.HasValue 
-                ? CBORObject.NewArray().Add(true).Add(reportVM.DateVulation.Value.ToBinary()) 
+                .Add(reportVM.VulationDate.HasValue 
+                ? CBORObject.NewArray().Add(true).Add(reportVM.VulationDate.Value.ToBinary()) 
                 : CBORObject.NewArray().Add(false))
-                .Add(reportVM.DateCompilation.HasValue
-                ? CBORObject.NewArray().Add(true).Add(reportVM.DateCompilation.Value.ToBinary())
+                .Add(reportVM.CompilationDate.HasValue
+                ? CBORObject.NewArray().Add(true).Add(reportVM.CompilationDate.Value.ToBinary())
                 : CBORObject.NewArray().Add(false))
-                .Add(reportVM.DateOfInspection.HasValue
-                ? CBORObject.NewArray().Add(true).Add(reportVM.DateOfInspection.Value.ToBinary())
+                .Add(reportVM.InspectionDate.HasValue
+                ? CBORObject.NewArray().Add(true).Add(reportVM.InspectionDate.Value.ToBinary())
                 : CBORObject.NewArray().Add(false))
                 .Add(reportVM.IsAppraiser);
         }
@@ -206,14 +218,14 @@ namespace NewEva.VM
             CurrentIndex = cbor[0].AsInt32();
             Id = cbor[1].AsInt32();
             Number = cbor[2].AsString();
-            DateVulation = cbor[3][0].AsBoolean()
-            ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64()))
+            VulationDate = cbor[3][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[3][1].ToObject<long>()))
             : null;
-            DateCompilation = cbor[4][0].AsBoolean()
-            ? new DateTime?(DateTime.FromBinary(cbor[4][1].AsInt64()))
+            CompilationDate = cbor[4][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[4][1].ToObject<long>()))
             : null;
-            DateOfInspection = cbor[5][0].AsBoolean()
-            ? new DateTime?(DateTime.FromBinary(cbor[5][1].AsInt64()))
+            InspectionDate = cbor[5][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[5][1].ToObject<long>()))
             : null;
             IsAppraiser = cbor[6].AsString();
         }

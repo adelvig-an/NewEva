@@ -5,7 +5,6 @@ using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 using System.Windows.Input;
 
 namespace NewEva.VM
@@ -32,8 +31,8 @@ namespace NewEva.VM
             {
                 Id = contract.Id;
                 Number = contract.Number;
-                DateContract = contract.DateContract;
-                IsTypeCost = contract.TypeCost;
+                ContractDate = contract.Contract_date;
+                IsTypeCost = contract.Intended_use;
                 Target = contract.Target;
             }
             TypeCosts = LocalStorage.TypeCosts;
@@ -151,15 +150,15 @@ namespace NewEva.VM
                 SetProperty(ref number, value);
             }
         }
-        private DateTime? dateContract;
+        private DateTime? contractDate;
         [Required(ErrorMessage = "Не указана дата договора")]
-        public DateTime? DateContract
+        public DateTime? ContractDate
         {
-            get => dateContract;
+            get => contractDate;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref dateContract, value);
+                SetProperty(ref contractDate, value);
             }
         }
         private string isTypeCost;
@@ -193,8 +192,8 @@ namespace NewEva.VM
             {
                 Id = Id,
                 Number = Number,
-                DateContract = DateContract,
-                TypeCost = IsTypeCost,
+                Contract_date = ContractDate,
+                Intended_use = IsTypeCost,
                 Target = Target
             };
             return contract;
@@ -236,8 +235,8 @@ namespace NewEva.VM
                 .Add(contractVM.CurrentIndex)
                 .Add(contractVM.Id)
                 .Add(contractVM.Number)
-                .Add(contractVM.DateContract.HasValue
-                ? CBORObject.NewArray().Add(true).Add(contractVM.DateContract.Value.ToBinary())
+                .Add(contractVM.ContractDate.HasValue
+                ? CBORObject.NewArray().Add(true).Add(contractVM.ContractDate.Value.ToBinary())
                 : CBORObject.NewArray().Add(false))
                 .Add(contractVM.Target)
                 .Add(contractVM.IsTypeCost);
@@ -247,8 +246,8 @@ namespace NewEva.VM
             CurrentIndex = cbor[0].AsInt32();
             Id = cbor[1].AsInt32();
             Number = cbor[2].AsString();
-            DateContract = cbor[3][0].AsBoolean()
-            ? new DateTime?(DateTime.FromBinary(cbor[3][1].AsInt64()))
+            ContractDate = cbor[3][0].AsBoolean()
+            ? new DateTime?(DateTime.FromBinary(cbor[3][1].ToObject<long>()))
             : null;
             Target = cbor[5].AsString();
             IsTypeCost = cbor[6].AsString();

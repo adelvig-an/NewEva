@@ -1,7 +1,5 @@
 ﻿using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NewEva.DbLayer
 {
@@ -10,10 +8,10 @@ namespace NewEva.DbLayer
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Number { get; set; } //Номер договора
-        public DateTime? DateContract { get; set; } //Дата договора
+        public DateTime? Contract_date { get; set; } //Дата договора
         public string Target { get; set; } //Цель оценки
-        public string TypeCost { get; set; } //Вид стоимости
+        public string Intended_use { get; set; } //Вид стоимости
         [Indexed]
-        public int CustomersId { get; set; }
+        public int Id_customers { get; set; }
     }
 }

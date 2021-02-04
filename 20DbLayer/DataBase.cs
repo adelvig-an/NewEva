@@ -51,9 +51,10 @@ namespace NewEva.DbLayer
             {
                 Id = reports.Id,
                 Number = reports.Number,
-                DateCompilation = reports.DateCompilation,
-                DateOfInspection = reports.DateOfInspection,
-                DateVulation = reports.DateVulation
+                CompilationDate = reports.Compilation_date,
+                InspectionDate = reports.Inspection_date,
+                VulationDate = reports.Vulation_date,
+                InspectionFeaures = reports.Inspection_feaures
             };
         }
         //Преобразование Договора (Contract)
@@ -63,66 +64,58 @@ namespace NewEva.DbLayer
             {
                 Id = contracts.Id,
                 Number = contracts.Number,
-                DateContract = contracts.DateContract,
+                ContractDate = contracts.Contract_date,
                 Target = contracts.Target,
-                TypeCost = contracts.TypeCost
-            };
-        }
-        //Преобразование Заказчиков (Customers)
-        public static PrivatePerson ToPrivatePerson(Customers customers)
-        {
-            return new PrivatePerson
-            {
-                Id = customers.Id,
-                FullName = customers.SecondName + " " + customers.FirstName + " " + customers.MiddleName,
-                SecondName = customers.SecondName,
-                FirstName = customers.FirstName,
-                MiddleName = customers.MiddleName,
-                TypePassport = customers.TypePassport,
-                Serial = customers.Serial,
-                Number = customers.Number,
-                Issued = customers.Issued,
-                Division = customers.Division,
-                DateIssued = customers.DateIssued,
-                //AddressFull = customers.AddressFullRegistration,
-                //Index = customers.IndexRegistration,
-                //Country = customers.CountryRegistration,
-                //Region = customers.RegionRegistration,
-                //District = customers.DistrictRegistration,
-                //City = customers.CityRegistration,
-                //Street = customers.StreetRegistration,
-                //House = customers.HouseRegistration,
-                //Room = customers.RoomRegistration,
-                //AddressFull = customers.AddressFullActual,
-                //Index = customers.IndexActual,
-                //Country = customers.CountryActual,
-                //Region = customers.RegionActual,
-                //District = customers.DistrictActual,
-                //City = customers.CityActual,
-                //Street = customers.StreetActual,
-                //House = customers.HouseActual,
-                //Room = customers.RoomActual
-            };
-        }
-        public static Organization ToOrganization(Customers customers)
-        {
-            return new Organization
-            {
-                Id = customers.Id,
-                NameFull = customers.NameFull,
-                NameShort = customers.NameShort,
-                OrganizationForm = customers.OrganizationForm,
-                OGRN = customers.OGRN,
-                DateRegistration = customers.DateRegistration,
-                INN = customers.INN,
-                KPP = customers.KPP,
-                NameBank = customers.NameBank,
-                BIK = customers.BIK,
-                PayAccount = customers.PayAccount,
-                CorrAccount = customers.CorrAccount
+                IntendedUse = contracts.Intended_use
             };
         }
 
+
+        public static Person ToPerson (People people)
+        {
+            return new Person
+            {
+                Id = people.Id,
+                SecondName = people.Second_name,
+                FirstName = people.First_name,
+                MiddleName = people.Middle_name,
+            };
+        }
+
+        public static PrivatePerson ToPrivatePerson(Private_persons privatePerson)
+        {
+            return new PrivatePerson
+            {
+                Id = privatePerson.Id,
+                Serial = privatePerson.Serial,
+                Number = privatePerson.Number,
+                Division = privatePerson.Division,
+                DivisionCode = privatePerson.Division_code,
+                DivisionDate = privatePerson.Division_date
+            };
+        }
+        public static Organization ToOrganization(Organizations organizations)
+        {
+            return new Organization
+            {
+                Id = organizations.Id,
+                NameFullOpf = organizations.Name_full_opf,
+                NameShortOpf = organizations.Name_short_opf,
+                Opf = organizations.Opf,
+                OGRN= organizations.OGRN,
+                OGRNDate = organizations.OGRN_date,
+                INN = organizations.INN,
+                KPP = organizations.KPP,
+                Bank = organizations.Bank,
+                BIK = organizations.BIK,
+                PayAccount = organizations.Pay_account,
+                CorrAccount = organizations.Corr_account
+            };
+        }
+
+
+
+        #region JSON
         //Чтение временно сохраненного
         public static string ReadJsonOrNull(object primaryKey)
         {
@@ -145,6 +138,6 @@ namespace NewEva.DbLayer
         //Изменение данных
         public static int UpdateData(object obj) =>
             db.Update(obj);
-
+        #endregion
     }
 }
