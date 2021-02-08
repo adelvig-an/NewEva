@@ -7,6 +7,7 @@ namespace NewEva.Model
     {
         MarketValue,
         MarketAndLiquidationValue,
+        ForMortgage,
         LiquidationValue,
         InvestmentValue,
     }
@@ -16,7 +17,7 @@ namespace NewEva.Model
         public int Id { get; set; }
         public string Number { get; set; } //Номер договора
         public DateTime? ContractDate { get; set; } //Дата договора
-        public string Target { get; set; } //Цель оценки
+        public Target Target { get; set; }
         public string IntendedUse { get; set; } //Предполагаемый вид использования
     }
 }

@@ -37,24 +37,7 @@ namespace NewEva.VM.Customer
             if (IsEdit = customer != null) // если редактировать
             {
                 Id = customer.Id;
-                NameFull = customer.NameFull;
-                OGRN = customer.OGRN.ToString();
-                INN = customer.INN.ToString();
-                KPP = customer.KPP.ToString();
-                NameBank = customer.NameBank;
-                BIK = customer.BIK.ToString();
-                PayAccount = customer.PayAccount.ToString();
-                CorrAccount = customer.CorrAccount.ToString();
-                Position = customer.Position;
-                IsTypeAttorney = customer.TypeAttorney;
-                NumberAttorney = customer.NumberAttorney;
-                DateAttorney = customer.DateAttorney;
-                DateAttorneyBefore = customer.DateAttorneyBefore;
-                SecondName = customer.SecondName;
-                FirstName = customer.FirstName;
-                MiddleName = customer.MiddleName;
-                AddressFullRegistration = customer.AddressFullRegistration;
-                AddressFullActual = customer.AddressFullActual;
+
             }
             TypeAttorney = LocalStorage.TypeAttorney;  
         }
@@ -94,24 +77,24 @@ namespace NewEva.VM.Customer
             var customer = new Customers
             {
                 Id = Id,
-                NameFull = NameFull,
-                OGRN = long.Parse(OGRN),
-                INN = int.Parse(INN),
-                KPP = int.Parse(KPP),
-                NameBank = NameBank,
-                BIK = int.Parse(BIK),
-                PayAccount = long.Parse(PayAccount),
-                CorrAccount = long.Parse(CorrAccount),
-                Position = Position,
-                TypeAttorney = IsTypeAttorney,
-                NumberAttorney = NumberAttorney,
-                DateAttorney = DateAttorney,
-                DateAttorneyBefore = DateAttorneyBefore,
-                SecondName = SecondName,
-                FirstName = FirstName,
-                MiddleName = MiddleName,
-                AddressFullRegistration = AddressFullRegistration,
-                AddressFullActual = AddressFullActual,
+                //NameFull = NameFull,
+                //OGRN = long.Parse(OGRN),
+                //INN = int.Parse(INN),
+                //KPP = int.Parse(KPP),
+                //NameBank = NameBank,
+                //BIK = int.Parse(BIK),
+                //PayAccount = long.Parse(PayAccount),
+                //CorrAccount = long.Parse(CorrAccount),
+                //Position = Position,
+                //TypeAttorney = IsTypeAttorney,
+                //NumberAttorney = NumberAttorney,
+                //DateAttorney = DateAttorney,
+                //DateAttorneyBefore = DateAttorneyBefore,
+                //SecondName = SecondName,
+                //FirstName = FirstName,
+                //MiddleName = MiddleName,
+                //AddressFullRegistration = AddressFullRegistration,
+                //AddressFullActual = AddressFullActual,
         };
             return customer;
         }
@@ -145,43 +128,54 @@ namespace NewEva.VM.Customer
         }
 
         #region Properties
-        public int Id { get; set; }
-        private string nameFull;
-        private string nameShort;
-        private string organizationForm;
+        private string nameFullOpf;
+        private string nameShortOpf;
+        private string opf;
         private string ogrn;
-        private DateTime? dateRegisration;
+        private DateTime? ogrnDate;
         private string inn;
         private string kpp;
-        private string nameBank;
+        private string bank;
         private string bik;
         private string payAccount;
         private string corrAccount;
+        private string secondName;
+        private string firstName;
+        private string middleName;
+        private string position;
+        private string powerOfAttorney;
+        private DateTime? powerOfAttorneyDate;
+        private DateTime? powerOfAttorneyDateBefore;
+        private string addressFullRegistration;
+        private string addressFullActual;
+
+        public int Id { get; set; }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public string NameFull{ 
-            get=>nameFull;
+        public string NameFullOpf{ 
+            get=>nameFullOpf;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref nameFull, value);
+                SetProperty(ref nameFullOpf, value);
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public string NameShort{ 
-            get=>nameShort;
+        public string NameShortOpf
+        { 
+            get=> nameShortOpf;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref nameShort, value);
+                SetProperty(ref nameShortOpf, value);
             }
         } 
-        public string OrganizationForm
+        public string Opf
         { 
-            get=>organizationForm; 
+            get=>opf; 
             set 
             { 
                 ValidateProperty(value);
-                SetProperty(ref organizationForm, value);
+                SetProperty(ref opf, value);
             } 
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
@@ -196,13 +190,13 @@ namespace NewEva.VM.Customer
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public DateTime? DateRegistration
+        public DateTime? OGRNDate
         { 
-            get=>dateRegisration;
+            get=>ogrnDate;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref dateRegisration, value);
+                SetProperty(ref ogrnDate, value);
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
@@ -231,13 +225,13 @@ namespace NewEva.VM.Customer
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public string NameBank
+        public string Bank
         { 
-            get=>nameBank; 
+            get=>bank; 
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref nameBank, value);
+                SetProperty(ref bank, value);
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
@@ -276,15 +270,6 @@ namespace NewEva.VM.Customer
                 SetProperty(ref corrAccount, value);
             }
         }
-        
-        #region Director
-        private string secondName;
-        private string firstName;
-        private string middleName;
-        private string position;
-        private string numberAttorney;
-        private DateTime? dateAttorney;
-        private DateTime? dateAttorneyBefore;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         [StringLength(20)]
         public string SecondName
@@ -329,38 +314,35 @@ namespace NewEva.VM.Customer
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public string NumberAttorney
+        public string PowerOfAttorney
         {
-            get => numberAttorney;
+            get => powerOfAttorney;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref numberAttorney, value);
+                SetProperty(ref powerOfAttorney, value);
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public DateTime? DateAttorney
+        public DateTime? PowerOfAttorneyDate
         {
-            get => dateAttorney;
+            get => powerOfAttorneyDate;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref dateAttorney, value);
+                SetProperty(ref powerOfAttorneyDate, value);
             }
         }
         [Required(ErrorMessage = "Обязательно для заполнения")]
-        public DateTime? DateAttorneyBefore
+        public DateTime? PowerOfAttorneyDateBefore
         {
-            get => dateAttorneyBefore;
+            get => powerOfAttorneyDateBefore;
             set
             {
                 ValidateProperty(value);
-                SetProperty(ref dateAttorneyBefore, value);
+                SetProperty(ref powerOfAttorneyDateBefore, value);
             }
         }
-        #endregion
-        #region Properties Address Registration
-        private string addressFullRegistration;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         public string AddressFullRegistration
         {
@@ -371,9 +353,6 @@ namespace NewEva.VM.Customer
                 SetProperty(ref addressFullRegistration, value);
             }
         }
-        #endregion      
-        #region Properties Address Actual
-        private string addressFullActual;
         [Required(ErrorMessage = "Обязательно для заполнения")]
         public string AddressFullActual
         {
@@ -386,20 +365,18 @@ namespace NewEva.VM.Customer
         }
         #endregion
 
-        #endregion
-
         #region CBOR
         static CBORObject ToCBOR(OrganizationVM organizationVM)
         {
             return CBORObject.NewArray()
                 .Add(organizationVM.Id)
-                .Add(organizationVM.NameFull)
-                .Add(organizationVM.NameShort)
-                .Add(organizationVM.OrganizationForm)
+                .Add(organizationVM.NameFullOpf)
+                .Add(organizationVM.NameShortOpf)
+                .Add(organizationVM.Opf)
                 .Add(organizationVM.OGRN)
                 .Add(organizationVM.INN)
                 .Add(organizationVM.KPP)
-                .Add(organizationVM.NameBank)
+                .Add(organizationVM.Bank)
                 .Add(organizationVM.BIK)
                 .Add(organizationVM.PayAccount)
                 .Add(organizationVM.CorrAccount)
@@ -407,12 +384,12 @@ namespace NewEva.VM.Customer
                 .Add(organizationVM.FirstName)
                 .Add(organizationVM.MiddleName)
                 .Add(organizationVM.Position)
-                .Add(organizationVM.NumberAttorney)
-                .Add(organizationVM.DateAttorney.HasValue
-                ? CBORObject.NewArray().Add(true).Add(organizationVM.DateAttorney.Value.ToBinary())
+                .Add(organizationVM.PowerOfAttorney)
+                .Add(organizationVM.PowerOfAttorneyDate.HasValue
+                ? CBORObject.NewArray().Add(true).Add(organizationVM.PowerOfAttorneyDate.Value.ToBinary())
                 : CBORObject.NewArray().Add(false))
-                .Add(organizationVM.DateAttorneyBefore.HasValue
-                ? CBORObject.NewArray().Add(true).Add(organizationVM.DateAttorneyBefore.Value.ToBinary())
+                .Add(organizationVM.PowerOfAttorneyDateBefore.HasValue
+                ? CBORObject.NewArray().Add(true).Add(organizationVM.PowerOfAttorneyDateBefore.Value.ToBinary())
                 : CBORObject.NewArray().Add(false))
                 .Add(organizationVM.AddressFullRegistration)
                 .Add(organizationVM.AddressFullActual);
@@ -420,13 +397,13 @@ namespace NewEva.VM.Customer
         void FromCBOR(CBORObject cbor)
         {
             Id = cbor[0].AsInt32();
-            NameFull = cbor[1].AsString();
-            NameShort = cbor[2].AsString();
-            OrganizationForm = cbor[3].AsString();
+            NameFullOpf = cbor[1].AsString();
+            NameShortOpf = cbor[2].AsString();
+            Opf = cbor[3].AsString();
             OGRN = cbor[4].AsString();
             INN = cbor[5].AsString();
             KPP = cbor[6].AsString();
-            NameBank = cbor[7].AsString();
+            Bank = cbor[7].AsString();
             BIK = cbor[8].AsString();
             PayAccount = cbor[9].AsString();
             CorrAccount = cbor[10].AsString();
@@ -434,11 +411,11 @@ namespace NewEva.VM.Customer
             FirstName = cbor[12].AsString();
             MiddleName = cbor[13].AsString();
                 Position = cbor[14].AsString();
-            NumberAttorney = cbor[15].AsString();
-            DateAttorney = cbor[16][0].AsBoolean()
+            PowerOfAttorney = cbor[15].AsString();
+            PowerOfAttorneyDate = cbor[16][0].AsBoolean()
             ? new DateTime?(DateTime.FromBinary(cbor[16][1].AsInt64()))
             : null;
-            DateAttorneyBefore = cbor[17][0].AsBoolean()
+            PowerOfAttorneyDateBefore = cbor[17][0].AsBoolean()
             ? new DateTime?(DateTime.FromBinary(cbor[17][1].AsInt64()))
             : null;
             AddressFullRegistration = cbor[18].AsString();

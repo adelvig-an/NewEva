@@ -23,6 +23,10 @@ namespace NewEva.Model
         public string CityType { get; set; } //Тип города (сокращенный)
         public string CityTypeFull { get; set; } //Тип города
         public string City { get; set; } //Город
+        public string CityDistrictWithType { get; set; } //Район города с типом
+        public string CityDistrictType { get; set; } //Тип района города (сокращенный)
+        public string CityDistrictTypeFull { get; set; } //Тип района города
+        public string CityDistrict { get; set; } //Район города
         public string SettlementKladrId { get; set; } //КЛАДР-код населенного пункта
         public string SettlemenWithType { get; set; } //Населенный пункт с типом
         public string SettlemenType { get; set; } //Тип населенного пункта (сокращенный)

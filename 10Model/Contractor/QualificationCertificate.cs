@@ -14,6 +14,7 @@ namespace NewEva.Model
         public int Number { get; set; } //Номер квалификационного аттестата
         public DateTime DateFrom { get; set; } //Дата "от"
         public DateTime DateBefore { get; set; } //Дата "до"
+        public Speciality Speciality { get; set; } //Направление оценочной деятельности
         public string Name { get; set; } //Наименование выдавшей организации
     }
 }

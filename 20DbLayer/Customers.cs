@@ -6,7 +6,7 @@ namespace NewEva.DbLayer
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public bool Type_customer { get; set; }
+        public string Type_customer { get; set; }
         [Indexed]
         public int Id_private_pirsons { get; set; }
         [Indexed]
