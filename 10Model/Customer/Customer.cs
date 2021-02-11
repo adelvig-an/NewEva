@@ -13,7 +13,7 @@ namespace NewEva.Model
     {
         public int CustomerId { get; set; }
         public TypeCustomer TypeCustomer { get; set; }
-        public List<Contract> Contracts { get; set; } = new List<Contract>();
+        public ICollection<Contract> Contracts { get; set; } 
         public int? PersonId { get; set; }
         public int? OrganizationId { get; set; }
     }

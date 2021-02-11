@@ -19,7 +19,7 @@ namespace NewEva.Model
         public DateTime? ContractDate { get; set; } //Дата договора
         public Target Target { get; set; }
         public string IntendedUse { get; set; } //Предполагаемый вид использования
-        public List<Report> Reports { get; set; } = new List<Report>();
+        public ICollection<Report> Reports { get; set; }
         public int CustomerId { get; set; }
     }
 }

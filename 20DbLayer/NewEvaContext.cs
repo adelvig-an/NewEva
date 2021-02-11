@@ -26,5 +26,19 @@ namespace NewEva.DbLayer
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
            => options.UseSqlite("Data Sourse=EvaDataBase.db");
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PrivatePerson>()
+                .HasOne(m => m.AddressRegistration)
+                .WithMany()
+                .HasForeignKey(m => m.AddressRegistrationId)
+                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<PrivatePerson>()
+                .HasOne(m => m.AddressActual)
+                .WithMany()
+                .HasForeignKey(m => m.AddressActualId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

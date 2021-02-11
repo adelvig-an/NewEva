@@ -11,10 +11,8 @@ namespace NewEva.Model
         public string DivisionCode { get; set; } //Код подразделения
         public DateTime? DivisionDate { get; set; } //Дата выдачи
         public int AddressRegistrationId { get; set; }
-        [ForeignKey("AddressRegistrationId")]
         public Address AddressRegistration { get; set; }
         public int AddressActualId { get; set; }
-        [ForeignKey("AddressActualId")]
         public Address AddressActual { get; set; }
     }
 }
