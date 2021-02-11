@@ -31,7 +31,7 @@ namespace NewEva.VM
         {
             ContractList = new ObservableCollection<Contract>(DataBase.ReadAll<Contracts>().Select(contracts => DataBase.ToContract(contracts)));
             ReportList = new ObservableCollection<Report>(DataBase.ReadAll<Reports>().Select(reports => DataBase.ToReport(reports))); //Получение писка из базы данных
-            SelectedReport = ReportList.SingleOrDefault(report => report.Id == selectedId);
+            SelectedReport = ReportList.SingleOrDefault(report => report.ReportId == selectedId);
             DeleteReport = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
         }
 
@@ -43,7 +43,7 @@ namespace NewEva.VM
             IList selectedItems = (IList)p;
             foreach (var report in selectedItems.OfType<Report>().ToArray())
             {
-                int deleteCustomer = DataBase.DeleteData<Reports>(report.Id);
+                int deleteCustomer = DataBase.DeleteData<Report>(report.ReportId);
                 if (deleteCustomer == 1)
                 {
                     ReportList.Remove(report);

@@ -4,6 +4,7 @@ namespace NewEva.Model
 {
     public class Address
     {
+        public int AddressId { get; set; }
         public string AddressFull { get; set; } //Адрес полностью
         public string Index { get; set; } //Индекс
         public string Country { get; set; } //Страна

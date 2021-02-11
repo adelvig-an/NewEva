@@ -25,15 +25,15 @@ namespace NewEva.VM
         }
         public IEnumerable<string> TypeCosts { get; }
         public bool IsEdit { get; }
-        public ContractVM(Contracts contract = null)
+        public ContractVM(Contract contract = null)
         {
             if (IsEdit = contract != null)
             {
-                Id = contract.Id;
+                Id = contract.ContractId;
                 Number = contract.Number;
-                ContractDate = contract.Contract_date;
-                IsTypeCost = contract.Intended_use;
-                Target = contract.Target;
+                ContractDate = contract.ContractDate;
+                IsTypeCost = contract.IntendedUse;
+                //Target = contract.Target;
             }
             TypeCosts = LocalStorage.TypeCosts;
             Pages = new string[]
@@ -185,48 +185,6 @@ namespace NewEva.VM
             }
         }
         #endregion
-
-        public Contracts ToContracts()
-        {
-            var contract = new Contracts
-            {
-                Id = Id,
-                Number = Number,
-                Contract_date = ContractDate,
-                Intended_use = IsTypeCost,
-                Target = Target
-            };
-            return contract;
-        }
-        public int AddContract()
-        {
-            try
-            {
-                var contract = ToContracts();
-                DataBase.Write(contract);
-                var newId = contract.Id;
-                return newId;
-            }
-            catch
-            {
-
-                return -1;
-            }
-        }
-        public bool UpdateContract()
-        {
-            try
-            {
-                var contract = ToContracts();
-                DataBase.UpdateData(contract);
-                return true;
-            }
-            catch
-            {
-
-                return false;
-            }
-        }
 
         #region CBOR
         static CBORObject ToCBOR(ContractVM contractVM)

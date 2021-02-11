@@ -4,7 +4,6 @@ namespace NewEva.Model.Contractor
 {
     public class Appraiser : Person
     {
-        public int Id { get; set; }
         public DateTime? StartedDate { get; set; } //Год начала работы
         //Информация об образовании
         public string Diplom { get; set; } //Название специальности

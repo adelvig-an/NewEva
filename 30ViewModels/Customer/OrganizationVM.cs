@@ -32,11 +32,11 @@ namespace NewEva.VM.Customer
             }
         }
 
-        public OrganizationVM(Customers customer = null)
+        public OrganizationVM(Model.Customer customer = null)
         {
             if (IsEdit = customer != null) // если редактировать
             {
-                Id = customer.Id;
+                Id = customer.CustomerId;
 
             }
             TypeAttorney = LocalStorage.TypeAttorney;  
@@ -50,81 +50,10 @@ namespace NewEva.VM.Customer
         public void ActualToRegistration()
         {
             AddressFullActual = AddressFullRegistration;
-            //IndexActual = IndexRegistration;
-            //CountryActual = CountryRegistration;
-            //RegionActual = RegionRegistration;
-            //DistrictActual = DistrictRegistration;
-            //CityActual = CityRegistration;
-            //StreetActual = StreetRegistration;
-            //HouseActual = HouseRegistration;
-            //RoomActual = RoomRegistration;
         }
         public void ActualToActual()
         {
             AddressFullActual = "";
-            //IndexActual = "";
-            //CountryActual = "";
-            //RegionActual = "";
-            //DistrictActual = "";
-            //CityActual = "";
-            //StreetActual = "";
-            //HouseActual = "";
-            //RoomActual = "";
-        }
-
-        public Customers ToCustomers()
-        {
-            var customer = new Customers
-            {
-                Id = Id,
-                //NameFull = NameFull,
-                //OGRN = long.Parse(OGRN),
-                //INN = int.Parse(INN),
-                //KPP = int.Parse(KPP),
-                //NameBank = NameBank,
-                //BIK = int.Parse(BIK),
-                //PayAccount = long.Parse(PayAccount),
-                //CorrAccount = long.Parse(CorrAccount),
-                //Position = Position,
-                //TypeAttorney = IsTypeAttorney,
-                //NumberAttorney = NumberAttorney,
-                //DateAttorney = DateAttorney,
-                //DateAttorneyBefore = DateAttorneyBefore,
-                //SecondName = SecondName,
-                //FirstName = FirstName,
-                //MiddleName = MiddleName,
-                //AddressFullRegistration = AddressFullRegistration,
-                //AddressFullActual = AddressFullActual,
-        };
-            return customer;
-        }
-        public int AddOrganization()
-        {
-            try
-            {
-                var customer = ToCustomers();
-                DataBase.Write(customer);
-                var newId = customer.Id;
-                return newId;
-            }
-            catch
-            {
-                return -1;
-            }
-        }
-        public bool UpdateOrganization()
-        {
-            try
-            {
-                var customer = ToCustomers();
-                DataBase.UpdateData(customer);
-                return true;
-            }
-            catch
-            {
-
-                return false;
-            }
         }
 
         #region Properties

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model
 {
     public class Organization
     {
-        public int Id { get; set; }
+        public int OrganizationId { get; set; }
         public string NameFullOpf { get; set; } //Полное наименование
         public string NameShortOpf { get; set; } //Сокращенное наименование
         public string Opf { get; set; } //Организационно-правовая форма
@@ -16,5 +17,12 @@ namespace NewEva.Model
         public int BIK { get; set; } //БИК Банка
         public long PayAccount { get; set; } //Расчетный счет
         public long CorrAccount { get; set; } //Корреспондентский счет
+        public int PersonId { get; set; }
+        public int AddressRegistrationId { get; set; }
+        [ForeignKey("AddressRegistrationId")]
+        public Address AddressRegistration { get; set; }
+        public int AddressActualId { get; set; }
+        [ForeignKey("AddressActualId")]
+        public Address AddressActual { get; set; }
     }
 }

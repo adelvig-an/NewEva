@@ -11,6 +11,7 @@ namespace NewEva.Model
     }
     public class QualificationCertificate
     {
+        public int QualificationCertificateId { get; set; }
         public int Number { get; set; } //Номер квалификационного аттестата
         public DateTime DateFrom { get; set; } //Дата "от"
         public DateTime DateBefore { get; set; } //Дата "до"

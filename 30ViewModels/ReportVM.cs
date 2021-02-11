@@ -23,15 +23,15 @@ namespace NewEva.VM
         public Report Report { get; private set; }
         public IEnumerable<string> Appraisers { get; }
 
-        public ReportVM(Reports report = null)
+        public ReportVM(Report report = null)
         {
             if (IsEdit = report != null)
             {
-                Id = report.Id;
+                Id = report.ReportId;
                 Number = report.Number;
-                VulationDate = report.Vulation_date;
-                CompilationDate = report.Compilation_date;
-                InspectionDate = report.Inspection_date;
+                VulationDate = report.VulationDate;
+                CompilationDate = report.CompilationDate;
+                InspectionDate = report.InspectionDate;
             }
             Appraisers = LocalStorage.Appraisers;
             pages = new string[]
@@ -144,57 +144,6 @@ namespace NewEva.VM
         }
         #endregion
         
-        /// <summary>
-        /// Преобразование для использования в методах сохранения и редоктирования Db
-        /// </summary>
-        public Reports ToReports()
-        {
-            var report = new Reports
-            {
-                Id = Id,
-                Number = Number,
-                Vulation_date = VulationDate,
-                Compilation_date = CompilationDate,
-                Inspection_date = InspectionDate
-            };
-            return report;
-        }
-
-        /// <summary>
-        /// Сохранение в db
-        /// </summary>
-        public int AddReport()
-        {
-            try
-            {
-                var report = ToReports();
-                DataBase.Write(report);
-                var newId = report.Id;
-                return newId;
-            }
-            catch
-            {
-                return -1;
-            }
-        }
-
-        /// <summary>
-        /// Редактирование в db
-        /// </summary>
-        public bool UpdateReport()
-        {
-            try
-            {
-                var report = ToReports();
-                DataBase.UpdateData(report);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         #region CBOR
         static CBORObject ToCBOR(ReportVM reportVM)
         {

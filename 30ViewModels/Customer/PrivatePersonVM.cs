@@ -35,69 +35,17 @@ namespace NewEva.VM.Customer
         /// Конструктор
         /// </summary>
         /// <param name="customer"></param>
-        public PrivatePersonVM(Customers customer = null)
+        public PrivatePersonVM(Model.Customer customer = null)
         {
             if (IsEdit = customer != null) // если редактировать
             {
-                Id = customer.Id;
+                Id = customer.CustomerId;
                 
             }
 
             ConvertAddress = new RelayCommand(_ => ConvertAddressAction());
         }
 
-        //Для сохранения в базу данных
-        public Customers ToCustomers()
-        {
-            var customer = new Customers
-            {
-                Id = Id,
-                //TypeCustomer = true,
-                //Serial = Serial,
-                //Number = Number,
-                //Division = Division,
-                //Division_date = DivisionDate,
-            };
-            return customer;
-        }
-
-        /// <summary>
-        /// Метод сохранения Физического лица
-        /// </summary>
-        /// <returns></returns>
-        public int AddPrivatePerson()
-        {
-            try
-            {
-                var customer = ToCustomers();
-                DataBase.Write(customer);
-                var newId = customer.Id;
-                return newId;
-            }
-            catch
-            {
-
-                return -1;
-            }
-        }
-        /// <summary>
-        /// Метод сохрания изменений Физического лица
-        /// </summary>
-        /// <returns></returns>
-        public bool UpdatePrivatePerson()
-        {
-            try
-            {
-                var customer = ToCustomers();
-                DataBase.UpdateData(customer);
-                return true;
-            }
-            catch
-            {
-
-                return false;
-            }
-        }
         public void ActualToRegistration()
         {
             AddressFullActual = AddressFullRegistration;
