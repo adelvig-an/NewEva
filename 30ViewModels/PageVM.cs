@@ -22,8 +22,8 @@ namespace NewEva.VM
             try
             {
                 var primaryKey = GetType().Name;
-                var tempData = DataBase.Read<TempData>(primaryKey);
-                SetCBOR(tempData.CBOR);
+                //var tempData = DataBase.Read<TempData>(primaryKey);
+                //SetCBOR(tempData.CBOR);
             }
             catch
             {
@@ -54,7 +54,7 @@ namespace NewEva.VM
                     Page = GetType().Name,
                     CBOR = cbor
                 };
-                DataBase.Write(tempData);
+                //DataBase.Write(tempData);
                 return true;
             }
             catch

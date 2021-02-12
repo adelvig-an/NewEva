@@ -14,26 +14,25 @@ namespace NewEva.VM.Customer
 
         public PrivatePersonListVM(int selectedId = -1)
         {
-            PrivatePersonList = new ObservableCollection<PrivatePerson>(DataBase.ReadAll<Customers>().Where(cust => cust.TypeCustomer == true).Select(сustomers => DataBase.ToPrivatePerson(сustomers)));
-            SelectedPrivatePerson = PrivatePersonList.SingleOrDefault(privatePerson => privatePerson.Id == selectedId);
-            DeleteCustomer = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
+            //PrivatePersonList = new ObservableCollection<PrivatePerson>(DataBase.ReadAll<Customers>().Where(cust => cust.TypeCustomer == true).Select(сustomers => DataBase.ToPrivatePerson(сustomers)));
+            //SelectedPrivatePerson = PrivatePersonList.SingleOrDefault(privatePerson => privatePerson.Id == selectedId);
+            //DeleteCustomer = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
         }
 
-        public ICommand DeleteCustomer { get; } //Команда удаления Customer
-        
+        //public ICommand DeleteCustomer { get; } //Команда удаления Customer
         //Обработчик команды удаления Customer из списка
-        public void DeleteSelectedCommand(object p)
-        {
-            IList selectedItems = (IList)p;
-            foreach (var customer in selectedItems.OfType<PrivatePerson>().ToArray())
-            {
-                int deleteCustomer = DataBase.DeleteData<Customers>(customer.Id);
-                if (deleteCustomer == 1)
-                {
-                    PrivatePersonList.Remove(customer);
-                }
-            }
-        }
+        //public void DeleteSelectedCommand(object p)
+        //{
+        //    IList selectedItems = (IList)p;
+        //    foreach (var customer in selectedItems.OfType<PrivatePerson>().ToArray())
+        //    {
+        //        int deleteCustomer = DataBase.DeleteData<Customers>(customer.Id);
+        //        if (deleteCustomer == 1)
+        //        {
+        //            PrivatePersonList.Remove(customer);
+        //        }
+        //    }
+        //}
 
         public override byte[] GetCBOR()
         {

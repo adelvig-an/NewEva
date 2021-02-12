@@ -5,7 +5,7 @@ namespace NewEva.Model
 {
     public class Organization
     {
-        public int OrganizationId { get; set; }
+        public int Id { get; set; }
         public string NameFullOpf { get; set; } //Полное наименование
         public string NameShortOpf { get; set; } //Сокращенное наименование
         public string Opf { get; set; } //Организационно-правовая форма
@@ -17,7 +17,7 @@ namespace NewEva.Model
         public int BIK { get; set; } //БИК Банка
         public long PayAccount { get; set; } //Расчетный счет
         public long CorrAccount { get; set; } //Корреспондентский счет
-        public int PersonId { get; set; }
+        public int DirectorId { get; set; }
         public int AddressRegistrationId { get; set; }
         [ForeignKey("AddressRegistrationId")]
         public Address AddressRegistration { get; set; }

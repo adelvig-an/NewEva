@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model
 {
@@ -14,9 +15,10 @@ namespace NewEva.Model
     
     public class Contract
     {
-        public int ContractId { get; set; }
+        public int Id { get; set; }
         public string Number { get; set; } //Номер договора
         public DateTime? ContractDate { get; set; } //Дата договора
+        [Column(TypeName = "nvarchar(24)")]
         public Target Target { get; set; }
         public string IntendedUse { get; set; } //Предполагаемый вид использования
         public ICollection<Report> Reports { get; set; }

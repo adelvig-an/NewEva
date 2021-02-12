@@ -29,11 +29,11 @@ namespace NewEva.VM
         {
             if (IsEdit = contract != null)
             {
-                Id = contract.ContractId;
+                Id = contract.Id;
                 Number = contract.Number;
                 ContractDate = contract.ContractDate;
                 IsTypeCost = contract.IntendedUse;
-                //Target = contract.Target;
+                Target = contract.Target.ToString();
             }
             TypeCosts = LocalStorage.TypeCosts;
             Pages = new string[]
@@ -44,7 +44,7 @@ namespace NewEva.VM
             CurrentIndex = 0;
             NewCustomerPage = new RelayCommand(_ => NewCustomerCommand());
             BackPage = new RelayCommand(_ => BackCommand());
-            SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => CurrentPage.IsValid);
+            //SaveBackPage = new RelayCommand(_ => SaveBackCommand(), _ => CurrentPage.IsValid);
         }
         public string[] Pages
         {
@@ -85,49 +85,49 @@ namespace NewEva.VM
                 CurrentPage = new OrganizationVM();
         }
         //Обработчик команды сохранения данных в БД и возвращения к списку
-        public void SaveBackCommand()
-        {
-            if (CurrentPage is PrivatePersonVM privatePersonVM)
-            {
-                privatePersonVM.Validate();
-                if (!privatePersonVM.IsValid)
-                {
-                    return;
-                }
-                if (privatePersonVM.IsEdit)
-                {
-                    privatePersonVM.UpdatePrivatePerson();
-                    var id = privatePersonVM.Id;
-                    CurrentPage = new PrivatePersonListVM(id);
-                }
-                else
-                {
-                    var id = privatePersonVM.AddPrivatePerson();
-                    CurrentPage = new PrivatePersonListVM(id);
-                }
+        //public void SaveBackCommand()
+        //{
+        //    if (CurrentPage is PrivatePersonVM privatePersonVM)
+        //    {
+        //        privatePersonVM.Validate();
+        //        if (!privatePersonVM.IsValid)
+        //        {
+        //            return;
+        //        }
+        //        if (privatePersonVM.IsEdit)
+        //        {
+        //            privatePersonVM.UpdatePrivatePerson();
+        //            var id = privatePersonVM.Id;
+        //            CurrentPage = new PrivatePersonListVM(id);
+        //        }
+        //        else
+        //        {
+        //            var id = privatePersonVM.AddPrivatePerson();
+        //            CurrentPage = new PrivatePersonListVM(id);
+        //        }
 
-            }
-            else if (CurrentPage is OrganizationVM organizationVM)
-            {
-                organizationVM.Validate();
-                if (!organizationVM.IsValid)
-                {
-                    return;
-                }
-                if (organizationVM.IsEdit)
-                {
-                    organizationVM.UpdateOrganization();
-                    var id = organizationVM.Id;
-                    CurrentPage = new OrganizationListVM(id);
-                }
-                else
-                {
-                    var id = organizationVM.AddOrganization();
-                    CurrentPage = new OrganizationListVM(id);
-                }
+        //    }
+        //    else if (CurrentPage is OrganizationVM organizationVM)
+        //    {
+        //        organizationVM.Validate();
+        //        if (!organizationVM.IsValid)
+        //        {
+        //            return;
+        //        }
+        //        if (organizationVM.IsEdit)
+        //        {
+        //            organizationVM.UpdateOrganization();
+        //            var id = organizationVM.Id;
+        //            CurrentPage = new OrganizationListVM(id);
+        //        }
+        //        else
+        //        {
+        //            var id = organizationVM.AddOrganization();
+        //            CurrentPage = new OrganizationListVM(id);
+        //        }
 
-            }
-        }
+        //    }
+        //}
         public void BackCommand()
         {
             if (CurrentPage is PrivatePersonVM)

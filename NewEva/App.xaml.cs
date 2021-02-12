@@ -37,7 +37,7 @@ namespace NewEva
 
         private void OnClosed(object sender, EventArgs e)
         {
-            DataBase.DeleteTempData(); //удаление файлов
+            //DataBase.DeleteTempData(); //удаление файлов
             Current.Shutdown();
         }
     }

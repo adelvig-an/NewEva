@@ -1,11 +1,10 @@
 ﻿using System;
 
-
 namespace NewEva.Model
 {
     public class Report
     {
-        public int ReportId { get; set; }
+        public int Id { get; set; }
         public string Number { get; set; } //Номер отчета
         public DateTime? VulationDate { get; set; } //Дата оценки
         public DateTime? CompilationDate { get; set; } //Дата составления

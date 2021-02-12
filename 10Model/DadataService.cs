@@ -5,10 +5,8 @@ namespace NewEva.Model
 {
     public class DadataService
     {
-
         public static bool TypeGetAddress(string fullAddress, out Address address)
         {
-
             var token = "";
             var secret = "";
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model
 {
@@ -12,7 +13,8 @@ namespace NewEva.Model
     public class Director : Person
     {
         public string Position { get; set; } // Должность руководителя
-        public string PowerOfAttorney { get; set; } //Действующий на основании (Устав, Доверенность, Закон)
+        [Column(TypeName = "nvarchar(24)")]
+        public PowerOfAttorney PowerOfAttorney { get; set; } //Действующий на основании (Устав, Доверенность, Закон)
         public string PowerOfAttorneyNumber { get; set; } //Номер доверенности
         public DateTime PowerOfAttorneyDate { get; set; } //Дата доверения
         public DateTime PowerOfAttorneyDateBefore { get; set; } //Дата "действует до"

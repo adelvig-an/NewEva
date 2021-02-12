@@ -32,7 +32,6 @@ namespace NewEva.VM.Customer
             OrganizationListPage = new RelayCommand(_ => OrganizationListCommand());
             PrivatePersonListPage = new RelayCommand(_ => PrivatePersonListCommand());
             
-            UpdateSelectedPage = new RelayCommand(_ => UpdateSelectedCommand());
             ClosedWindow = new RelayCommand(_ => ClosedCommand());
         }
 
@@ -109,24 +108,5 @@ namespace NewEva.VM.Customer
             this.OnClosingRequest();
         }
 
-        //Обработчик команды изменения данных в БД
-        public void UpdateSelectedCommand()
-        {
-            if (CurrentPage is PrivatePersonListVM pplVM)
-            {
-                var selectItem = pplVM.SelectedPrivatePerson; //получаем данные выделенного объекта
-                if (selectItem != null)
-                {
-                    var customer = DataBase.Read<Customers>(selectItem.Id); //получаем данные из БД согласно Id полученного объекта
-                    CurrentPage = new PrivatePersonVM(customer);
-                }
-            }      
-            else if (CurrentPage is OrganizationListVM olVM)
-            {
-                var selectItem = olVM.SelectedOrganization;
-                var customer = DataBase.Read<Customers>(selectItem.Id);
-                CurrentPage = new OrganizationVM(customer);
-            }    
-        }
     }
 }

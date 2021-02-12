@@ -39,7 +39,7 @@ namespace NewEva.VM.Customer
         {
             if (IsEdit = customer != null) // если редактировать
             {
-                Id = customer.CustomerId;
+                Id = customer.Id;
                 
             }
 

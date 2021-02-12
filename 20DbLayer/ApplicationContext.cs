@@ -6,9 +6,8 @@ using System.Text;
 
 namespace NewEva.DbLayer
 {
-    public class NewEvaContext : DbContext
+    public class ApplicationContext : DbContext
     {
-        public DbSet<TempData> TempDatas { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Director> Directors { get; set; }
@@ -18,7 +17,7 @@ namespace NewEva.DbLayer
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<Report> Reports { get; set; }
 
-        public NewEvaContext()
+        public ApplicationContext()
         {
             Database.EnsureDeleted();
             Database.EnsureCreated();
@@ -27,18 +26,20 @@ namespace NewEva.DbLayer
         protected override void OnConfiguring(DbContextOptionsBuilder options)
            => options.UseSqlite("Data Sourse=EvaDataBase.db");
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<PrivatePerson>()
-                .HasOne(m => m.AddressRegistration)
-                .WithMany()
-                .HasForeignKey(m => m.AddressRegistrationId)
-                .OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<PrivatePerson>()
-                .HasOne(m => m.AddressActual)
-                .WithMany()
-                .HasForeignKey(m => m.AddressActualId)
-                .OnDelete(DeleteBehavior.Cascade);
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Contract>()
+        //        .Property(e => e.Target)
+        //        .HasConversion(v => v.ToString(),
+        //        v => (Target)Enum.Parse(typeof(Target), v));
+        //    modelBuilder.Entity<Customer>()
+        //        .Property(e => e.TypeCustomer)
+        //        .HasConversion(v => v.ToString(),
+        //        v => (TypeCustomer)Enum.Parse(typeof(TypeCustomer), v));
+        //    modelBuilder.Entity<Director>()
+        //        .Property(e => e.PowerOfAttorney)
+        //        .HasConversion(v => v.ToString(),
+        //        v => (PowerOfAttorney)Enum.Parse(typeof(PowerOfAttorney), v));
+        //}
     }
 }

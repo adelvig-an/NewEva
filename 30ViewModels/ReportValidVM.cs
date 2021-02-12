@@ -29,27 +29,26 @@ namespace NewEva.VM
 
         public ReportValidVM(int selectedId = -1)
         {
-            ContractList = new ObservableCollection<Contract>(DataBase.ReadAll<Contracts>().Select(contracts => DataBase.ToContract(contracts)));
-            ReportList = new ObservableCollection<Report>(DataBase.ReadAll<Reports>().Select(reports => DataBase.ToReport(reports))); //Получение писка из базы данных
-            SelectedReport = ReportList.SingleOrDefault(report => report.ReportId == selectedId);
-            DeleteReport = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
+            //ContractList = new ObservableCollection<Contract>(DataBase.ReadAll<Contracts>().Select(contracts => DataBase.ToContract(contracts)));
+            //ReportList = new ObservableCollection<Report>(DataBase.ReadAll<Reports>().Select(reports => DataBase.ToReport(reports))); //Получение писка из базы данных
+            //SelectedReport = ReportList.SingleOrDefault(report => report.ReportId == selectedId);
+            //DeleteReport = new RelayCommand(SelectedItems => DeleteSelectedCommand(SelectedItems));
         }
 
-        public ICommand DeleteReport { get; } //Команда удаления Report
-
+        //public ICommand DeleteReport { get; } //Команда удаления Report
         //Обработчик команды удаления Report из списка
-        public void DeleteSelectedCommand(object p)
-        {
-            IList selectedItems = (IList)p;
-            foreach (var report in selectedItems.OfType<Report>().ToArray())
-            {
-                int deleteCustomer = DataBase.DeleteData<Report>(report.ReportId);
-                if (deleteCustomer == 1)
-                {
-                    ReportList.Remove(report);
-                }
-            }
-        }
+        //public void DeleteSelectedCommand(object p)
+        //{
+        //    IList selectedItems = (IList)p;
+        //    foreach (var report in selectedItems.OfType<Report>().ToArray())
+        //    {
+        //        int deleteCustomer = DataBase.DeleteData<Report>(report.ReportId);
+        //        if (deleteCustomer == 1)
+        //        {
+        //            ReportList.Remove(report);
+        //        }
+        //    }
+        //}
 
         public override byte[] GetCBOR()
         {

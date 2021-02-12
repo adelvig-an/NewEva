@@ -1,10 +1,11 @@
-﻿
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model
 {
     public class Address
     {
-        public int AddressId { get; set; }
+        public int Id { get; set; }
         public string AddressFull { get; set; } //Адрес полностью
         public string Index { get; set; } //Индекс
         public string Country { get; set; } //Страна
@@ -50,5 +51,13 @@ namespace NewEva.Model
         public string FlatType { get; set; } //Тип квартиры (сокращенный)
         public string FlatTypeFull { get; set; } //Тип квартиры
         public string Flat { get; set; } //Квартиры
+        [InverseProperty("AddressRegistration")]
+        public ICollection<PrivatePerson> AddressesRegistrationPrivatePerson { get; set; }
+        [InverseProperty("AddressActual")]
+        public ICollection<PrivatePerson> AddressesActualPrivatePerson { get; set; }
+        [InverseProperty("AddressRegistration")]
+        public ICollection<Organization> AddressesRegistrationOrganization { get; set; }
+        [InverseProperty("AddressActual")]
+        public ICollection<Organization> AddressesActualOrganization { get; set; }
     }
 }

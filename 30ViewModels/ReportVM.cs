@@ -27,7 +27,7 @@ namespace NewEva.VM
         {
             if (IsEdit = report != null)
             {
-                Id = report.ReportId;
+                Id = report.Id;
                 Number = report.Number;
                 VulationDate = report.VulationDate;
                 CompilationDate = report.CompilationDate;

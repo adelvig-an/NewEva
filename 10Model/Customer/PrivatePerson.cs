@@ -10,9 +10,7 @@ namespace NewEva.Model
         public string Division { get; set; } //Кем выдан документ
         public string DivisionCode { get; set; } //Код подразделения
         public DateTime? DivisionDate { get; set; } //Дата выдачи
-        public int AddressRegistrationId { get; set; }
         public Address AddressRegistration { get; set; }
-        public int AddressActualId { get; set; }
         public Address AddressActual { get; set; }
     }
 }
