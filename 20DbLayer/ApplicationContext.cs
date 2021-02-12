@@ -19,7 +19,7 @@ namespace NewEva.DbLayer
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         { 
-            options.UseSqlite("Data Sourse=EvaDataBase.db");
+            options.UseSqlite("Data Source=EvaDataBase.db");
             options.UseLazyLoadingProxies();
             base.OnConfiguring(options);
         }

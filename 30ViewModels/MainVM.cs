@@ -36,8 +36,8 @@ namespace NewEva.VM
             CurrentPage = new ReportValidVM();
             NewReport = new RelayCommand(_ => NewReportAcion());
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
+            db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
-            
             db.People.Load();
             db.Addresses.Load();
             db.Directors.Load();

@@ -16,6 +16,10 @@ namespace NewEva.Model
         public TypeCustomer TypeCustomer { get; set; }
         public virtual ICollection<Contract> Contracts { get; private set; } = new ObservableCollection<Contract>();
         public int? PrivatePersonId { get; set; }
+        [ForeignKey("PrivatePersonId")]
+        public virtual PrivatePerson PrivatePerson { get; set; }
         public int? OrganizationId { get; set; }
+        [ForeignKey("OrganizationId")]
+        public virtual Organization Organization { get; set; }
     }
 }
