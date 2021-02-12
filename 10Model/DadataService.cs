@@ -1,14 +1,23 @@
 ﻿using Dadata;
+using Microsoft.Extensions.Configuration;
 using System.Linq;
 
 namespace NewEva.Model
 {
     public class DadataService
     {
+        public IConfiguration AppConfiguration { get; set; }
+
         public static bool TypeGetAddress(string fullAddress, out Address address)
         {
-            var token = "";
-            var secret = "";
+            var configuration = new ConfigurationBuilder().AddJsonFile("DadataConf.json");
+
+            IConfigurationRoot configurationRoot = configuration.Build();
+
+            DadataConf options = new DadataConf();
+
+            var token = configurationRoot.GetSection(nameof(DadataConf)).GetSection(options.Token).ToString();
+            var secret = configurationRoot.GetSection(nameof(DadataConf)).GetSection(options.Secret).ToString();
 
             var client = new CleanClientSync(token, secret);
             try
@@ -71,7 +80,13 @@ namespace NewEva.Model
 
         public static bool GetSuggestions(string fullAddress, out Address[] addresses)
         {
-            var token = "";
+            var configuration = new ConfigurationBuilder().AddJsonFile("DadataConf.json");
+
+            IConfigurationRoot configurationRoot = configuration.Build();
+
+            DadataConf options = new DadataConf();
+
+            var token = configurationRoot.GetSection(nameof(DadataConf)).GetSection(options.Token).ToString();
 
             var client = new SuggestClientSync(token);
             try
