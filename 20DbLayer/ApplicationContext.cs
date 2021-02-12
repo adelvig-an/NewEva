@@ -24,20 +24,20 @@ namespace NewEva.DbLayer
             base.OnConfiguring(options);
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Contract>()
-        //        .Property(e => e.Target)
-        //        .HasConversion(v => v.ToString(),
-        //        v => (Target)Enum.Parse(typeof(Target), v));
-        //    modelBuilder.Entity<Customer>()
-        //        .Property(e => e.TypeCustomer)
-        //        .HasConversion(v => v.ToString(),
-        //        v => (TypeCustomer)Enum.Parse(typeof(TypeCustomer), v));
-        //    modelBuilder.Entity<Director>()
-        //        .Property(e => e.PowerOfAttorney)
-        //        .HasConversion(v => v.ToString(),
-        //        v => (PowerOfAttorney)Enum.Parse(typeof(PowerOfAttorney), v));
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //    modelBuilder.Entity<Contract>()
+            //        .Property(e => e.Target)
+            //        .HasConversion(v => v.ToString(),
+            //        v => (Target)Enum.Parse(typeof(Target), v));
+            //    modelBuilder.Entity<Customer>()
+            //        .Property(e => e.TypeCustomer)
+            //        .HasConversion(v => v.ToString(),
+            //        v => (TypeCustomer)Enum.Parse(typeof(TypeCustomer), v));
+            //    modelBuilder.Entity<Director>()
+            //        .Property(e => e.PowerOfAttorney)
+            //        .HasConversion(v => v.ToString(),
+            //        v => (PowerOfAttorney)Enum.Parse(typeof(PowerOfAttorney), v));
+        }
     }
 }

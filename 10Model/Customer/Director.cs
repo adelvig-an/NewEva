@@ -9,7 +9,7 @@ namespace NewEva.Model
         Attorney, //Доверенность
         Legislation //Законоательство
     }
-
+    [Table("Directors")]
     public class Director : Person
     {
         public string Position { get; set; } // Должность руководителя

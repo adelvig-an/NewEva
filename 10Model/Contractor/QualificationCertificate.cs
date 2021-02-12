@@ -17,5 +17,6 @@ namespace NewEva.Model
         public DateTime DateBefore { get; set; } //Дата "до"
         public Speciality Speciality { get; set; } //Направление оценочной деятельности
         public string Name { get; set; } //Наименование выдавшей организации
+        public int AppraiserId { get; set; }
     }
 }
