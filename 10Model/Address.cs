@@ -52,12 +52,12 @@ namespace NewEva.Model
         public string FlatTypeFull { get; set; } //Тип квартиры
         public string Flat { get; set; } //Квартиры
         [InverseProperty("AddressRegistration")]
-        public ICollection<PrivatePerson> AddressesRegistrationPrivatePerson { get; set; }
+        public virtual ICollection<PrivatePerson> AddressesRegistrationPrivatePerson { get; set; }
         [InverseProperty("AddressActual")]
-        public ICollection<PrivatePerson> AddressesActualPrivatePerson { get; set; }
+        public virtual ICollection<PrivatePerson> AddressesActualPrivatePerson { get; set; }
         [InverseProperty("AddressRegistration")]
-        public ICollection<Organization> AddressesRegistrationOrganization { get; set; }
+        public virtual ICollection<Organization> AddressesRegistrationOrganization { get; set; }
         [InverseProperty("AddressActual")]
-        public ICollection<Organization> AddressesActualOrganization { get; set; }
+        public virtual ICollection<Organization> AddressesActualOrganization { get; set; }
     }
 }

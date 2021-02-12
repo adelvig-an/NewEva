@@ -18,11 +18,7 @@ namespace NewEva.Model
         public long PayAccount { get; set; } //Расчетный счет
         public long CorrAccount { get; set; } //Корреспондентский счет
         public int DirectorId { get; set; }
-        public int AddressRegistrationId { get; set; }
-        [ForeignKey("AddressRegistrationId")]
-        public Address AddressRegistration { get; set; }
-        public int AddressActualId { get; set; }
-        [ForeignKey("AddressActualId")]
-        public Address AddressActual { get; set; }
+        public virtual Address AddressRegistration { get; set; }
+        public virtual Address AddressActual { get; set; }
     }
 }

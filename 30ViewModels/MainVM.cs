@@ -28,7 +28,7 @@ namespace NewEva.VM
 
         private readonly IDialogService dialogService;
 
-        private readonly ApplicationContext context = new ApplicationContext();
+        private readonly ApplicationContext db = new ApplicationContext();
 
         public MainVM(IDialogService dialogService)
         {
@@ -36,15 +36,16 @@ namespace NewEva.VM
             CurrentPage = new ReportValidVM();
             NewReport = new RelayCommand(_ => NewReportAcion());
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
-            context.Database.EnsureCreated();
-            context.People.Load();
-            context.Addresses.Load();
-            context.Directors.Load();
-            context.PrivatePersons.Load();
-            context.Organizations.Load();
-            context.Customers.Load();
-            context.Contracts.Load();
-            context.Reports.Load();
+            db.Database.EnsureCreated();
+            
+            db.People.Load();
+            db.Addresses.Load();
+            db.Directors.Load();
+            db.PrivatePersons.Load();
+            db.Organizations.Load();
+            db.Customers.Load();
+            db.Contracts.Load();
+            db.Reports.Load();
         }
 
         public ICommand NewReport { get; }

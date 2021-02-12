@@ -18,7 +18,11 @@ namespace NewEva.DbLayer
         public DbSet<Report> Reports { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-           => options.UseSqlite("Data Sourse=EvaDataBase.db");
+        { 
+            options.UseSqlite("Data Sourse=EvaDataBase.db");
+            options.UseLazyLoadingProxies();
+            base.OnConfiguring(options);
+        }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model
@@ -21,7 +22,7 @@ namespace NewEva.Model
         [Column(TypeName = "nvarchar(24)")]
         public Target Target { get; set; }
         public string IntendedUse { get; set; } //Предполагаемый вид использования
-        public ICollection<Report> Reports { get; set; }
+        public virtual ICollection<Report> Reports { get; private set; } = new ObservableCollection<Report>();
         public int CustomerId { get; set; }
     }
 }
