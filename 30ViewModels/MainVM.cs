@@ -1,4 +1,5 @@
-﻿using NewEva.DbLayer;
+﻿using Microsoft.EntityFrameworkCore;
+using NewEva.DbLayer;
 using NewEva.VM.Customer;
 using NewEva.VM.ObjectOfEvaluation;
 using NewEva.VM.ObjectOfEvaluation.Flat;
@@ -27,12 +28,23 @@ namespace NewEva.VM
 
         private readonly IDialogService dialogService;
 
+        private readonly ApplicationContext context = new ApplicationContext();
+
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
             CurrentPage = new ReportValidVM();
             NewReport = new RelayCommand(_ => NewReportAcion());
             //CustomerOpen = new RelayCommand(_ => dialogService.Show(new CustomerVM()));
+            context.Database.EnsureCreated();
+            context.People.Load();
+            context.Addresses.Load();
+            context.Directors.Load();
+            context.PrivatePersons.Load();
+            context.Organizations.Load();
+            context.Customers.Load();
+            context.Contracts.Load();
+            context.Reports.Load();
         }
 
         public ICommand NewReport { get; }

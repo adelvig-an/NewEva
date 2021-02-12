@@ -17,12 +17,6 @@ namespace NewEva.DbLayer
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<Report> Reports { get; set; }
 
-        public ApplicationContext()
-        {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
-        }
-
         protected override void OnConfiguring(DbContextOptionsBuilder options)
            => options.UseSqlite("Data Sourse=EvaDataBase.db");
 

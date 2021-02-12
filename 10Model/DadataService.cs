@@ -14,10 +14,11 @@ namespace NewEva.Model
 
             IConfigurationRoot configurationRoot = configuration.Build();
 
-            DadataConf options = new DadataConf();
+            DadataConf dadataConf = new DadataConf();
+            configurationRoot.GetSection(nameof(DadataConf)).Bind(dadataConf);
 
-            var token = configurationRoot.GetSection(nameof(DadataConf)).GetSection(options.Token).ToString();
-            var secret = configurationRoot.GetSection(nameof(DadataConf)).GetSection(options.Secret).ToString();
+            var token = dadataConf.Token;
+            var secret = dadataConf.Secret;
 
             var client = new CleanClientSync(token, secret);
             try
@@ -84,9 +85,10 @@ namespace NewEva.Model
 
             IConfigurationRoot configurationRoot = configuration.Build();
 
-            DadataConf options = new DadataConf();
+            DadataConf dadataConf = new DadataConf();
+            configurationRoot.GetSection(nameof(DadataConf)).Bind(dadataConf);
 
-            var token = configurationRoot.GetSection(nameof(DadataConf)).GetSection(options.Token).ToString();
+            var token = dadataConf.Token;
 
             var client = new SuggestClientSync(token);
             try
