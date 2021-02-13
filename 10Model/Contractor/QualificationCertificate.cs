@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace NewEva.Model
+namespace NewEva.Model.Contractor
 {
     public enum Speciality
     {
@@ -18,5 +18,6 @@ namespace NewEva.Model
         public Speciality Speciality { get; set; } //Направление оценочной деятельности
         public string Name { get; set; } //Наименование выдавшей организации
         public int AppraiserId { get; set; }
+        public virtual Appraiser Appraiser { get; set; }
     }
 }

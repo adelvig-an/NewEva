@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace NewEva.Model
+namespace NewEva.Model.Contractor
 {
     public class InsurancePolicie
     {
@@ -11,5 +11,7 @@ namespace NewEva.Model
         public int InsuranceMoney { get; set; } //Страховое возмещение (Застрахованная сумма)
         public DateTime DateFrom { get; set; } //Дата "от"
         public DateTime DetaBefore { get; set; } //Дата "до"
+        public virtual Appraiser Appraiser { get; set; }
+        public virtual OrganizationAppraiser OrganizationAppraiser { get; set; }
     }
 }

@@ -18,6 +18,8 @@ namespace NewEva.Model
         public long PayAccount { get; set; } //Расчетный счет
         public long CorrAccount { get; set; } //Корреспондентский счет
         public int DirectorId { get; set; }
+        public virtual Director Director { get; set; }
+        public virtual Customer Customer { get; set; }
         public virtual Address AddressRegistration { get; set; }
         public virtual Address AddressActual { get; set; }
     }

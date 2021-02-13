@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewEva.Model.Contractor;
+using System;
 
 namespace NewEva.Model
 {
@@ -11,6 +12,8 @@ namespace NewEva.Model
         public DateTime? InspectionDate { get; set; } //Дата осмотра
         public string InspectionFeaures { get; set; } //Особенности проведения осмотра
         public int ContractId { get; set; }
-        //public int AppraiserId { get; set; }
+        public virtual Contract Contract { get; set; }
+        public int AppraiserId { get; set; }
+        public virtual Appraiser Appraiser { get; set; }
     }
 }

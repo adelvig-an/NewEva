@@ -16,5 +16,6 @@ namespace NewEva.Model
         public string PowerOfAttorneyNumber { get; set; } //Номер доверенности
         public DateTime PowerOfAttorneyDate { get; set; } //Дата доверения
         public DateTime PowerOfAttorneyDateBefore { get; set; } //Дата "действует до"
+        public virtual Organization Organization { get; set; }
     }
 }

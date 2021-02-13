@@ -33,11 +33,7 @@ namespace NewEva.DbLayer
         {
             modelBuilder.Entity<Person>().ToTable("People");
             modelBuilder.Entity<PrivatePerson>().ToTable("PrivatePersons");
-            modelBuilder.Entity<Director>()
-                .ToTable("Directors")
-                .Property(e => e.PowerOfAttorney)
-                .HasConversion(v => v.ToString(),
-                v => (PowerOfAttorney)Enum.Parse(typeof(PowerOfAttorney), v)); ;
+            modelBuilder.Entity<Director>().ToTable("Directors");
             modelBuilder.Entity<Appraiser>().ToTable("Appraisers");
             modelBuilder.Entity<Organization>().ToTable("Organizations");
             modelBuilder.Entity<OrganizationAppraiser>().ToTable("OrganizationsAppraisers");

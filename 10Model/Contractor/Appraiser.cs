@@ -21,7 +21,9 @@ namespace NewEva.Model.Contractor
         public virtual ICollection<QualificationCertificate> QualificationCertificates { get; private set; }
             = new ObservableCollection<QualificationCertificate>();
         public int InsurancePolicieId { get; set; }
+        public virtual InsurancePolicie InsurancePolicie { get; set; }
         public int OrganizationAppraiserId { get; set; }
+        public virtual OrganizationAppraiser OrganizationAppraiser { get; set; }
 
         #region Перенести в AppraiserVM
         //Расчет опыта работы от даты рождения

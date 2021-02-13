@@ -23,5 +23,6 @@ namespace NewEva.Model
         public string IntendedUse { get; set; } //Предполагаемый вид использования
         public virtual ICollection<Report> Reports { get; private set; } = new ObservableCollection<Report>();
         public int CustomerId { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }
