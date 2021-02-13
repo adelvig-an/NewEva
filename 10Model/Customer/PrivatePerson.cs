@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model
 {
-    [Table("PrivatePersons")]
     public class PrivatePerson : Person
     {
         public string Serial { get; set; } //Серия документа

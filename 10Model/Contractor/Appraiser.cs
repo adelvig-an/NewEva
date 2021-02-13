@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model.Contractor
 {
-    [Table("Appraisers")]
     public class Appraiser : Person
     {
         public DateTime? StartedDate { get; set; } //Год начала работы
@@ -21,7 +20,7 @@ namespace NewEva.Model.Contractor
         public DateTime? SRORegistryDate { get; set; } //Дата регистрации в СРО
         public virtual ICollection<QualificationCertificate> QualificationCertificates { get; private set; }
             = new ObservableCollection<QualificationCertificate>();
-        public int InsurencePolicieId { get; set; }
+        public int InsurancePolicieId { get; set; }
         public int OrganizationAppraiserId { get; set; }
 
         #region Перенести в AppraiserVM

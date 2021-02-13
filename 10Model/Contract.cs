@@ -19,7 +19,6 @@ namespace NewEva.Model
         public int Id { get; set; }
         public string Number { get; set; } //Номер договора
         public DateTime? ContractDate { get; set; } //Дата договора
-        [Column(TypeName = "nvarchar(24)")]
         public Target Target { get; set; }
         public string IntendedUse { get; set; } //Предполагаемый вид использования
         public virtual ICollection<Report> Reports { get; private set; } = new ObservableCollection<Report>();

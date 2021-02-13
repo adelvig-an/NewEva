@@ -4,10 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NewEva.Model.Contractor
 {
-    [Table("OrganizationsAppraisers")]
     public class OrganizationAppraiser : Organization
     {
-        public int InsurancePoliceId { get; set; }
+        public int InsurancePolicieId { get; set; }
         public virtual ICollection<Appraiser> Appraisers { get; private set; }
             = new ObservableCollection<Appraiser>();
     }

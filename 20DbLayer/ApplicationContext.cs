@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NewEva.Model;
+using NewEva.Model.Contractor;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,10 +11,14 @@ namespace NewEva.DbLayer
     {
         public DbSet<Person> People { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<InsurancePolicie> InsurancePolicies { get; set; }
         public DbSet<Director> Directors { get; set; }
         public DbSet<PrivatePerson> PrivatePersons { get; set; }
         public DbSet<Organization> Organizations { get; set; }
+        public DbSet<OrganizationAppraiser> OrganizationsAppraisers { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<QualificationCertificate> QualificationCertificates { get; set; }
+        public DbSet<Appraiser> Appraisers { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<Report> Reports { get; set; }
 
@@ -26,18 +31,30 @@ namespace NewEva.DbLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //    modelBuilder.Entity<Contract>()
-            //        .Property(e => e.Target)
-            //        .HasConversion(v => v.ToString(),
-            //        v => (Target)Enum.Parse(typeof(Target), v));
-            //    modelBuilder.Entity<Customer>()
-            //        .Property(e => e.TypeCustomer)
-            //        .HasConversion(v => v.ToString(),
-            //        v => (TypeCustomer)Enum.Parse(typeof(TypeCustomer), v));
-            //    modelBuilder.Entity<Director>()
-            //        .Property(e => e.PowerOfAttorney)
-            //        .HasConversion(v => v.ToString(),
-            //        v => (PowerOfAttorney)Enum.Parse(typeof(PowerOfAttorney), v));
+            modelBuilder.Entity<Person>().ToTable("People");
+            modelBuilder.Entity<PrivatePerson>().ToTable("PrivatePersons");
+            modelBuilder.Entity<Director>()
+                .ToTable("Directors")
+                .Property(e => e.PowerOfAttorney)
+                .HasConversion(v => v.ToString(),
+                v => (PowerOfAttorney)Enum.Parse(typeof(PowerOfAttorney), v)); ;
+            modelBuilder.Entity<Appraiser>().ToTable("Appraisers");
+            modelBuilder.Entity<Organization>().ToTable("Organizations");
+            modelBuilder.Entity<OrganizationAppraiser>().ToTable("OrganizationsAppraisers");
+            
+            modelBuilder.Entity<Contract>()
+                .Property(e => e.Target)
+                .HasConversion(v => v.ToString(),
+                v => (Target)Enum.Parse(typeof(Target), v));
+            modelBuilder.Entity<Customer>()
+                .Property(e => e.TypeCustomer)
+                .HasConversion(v => v.ToString(),
+                v => (TypeCustomer)Enum.Parse(typeof(TypeCustomer), v));
+            modelBuilder.Entity<QualificationCertificate>()
+                .Property(e => e.Speciality)
+                .HasConversion(v => v.ToString(),
+                v => (Speciality)Enum.Parse(typeof(Speciality), v));
+                
         }
     }
 }
