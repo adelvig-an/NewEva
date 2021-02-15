@@ -42,6 +42,36 @@ namespace NewEva.VM
             CurrentIndex = 0;
         }
 
+        public Report ToReports()
+        {
+            var report = new Report
+            { 
+                Id = Id,
+                Number = Number,
+                VulationDate = VulationDate,
+                CompilationDate = CompilationDate,
+                InspectionDate = InspectionDate,
+                InspectionFeaures = InspectionFeaures
+            };
+            return report;
+        }
+
+        public int AddReport(ApplicationContext context)
+        {
+            try
+            {
+                var report = ToReports();
+                ApplicationContext.WriteDb(report, context);
+                var newId = report.Id;
+                return newId;
+            }
+            catch
+            {
+
+                return -1;
+            }
+        }
+
         private string[] pages;
         public string[] Pages
         {
@@ -63,6 +93,8 @@ namespace NewEva.VM
                 SetProperty(ref currentIndex, value);
             }
         }
+
+
 
         public PageVM CreatePageByName(string pageName)
         {

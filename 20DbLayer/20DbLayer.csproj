@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\10Model\10Model.csproj" />
-    <ProjectReference Include="..\30ViewModels\30ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
