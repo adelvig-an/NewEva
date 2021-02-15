@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NewEva.Model;
+using NewEva.VM;
 using NewEva.Model.Contractor;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace NewEva.DbLayer
 {
@@ -49,8 +51,29 @@ namespace NewEva.DbLayer
             modelBuilder.Entity<QualificationCertificate>()
                 .Property(e => e.Speciality)
                 .HasConversion(v => v.ToString(),
-                v => (Speciality)Enum.Parse(typeof(Speciality), v));
-                
+                v => (Speciality)Enum.Parse(typeof(Speciality), v));  
         }
+
+        public void WriteDb(ReportVM reportVM, ApplicationContext context)
+        {
+            var report = new Report
+            {
+                Id = reportVM.Id,
+                Number = reportVM.Number,
+                VulationDate = reportVM.VulationDate,
+                CompilationDate = reportVM.CompilationDate,
+                InspectionDate = reportVM.InspectionDate,
+                InspectionFeaures = reportVM.InspectionFeaures
+            };
+            context.Reports.Add(report);
+            context.SaveChanges();
+        }
+
+        public void UpdateDb(ReportVM reportVM, ApplicationContext context)
+        {
+            var report = context.Reports.First();
+            report.Id = reportVM.Id;
+        }
+
     }
 }
