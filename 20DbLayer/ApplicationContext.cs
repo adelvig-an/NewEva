@@ -52,12 +52,5 @@ namespace NewEva.DbLayer
                 .HasConversion(v => v.ToString(),
                 v => (Speciality)Enum.Parse(typeof(Speciality), v));  
         }
-
-        public static void WriteDb(Report report, ApplicationContext context)
-        {
-            context.Reports.Add(report);
-            context.SaveChanges();
-        }
-
     }
 }

@@ -4,6 +4,7 @@ using PeterO.Cbor;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace NewEva.VM
 {
@@ -61,7 +62,8 @@ namespace NewEva.VM
             try
             {
                 var report = ToReports();
-                ApplicationContext.WriteDb(report, context);
+                context.Reports.Add(report);
+                context.SaveChanges();
                 var newId = report.Id;
                 return newId;
             }
@@ -69,6 +71,21 @@ namespace NewEva.VM
             {
 
                 return -1;
+            }
+        }
+
+        public bool UpdateReport(ApplicationContext context)
+        {
+            try
+            {
+                var retort = context.Reports.First();
+                retort = ToReports();
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
