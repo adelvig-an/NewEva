@@ -1,4 +1,5 @@
-﻿using NewEva.VM.ObjectOfEvaluation;
+﻿using NewEva.DbLayer;
+using NewEva.VM.ObjectOfEvaluation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -57,9 +58,9 @@ namespace NewEva.VM
             };
             CurrentIndex = 0;
             NextPage = new RelayCommand(_ => NextPageAction());
+            
         }
 
-        
         public ICommand NextPage { get; }
         public void NextPageAction()
         {

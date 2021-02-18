@@ -25,7 +25,204 @@
             <ui:OrganizationUi />
         </DataTemplate>
     </UserControl.Resources>
-    <StackPanel>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Margin="16,16"
+            VerticalAlignment="Center"
+            FontFamily="TT Norms Bold"
+            FontSize="16"
+            Text="Договор об оценке" />
+        <Border
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Margin="16,0"
+                            VerticalAlignment="Center"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Номер договора" />
+                        <TextBox
+                            Grid.Column="1"
+                            Height="32"
+                            MinWidth="240"
+                            Margin="16,0"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="{Binding Number}" />
+                        <Button
+                            Grid.Column="2"
+                            Margin="16,0"
+                            Content="Выбрать договор"
+                            FontFamily="TT Norms Medium"
+                            FontSize="16" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Margin="16,0"
+                            VerticalAlignment="Center"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Дата договора" />
+                        <DatePicker
+                            Grid.Column="1"
+                            Width="120"
+                            Height="32"
+                            Margin="16,0"
+                            HorizontalAlignment="Left"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            SelectedDate="{Binding ContractDate}" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Margin="16,0"
+                            VerticalAlignment="Center"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Цель оценки" />
+                        <ComboBox
+                            Grid.Column="1"
+                            Height="32"
+                            MinWidth="240"
+                            Margin="16,0"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            ItemsSource="{Binding TypeCosts}"
+                            SelectedItem="{Binding IsTypeCost}" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Margin="0,16">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Margin="16,0,16,4"
+                            VerticalAlignment="Top"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Предпологаемое использование результатов"
+                            TextWrapping="Wrap" />
+                        <TextBox
+                            Grid.Row="1"
+                            Height="92"
+                            MinWidth="520"
+                            Margin="16,4,16,0"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="{Binding IntendedUse}" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Margin="16">
+            <DockPanel>
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="0,0,16,0"
+                    VerticalAlignment="Center"
+                    FontFamily="TT Norms Bold"
+                    FontSize="16"
+                    Text="Заказчик" />
+                <ListBox
+                    Margin="16,0,0,0"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    BorderThickness="0"
+                    FontFamily="TT Norms Medium"
+                    FontSize="14"
+                    SelectedIndex="{Binding CurrentIndex}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBoxItem
+                        Width="150"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        Content="Физическое лицо" />
+                    <ListBoxItem
+                        Width="150"
+                        BorderBrush="Black"
+                        BorderThickness="1"
+                        Content="Юридическое лицо" />
+                </ListBox>
+            </DockPanel>
+        </Border>
+        <Border Grid.Row="3">
+            <Border>
+                <ContentControl Content="{Binding CurrentPage}" />
+            </Border>
+        </Border>
+    </Grid>
+
+    <!--<StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -87,6 +284,5 @@
             </ListBox>
         </StackPanel>
         <ContentControl Content="{Binding CurrentPage}" />
-
-    </StackPanel>
+    </StackPanel>-->
 </UserControl>

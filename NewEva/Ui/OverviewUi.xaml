@@ -23,37 +23,72 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="0.3*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3">
-            <ListBox Padding="0,100,0,0" SelectedIndex="{Binding CurrentIndex}">
-                <ListBoxItem Height="40" Content="Задание" />
-                <ListBoxItem Height="40" Content="Объект оценки" />
-            </ListBox>
+            <Grid
+                x:Name="MenuBar"
+                Grid.Column="0"
+                Margin="0,30,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0">
+                    <ListBox SelectedIndex="{Binding CurrentIndex}">
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Реквизиты" />
+                        </ListBoxItem>
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Заказчик" />
+                        </ListBoxItem>
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Объект оценки" />
+                        </ListBoxItem>
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Обзор рынка" />
+                        </ListBoxItem>
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Корректировки" />
+                        </ListBoxItem>
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Расчет" />
+                        </ListBoxItem>
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Отчет" />
+                        </ListBoxItem>
+                    </ListBox>
+                </Border>
+                <Border Grid.Row="1">
+                    <ListBox Grid.Row="1" Margin="0,2,0,0">
+                        <ListBoxItem Height="40">
+                            <TextBlock Text="Профиль компании" />
+                        </ListBoxItem>
+                    </ListBox>
+                </Border>
+            </Grid>
         </materialDesign:Card>
         <materialDesign:Card
             Grid.Column="1"
             Margin="20,30,10,10"
             Padding="18,25,18,25"
             materialDesign:ShadowAssist.ShadowDepth="Depth3">
-            <StackPanel>
-                <Image
-                    Width="150"
-                    Margin="0,0,0,45"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Source="/Resources/Image/miniLogo.png" />
-                <ContentControl Content="{Binding CurrentPage}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ContentControl Grid.Row="0" Content="{Binding CurrentPage}" />
                 <Button
-                    Grid.Row="3"
+                    Grid.Row="1"
                     Margin="10"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Command="{Binding DataContext.NextPage, RelativeSource={RelativeSource AncestorType={x:Type ui:OverviewUi}, Mode=FindAncestor}}"
                     Content="Продолжить"
                     Style="{StaticResource MaterialDesignOutlinedButton}" />
-            </StackPanel>
+            </Grid>
         </materialDesign:Card>
     </Grid>
 </UserControl>

@@ -33,14 +33,10 @@ namespace NewEva.VM
                 VulationDate = report.VulationDate;
                 CompilationDate = report.CompilationDate;
                 InspectionDate = report.InspectionDate;
+                InspectionFeaures = report.InspectionFeaures;
             }
             Appraisers = LocalStorage.Appraisers;
-            pages = new string[]
-            {
-                "ContractVM", 
-                "ValidContractVM"
-            };
-            CurrentIndex = 0;
+            CurrentPage = new ContractVM();
         }
 
         public Report ToReports()
@@ -69,7 +65,6 @@ namespace NewEva.VM
             }
             catch
             {
-
                 return -1;
             }
         }
@@ -88,30 +83,6 @@ namespace NewEva.VM
                 return false;
             }
         }
-
-        private string[] pages;
-        public string[] Pages
-        {
-            get => pages;
-            set
-            {
-                SetProperty(ref pages, value);
-            }
-        }
-
-        private int currentIndex;
-        public int CurrentIndex
-        {
-            get => currentIndex;
-            set
-            {
-                CurrentPage = CreatePageByName(pages[value]);
-                CurrentPage.ReadCBOR();
-                SetProperty(ref currentIndex, value);
-            }
-        }
-
-
 
         public PageVM CreatePageByName(string pageName)
         {
@@ -197,7 +168,6 @@ namespace NewEva.VM
         static CBORObject ToCBOR(ReportVM reportVM)
         {
             return CBORObject.NewArray()
-                .Add(reportVM.CurrentIndex)
                 .Add(reportVM.Id)
                 .Add(reportVM.Number)
                 .Add(reportVM.VulationDate.HasValue 
@@ -213,7 +183,6 @@ namespace NewEva.VM
         }
         void FromCBOR(CBORObject cbor)
         {
-            CurrentIndex = cbor[0].AsInt32();
             Id = cbor[1].AsInt32();
             Number = cbor[2].AsString();
             VulationDate = cbor[3][0].AsBoolean()

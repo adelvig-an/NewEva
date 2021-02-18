@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="clr-namespace:NewEva.Ui"
     xmlns:vm="clr-namespace:NewEva.VM;assembly=30ViewModels"
-    d:DesignHeight="450"
+    d:DesignHeight="700"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -19,89 +19,215 @@
             <ui:ContractValidUi />
         </DataTemplate>
     </UserControl.Resources>
-    <StackPanel>
-        <TextBlock
-            Margin="5"
-            Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-            Text="Данные отчета об оценке" />
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <TextBox
-                Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Номер отчета"
-                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
-            <DatePicker
-                Grid.Column="1"
-                Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Дата осмотра"
-                SelectedDate="{Binding DateOfInspection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
-                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-            <DatePicker
-                Grid.Column="2"
-                Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Дата оценки"
-                SelectedDate="{Binding DateVulation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
-                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-            <DatePicker
-                Grid.Column="3"
-                Margin="5,0,5,10"
-                materialDesign:HintAssist.Hint="Дата составления"
-                SelectedDate="{Binding DateCompilation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"
-                Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-        </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <ComboBox
-                Grid.Column="0"
-                Margin="5,5,5,10"
-                materialDesign:HintAssist.Hint="Оценщик"
-                ItemsSource="{Binding Appraisers}"
-                SelectedItem="{Binding IsAppraiser}"
-                Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
-            <Button
-                Grid.Column="1"
-                Margin="5,5,5,10"
-                Content="Данные оценщика"
-                Style="{StaticResource MaterialDesignFlatButton}" />
-        </Grid>
-        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-            <TextBlock
-                Margin="5"
-                VerticalAlignment="Center"
-                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
-                Text="Данные договора" />
-            <ListBox
-                Margin="10,5"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Center"
-                BorderThickness="0"
-                SelectedIndex="{Binding CurrentIndex}">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-                <ListBoxItem
-                    Width="150"
-                    BorderBrush="Black"
-                    BorderThickness="1"
-                    Content="Новый договор" />
-                <ListBoxItem
-                    Width="150"
-                    BorderBrush="Black"
-                    BorderThickness="1"
-                    Content="Действующий договор" />
-            </ListBox>
-        </StackPanel>
-        <ContentControl Content="{Binding CurrentPage}" />
-    </StackPanel>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border
+            Grid.Row="0"
+            Height="98"
+            Margin="0,0,0,16"
+            Background="Black">
+            <Border Margin="16,0">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontFamily="TT Norms Bold"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Реквизиты отчета об оценке" />
+            </Border>
+        </Border>
+        <Border Grid.Row="1" Margin="0,16">
+            <Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="0,16">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Margin="16,0"
+                                VerticalAlignment="Center"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Номер отчета" />
+                            <TextBox
+                                Grid.Column="1"
+                                Height="32"
+                                MinWidth="240"
+                                Margin="16,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                        </Grid>
+                    </Border>
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2">
+                        <Grid>
+                            <Border Margin="0,16">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Margin="16,16,16,4"
+                                        FontFamily="TT Norms Regular"
+                                        FontSize="14"
+                                        Text="Дата оценки" />
+                                    <DatePicker
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Width="120"
+                                        Height="32"
+                                        Margin="16,4,16,16"
+                                        HorizontalAlignment="Left"
+                                        BorderThickness="1"
+                                        FontFamily="TT Norms Regular"
+                                        FontSize="14"
+                                        SelectedDate="{Binding VulationDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Margin="16,16,16,4"
+                                        FontFamily="TT Norms Regular"
+                                        FontSize="14"
+                                        Text="Дата составления" />
+                                    <DatePicker
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Width="120"
+                                        Height="32"
+                                        Margin="16,4,16,16"
+                                        HorizontalAlignment="Left"
+                                        BorderThickness="1"
+                                        FontFamily="TT Norms Regular"
+                                        FontSize="14"
+                                        SelectedDate="{Binding CompilationDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                                    <TextBlock
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Margin="16,16,16,4"
+                                        FontFamily="TT Norms Regular"
+                                        FontSize="14"
+                                        Text="Дата осмотра" />
+                                    <DatePicker
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Width="120"
+                                        Height="32"
+                                        Margin="16,4,16,0"
+                                        HorizontalAlignment="Left"
+                                        BorderThickness="1"
+                                        FontFamily="TT Norms Regular"
+                                        FontSize="14"
+                                        SelectedDate="{Binding InspectionDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="0,16">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                Margin="16,0"
+                                VerticalAlignment="Top"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Особенности проведения осмотра"
+                                TextWrapping="Wrap" />
+                            <TextBox
+                                Grid.Column="1"
+                                Height="92"
+                                MinWidth="520"
+                                Margin="16,0,16,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="{Binding InspectionFeaures, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                        </Grid>
+                    </Border>
+                    <Border
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Margin="0,16">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                Margin="16,0"
+                                VerticalAlignment="Center"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Оценщик" />
+                            <ComboBox
+                                Grid.Column="1"
+                                Height="32"
+                                MinWidth="240"
+                                Margin="16,0,16,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                ItemsSource="{Binding Appraisers}"
+                                SelectedItem="{Binding IsAppraiser}" />
+                            <Button
+                                Grid.Column="2"
+                                Margin="16,0,16,0"
+                                Content="Данные оценщика"
+                                FontFamily="TT Norms Megium"
+                                FontSize="16" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Border>
+        <Border Grid.Row="2">
+            <Border>
+                <ContentControl Content="{Binding CurrentPage}" />
+            </Border>
+        </Border>
+    </Grid>
 </UserControl>

@@ -184,6 +184,16 @@ namespace NewEva.VM
                 SetProperty(ref target, value);
             }
         }
+        private string intendedUse;
+        public string IntendedUse
+        {
+            get => intendedUse;
+            set
+            {
+                ValidateProperty(value);
+                SetProperty(ref intendedUse, value);
+            }
+        }
         #endregion
 
         #region CBOR
