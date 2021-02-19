@@ -58,7 +58,6 @@ namespace NewEva.VM
             };
             CurrentIndex = 0;
             NextPage = new RelayCommand(_ => NextPageAction());
-            
         }
 
         public ICommand NextPage { get; }

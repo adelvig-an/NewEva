@@ -23,7 +23,6 @@ namespace NewEva.VM
         public bool IsEdit { get; }
         public Report Report { get; private set; }
         public IEnumerable<string> Appraisers { get; }
-
         public ReportVM(Report report = null)
         {
             if (IsEdit = report != null)
@@ -60,7 +59,7 @@ namespace NewEva.VM
                 var report = ToReports();
                 context.Reports.Add(report);
                 context.SaveChanges();
-                var newId = report.Id;
+                var newId = ToReports().Id;
                 return newId;
             }
             catch
@@ -103,8 +102,8 @@ namespace NewEva.VM
         private string isAppraiser;
         
         public int Id { get; set; }
-        [Required(ErrorMessage = "Не указан номер отчета")]
-        [StringLength(20)]
+        [Required(ErrorMessage = "Укажите номер отчета")]
+        [StringLength(20, ErrorMessage = "Длинный номер отчета об оценке")]
         public string Number
         { 
             get => number;
@@ -114,7 +113,7 @@ namespace NewEva.VM
                 SetProperty(ref number, value);
             }
         }
-        [Required(ErrorMessage = "Не указана дата оценки")]
+        [Required(ErrorMessage = "Заполните дату оценки")]
         public DateTime? VulationDate
         { get => vulationDate;
             set
@@ -123,7 +122,7 @@ namespace NewEva.VM
                 SetProperty(ref vulationDate, value);
             }
         }
-        [Required(ErrorMessage = "Не указана дата составления отчета")]
+        [Required(ErrorMessage = "Заполните дату составления отчета")]
         public DateTime? CompilationDate
         { get => compilationDate;
             set
@@ -132,7 +131,7 @@ namespace NewEva.VM
                 SetProperty(ref compilationDate, value);
             }
         }
-        [Required(ErrorMessage = "Не указан дата осмотра")]
+        [Required(ErrorMessage = "Заполните дату осмотра")]
         public DateTime? InspectionDate
         {
             get => inspectionDate;
@@ -142,7 +141,7 @@ namespace NewEva.VM
                 SetProperty(ref inspectionDate, value);
             }
         }
-        [Required(ErrorMessage = "Обязательно для заполнения")]
+        [Required(ErrorMessage = "Заполните особенности проведения осмотра")]
         public string InspectionFeaures 
         { 
             get => inspectionFeaures;
@@ -152,7 +151,7 @@ namespace NewEva.VM
                 SetProperty(ref inspectionFeaures, value);
             }
         }
-        [Required(ErrorMessage = "Не выбран оценщика исполнителя")]
+        [Required(ErrorMessage = "Выберите оценщика")]
         public string IsAppraiser
         {
             get => isAppraiser;

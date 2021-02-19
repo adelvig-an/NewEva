@@ -38,8 +38,8 @@ namespace NewEva.VM
             TypeCosts = LocalStorage.TypeCosts;
             Pages = new string[]
             {
-                "PrivatePersonListVM",
-                "OrganizationListVM"
+                "PrivatePersonVM",
+                "OrganizationVM"
             };
             CurrentIndex = 0;
             NewCustomerPage = new RelayCommand(_ => NewCustomerCommand());
@@ -66,10 +66,10 @@ namespace NewEva.VM
         }
         public PageVM CreatePageByName(string pageName)
         {
-            if (pageName == "PrivatePersonListVM")
-                return new PrivatePersonListVM();
-            else if (pageName == "OrganizationListVM")
-                return new OrganizationListVM();
+            if (pageName == "PrivatePersonVM")
+                return new PrivatePersonVM();
+            else if (pageName == "OrganizationVM")
+                return new OrganizationVM();
             else
                 return null;
         }
