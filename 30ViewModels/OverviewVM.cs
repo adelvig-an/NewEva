@@ -58,6 +58,7 @@ namespace NewEva.VM
             };
             CurrentIndex = 0;
             NextPage = new RelayCommand(_ => NextPageAction());
+            SaveData = new RelayCommand(_ => SaveDataAction());
         }
         public ICommand SaveData { get; }
         public void SaveDataAction()

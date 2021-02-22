@@ -85,7 +85,7 @@
                     Margin="10"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Command="{Binding DataContext.NextPage, RelativeSource={RelativeSource AncestorType={x:Type ui:OverviewUi}, Mode=FindAncestor}}"
+                    Command="{Binding DataContext.SaveData, RelativeSource={RelativeSource AncestorType={x:Type ui:OverviewUi}, Mode=FindAncestor}}"
                     Content="Продолжить"
                     Style="{StaticResource MaterialDesignOutlinedButton}" />
             </Grid>
