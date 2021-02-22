@@ -1,4 +1,5 @@
 ﻿using NewEva.DbLayer;
+using NewEva.VM.Customer;
 using NewEva.VM.ObjectOfEvaluation;
 using System;
 using System.Collections.Generic;
@@ -63,8 +64,11 @@ namespace NewEva.VM
         public ICommand SaveData { get; }
         public void SaveDataAction()
         {
-            var report = new ReportVM();
-            report.AddReport();
+            if (CurrentPage is PrivatePersonVM customer)
+            {
+                customer.AddPrivatePerson();
+            }    
+            
         }
         public ICommand NextPage { get; }
         public void NextPageAction()

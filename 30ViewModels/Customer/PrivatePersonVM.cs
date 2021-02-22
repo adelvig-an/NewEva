@@ -10,8 +10,7 @@ namespace NewEva.VM.Customer
 {
     public class PrivatePersonVM : PageVM
     {
-        public IEnumerable<string> TypeDocs { get; private set; }
-
+        private readonly ApplicationContext context;
         /// <summary>
         /// переменная которая будет явно показывать для чего предназначена PrivatePersonVM
         /// для редактирования или добавления
@@ -42,19 +41,52 @@ namespace NewEva.VM.Customer
                 Id = customer.Id;
                 
             }
-
+            context = new ApplicationContext();
             ConvertAddress = new RelayCommand(_ => ConvertAddressAction());
         }
 
+        public PrivatePerson ToPrivatePerson()
+        {
+                var privatePerson = new PrivatePerson
+                {
+                    Id = Id,
+                    SecondName = SecondName,
+                    FirstName = FirstName,
+                    MiddleName = MiddleName,
+                    Serial = Serial,
+                    Number = Number,
+                    Division = Division,
+                    DivisionDate = DivisionDate,
+                    AddressRegistration = new Address { AddressFull = AddressFullRegistration },
+                    AddressActual = new Address { AddressFull = AddressFullActual }
+                };
+            return privatePerson;
+            
+        }
+
+        public int AddPrivatePerson()
+        {
+            try
+            {
+                var privateperson = ToPrivatePerson();
+                context.Add(privateperson);
+                context.SaveChanges();
+                var newId = ToPrivatePerson().Id;
+                return newId;
+            }
+            catch
+            {
+
+                return -1;
+            }
+        }
         public void ActualToRegistration()
         {
             AddressFullActual = AddressFullRegistration;
-            
         }
         public void ActualToActual()
         {
             AddressFullActual = "";
-
         }
 
         #region Properties
