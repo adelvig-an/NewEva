@@ -206,12 +206,12 @@
                         Width="150"
                         BorderBrush="Black"
                         BorderThickness="1"
-                        Content="Физическое лицо" />
+                        Content="Частное лицо" />
                     <ListBoxItem
                         Width="150"
                         BorderBrush="Black"
                         BorderThickness="1"
-                        Content="Юридическое лицо" />
+                        Content="Организация" />
                 </ListBox>
             </DockPanel>
         </Border>

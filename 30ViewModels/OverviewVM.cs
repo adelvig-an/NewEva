@@ -59,7 +59,12 @@ namespace NewEva.VM
             CurrentIndex = 0;
             NextPage = new RelayCommand(_ => NextPageAction());
         }
-
+        public ICommand SaveData { get; }
+        public void SaveDataAction()
+        {
+            var report = new ReportVM();
+            report.AddReport();
+        }
         public ICommand NextPage { get; }
         public void NextPageAction()
         {

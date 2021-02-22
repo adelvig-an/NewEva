@@ -29,14 +29,24 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock
+        <DockPanel
             Grid.Row="0"
             Grid.Column="0"
-            Margin="16"
-            VerticalAlignment="Center"
-            FontFamily="TT Norms Bold"
-            FontSize="16"
-            Text="Физическое лицо" />
+            Grid.ColumnSpan="3"
+            Margin="16,0"
+            VerticalAlignment="Center">
+            <TextBlock
+                Margin="0,16"
+                FontFamily="TT Norms Bold"
+                FontSize="16"
+                Text="Частное лицо" />
+            <Button
+                Margin="16,0"
+                HorizontalAlignment="Left"
+                Content="Выбрать из списка"
+                FontFamily="TT Norms Medium"
+                FontSize="16" />
+        </DockPanel>
         <Border
             Grid.Row="1"
             Grid.Column="0"

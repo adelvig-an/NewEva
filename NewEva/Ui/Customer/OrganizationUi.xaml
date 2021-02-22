@@ -7,10 +7,486 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="clr-namespace:NewEva.Ui"
-    d:DesignHeight="900"
+    d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DockPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="16,0"
+            VerticalAlignment="Center">
+            <TextBlock
+                Margin="0,16"
+                FontFamily="TT Norms Bold"
+                FontSize="16"
+                Text="Организация" />
+            <Button
+                Margin="16,0"
+                HorizontalAlignment="Left"
+                Content="Выбрать из списка"
+                FontFamily="TT Norms Medium"
+                FontSize="16" />
+        </DockPanel>
+        <Border
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Margin="0,16">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Margin="16,0"
+                            VerticalAlignment="Center"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Наименование" />
+                        <TextBox
+                            Grid.Column="1"
+                            Height="36"
+                            MinWidth="240"
+                            Margin="16,0"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14" />
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="16">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="ОГРН" />
+                            <TextBox
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="16">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Дата регистрации" />
+                            <DatePicker
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14" />
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="16">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="ИНН" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox
+                                    Grid.Column="0"
+                                    Height="36"
+                                    MinWidth="240"
+                                    Margin="0,4,0,0"
+                                    BorderThickness="1"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14" />
+                                <materialDesign:PackIcon
+                                    Grid.Column="1"
+                                    Width="18"
+                                    Height="18"
+                                    Margin="6,0"
+                                    VerticalAlignment="Center"
+                                    Foreground="Blue"
+                                    Kind="AlertCircle"
+                                    ToolTip="Быстрый поиск данных организации по ИНН" />
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="16">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="КПП" />
+                            <TextBox
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="2" Margin="16">
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        FontFamily="TT Norms Medium"
+                        FontSize="14"
+                        Text="Руководитель" />
+                </Border>
+                <Border Grid.Row="3" Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Margin="16,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Фамилия" />
+                            <TextBox
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="16,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Имя" />
+                            <TextBox
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Margin="16,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Отчество" />
+                            <TextBox
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="{Binding MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="4" Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Margin="16,0"
+                            VerticalAlignment="Center"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Должность руководителя" />
+                        <TextBox
+                            Grid.Column="1"
+                            Height="36"
+                            MinWidth="240"
+                            Margin="16,0"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14" />
+                    </Grid>
+                </Border>
+                <Border Grid.Row="5" Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Margin="16,0"
+                            VerticalAlignment="Center"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Действующий на основании" />
+                        <ComboBox
+                            Grid.Column="1"
+                            Height="36"
+                            MinWidth="240"
+                            Margin="16,0"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14" />
+                    </Grid>
+                </Border>
+                <Border Grid.Row="6" Margin="0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Margin="16,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Номер доверенности" />
+                            <TextBox
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="16,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Дата доверения" />
+                            <DatePicker
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Margin="16,0">
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14"
+                                Text="Дата окончания" />
+                            <DatePicker
+                                Height="36"
+                                MinWidth="240"
+                                Margin="0,4,0,0"
+                                BorderThickness="1"
+                                FontFamily="TT Norms Regular"
+                                FontSize="14" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="7" Margin="16">
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        FontFamily="TT Norms Medium"
+                        FontSize="14"
+                        Text="Банковские реквизиты" />
+                </Border>
+                <Border Grid.Row="8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.Row="0" Margin="0,16">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    Margin="16,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14"
+                                    Text="Наименование банка" />
+                                <TextBox
+                                    Grid.Column="1"
+                                    Height="36"
+                                    MinWidth="240"
+                                    Margin="16,0"
+                                    BorderThickness="1"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="1" Margin="0,16">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    Margin="16,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14"
+                                    Text="БИК" />
+                                <TextBox
+                                    Grid.Column="1"
+                                    Height="36"
+                                    MinWidth="240"
+                                    Margin="16,0"
+                                    BorderThickness="1"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="2" Margin="0,16">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    Margin="16,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14"
+                                    Text="Расчетный счет" />
+                                <TextBox
+                                    Grid.Column="1"
+                                    Height="36"
+                                    MinWidth="240"
+                                    Margin="16,0"
+                                    BorderThickness="1"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="3" Margin="0,16">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    Margin="16,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14"
+                                    Text="Корреспондентский счет" />
+                                <TextBox
+                                    Grid.Column="1"
+                                    Height="36"
+                                    MinWidth="240"
+                                    Margin="16,0"
+                                    BorderThickness="1"
+                                    FontFamily="TT Norms Regular"
+                                    FontSize="14" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="9" Margin="16">
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,0,0,4"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Адрес регистрации" />
+                        <TextBox
+                            Height="36"
+                            MinWidth="240"
+                            Margin="0,4,0,8"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14" />
+                        <CheckBox
+                            Margin="0,8"
+                            Content="Адрес регистрации совпадает с адресом проживания"
+                            IsChecked="{Binding IsAddressMatch}" />
+                        <TextBlock
+                            Margin="0,8,0,4"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            Text="Адрес проживания" />
+                        <TextBox
+                            Height="36"
+                            MinWidth="240"
+                            Margin="0,4,0,0"
+                            BorderThickness="1"
+                            FontFamily="TT Norms Regular"
+                            FontSize="14"
+                            IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
+                            Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+
+    <!--<StackPanel Background="White">
         <StackPanel Orientation="Horizontal">
             <Button
                 Margin="5,5,15,5"
@@ -192,5 +668,5 @@
             IsEnabled="{Binding IsAddressMatch, Converter={StaticResource InverseBooleanConverter}}"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
             Text="{Binding AddressFullActual, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" />
-    </StackPanel>
+    </StackPanel>-->
 </UserControl>

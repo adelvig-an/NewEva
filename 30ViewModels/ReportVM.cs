@@ -20,11 +20,14 @@ namespace NewEva.VM
                 SetProperty(ref currentPage, value);
             }
         }
+        private readonly ApplicationContext context;
         public bool IsEdit { get; }
         public Report Report { get; private set; }
         public IEnumerable<string> Appraisers { get; }
         public ReportVM(Report report = null)
         {
+            context = new ApplicationContext();
+
             if (IsEdit = report != null)
             {
                 Id = report.Id;
@@ -52,7 +55,7 @@ namespace NewEva.VM
             return report;
         }
 
-        public int AddReport(ApplicationContext context)
+        public int AddReport()
         {
             try
             {
@@ -68,7 +71,7 @@ namespace NewEva.VM
             }
         }
 
-        public bool UpdateReport(ApplicationContext context)
+        public bool UpdateReport()
         {
             try
             {
